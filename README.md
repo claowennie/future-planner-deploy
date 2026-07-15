@@ -94,20 +94,20 @@ https://future-planner.claowennie.workers.dev
 ```text
 Production branch: main
 Build command: npm run build
-Deploy command: npx wrangler deploy
+Deploy command: npm run deploy:cloudflare
 Root directory: /（仓库根目录就是本项目时也可留空）
 ```
 
 Node 版本由仓库根目录的 `.nvmrc` 固定为 22，不必再添加 `NODE_VERSION`。不使用 Web Push 或 Sentry 时，也不需要任何 Build variables。
 
-如果现有 future-planner 是纯静态资源 Worker，Cloudflare 会暂时禁止添加运行变量。先完成第一次 GitHub 构建，让仓库里的 `worker/index.js` 部署上去；然后进入 future-planner → Settings → Variables & Secrets 添加两个 Secret：
+现有 future-planner 是纯静态资源 Worker 时，Cloudflare 会禁止在 Worker 设置中添加运行变量。请改在 GitHub Builds 配置页的 Build variables and secrets 中添加以下两项，并把类型选为 Secret：
 
 ```text
 SUPABASE_URL=https://YOUR-PROJECT-REF.supabase.co
 SUPABASE_PUBLISHABLE_KEY=YOUR-SUPABASE-PUBLISHABLE-OR-ANON-KEY
 ```
 
-前端和 Worker 会共享这两个公开配置，但不会把 DeepSeek Key 存进去。添加变量并保存后，Cloudflare 会生成带有配置的新部署版本；刷新网站即可恢复 Supabase 登录和电台接口。
+`deploy:cloudflare` 会在构建环境的临时目录中生成仅供 Wrangler 使用的 Secrets 文件，把两项配置随 Worker 代码一起部署，并立即删除临时文件。值不会进入仓库、网页 bundle 或构建日志。前端和 Worker 会共享这两个公开配置，但不会保存 DeepSeek Key。
 
 如需使用命令行而非 GitHub Builds，可执行：
 
