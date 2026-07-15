@@ -100,14 +100,14 @@ Root directory: /（仓库根目录就是本项目时也可留空）
 
 Node 版本由仓库根目录的 `.nvmrc` 固定为 22，不必再添加 `NODE_VERSION`。不使用 Web Push 或 Sentry 时，也不需要任何 Build variables。
 
-部署前，在 future-planner → Settings → Variables & Secrets 添加两个 Secret：
+如果现有 future-planner 是纯静态资源 Worker，Cloudflare 会暂时禁止添加运行变量。先完成第一次 GitHub 构建，让仓库里的 `worker/index.js` 部署上去；然后进入 future-planner → Settings → Variables & Secrets 添加两个 Secret：
 
 ```text
 SUPABASE_URL=https://YOUR-PROJECT-REF.supabase.co
 SUPABASE_PUBLISHABLE_KEY=YOUR-SUPABASE-PUBLISHABLE-OR-ANON-KEY
 ```
 
-前端和 Worker 会共享这两个公开配置，但不会把 DeepSeek Key 存进去。`wrangler.jsonc` 已声明它们为必需项，缺少时部署会给出明确错误。
+前端和 Worker 会共享这两个公开配置，但不会把 DeepSeek Key 存进去。添加变量并保存后，Cloudflare 会生成带有配置的新部署版本；刷新网站即可恢复 Supabase 登录和电台接口。
 
 如需使用命令行而非 GitHub Builds，可执行：
 

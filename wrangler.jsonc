@@ -4,9 +4,6 @@
   "main": "./worker/index.js",
   "compatibility_date": "2026-07-15",
   "workers_dev": true,
-  "secrets": {
-    "required": ["SUPABASE_URL", "SUPABASE_PUBLISHABLE_KEY"]
-  },
   "assets": {
     "directory": "./dist",
     "binding": "ASSETS",
