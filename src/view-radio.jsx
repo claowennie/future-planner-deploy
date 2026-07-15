@@ -1090,6 +1090,13 @@ function RadioView() {
           companionAdvancingRef.current = false;
           setCompanionAnnouncement(-1);
           setCompanionPlaylist([]);
+          setOptimisticCompanionPlaying(false);
+          try {
+            const paused = await sendCompanionCommand(
+              { url: companionUrl, token: companionToken }, 'pause',
+            );
+            applyCompanionPlayback(paused);
+          } catch { /* A stopped player is already quiet enough for Melo's greeting. */ }
           const searchOutcome = executeCompanionAction(
             data.companionAction,
             plan[0]?.query || data.companionQuery,
