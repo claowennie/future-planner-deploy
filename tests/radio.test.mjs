@@ -105,15 +105,17 @@ const companionPrompt = buildRadioPrompt({
 });
 assert.match(companionPrompt, /网易云本机桥/);
 assert.match(companionPrompt, /search_and_play/);
+assert.match(companionPrompt, /title 与 artist 分开/);
+assert.match(companionPrompt, /宁可跳过/);
 assert.deepEqual(validateRadioPayload({
   reply: '好，我去网易云找两首适合现在的。',
   playlistAction: 'none',
   companionAction: 'search_and_play',
-  companionQuery: '起风了 周深',
-  companionQueries: ['起风了 周深', '起风了 买辣椒也用券'],
+  companionQuery: 'Yellow Coldplay',
+  companionQueries: ['Yellow Coldplay', 'Sparks Coldplay'],
   companionPlaylist: [
-    { query: '起风了 周深', intro: '先放周深的版本，清亮的人声适合把现在的疲惫慢慢松开。' },
-    { query: '起风了 买辣椒也用券', intro: '再听这个版本，让熟悉的旋律多一点向前走的力量。' },
+    { title: 'Yellow', artist: 'Coldplay', query: 'Yellow Coldplay', intro: '先用这首熟悉的暖意，把现在的疲惫慢慢松开。' },
+    { title: 'Sparks', artist: 'Coldplay', query: 'Sparks Coldplay', intro: '接下来收一点力气，这首更安静，也更贴近你此刻的节奏。' },
   ],
   set: [],
 }, [], { hasCompanion: true }), {
@@ -121,11 +123,11 @@ assert.deepEqual(validateRadioPayload({
   set: [],
   playlistAction: 'none',
   companionAction: 'search_and_play',
-  companionQuery: '起风了 周深',
-  companionQueries: ['起风了 周深', '起风了 买辣椒也用券'],
+  companionQuery: 'Yellow Coldplay',
+  companionQueries: ['Yellow Coldplay', 'Sparks Coldplay'],
   companionPlaylist: [
-    { query: '起风了 周深', intro: '先放周深的版本，清亮的人声适合把现在的疲惫慢慢松开。' },
-    { query: '起风了 买辣椒也用券', intro: '再听这个版本，让熟悉的旋律多一点向前走的力量。' },
+    { title: 'Yellow', artist: 'Coldplay', query: 'Yellow Coldplay', intro: '先用这首熟悉的暖意，把现在的疲惫慢慢松开。' },
+    { title: 'Sparks', artist: 'Coldplay', query: 'Sparks Coldplay', intro: '接下来收一点力气，这首更安静，也更贴近你此刻的节奏。' },
   ],
 });
 assert.throws(() => validateRadioPayload({

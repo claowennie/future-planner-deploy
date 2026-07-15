@@ -520,8 +520,10 @@ function RadioView() {
   const playTokenRef = _ur(0);
   const audioUnlockedRef = _ur(false);
   const announcedCompanionIndexesRef = _ur(new Set());
+  const playedCompanionIndexesRef = _ur(new Set());
   const companionPlanReadyRef = _ur(false);
   const companionAnnouncementTokenRef = _ur(0);
+  const companionAdvancingRef = _ur(false);
   const [youtubeReady, setYoutubeReady] = _us(false);
   const [youtubePlaying, setYoutubePlaying] = _us(false);
 
@@ -629,6 +631,8 @@ function RadioView() {
         companionPlanReadyRef.current = false;
         companionAnnouncementTokenRef.current += 1;
         announcedCompanionIndexesRef.current = new Set();
+        playedCompanionIndexesRef.current = new Set();
+        companionAdvancingRef.current = false;
         setCompanionPlaylist([]);
       }
     });
@@ -705,6 +709,8 @@ function RadioView() {
     companionPlanReadyRef.current = false;
     companionAnnouncementTokenRef.current += 1;
     announcedCompanionIndexesRef.current = new Set();
+    playedCompanionIndexesRef.current = new Set();
+    companionAdvancingRef.current = false;
     setCompanionPlaylist([]);
   };
 
@@ -725,67 +731,44 @@ function RadioView() {
   };
 
   _ue(() => {
-    const index = companionActiveIndex;
-    const item = companionPlaylist[index];
-    if (!companionPlanReadyRef.current || companionPlayerState?.status !== 'playing'
-      || !Number.isInteger(index) || index < 1 || !item?.intro
-      || announcedCompanionIndexesRef.current.has(index)) return;
-
-    announcedCompanionIndexesRef.current.add(index);
-    const token = companionAnnouncementTokenRef.current;
-    setCompanionBusy(true);
-    (async () => {
-      try {
-        const config = { url: companionUrl, token: companionToken };
-        const paused = await sendCompanionCommand(config, 'pause');
-        if (token !== companionAnnouncementTokenRef.current) return;
-        applyCompanionPlayback(paused);
-        setLog((items) => [...items, { role: 'melo', text: item.intro, kind: 'intro' }]);
-        await speak(item.intro);
-        if (token !== companionAnnouncementTokenRef.current) return;
-        const resumed = await sendCompanionCommand(config, 'resume');
-        applyCompanionPlayback(resumed);
-      } catch (error) {
-        if (token === companionAnnouncementTokenRef.current) setErr(error.message);
-      } finally {
-        if (token === companionAnnouncementTokenRef.current) setCompanionBusy(false);
-      }
-    })();
-  }, [companionActiveIndex, companionPlaylist]);
+    const currentIndex = companionActiveIndex;
+    if (companionPlayerState?.status === 'playing' && currentIndex >= 0) {
+      playedCompanionIndexesRef.current.add(currentIndex);
+    }
+  }, [companionPlayerState?.status, companionActiveIndex]);
 
   _ue(() => {
     const currentIndex = companionActiveIndex;
-    const position = Number(companionPlayerState?.position);
-    const duration = Number(companionPlayerState?.duration);
     const targetIndex = currentIndex + 1;
     const target = companionPlaylist[targetIndex];
-    const remaining = duration - position;
-    if (!companionPlanReadyRef.current || companionPlayerState?.status !== 'playing'
-      || !Number.isInteger(currentIndex) || currentIndex < 0 || !target?.intro
-      || !Number.isFinite(remaining) || duration <= 0 || position <= 0 || remaining > 10 || remaining < 0
-      || announcedCompanionIndexesRef.current.has(targetIndex)) return;
+    const plannedLength = Number(companionPlayerState?.queueLength) || 0;
+    if (!companionPlanReadyRef.current || companionPlayerState?.status !== 'stopped'
+      || !Number.isInteger(currentIndex) || currentIndex < 0 || !target
+      || plannedLength <= targetIndex || !playedCompanionIndexesRef.current.has(currentIndex)
+      || companionAdvancingRef.current) return;
 
-    announcedCompanionIndexesRef.current.add(targetIndex);
+    companionAdvancingRef.current = true;
     const token = companionAnnouncementTokenRef.current;
     setCompanionBusy(true);
     (async () => {
       try {
         const config = { url: companionUrl, token: companionToken };
-        const paused = await sendCompanionCommand(config, 'pause');
+        if (target.intro && !announcedCompanionIndexesRef.current.has(targetIndex)) {
+          announcedCompanionIndexesRef.current.add(targetIndex);
+          setLog((items) => [...items, { role: 'melo', text: target.intro, kind: 'intro' }]);
+          await speak(target.intro);
+        }
         if (token !== companionAnnouncementTokenRef.current) return;
-        applyCompanionPlayback(paused);
-        setLog((items) => [...items, { role: 'melo', text: target.intro, kind: 'intro' }]);
-        await speak(target.intro);
-        if (token !== companionAnnouncementTokenRef.current) return;
-        const resumed = await sendCompanionCommand(config, 'resume');
-        applyCompanionPlayback(resumed);
+        const advanced = await sendCompanionCommand(config, 'next');
+        applyCompanionPlayback(advanced);
       } catch (error) {
         if (token === companionAnnouncementTokenRef.current) setErr(error.message);
       } finally {
+        companionAdvancingRef.current = false;
         if (token === companionAnnouncementTokenRef.current) setCompanionBusy(false);
       }
     })();
-  }, [companionPlayerState?.position, companionPlayerState?.duration,
+  }, [companionPlayerState?.status, companionPlayerState?.queueLength,
     companionActiveIndex, companionPlaylist]);
 
   const stepCompanionWithIntro = async (action) => {
@@ -844,6 +827,8 @@ function RadioView() {
     companionPlanReadyRef.current = false;
     companionAnnouncementTokenRef.current += 1;
     announcedCompanionIndexesRef.current = new Set();
+    playedCompanionIndexesRef.current = new Set();
+    companionAdvancingRef.current = false;
     setCompanionPlaylist([]);
   };
 
@@ -933,6 +918,8 @@ function RadioView() {
           companionPlanReadyRef.current = false;
           companionAnnouncementTokenRef.current += 1;
           announcedCompanionIndexesRef.current = new Set(plan.length ? [0] : []);
+          playedCompanionIndexesRef.current = new Set();
+          companionAdvancingRef.current = false;
           setCompanionPlaylist(plan);
           const firstIntro = plan[0]?.intro || data.say;
           if (firstIntro) {
@@ -944,6 +931,7 @@ function RadioView() {
             data.companionAction,
             plan[0]?.query || data.companionQuery,
             plan.map((item) => item.query),
+            { selections: plan.map(({ title, artist, query }) => ({ title, artist, query })) },
           );
           setCompanionPlaylist(mergeResolvedCompanionPlaylist(plan, result?.tracks));
           companionPlanReadyRef.current = true;
@@ -1123,7 +1111,6 @@ function RadioView() {
                     : <button type="button" onClick={() => playAt(index)}>{title}</button>}
                   {artist && <small>{artist}</small>}
                 </div>
-                {track.intro && <div className="radio-recommendation-reason">{track.intro}</div>}
               </div>
             </div>;
           })}

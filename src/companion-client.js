@@ -91,6 +91,13 @@ export function sendCompanionCommand(config, action, query = '', queries = [], o
       query: String(query || '').trim().slice(0, 120),
       queries: (Array.isArray(queries) ? queries : [])
         .map((item) => String(item || '').trim().slice(0, 120)).filter(Boolean).slice(0, 5),
+      ...(Array.isArray(options.selections) ? {
+        selections: options.selections.slice(0, 5).map((item) => ({
+          title: String(item?.title || '').trim().slice(0, 160),
+          artist: String(item?.artist || '').trim().slice(0, 220),
+          query: String(item?.query || '').trim().slice(0, 120),
+        })).filter((item) => item.title || item.query),
+      } : {}),
       ...(Number.isFinite(Number(options.position)) ? { position: Number(options.position) } : {}),
     },
   });

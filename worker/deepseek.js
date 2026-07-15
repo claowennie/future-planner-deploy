@@ -82,8 +82,12 @@ export function validateRadioPayload(payload, candidates = [], {
       if (!item || typeof item !== 'object' || Array.isArray(item)) {
         throw new RadioOutputError('companionPlaylist 项格式错误');
       }
+      const title = boundedText(item.title, 160, 'companionPlaylist.title');
+      const artist = boundedText(item.artist, 220, 'companionPlaylist.artist');
       return {
-        query: boundedText(item.query, 120, 'companionPlaylist.query'),
+        title,
+        artist,
+        query: String(item.query || `${title} ${artist}`).trim().slice(0, 120),
         intro: onAirText(item.intro, 360, 'companionPlaylist.intro'),
       };
     });
