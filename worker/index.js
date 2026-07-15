@@ -148,6 +148,7 @@ async function handleApi(request, env, ctx) {
     companionAction: result.companionAction,
     companionQuery: result.companionQuery,
     companionQueries: result.companionQueries,
+    companionPlaylist: result.companionPlaylist,
     model,
   });
 }

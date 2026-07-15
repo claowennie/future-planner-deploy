@@ -97,6 +97,16 @@ export async function persistRadioTurn(env, token, userId, userText, result) {
         title: track.title,
       })),
     }));
+  } else if (result.companionPlaylist?.length) {
+    writes.push(rest(env, token, 'radio_plays', {
+      method: 'POST',
+      body: result.companionPlaylist.map((track) => ({
+        user_id: userId,
+        track_id: null,
+        artist: '',
+        title: track.query,
+      })),
+    }));
   }
   await Promise.all(writes);
 }

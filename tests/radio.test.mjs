@@ -35,6 +35,8 @@ const prompt = buildRadioPrompt({
 assert.match(prompt, /track-a/);
 assert.match(prompt, /Play something calm/);
 assert.match(prompt, /You are Melo/);
+assert.match(prompt, /companionPlaylist/);
+assert.match(prompt, /Never say “我去网易云找”/);
 assert.doesNotMatch(prompt, /Claudio/);
 assert.doesNotMatch(prompt, /storage_path|user\/track-a\.mp3/);
 
@@ -56,6 +58,7 @@ assert.deepEqual(result, {
   companionAction: 'none',
   companionQuery: '',
   companionQueries: [],
+  companionPlaylist: [],
 });
 
 const playlistPrompt = buildRadioPrompt({
@@ -79,6 +82,7 @@ assert.deepEqual(validateRadioPayload({
   companionAction: 'none',
   companionQuery: '',
   companionQueries: [],
+  companionPlaylist: [],
 });
 assert.throws(() => validateRadioPayload({
   reply: 'No playlist.',
@@ -95,20 +99,34 @@ const companionPrompt = buildRadioPrompt({
 assert.match(companionPrompt, /网易云本机桥/);
 assert.match(companionPrompt, /search_and_play/);
 assert.deepEqual(validateRadioPayload({
-  reply: '我让本机播放器去找这首歌。',
+  reply: '好，我去网易云找两首适合现在的。',
   playlistAction: 'none',
   companionAction: 'search_and_play',
   companionQuery: '起风了 周深',
   companionQueries: ['起风了 周深', '起风了 买辣椒也用券'],
+  companionPlaylist: [
+    { query: '起风了 周深', intro: '先放周深的版本，清亮的人声适合把现在的疲惫慢慢松开。' },
+    { query: '起风了 买辣椒也用券', intro: '再听这个版本，让熟悉的旋律多一点向前走的力量。' },
+  ],
   set: [],
 }, [], { hasCompanion: true }), {
-  reply: '我让本机播放器去找这首歌。',
+  reply: '好，我去找两首适合现在的。',
   set: [],
   playlistAction: 'none',
   companionAction: 'search_and_play',
   companionQuery: '起风了 周深',
   companionQueries: ['起风了 周深', '起风了 买辣椒也用券'],
+  companionPlaylist: [
+    { query: '起风了 周深', intro: '先放周深的版本，清亮的人声适合把现在的疲惫慢慢松开。' },
+    { query: '起风了 买辣椒也用券', intro: '再听这个版本，让熟悉的旋律多一点向前走的力量。' },
+  ],
 });
+assert.throws(() => validateRadioPayload({
+  reply: '我去找。',
+  companionAction: 'search_and_play',
+  companionQueries: ['起风了 周深'],
+  set: [],
+}, [], { hasCompanion: true }), RadioOutputError);
 assert.throws(() => validateRadioPayload({
   reply: 'No bridge.',
   companionAction: 'next',

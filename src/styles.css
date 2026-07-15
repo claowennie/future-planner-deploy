@@ -3312,6 +3312,101 @@ body.tod-night .growth-stage-days { color: #c4c7bd; }
 }
 .radio-youtube-frame > div, .radio-youtube-frame iframe { width: 100%; height: 100%; display: block; border: 0; }
 
+.radio-recommendation {
+  margin: 16px 0;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--accent) 24%, var(--line));
+  border-radius: 16px;
+  background:
+    radial-gradient(90% 120% at 100% 0, color-mix(in srgb, var(--accent-soft) 66%, transparent), transparent 66%),
+    color-mix(in srgb, var(--surface) 94%, transparent);
+}
+.radio-recommendation-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 16px 12px;
+  border-bottom: 1px solid color-mix(in srgb, var(--line) 72%, transparent);
+}
+.radio-recommendation-head .radio-now-kicker { margin-bottom: 2px; color: var(--accent-ink); }
+.radio-recommendation-head > span {
+  flex: none;
+  color: var(--ink-soft);
+  font-family: var(--font-mono);
+  font-size: 11px;
+}
+.radio-recommendation-title { color: var(--ink); font-size: 16px; font-weight: 620; }
+.radio-recommendation-list { padding: 4px 10px 8px; }
+.radio-recommendation-item {
+  display: grid;
+  grid-template-columns: 36px minmax(0, 1fr);
+  gap: 10px;
+  padding: 11px 8px;
+  border-bottom: 1px dashed color-mix(in srgb, var(--line) 72%, transparent);
+}
+.radio-recommendation-item:last-child { border-bottom: 0; }
+.radio-recommendation-item.active {
+  margin: 2px 0;
+  border-bottom-color: transparent;
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--accent-soft) 62%, transparent);
+}
+.radio-recommendation-index {
+  padding-top: 2px;
+  color: var(--ink-soft);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: .04em;
+}
+.radio-recommendation-item.active .radio-recommendation-index { color: var(--accent-ink); font-weight: 700; }
+.radio-recommendation-item.active .radio-recommendation-track { color: var(--accent-ink); }
+.radio-recommendation-item.active .radio-recommendation-track small {
+  color: color-mix(in srgb, var(--accent-ink) 72%, transparent);
+}
+.radio-recommendation-item.active .radio-recommendation-reason {
+  color: color-mix(in srgb, var(--accent-ink) 84%, #111);
+}
+.radio-recommendation-copy { min-width: 0; }
+.radio-recommendation-track {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  min-width: 0;
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 600;
+}
+.radio-recommendation-track > span,
+.radio-recommendation-track > button {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.radio-recommendation-track > button {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  text-align: left;
+}
+.radio-recommendation-track > button:hover { color: var(--accent-ink); }
+.radio-recommendation-track small {
+  flex: none;
+  color: var(--ink-soft);
+  font-size: 11px;
+  font-weight: 400;
+}
+.radio-recommendation-reason {
+  margin-top: 5px;
+  color: var(--ink-dim);
+  font-size: 12px;
+  line-height: 1.55;
+}
+
 .radio-queue { margin: 16px 0; }
 .radio-queue-label { font-size: 12px; color: var(--ink-soft); margin-bottom: 8px; letter-spacing: .04em; }
 .radio-queue-item {
@@ -3472,6 +3567,7 @@ body.tod-night .growth-stage-days { color: #c4c7bd; }
   .radio-upload-grid { grid-template-columns: 1fr; }
   .radio-companion-grid { grid-template-columns: 1fr; }
   .radio-settings-modal { max-height: 92vh; }
+  .radio-recommendation-track { align-items: flex-start; flex-direction: column; gap: 2px; }
 }
 
 /* ===== Archive view (历史 · 按月折叠的全部 todo) ===== */

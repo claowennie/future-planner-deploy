@@ -39,6 +39,46 @@ function formatPlayerTime(seconds) {
   return `${Math.floor(value / 60)}:${String(value % 60).padStart(2, '0')}`;
 }
 
+function normalizeCompanionPlaylist(items, queries = []) {
+  const source = Array.isArray(items) && items.length
+    ? items
+    : (Array.isArray(queries) ? queries.map((query) => ({ query, intro: '' })) : []);
+  return source.slice(0, 5).map((item, index) => ({
+    query: String(item?.query || '').trim(),
+    intro: String(item?.intro || '').trim(),
+    title: String(item?.title || item?.query || '').trim(),
+    artist: String(item?.artist || '').trim(),
+    playbackIndex: index,
+  })).filter((item) => item.query);
+}
+
+function mergeResolvedCompanionPlaylist(plan, tracks = []) {
+  if (!Array.isArray(tracks) || !tracks.length) return plan;
+  const unused = [...plan];
+  return tracks.map((track, index) => {
+    const query = String(track?.query || '').trim();
+    let proposalIndex = query ? unused.findIndex((item) => item.query === query) : -1;
+    if (proposalIndex < 0) proposalIndex = 0;
+    const proposal = unused.splice(proposalIndex, 1)[0] || plan[index] || {};
+    return {
+      ...proposal,
+      query: query || proposal.query || '',
+      title: String(track?.name || proposal.title || proposal.query || '').trim(),
+      artist: Array.isArray(track?.artists) ? track.artists.filter(Boolean).join(' / ') : '',
+      playbackIndex: index,
+    };
+  });
+}
+
+function preferredSpeechVoice(language) {
+  if (typeof speechSynthesis === 'undefined') return null;
+  const voices = speechSynthesis.getVoices?.() || [];
+  const langPrefix = language === 'en' ? 'en' : 'zh';
+  const matching = voices.filter((voice) => String(voice.lang || '').toLowerCase().startsWith(langPrefix));
+  const natural = /(natural|neural|xiaoxiao|yunxi|xiaoyi|aria|jenny|samantha|ting-ting|google)/i;
+  return matching.find((voice) => natural.test(voice.name)) || matching[0] || null;
+}
+
 function directCompanionIntent(value) {
   const text = String(value || '').trim().replace(/[。！？!?]+$/, '');
   if (!text) return null;
@@ -54,7 +94,7 @@ function directCompanionIntent(value) {
   const pointSong = text.match(/^(?:请)?(?:在)?网易云(?:里)?(?:播放|放)(?:一下)?\s*(.{1,100})$/i);
   if (pointSong?.[1]) {
     const query = pointSong[1].trim();
-    return { action: 'search_and_play', query, queries: [query], reply: `好，我去网易云找「${query}」。` };
+    return { action: 'search_and_play', query, queries: [query], reply: `好，我去找「${query}」。` };
   }
   return null;
 }
@@ -354,11 +394,15 @@ function RadioView() {
   const [companionStatus, setCompanionStatus] = _us(() => getCompanionConfig().token ? 'checking' : 'disconnected');
   const [companionPlayerState, setCompanionPlayerState] = _us(null);
   const [companionBusy, setCompanionBusy] = _us(false);
+  const [companionPlaylist, setCompanionPlaylist] = _us([]);
   const musicRef = _ur(null);
   const youtubePlayerRef = _ur(null);
   const pendingYoutubeActionRef = _ur('');
   const playTokenRef = _ur(0);
   const audioUnlockedRef = _ur(false);
+  const announcedCompanionIndexesRef = _ur(new Set());
+  const companionPlanReadyRef = _ur(false);
+  const companionAnnouncementTokenRef = _ur(0);
   const [youtubeReady, setYoutubeReady] = _us(false);
   const [youtubePlaying, setYoutubePlaying] = _us(false);
 
@@ -375,7 +419,7 @@ function RadioView() {
     } catch { /* ignore */ }
   };
 
-  const applyCompanionPlayback = ({ state, track } = {}) => {
+  const applyCompanionPlayback = ({ action, state, track } = {}) => {
     const artist = track?.artists?.filter(Boolean).join(' / ') || state?.artist || '';
     const title = track?.name || state?.title || '';
     if (state) {
@@ -384,6 +428,7 @@ function RadioView() {
     } else if (track) {
       setCompanionPlayerState((current) => ({
         ...(current || {}), status: 'playing', title, artist, position: 0, duration: 0,
+        currentIndex: ['search_and_play', 'play_daily'].includes(action) ? 0 : current?.currentIndex,
       }));
       setPlaying(true);
     }
@@ -422,12 +467,16 @@ function RadioView() {
   _ue(() => {
     if (companionStatus !== 'online' || !companionToken) return undefined;
     let alive = true;
-    const sync = () => getCompanionState({ url: companionUrl, token: companionToken })
-      .then((result) => { if (alive) applyCompanionPlayback(result); })
-      .catch(() => {});
+    let timer = 0;
+    const sync = async () => {
+      try {
+        const result = await getCompanionState({ url: companionUrl, token: companionToken });
+        if (alive) applyCompanionPlayback(result);
+      } catch { /* keep the last visible state during a transient local error */ }
+      if (alive) timer = window.setTimeout(sync, 1200);
+    };
     sync();
-    const timer = window.setInterval(sync, 4000);
-    return () => { alive = false; window.clearInterval(timer); };
+    return () => { alive = false; window.clearTimeout(timer); };
   }, [companionStatus, companionUrl, companionToken]);
 
   _ue(() => {
@@ -457,6 +506,10 @@ function RadioView() {
       if (nextUser) setApiKeyState(getDeepSeekKey(nextUser.id));
       if (event === 'SIGNED_OUT' || !nextUser) {
         clearDeepSeekKey(); setApiKeyState(''); setTracks([]); setPlaylistUrl(''); setQueue([]); setNow(null);
+        companionPlanReadyRef.current = false;
+        companionAnnouncementTokenRef.current += 1;
+        announcedCompanionIndexesRef.current = new Set();
+        setCompanionPlaylist([]);
       }
     });
     return () => { alive = false; subscription?.subscription?.unsubscribe(); };
@@ -487,6 +540,9 @@ function RadioView() {
     if (!text || typeof speechSynthesis === 'undefined') { resolve(); return; }
     const utterance = new SpeechSynthesisUtterance(text);
     utterance.lang = lang === 'en' ? 'en-US' : 'zh-CN';
+    utterance.voice = preferredSpeechVoice(lang);
+    utterance.rate = lang === 'en' ? 0.96 : 0.93;
+    utterance.pitch = 1.02;
     utterance.onend = resolve; utterance.onerror = resolve;
     speechSynthesis.cancel(); speechSynthesis.speak(utterance);
   });
@@ -526,6 +582,10 @@ function RadioView() {
     setCompanionToken('');
     setCompanionStatus('disconnected');
     setCompanionPlayerState(null);
+    companionPlanReadyRef.current = false;
+    companionAnnouncementTokenRef.current += 1;
+    announcedCompanionIndexesRef.current = new Set();
+    setCompanionPlaylist([]);
   };
 
   const executeCompanionAction = async (action, query = '', queries = []) => {
@@ -542,6 +602,84 @@ function RadioView() {
       setErr(error.message);
       throw error;
     } finally { setCompanionBusy(false); }
+  };
+
+  _ue(() => {
+    const index = Number(companionPlayerState?.currentIndex);
+    const item = companionPlaylist[index];
+    if (!companionPlanReadyRef.current || companionPlayerState?.status !== 'playing'
+      || !Number.isInteger(index) || index < 1 || !item?.intro
+      || announcedCompanionIndexesRef.current.has(index)) return;
+
+    announcedCompanionIndexesRef.current.add(index);
+    const token = companionAnnouncementTokenRef.current;
+    setCompanionBusy(true);
+    (async () => {
+      try {
+        const config = { url: companionUrl, token: companionToken };
+        const paused = await sendCompanionCommand(config, 'pause');
+        if (token !== companionAnnouncementTokenRef.current) return;
+        applyCompanionPlayback(paused);
+        setLog((items) => [...items, { role: 'melo', text: item.intro, kind: 'intro' }]);
+        await speak(item.intro);
+        if (token !== companionAnnouncementTokenRef.current) return;
+        const resumed = await sendCompanionCommand(config, 'resume');
+        applyCompanionPlayback(resumed);
+      } catch (error) {
+        if (token === companionAnnouncementTokenRef.current) setErr(error.message);
+      } finally {
+        if (token === companionAnnouncementTokenRef.current) setCompanionBusy(false);
+      }
+    })();
+  }, [companionPlayerState?.currentIndex, companionPlaylist]);
+
+  _ue(() => {
+    const currentIndex = Number(companionPlayerState?.currentIndex);
+    const position = Number(companionPlayerState?.position);
+    const duration = Number(companionPlayerState?.duration);
+    const targetIndex = currentIndex + 1;
+    const target = companionPlaylist[targetIndex];
+    const remaining = duration - position;
+    if (!companionPlanReadyRef.current || companionPlayerState?.status !== 'playing'
+      || !Number.isInteger(currentIndex) || currentIndex < 0 || !target?.intro
+      || !Number.isFinite(remaining) || duration <= 0 || position <= 0 || remaining > 10 || remaining < 0
+      || announcedCompanionIndexesRef.current.has(targetIndex)) return;
+
+    announcedCompanionIndexesRef.current.add(targetIndex);
+    const token = companionAnnouncementTokenRef.current;
+    setCompanionBusy(true);
+    (async () => {
+      try {
+        const config = { url: companionUrl, token: companionToken };
+        const paused = await sendCompanionCommand(config, 'pause');
+        if (token !== companionAnnouncementTokenRef.current) return;
+        applyCompanionPlayback(paused);
+        setLog((items) => [...items, { role: 'melo', text: target.intro, kind: 'intro' }]);
+        await speak(target.intro);
+        if (token !== companionAnnouncementTokenRef.current) return;
+        const resumed = await sendCompanionCommand(config, 'resume');
+        applyCompanionPlayback(resumed);
+      } catch (error) {
+        if (token === companionAnnouncementTokenRef.current) setErr(error.message);
+      } finally {
+        if (token === companionAnnouncementTokenRef.current) setCompanionBusy(false);
+      }
+    })();
+  }, [companionPlayerState?.position, companionPlayerState?.duration,
+    companionPlayerState?.currentIndex, companionPlaylist]);
+
+  const stepCompanionWithIntro = async (action) => {
+    const currentIndex = Number(companionPlayerState?.currentIndex);
+    const targetIndex = action === 'next' ? currentIndex + 1 : currentIndex - 1;
+    const target = companionPlaylist[targetIndex];
+    if (!target?.intro || targetIndex < 0 || announcedCompanionIndexesRef.current.has(targetIndex)) {
+      return executeCompanionAction(action);
+    }
+    announcedCompanionIndexesRef.current.add(targetIndex);
+    await executeCompanionAction('pause');
+    setLog((items) => [...items, { role: 'melo', text: target.intro, kind: 'intro' }]);
+    await speak(target.intro);
+    return executeCompanionAction(action);
   };
 
   const executeYouTubeAction = (action) => {
@@ -574,6 +712,13 @@ function RadioView() {
     if (pending) executeYouTubeAction(pending);
   };
 
+  const clearCompanionRecommendation = () => {
+    companionPlanReadyRef.current = false;
+    companionAnnouncementTokenRef.current += 1;
+    announcedCompanionIndexesRef.current = new Set();
+    setCompanionPlaylist([]);
+  };
+
   const playAt = async (index, list = queue) => {
     const track = list[index];
     if (!track) return;
@@ -603,8 +748,22 @@ function RadioView() {
         { role: 'melo', text: directIntent.reply },
       ]);
       stopMusic(); pauseYouTube(); setQueue([]);
-      speak(directIntent.reply);
       try {
+        const currentIndex = Number(companionPlayerState?.currentIndex);
+        const targetIndex = directIntent.action === 'next' ? currentIndex + 1
+          : directIntent.action === 'previous' ? currentIndex - 1 : -1;
+        const target = companionPlaylist[targetIndex];
+        if (target?.intro && targetIndex >= 0) {
+          announcedCompanionIndexesRef.current.add(targetIndex);
+          await executeCompanionAction('pause');
+          setLog((items) => [...items, { role: 'melo', text: target.intro, kind: 'intro' }]);
+          await speak(target.intro);
+        } else {
+          await speak(directIntent.reply);
+        }
+        if (['play_daily', 'search_and_play'].includes(directIntent.action)) {
+          clearCompanionRecommendation();
+        }
         await executeCompanionAction(
           directIntent.action,
           directIntent.query || '',
@@ -636,17 +795,40 @@ function RadioView() {
       }));
       setThinking(false);
       if (playable.length) {
+        clearCompanionRecommendation();
         setQueue(playable); setIdx(0); stopMusic(); pauseYouTube();
         await speak(data.say); playAt(0, playable);
       } else if (data.companionAction && data.companionAction !== 'none' && companionStatus === 'online') {
         stopMusic(); pauseYouTube(); setQueue([]);
-        speak(data.say);
-        await executeCompanionAction(
-          data.companionAction,
-          data.companionQuery,
-          data.companionQueries || [],
-        );
+        if (data.companionAction === 'search_and_play') {
+          const plan = normalizeCompanionPlaylist(data.companionPlaylist, data.companionQueries);
+          companionPlanReadyRef.current = false;
+          companionAnnouncementTokenRef.current += 1;
+          announcedCompanionIndexesRef.current = new Set(plan.length ? [0] : []);
+          setCompanionPlaylist(plan);
+          const firstIntro = plan[0]?.intro || data.say;
+          if (firstIntro) {
+            setLog((items) => [...items, { role: 'melo', text: firstIntro, kind: 'intro' }]);
+            setCompanionBusy(true);
+            await speak(firstIntro);
+          }
+          const result = await executeCompanionAction(
+            data.companionAction,
+            plan[0]?.query || data.companionQuery,
+            plan.map((item) => item.query),
+          );
+          setCompanionPlaylist(mergeResolvedCompanionPlaylist(plan, result?.tracks));
+          companionPlanReadyRef.current = true;
+        } else {
+          await speak(data.say);
+          await executeCompanionAction(
+            data.companionAction,
+            data.companionQuery,
+            data.companionQueries || [],
+          );
+        }
       } else if (data.playlistAction && data.playlistAction !== 'none' && youtubePlaylistId) {
+        clearCompanionRecommendation();
         stopMusic(); pauseYouTube(); setNow(null); setQueue([]);
         await speak(data.say);
         executeYouTubeAction(data.playlistAction);
@@ -661,7 +843,11 @@ function RadioView() {
   };
 
   const status = !user ? 'signin' : !apiKey ? 'config' : workerStatus;
-  const canSend = status === 'online' && !thinking && !setupError;
+  const canSend = status === 'online' && !thinking && !companionBusy && !setupError;
+  const recommendationItems = companionPlaylist.length ? companionPlaylist : queue;
+  const recommendationIndex = companionPlaylist.length
+    ? Number(companionPlayerState?.currentIndex) : idx;
+  const recommendationIsCompanion = companionPlaylist.length > 0;
   const quicks = [
     { label: '🎧 随便放点', text: '' },
     { label: '💻 我在工作', text: '我在专注工作，给我点不分心的' },
@@ -737,14 +923,14 @@ function RadioView() {
                 </div>
                 <div className="radio-player-controls" aria-label="网易云播放控制">
                   <button type="button" aria-label="上一首" title="上一首"
-                    onClick={() => executeCompanionAction('previous').catch(() => {})}
+                    onClick={() => stepCompanionWithIntro('previous').catch(() => {})}
                     disabled={companionBusy || companionStatus !== 'online'}>‹</button>
                   <button type="button" className="radio-player-main"
                     aria-label={playing ? '暂停' : '继续'} title={playing ? '暂停' : '继续'}
                     onClick={() => executeCompanionAction(playing ? 'pause' : 'resume').catch(() => {})}
                     disabled={companionBusy || companionStatus !== 'online'}>{playing ? 'Ⅱ' : '▶'}</button>
                   <button type="button" aria-label="下一首" title="下一首"
-                    onClick={() => executeCompanionAction('next').catch(() => {})}
+                    onClick={() => stepCompanionWithIntro('next').catch(() => {})}
                     disabled={companionBusy || companionStatus !== 'online'}>›</button>
                   <button type="button" className="radio-player-stop" aria-label="停止" title="停止"
                     onClick={() => executeCompanionAction('stop').catch(() => {})}
@@ -765,6 +951,39 @@ function RadioView() {
           className={now?.source === 'companion' ? 'radio-audio-hidden' : 'radio-audio'} />
       </div>
 
+      {recommendationItems.length > 0 && <section className="radio-recommendation"
+        aria-label={lang === 'en' ? 'Melo recommendation set' : 'Melo 推荐歌单'}>
+        <div className="radio-recommendation-head">
+          <div>
+            <div className="radio-now-kicker">MELO'S SET</div>
+            <div className="radio-recommendation-title">
+              {lang === 'en' ? 'Picked for this moment' : '此刻为你排的歌单'}
+            </div>
+          </div>
+          <span>{recommendationItems.length} {lang === 'en' ? 'tracks' : '首'}</span>
+        </div>
+        <div className="radio-recommendation-list">
+          {recommendationItems.map((track, index) => {
+            const active = recommendationIndex === index;
+            const title = track.title || track.query || '待确认曲目';
+            const artist = track.artist || '';
+            return <div key={`${track.id || track.query || title}:${index}`}
+              className={`radio-recommendation-item ${active ? 'active' : ''}`}>
+              <div className="radio-recommendation-index">{active ? 'NOW' : String(index + 1).padStart(2, '0')}</div>
+              <div className="radio-recommendation-copy">
+                <div className="radio-recommendation-track">
+                  {recommendationIsCompanion
+                    ? <span>{title}</span>
+                    : <button type="button" onClick={() => playAt(index)}>{title}</button>}
+                  {artist && <small>{artist}</small>}
+                </div>
+                {track.intro && <div className="radio-recommendation-reason">{track.intro}</div>}
+              </div>
+            </div>;
+          })}
+        </div>
+      </section>}
+
       {youtubePlaylistId && <div className="radio-external-player">
         <div className="radio-external-head">
           <div>
@@ -779,15 +998,6 @@ function RadioView() {
           onError={setErr} />
         {!youtubeReady && <div className="radio-config-note">正在载入官方播放器…</div>}
         <div className="radio-config-note">第一次请手动点一次播放；如需登录，先点右上角“在 YouTube 打开”。之后可以直接对 Melo 说“播放”“下一首”或“随机播放”。</div>
-      </div>}
-
-      {queue.length > 1 && <div className="radio-queue">
-        <div className="radio-queue-label">接下来</div>
-        {queue.map((track, index) => <button key={track.id} className={`radio-queue-item ${index === idx ? 'active' : ''}`}
-          onClick={() => playAt(index)} style={{ '--rad-h': hueFor(track) }}>
-          <span className="radio-queue-dot" /><span className="radio-queue-t">{track.title}</span>
-          <span className="radio-queue-a">{track.artist}</span>
-        </button>)}
       </div>}
 
       <div className="radio-log">

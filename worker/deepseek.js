@@ -46,6 +46,15 @@ const boundedText = (value, max, field) => {
   return text.slice(0, max);
 };
 
+function onAirText(value, max, field) {
+  const text = boundedText(value, max, field)
+    .replace(/(?:打开|到|在|从)?网易云(?:音乐)?(?:里|上|中)?/g, '')
+    .replace(/[ \t]{2,}/g, ' ')
+    .trim();
+  if (!text) throw new RadioOutputError(`${field} 不能只包含音乐平台名称`);
+  return text;
+}
+
 export function validateRadioPayload(payload, candidates = [], {
   hasExternalPlaylist = false,
   hasCompanion = false,
@@ -54,7 +63,7 @@ export function validateRadioPayload(payload, candidates = [], {
     throw new RadioOutputError('响应必须是 JSON 对象');
   }
 
-  const reply = boundedText(payload.reply, 800, 'reply');
+  const reply = onAirText(payload.reply, 800, 'reply');
   if (!Array.isArray(payload.set)) throw new RadioOutputError('set 必须是数组');
   if (payload.set.length > 8) throw new RadioOutputError('set 最多 8 首');
   const playlistAction = String(payload.playlistAction || 'none').trim().toLowerCase();
@@ -67,13 +76,32 @@ export function validateRadioPayload(payload, candidates = [], {
   if (companionAction !== 'none' && (playlistAction !== 'none' || payload.set.length)) {
     throw new RadioOutputError('一次只能控制一个音乐来源');
   }
+  const companionPlaylist = (Array.isArray(payload.companionPlaylist) ? payload.companionPlaylist : [])
+    .slice(0, 5)
+    .map((item) => {
+      if (!item || typeof item !== 'object' || Array.isArray(item)) {
+        throw new RadioOutputError('companionPlaylist 项格式错误');
+      }
+      return {
+        query: boundedText(item.query, 120, 'companionPlaylist.query'),
+        intro: onAirText(item.intro, 360, 'companionPlaylist.intro'),
+      };
+    });
+  const playlistQueries = companionPlaylist.map((item) => item.query);
+  if (new Set(playlistQueries).size !== playlistQueries.length) {
+    throw new RadioOutputError('companionPlaylist 不能包含重复搜索词');
+  }
   const companionQueries = (Array.isArray(payload.companionQueries) ? payload.companionQueries : [])
     .map((item) => String(item || '').trim().slice(0, 120)).filter(Boolean).slice(0, 5);
   const legacyCompanionQuery = String(payload.companionQuery || '').trim().slice(0, 120);
   if (!companionQueries.length && legacyCompanionQuery) companionQueries.push(legacyCompanionQuery);
+  if (companionPlaylist.length) companionQueries.splice(0, companionQueries.length, ...playlistQueries);
   const companionQuery = companionQueries[0] || '';
-  if (companionAction === 'search_and_play' && !companionQueries.length) {
-    throw new RadioOutputError('search_and_play 必须提供 companionQueries');
+  if (companionAction === 'search_and_play' && !companionPlaylist.length) {
+    throw new RadioOutputError('search_and_play 必须提供带逐首串词的 companionPlaylist');
+  }
+  if (companionAction !== 'search_and_play' && companionPlaylist.length) {
+    throw new RadioOutputError('只有 search_and_play 可以提供 companionPlaylist');
   }
 
   const byId = new Map(candidates.map((track) => [String(track.id), track]));
@@ -93,12 +121,14 @@ export function validateRadioPayload(payload, candidates = [], {
       artist: String(track.artist || '').slice(0, 120),
       title: String(track.title || '').slice(0, 160),
       storagePath: String(track.storage_path || ''),
-      intro: boundedText(item.intro, 500, 'intro'),
+      intro: onAirText(item.intro, 500, 'intro'),
       hue,
     };
   });
 
-  return { reply, set, playlistAction, companionAction, companionQuery, companionQueries };
+  return {
+    reply, set, playlistAction, companionAction, companionQuery, companionQueries, companionPlaylist,
+  };
 }
 
 function mapHttpError(status) {
