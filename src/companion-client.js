@@ -58,6 +58,7 @@ async function companionRequest(path, config, { method = 'GET', body } = {}) {
       credentials: 'omit',
       cache: 'no-store',
       referrerPolicy: 'no-referrer',
+      targetAddressSpace: 'loopback',
       headers: {
         'X-Future-Companion-Token': token,
         ...(body === undefined ? {} : { 'Content-Type': 'application/json' }),
@@ -84,4 +85,3 @@ export function sendCompanionCommand(config, action, query = '') {
     body: { action, query: String(query || '').trim().slice(0, 120) },
   });
 }
-
