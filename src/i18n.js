@@ -2,7 +2,7 @@
 // 设计：
 //  - t('a.b.c', {name:'x'})：按点路径取当前语言文案，{name} 占位符插值；
 //    en 缺 key 自动回退 zh（中文为母本，永远齐全），再缺返回 key 本身。
-//  - 语言存 localStorage `locale_v1`；首次按浏览器语言猜（zh* → zh，否则 en）。
+//  - 语言存 localStorage `locale_v1`；首次访问固定使用中文，英文由用户在设置中选择。
 //  - setLocale() = 保存 + 整页 reload —— 切语言是低频操作，reload 让所有模块
 //    （包括非 React 的 modal 文案、通知文本）一次到位，不用给全工程穿 context。
 //  - node 单测会 import dates.js → 本模块：所有浏览器 API 都有 typeof 守卫，
@@ -15,19 +15,17 @@ import { en } from './locales/en.js';
 const PACKS = { zh, en };
 const KEY = 'locale_v1';
 
+function resolveLocalePreference(saved) {
+  return saved && PACKS[saved] ? saved : 'zh';
+}
+
 function detectLocale() {
   try {
     if (typeof localStorage !== 'undefined') {
       const saved = localStorage.getItem(KEY);
-      if (saved && PACKS[saved]) return saved;
+      return resolveLocalePreference(saved);
     }
   } catch { /* ignore */ }
-  // Modern Node.js also exposes a global navigator. Only use its language in
-  // an actual browser; server-side tools and tests keep the deterministic zh
-  // fallback documented above.
-  if (typeof window !== 'undefined' && typeof navigator !== 'undefined' && navigator.language) {
-    return navigator.language.toLowerCase().startsWith('zh') ? 'zh' : 'en';
-  }
   return 'zh';
 }
 
@@ -80,4 +78,4 @@ const monthName = (m) => tArr('date.months')[m] || '';           // 六月 / Jun
 
 Object.assign(typeof window !== 'undefined' ? window : {}, { t, tArr, getLocale, setLocale, weekdayMin, weekdayFull, monthName });
 
-export { t, tArr, getLocale, setLocale, weekdayMin, weekdayFull, monthName };
+export { t, tArr, getLocale, setLocale, weekdayMin, weekdayFull, monthName, resolveLocalePreference };

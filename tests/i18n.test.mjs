@@ -4,6 +4,7 @@
 //  3) 数组型条目两边长度一致（星期/月份/占位提示组）
 import { zh } from '../src/locales/zh.js';
 import { en } from '../src/locales/en.js';
+import { resolveLocalePreference } from '../src/i18n.js';
 
 let fails = 0;
 const fail = (msg) => { fails++; console.error('  FAIL:', msg); };
@@ -36,6 +37,12 @@ function walk(zhNode, enNode, path) {
 
 console.log('i18n.test:');
 walk(zh, en, '');
+
+if (resolveLocalePreference(null) !== 'zh') fail('首次访问默认语言必须为中文');
+if (resolveLocalePreference('') !== 'zh') fail('空语言偏好必须回退中文');
+if (resolveLocalePreference('fr') !== 'zh') fail('未知语言偏好必须回退中文');
+if (resolveLocalePreference('en') !== 'en') fail('用户保存的英文偏好必须保留');
+if (resolveLocalePreference('zh') !== 'zh') fail('用户保存的中文偏好必须保留');
 
 if (fails) { console.error(`i18n.test: ${fails} 个失败`); process.exit(1); }
 console.log('i18n.test: 全部通过（en 覆盖 zh 全部 key，占位符一致）\n');
