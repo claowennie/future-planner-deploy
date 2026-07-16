@@ -1,136 +1,105 @@
-# Future Deploy
+# Future
 
-`future-deploy` 是从自用版 `future.v2` 独立复制出的 Cloudflare 部署版。它保留原有 React/Vite 与 Supabase 同步功能，并把原本依赖本机服务的电台改造成可部署的 Melo AI 电台：
+Future 是一个把目标、行动、专注、复盘与 AI 音乐陪伴连接成成长闭环的个人成长操作系统。
 
-- Cloudflare Workers 同时托管前端静态文件和 `/api/radio/*` API
-- Supabase Auth 验证每个请求，数据库 RLS 隔离不同账号
-- 每位用户使用自己的 DeepSeek API Key（BYOK）；语音默认使用免费的浏览器语音，也可自带 Google Cloud TTS 或 MiniMax Key
-- DeepSeek 与语音 Key 只保存在当前标签页的 `sessionStorage`，关闭标签页、退出登录或删除账号时清除，不写入 Supabase 或 Worker 配置
-- 可导入 YouTube / YouTube Music 公开或不公开歌单，也可把私有音频上传到 Supabase Storage
-- Melo 支持浏览器免费语音、Google Chirp 3 HD 与 MiniMax Speech 2.8 HD；YouTube 官方播放器负责在线歌单播放
-- Melo 设置内提供 Windows 版 Future Companion 直接下载与中英文安装、配对、重新登录说明
+[在线体验](https://future-planner.claowennie.workers.dev) · [Demo 视频](#demo-video) · [产品介绍](#about-future)
 
-原目录 `future.v2` 不参与本项目的构建或部署。
+![Future 四季主页与核心工作区](./docs/screenshot-3.png)
 
-## 架构
+<a id="demo-video"></a>
 
-```text
-Browser
-  ├─ Supabase Auth / database / private audio storage
-  ├─ YouTube official embedded playlist player
-  └─ Cloudflare Worker /api/radio/*
-       ├─ verifies the Supabase access token
-       ├─ reads radio context through the user's JWT + RLS
-       ├─ forwards radio requests to DeepSeek with the user's temporary Key
-       └─ forwards TTS requests to Google or MiniMax with the user's temporary Key
-```
+> **Demo 视频正在制作中。** 在两分钟产品演示发布前，请以[线上正式版本](https://future-planner.claowennie.workers.dev)为准。
 
-Worker 不保存、打印或回传 DeepSeek / TTS Key，也不拥有 Supabase `service_role` 密钥。曲目由模型通过受限的 `trackId` 选择，真实私有存储路径只在服务端校验后返回给登录用户。
+## About Future
 
-## 1. 准备 Supabase
+Future 不是另一个只记录任务的 Todo List。它把年度目标、月度主题、每周拆解和今日行动放在同一条路径里，再用番茄钟、习惯追踪、成功日记和随手笔记形成反馈，让“我想成为谁”能够持续落到“我今天做什么”。
 
-复用现有 Supabase 项目与原应用的数据表、登录配置。然后在 Supabase Dashboard → SQL Editor 完整执行：
+我做 Future，是因为规划、执行、记录和情绪调节常常分散在不同工具里：计划写完后很少被重新看见，完成任务也很难沉淀为长期成长。Future 尝试把这些环节组织成一个温和、可持续的个人空间——四季成长树会随真实日期变化，界面会跟随一天的时间切换光线，Melo 则在需要专注或放松时提供有上下文的 AI 音乐陪伴。
 
-1. [`supabase/radio.sql`](./supabase/radio.sql)：电台资料、曲目、消息、播放历史、RLS 和私有音频桶
-   - 已经执行过旧版脚本时，只需补跑 [`supabase/radio-playlist-migration.sql`](./supabase/radio-playlist-migration.sql)
-2. [`supabase/delete_user.sql`](./supabase/delete_user.sql)：账号自助删除函数
-3. 如需 Web Push，再按 [`supabase/WEB_PUSH_SETUP.md`](./supabase/WEB_PUSH_SETUP.md) 配置
+产品支持中英文、桌面端与移动端，并已作为正式 Web 产品部署到 Cloudflare。联系邮箱：[claowennie@gmail.com](mailto:claowennie@gmail.com)。
 
-在 Authentication → URL Configuration 中加入生产域名，例如：
+## Core Features
 
-```text
-https://future-deploy.<your-subdomain>.workers.dev
-https://your-domain.example
-```
+| 模块 | 能做什么 |
+| --- | --- |
+| 分层规划 | 年度 OKR、月度主题、每周拆解、今日待办与重复任务形成同一条执行链路 |
+| 专注与习惯 | 番茄钟、环境音、习惯打卡、连续天数和成长树共同提供即时反馈 |
+| 记录与复盘 | 五件好事、每日 Reflection、成功日记和卡片式随手笔记沉淀过程 |
+| Melo AI 电台 | 根据当下情境和音乐口味生成带串词的歌单，支持 YouTube、私有音频和网易云桌面桥 |
+| 自适应体验 | 春夏秋冬、晨昼黄昏深夜、沉浸模式、响应式移动端与 PWA |
+| 云端与隐私 | Supabase 登录与跨设备同步、RLS 数据隔离、导出备份、自助注销和临时 BYOK Key |
 
-不要把 `service_role` Key 放进浏览器或 Worker。本项目只需要 Supabase Publishable Key（旧项目可继续使用 anon key）。
+![Future 周、月、年度 OKR、成功日记与随手笔记](./docs/screenshot-5.png)
 
-## 2. 本地开发配置
+![Future 一日四时与深色模式](./docs/screenshot-2.png)
 
-生产环境会从同源的 `/api/runtime-config.js` 自动取得 Supabase 公开配置，不需要在 Cloudflare 重复设置 `VITE_SUPABASE_*`。仅在脱离 Worker 单独运行 Vite 时，才需要复制 `.env.example` 为 `.env.local`：
+![Future 沉浸模式](./docs/screenshot-1.png)
 
-```dotenv
-VITE_SUPABASE_URL=https://YOUR-PROJECT-REF.supabase.co
-VITE_SUPABASE_PUBLISHABLE_KEY=YOUR-SUPABASE-PUBLISHABLE-OR-ANON-KEY
-VITE_VAPID_PUBLIC_KEY=
-VITE_SENTRY_DSN=
-```
+![Future 移动端四季主页](./docs/screenshot-4.png)
 
-所有 `VITE_*` 值都会进入浏览器产物，因此这里只能放公开配置。DeepSeek / TTS Key、Supabase `service_role` Key 或 Cloudflare Token 绝不能放在这里。
+## Product Journey
 
-## 3. Worker 本地配置
+| 阶段 | 产品演进 |
+| --- | --- |
+| 自用原型 | 从个人规划需求出发，完成 Today / Week / Month / Year、习惯、专注与复盘的核心闭环 |
+| 云端化 | 从本机版 `future.v2` 拆出独立的 `future-deploy`，接入 Supabase Auth、Postgres RLS、私有存储和 Cloudflare Workers |
+| Melo 成型 | 将原本依赖本机服务的电台重构为可部署的 AI 产品，加入 DeepSeek 结构化推荐、YouTube 歌单和私有音频 |
+| 桌面音乐桥 | 设计 Future Companion，让网易云登录与播放留在用户电脑，本地服务只接受配对后的白名单指令 |
+| 真实设备迭代 | 针对实际播放测试持续修复开场白与歌曲同步、自动换歌、播放器状态、音量曲线、登录过期与 TTS 错误反馈 |
+| 正式发布 | 完成中英文界面、响应式设置、隐私与账号能力、安全头、限流、CI 检查和 Companion 官网直链下载 |
 
-复制 `.dev.vars.example` 为 `.dev.vars`：
+这段演进不是一次性生成页面，而是以“实现 → 真实账号/设备测试 → 复现问题 → 修复 → 回归验证”的方式推进。提交历史保留了从 Cloudflare 首次部署到 Melo 播放链路稳定、BYOK 语音和公开发布准备的完整迭代过程。
 
-```dotenv
-SUPABASE_URL=https://YOUR-PROJECT-REF.supabase.co
-SUPABASE_PUBLISHABLE_KEY=YOUR-SUPABASE-PUBLISHABLE-OR-ANON-KEY
-```
+## What I Built
 
-安装与验证：
+我负责 Future 从产品定义到公开上线的完整闭环，并把 AI Coding 作为工程协作方式，而不是替代产品判断：
 
-```powershell
-npm install
-npm run check
-```
+- **产品设计**：定义信息架构、成长闭环、Melo 交互、双语体验和每轮迭代的验收标准。
+- **AI Coding**：将目标拆成可验证的任务，驱动 AI agent 阅读现有代码、实现功能、补充测试，并对代码与最终体验负责。
+- **真实调试**：使用自己的登录账号、网易云播放环境和语音 API 复现边界问题，持续修复播放时序、状态同步、音量、自动换歌、登录失效和云语音错误。
+- **系统设计**：完成 Supabase 数据隔离、Cloudflare Worker API、浏览器临时 Key、网易云本机桥和多音乐来源之间的职责划分。
+- **上线交付**：配置构建、测试、安全头、速率限制、运行时配置、GitHub 同步和 Cloudflare 部署，并在生产环境完成回归验收。
+- **公开分发**：制作 Future Companion Windows 轻量包、中英文安装指南、校验值和网站内下载入口。
 
-本地联调需要两个终端：
+## Tech Stack
 
-```powershell
-# 终端 1：Cloudflare Worker（端口 8787）
-npm run dev:worker
+| 层级 | 技术 |
+| --- | --- |
+| Frontend | React 18、Vite 8、JavaScript、CSS、PWA、Web Speech API、YouTube IFrame API |
+| Backend / Edge | Cloudflare Workers、Workers Static Assets、Wrangler、Rate Limiting |
+| Data / Auth | Supabase Auth、Postgres、Row Level Security、Realtime、Private Storage |
+| AI | DeepSeek BYOK、Google Chirp 3 HD、MiniMax Speech 2.8 HD、浏览器免费语音 |
+| Local Companion | Node.js、`@music163/ncm-cli`、mpv、localhost pairing |
+| Quality / Ops | ESLint、Node test runner、Vite production build、可选 Sentry、GitHub + Cloudflare Builds |
 
-# 终端 2：Vite（把 /api 转发到 Worker）
-npm run dev
-```
-
-打开 `http://localhost:5173`。登录后进入 Melo 设置，输入自己的 DeepSeek Key，并导入 YouTube / YouTube Music 歌单或上传音频。语音默认无需 Key；选择 Google 或 MiniMax 时再填写相应 Key。所有临时 Key 在关闭标签页、退出登录或删除账号后都会清除。
-
-## 4. 部署到现有 Cloudflare Worker
-
-线上 Worker 名称固定为 `future-planner`，现有地址为：
+## Architecture
 
 ```text
-https://future-planner.claowennie.workers.dev
+Browser / PWA
+  ├─ React product UI
+  ├─ Supabase Auth + user JWT
+  ├─ Supabase database / private audio storage (protected by RLS)
+  ├─ YouTube official embedded player
+  ├─ Browser speechSynthesis (default, free)
+  ├─ Future Companion on 127.0.0.1 (optional NetEase playback)
+  └─ Cloudflare Worker /api/*
+       ├─ validates Supabase identity and same-origin requests
+       ├─ reads user-scoped context through JWT + RLS
+       ├─ validates structured AI output and allowlisted track IDs
+       ├─ forwards DeepSeek requests with the user's temporary Key
+       └─ forwards optional Google / MiniMax TTS requests
 ```
 
-推荐把仓库连接到现有 Worker：Cloudflare Dashboard → Workers & Pages → future-planner → Settings → Builds → Connect。构建设置：
+### Key technical decisions
 
-```text
-Production branch: main
-Build command: npm run build
-Deploy command: npm run deploy:cloudflare
-Root directory: /（仓库根目录就是本项目时也可留空）
-```
+- **BYOK 且短暂保存**：DeepSeek、Google TTS 和 MiniMax Key 只进入当前标签页的 `sessionStorage`，关闭标签页、退出登录或删除账号时清除，不写入 Supabase、Worker 配置、日志或构建产物。
+- **用 RLS 做用户隔离**：Worker 不持有 Supabase `service_role`；数据库与私有音频访问均使用当前用户 JWT，由 Row Level Security 限定范围。
+- **限制 AI 的执行能力**：模型只返回经过 Worker 校验的结构化动作和受限 `trackId`，不能生成任意存储路径、URL 或本机命令。
+- **把本地凭证留在本地**：Future Companion 只监听 `127.0.0.1`，校验网页来源、配对码和动作白名单；网易云 Cookie、Private Key 与音频地址不会交给网站。
+- **运行配置与前端同源**：生产环境通过 `/api/runtime-config.js` 注入 Supabase 公开配置；`/api/*` 与运行配置均禁止缓存。
+- **失败可降级**：云语音失败会退回浏览器免费语音；没有 Companion 时，Supabase 私有曲库和 YouTube 仍可独立工作。
 
-Node 版本由仓库根目录的 `.nvmrc` 固定为 22，不必再添加 `NODE_VERSION`。不使用 Web Push 或 Sentry 时，也不需要任何 Build variables。
-
-现有 future-planner 是纯静态资源 Worker 时，Cloudflare 会禁止在 Worker 设置中添加运行变量。请改在 GitHub Builds 配置页的 Build variables and secrets 中添加以下两项，并把类型选为 Secret：
-
-```text
-SUPABASE_URL=https://YOUR-PROJECT-REF.supabase.co
-SUPABASE_PUBLISHABLE_KEY=YOUR-SUPABASE-PUBLISHABLE-OR-ANON-KEY
-```
-
-`deploy:cloudflare` 会在构建环境的临时目录中生成仅供 Wrangler 使用的 Secrets 文件，把两项配置随 Worker 代码一起部署，并立即删除临时文件。值不会进入仓库、网页 bundle 或构建日志。前端和 Worker 会共享这两个公开配置，但不会保存用户的 DeepSeek / TTS Key。
-
-如需使用命令行而非 GitHub Builds，可执行：
-
-```powershell
-npm run build
-npx wrangler deploy --secrets-file .env.worker
-```
-
-`wrangler.jsonc` 已配置：
-
-- Worker Static Assets 与 SPA fallback
-- `/api/*` 优先进入 Worker
-- 每账号/路由每分钟 20 次电台请求
-- 10% Worker 可观测性采样
-
-不要设置全站缓存规则覆盖 `/api/*`；API 和运行配置响应都带有 `Cache-Control: no-store`。
-
-## 电台 API
+### Radio API
 
 ```text
 GET  /api/radio/health
@@ -140,39 +109,137 @@ POST /api/radio/chat
 POST /api/radio/tts
 ```
 
-所有 POST 接口都要求 Supabase 登录态和同源浏览器请求。DeepSeek 相关接口使用 `X-DeepSeek-Key`，语音接口使用 `X-TTS-Key`：
+所有 POST 请求都要求 Supabase 登录态和同源浏览器请求。DeepSeek 接口使用 `X-DeepSeek-Key`，可选云语音接口使用 `X-TTS-Key`；浏览器默认语音不调用 TTS API。Worker 对电台接口执行每账号/路由每分钟 20 次的速率限制。
 
-- `Authorization: Bearer <Supabase access token>`
-- `X-DeepSeek-Key: <the current user's key>`（`key/test`、`taste/analyze`、`chat`）
-- `X-TTS-Key: <the current user's key>`（`tts`，浏览器免费语音不调用此接口）
-- 与站点同源的浏览器请求
+### Future Companion
 
-生产默认模型是 `deepseek-v4-flash`，可选择 `deepseek-v4-pro`。旧的 `deepseek-chat` / `deepseek-reasoner` 不在允许列表中。
+[下载 Future Companion Windows v0.6.0](https://future-planner.claowennie.workers.dev/downloads/future-companion-windows-v0.6.0.zip) · [查看本机桥设计](./docs/netease-companion.md)
 
-## Future Companion 下载包
+公开 ZIP 包含 Companion 源码、首次安装向导、独立重新登录脚本和中英文 README，不包含 `.future-companion/config.json`、网易云 Cookie、App Private Key、API Key 或用户音频。
 
-公开站点通过 `/downloads/future-companion-windows-v0.6.0.zip` 提供轻量 Windows ZIP。它包含 Companion 源码、首次安装向导、独立重新登录脚本和中英文 README；Node.js、mpv 与官方 `@music163/ncm-cli` 在用户电脑上安装，不打入 ZIP。
+```text
+Size:    16,197 bytes
+SHA-256: FBD89FAFCC97DCAEE1C85CA208E2E982EDC167856242815E1E5209F5AB42A7D0
+```
 
-- 版本：`0.6.0`
-- 大小：`16,197 bytes`
-- SHA-256：`FBD89FAFCC97DCAEE1C85CA208E2E982EDC167856242815E1E5209F5AB42A7D0`
-- 打包内容不包含 `.future-companion/config.json`、网易云 Cookie、App Private Key、API Key 或用户音频
+## Local Development
 
-更新 Companion 源码后需要重新生成 ZIP、更新页面版本与 SHA-256，并确认静态文件仍低于 Cloudflare 单文件限制。
+### Requirements
 
-## 安全与运维检查
+- Node.js 22（仓库要求 `>=22 <25`）
+- npm
+- Supabase project
+- Cloudflare account / Wrangler login（仅在调试或部署 Worker 时需要）
 
-- 不提交 `.env.local`、`.dev.vars`、音频、Cookie 或任何 API Key
-- Supabase `radio.sql` 运行后，用两个普通账号确认曲目与记录互相不可见
-- 在 Cloudflare 日志中不要新增请求头或请求正文日志
-- 自定义域名启用 HTTPS；保留 `public/_headers` 的 CSP 与安全头
-- Sentry 是可选的；未设置 `VITE_SENTRY_DSN` 时完全禁用
-- DeepSeek、Google TTS 与 MiniMax 的费用和限额归 Key 所有者，Cloudflare 侧限流只用于防止误刷与滥用
+### 1. Install and configure
 
-## 与自用版的差异
+```powershell
+git clone https://github.com/claowennie/future-deploy.git
+cd future-deploy
+npm install
+```
 
-部署版不包含 Claude CLI、Express 中枢、Python TTS、本机音乐目录、网易云 Cookie、QQ 音乐登录态或本地配置文件。语音默认使用浏览器 `speechSynthesis`，也可由用户自带 Key 调用 Google Chirp 3 HD 或 MiniMax Speech 2.8 HD；音乐来自当前登录账号的 Supabase 私有曲库、用户导入的 YouTube / YouTube Music 歌单，或可选的本机 companion。
+在 Supabase SQL Editor 中按需执行：
+
+1. [`supabase/radio.sql`](./supabase/radio.sql)：电台资料、曲目、消息、历史、RLS 与私有音频桶
+2. [`supabase/radio-playlist-migration.sql`](./supabase/radio-playlist-migration.sql)：旧版电台表的歌单字段迁移
+3. [`supabase/delete_user.sql`](./supabase/delete_user.sql)：账号自助删除
+4. [`supabase/WEB_PUSH_SETUP.md`](./supabase/WEB_PUSH_SETUP.md)：可选 Web Push
+
+复制前端公开配置：
+
+```powershell
+Copy-Item .env.example .env.local
+```
+
+```dotenv
+VITE_SUPABASE_URL=https://YOUR-PROJECT-REF.supabase.co
+VITE_SUPABASE_PUBLISHABLE_KEY=YOUR-SUPABASE-PUBLISHABLE-OR-ANON-KEY
+VITE_VAPID_PUBLIC_KEY=
+VITE_SENTRY_DSN=
+```
+
+复制 Worker 本地配置：
+
+```powershell
+Copy-Item .dev.vars.example .dev.vars
+```
+
+```dotenv
+SUPABASE_URL=https://YOUR-PROJECT-REF.supabase.co
+SUPABASE_PUBLISHABLE_KEY=YOUR-SUPABASE-PUBLISHABLE-OR-ANON-KEY
+```
+
+所有 `VITE_*` 都会进入浏览器产物，只能填写公开配置。不要在 `.env.local` 或 `.dev.vars` 中保存 DeepSeek / TTS Key、Supabase `service_role` 或 Cloudflare Token。
+
+### 2. Run locally
+
+使用两个终端：
+
+```powershell
+# Terminal 1 · Cloudflare Worker at http://localhost:8787
+npm run dev:worker
+
+# Terminal 2 · Vite at http://localhost:5173
+npm run dev
+```
+
+Vite 会把 `/api` 转发给本地 Worker。打开 `http://localhost:5173`，登录后即可测试完整功能。
+
+### 3. Verify before committing
+
+```powershell
+npm run check
+```
+
+该命令依次执行 ESLint、日期/合并/i18n/Melo/Companion 包测试、Worker 语法检查和生产构建。
+
+## Deployment
+
+正式站点运行在 Cloudflare Worker `future-planner`：
+
+```text
+https://future-planner.claowennie.workers.dev
+```
+
+### GitHub Builds
+
+推荐将本仓库连接到 Cloudflare Workers & Pages：
+
+```text
+Production branch: main
+Build command: npm run build
+Deploy command: npm run deploy:cloudflare
+Root directory: /
+```
+
+在 Build variables and secrets 中配置：
+
+```text
+SUPABASE_URL=https://YOUR-PROJECT-REF.supabase.co
+SUPABASE_PUBLISHABLE_KEY=YOUR-SUPABASE-PUBLISHABLE-OR-ANON-KEY
+```
+
+[`scripts/deploy-cloudflare.mjs`](./scripts/deploy-cloudflare.mjs) 会在构建环境的临时目录中生成 Wrangler Secrets 文件，部署后立即删除；值不会进入 Git 仓库、网页 bundle 或构建日志。
+
+### Manual deploy
+
+```powershell
+npm run check
+npm run deploy
+```
+
+`wrangler.jsonc` 已配置 Static Assets、SPA fallback、`/api/*` Worker 优先、速率限制和 10% 可观测性采样。不要添加覆盖 `/api/*` 的全站缓存规则，并保留 `public/_headers` 中的 CSP 与安全响应头。
+
+## Roadmap
+
+- 发布面向招聘者的两分钟 Demo 视频与精简产品 Case Study。
+- 将 Future Companion 升级为签名安装程序，加入自动更新、依赖检测和可导出的诊断日志。
+- 增加无需自行配置 API Key 的受限体验模式，降低第一次打开 Melo 的门槛。
+- 为 Melo 增加更明确的推荐反馈、队列编辑和长期口味演进能力。
+- 补充关键用户路径的端到端测试、可访问性检查和生产告警。
+- 继续优化移动端、离线能力、Web Push 到达率与跨设备同步冲突体验。
 
 ## License
 
-见 [`LICENSE`](./LICENSE)。
+See [`LICENSE`](./LICENSE).
