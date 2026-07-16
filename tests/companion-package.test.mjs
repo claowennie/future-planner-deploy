@@ -5,8 +5,8 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const filename = 'future-companion-windows-v0.6.0.zip';
-const expectedSha256 = 'FBD89FAFCC97DCAEE1C85CA208E2E982EDC167856242815E1E5209F5AB42A7D0';
+const filename = 'future-companion-windows-v0.6.1.zip';
+const expectedSha256 = '69175828E6A2514051228D15B6B1281C988E2E61C25E4F402604F701851359A5';
 const zipPath = path.join(root, 'public', 'downloads', filename);
 const viewSource = fs.readFileSync(path.join(root, 'src', 'view-radio.jsx'), 'utf8');
 const readme = fs.readFileSync(path.join(root, 'README.md'), 'utf8');

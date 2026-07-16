@@ -2,13 +2,13 @@
 
 Future 是一个把目标、行动、专注、复盘与 AI 音乐陪伴连接成成长闭环的个人成长操作系统。
 
-[在线体验](https://future-planner.claowennie.workers.dev) · [Demo 视频](#demo-video) · [产品介绍](#about-future)
+[在线体验](https://future-planner.claireeek.com) · [Demo 视频](#demo-video) · [产品介绍](#about-future)
 
 ![Future 四季主页与核心工作区](./docs/screenshot-3.png)
 
 <a id="demo-video"></a>
 
-> **Demo 视频正在制作中。** 在两分钟产品演示发布前，请以[线上正式版本](https://future-planner.claowennie.workers.dev)为准。
+> **Demo 视频正在制作中。** 在两分钟产品演示发布前，请以[线上正式版本](https://future-planner.claireeek.com)为准。
 
 ## About Future
 
@@ -113,13 +113,13 @@ POST /api/radio/tts
 
 ### Future Companion
 
-[下载 Future Companion Windows v0.6.0](https://future-planner.claowennie.workers.dev/downloads/future-companion-windows-v0.6.0.zip) · [查看本机桥设计](./docs/netease-companion.md)
+[下载 Future Companion Windows v0.6.1](https://future-planner.claireeek.com/downloads/future-companion-windows-v0.6.1.zip) · [查看本机桥设计](./docs/netease-companion.md)
 
 公开 ZIP 包含 Companion 源码、首次安装向导、独立重新登录脚本和中英文 README，不包含 `.future-companion/config.json`、网易云 Cookie、App Private Key、API Key 或用户音频。
 
 ```text
-Size:    16,197 bytes
-SHA-256: FBD89FAFCC97DCAEE1C85CA208E2E982EDC167856242815E1E5209F5AB42A7D0
+Size:    16,206 bytes
+SHA-256: 69175828E6A2514051228D15B6B1281C988E2E61C25E4F402604F701851359A5
 ```
 
 ## Local Development
@@ -199,7 +199,7 @@ npm run check
 正式站点运行在 Cloudflare Worker `future-planner`：
 
 ```text
-https://future-planner.claowennie.workers.dev
+https://future-planner.claireeek.com
 ```
 
 ### GitHub Builds
@@ -233,12 +233,13 @@ npm run deploy
 
 ## Roadmap
 
-- 发布面向招聘者的两分钟 Demo 视频与精简产品 Case Study。
+- 优化首屏加载、弱网反馈与故障兜底，进一步减少偶发白屏和不可恢复的加载状态。
 - 将 Future Companion 升级为签名安装程序，加入自动更新、依赖检测和可导出的诊断日志。
 - 增加无需自行配置 API Key 的受限体验模式，降低第一次打开 Melo 的门槛。
 - 为 Melo 增加更明确的推荐反馈、队列编辑和长期口味演进能力。
 - 补充关键用户路径的端到端测试、可访问性检查和生产告警。
 - 继续优化移动端、离线能力、Web Push 到达率与跨设备同步冲突体验。
+- 整理两分钟产品演示与迭代 Case Study，清晰呈现核心流程、关键技术决策和真实调试过程。
 
 ## License
 
