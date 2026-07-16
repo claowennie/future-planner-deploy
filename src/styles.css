@@ -3603,7 +3603,11 @@ body.tod-night .growth-stage-days { color: #c4c7bd; }
 .radio-settings-modal {
   width: min(680px, calc(100vw - 28px));
   max-height: min(88vh, 860px);
-  overflow-y: auto;
+  padding: 8px;
+  overflow: hidden;
+}
+.radio-settings-modal > .modal-scroll-body {
+  max-height: calc(min(88vh, 860px) - 16px);
 }
 .radio-settings-modal .auth-label { display: grid; gap: 7px; margin-top: 15px; }
 .radio-settings-modal input,
@@ -3754,6 +3758,7 @@ body.tod-night .growth-stage-days { color: #c4c7bd; }
   .radio-upload-grid { grid-template-columns: 1fr; }
   .radio-companion-grid { grid-template-columns: 1fr; }
   .radio-settings-modal { max-height: 92vh; }
+  .radio-settings-modal > .modal-scroll-body { max-height: calc(92vh - 16px); }
   .radio-recommendation-track { align-items: flex-start; flex-direction: column; gap: 2px; }
   .radio-player-volume { gap: 6px; margin-left: 12px; }
   .radio-player-volume input { width: 64px; }
@@ -4155,9 +4160,69 @@ body.tod-night .account-gear { background: rgba(40, 48, 62, 0.85); border-color:
 .settings-modal {
   max-width: 400px;
   max-height: min(86vh, 760px);
+  padding: 8px;
+  overflow: hidden;
+}
+.settings-modal > .modal-scroll-body {
+  max-height: calc(min(86vh, 760px) - 16px);
+}
+.modal-scroll-body {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 0;
   overflow-y: auto;
   overscroll-behavior: contain;
-  scrollbar-gutter: stable;
+  padding: 24px;
+  border-radius: calc(var(--radius-xl) - 8px);
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in srgb, var(--ink-soft) 52%, transparent) transparent;
+}
+.privacy-body,
+.radio-library-list,
+.radio-taste-playlists,
+.day-modal-list,
+.bkp-list {
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in srgb, var(--ink-soft) 52%, transparent) transparent;
+}
+.modal-scroll-body::-webkit-scrollbar,
+.privacy-body::-webkit-scrollbar,
+.radio-library-list::-webkit-scrollbar,
+.radio-taste-playlists::-webkit-scrollbar,
+.day-modal-list::-webkit-scrollbar,
+.bkp-list::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.modal-scroll-body::-webkit-scrollbar-track,
+.privacy-body::-webkit-scrollbar-track,
+.radio-library-list::-webkit-scrollbar-track,
+.radio-taste-playlists::-webkit-scrollbar-track,
+.day-modal-list::-webkit-scrollbar-track,
+.bkp-list::-webkit-scrollbar-track {
+  background: transparent;
+  margin-block: 10px;
+}
+.modal-scroll-body::-webkit-scrollbar-thumb,
+.privacy-body::-webkit-scrollbar-thumb,
+.radio-library-list::-webkit-scrollbar-thumb,
+.radio-taste-playlists::-webkit-scrollbar-thumb,
+.day-modal-list::-webkit-scrollbar-thumb,
+.bkp-list::-webkit-scrollbar-thumb {
+  min-height: 36px;
+  border: 2px solid transparent;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--ink-soft) 52%, transparent);
+  background-clip: padding-box;
+}
+.modal-scroll-body::-webkit-scrollbar-thumb:hover,
+.privacy-body::-webkit-scrollbar-thumb:hover,
+.radio-library-list::-webkit-scrollbar-thumb:hover,
+.radio-taste-playlists::-webkit-scrollbar-thumb:hover,
+.day-modal-list::-webkit-scrollbar-thumb:hover,
+.bkp-list::-webkit-scrollbar-thumb:hover {
+  background: color-mix(in srgb, var(--ink-dim) 68%, transparent);
+  background-clip: padding-box;
 }
 .set-section { margin-bottom: 18px; }
 .set-section:last-child { margin-bottom: 4px; }

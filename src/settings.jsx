@@ -217,48 +217,50 @@ function SettingsModal({ open, onClose, signedIn }) {
     <div className="auth-overlay" onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}>
       <div className="auth-modal settings-modal">
         <button className="auth-close" onClick={onClose}>×</button>
-        <div className="auth-head">
-          <div className="auth-title serif">{t('settings.title')}</div>
-          <div className="auth-sub">{t('settings.sub')}</div>
-        </div>
-
-        <div className="set-section">
-          <div className="set-label">{t('settings.langLabel')}</div>
-          <div className="set-row">
-            <button className={`btn btn-ghost set-btn ${getLocale() === 'zh' ? 'set-active' : ''}`}
-              onClick={() => setLocale('zh')}>中文</button>
-            <button className={`btn btn-ghost set-btn ${getLocale() === 'en' ? 'set-active' : ''}`}
-              onClick={() => setLocale('en')}>English</button>
+        <div className="modal-scroll-body">
+          <div className="auth-head">
+            <div className="auth-title serif">{t('settings.title')}</div>
+            <div className="auth-sub">{t('settings.sub')}</div>
           </div>
-        </div>
 
-        <NotifSettings signedIn={signedIn} />
-
-        <div className="set-section">
-          <div className="set-label">{t('settings.dataLabel')}</div>
-          <DataBackupButtons />
-          <div className="set-row">
-            <button className="btn btn-ghost set-btn" onClick={openRestore}>{t('settings.restoreBackup')}</button>
-            <button className="btn btn-ghost set-btn" onClick={loadSample}>{t('settings.loadSample')}</button>
-            <button className="btn btn-ghost set-btn set-danger" onClick={clearLocal}>{t('settings.clearLocal')}</button>
+          <div className="set-section">
+            <div className="set-label">{t('settings.langLabel')}</div>
+            <div className="set-row">
+              <button className={`btn btn-ghost set-btn ${getLocale() === 'zh' ? 'set-active' : ''}`}
+                onClick={() => setLocale('zh')}>中文</button>
+              <button className={`btn btn-ghost set-btn ${getLocale() === 'en' ? 'set-active' : ''}`}
+                onClick={() => setLocale('en')}>English</button>
+            </div>
           </div>
-        </div>
 
-        <div className="set-section">
-          <div className="set-label">{t('settings.privacyLabel')}</div>
-          <div className="set-row">
-            <button className="btn btn-ghost set-btn" onClick={openPrivacy}>{t('settings.privacyPolicy')}</button>
-            {signedIn && (
-              <button className="btn btn-ghost set-btn" onClick={() => { onClose(); signOutAndClear(); }}>
-                {t('account.signOutBtn')}
+          <NotifSettings signedIn={signedIn} />
+
+          <div className="set-section">
+            <div className="set-label">{t('settings.dataLabel')}</div>
+            <DataBackupButtons />
+            <div className="set-row">
+              <button className="btn btn-ghost set-btn" onClick={openRestore}>{t('settings.restoreBackup')}</button>
+              <button className="btn btn-ghost set-btn" onClick={loadSample}>{t('settings.loadSample')}</button>
+              <button className="btn btn-ghost set-btn set-danger" onClick={clearLocal}>{t('settings.clearLocal')}</button>
+            </div>
+          </div>
+
+          <div className="set-section">
+            <div className="set-label">{t('settings.privacyLabel')}</div>
+            <div className="set-row">
+              <button className="btn btn-ghost set-btn" onClick={openPrivacy}>{t('settings.privacyPolicy')}</button>
+              {signedIn && (
+                <button className="btn btn-ghost set-btn" onClick={() => { onClose(); signOutAndClear(); }}>
+                  {t('account.signOutBtn')}
+                </button>
+              )}
+              <button className="btn btn-ghost set-btn set-danger"
+                onClick={() => { onClose(); deleteAccount(); }}>
+                {t('settings.deleteAccount')}
               </button>
-            )}
-            <button className="btn btn-ghost set-btn set-danger"
-              onClick={() => { onClose(); deleteAccount(); }}>
-              {t('settings.deleteAccount')}
-            </button>
+            </div>
+            <div className="set-hint">{t('settings.hint')}</div>
           </div>
-          <div className="set-hint">{t('settings.hint')}</div>
         </div>
       </div>
 

@@ -466,6 +466,7 @@ function RadioSettings({
     <div className="auth-overlay" onClick={(event) => { if (event.target === event.currentTarget) onClose(); }}>
       <div className="auth-modal radio-settings-modal">
         <button className="auth-close" onClick={onClose} aria-label={copy('close')}>×</button>
+        <div className="modal-scroll-body">
         <div className="auth-head">
           <div className="auth-title serif">{copy('settingsTitle')}</div>
           <div className="auth-sub">{copy('settingsSub')}</div>
@@ -587,6 +588,7 @@ function RadioSettings({
         <button className="btn btn-primary auth-submit" onClick={save} disabled={busy || !user || !!playlistError}>
           {copy(busy ? 'processing' : file ? 'saveUpload' : 'saveSettings')}
         </button>
+        </div>
       </div>
     </div>
   );
