@@ -94,16 +94,20 @@ function hexToBase64(hex) {
   return btoa(binary);
 }
 
-function upstreamError(message, status = 502) {
+function upstreamError(message, status = 502, providerCode = 0) {
   const detail = String(message || '');
-  const invalidKey = status === 401 || status === 403
-    || /api.?key|permission|credential|unauth|鉴权|密钥/i.test(detail);
+  const invalidKey = status === 401 || status === 403 || [1004, 2049].includes(providerCode)
+    || /api.?key|token|permission|credential|unauth|authorization|鉴权|密钥/i.test(detail);
   if (invalidKey) return new TtsError('语音 API Key 无效或没有调用权限', 401, 'tts_key_invalid');
-  if (status === 402 || status === 429
+  if (status === 402 || [1008, 2056].includes(providerCode)
     || /balance|credit|quota|insufficient|recharge|billing|subscription|余额|额度|欠费|充值|点数/i.test(detail)) {
     return new TtsError('语音账户没有可用额度', 402, 'tts_quota_exhausted');
   }
-  if (/model|voice|parameter|not support|unsupported|模型|音色|参数|不支持/i.test(detail)) {
+  if (status === 429 || [1002, 2045].includes(providerCode)) {
+    return new TtsError('语音请求过于频繁，请稍后再试', 429, 'tts_rate_limited');
+  }
+  if ([2013, 20132, 2042].includes(providerCode)
+    || /model|voice|parameter|not support|unsupported|模型|音色|参数|不支持/i.test(detail)) {
     return new TtsError('当前语音模型或声线不可用', 422, 'tts_configuration_invalid');
   }
   return new TtsError('语音服务暂时不可用，请稍后再试', 502, 'tts_upstream_error');
@@ -114,7 +118,7 @@ async function upstreamJson(response) {
   const message = payload?.error?.message || payload?.base_resp?.status_msg || '';
   if (!response.ok) throw upstreamError(message, response.status);
   const providerStatus = Number(payload?.base_resp?.status_code || 0);
-  if (providerStatus !== 0) throw upstreamError(message, 502);
+  if (providerStatus !== 0) throw upstreamError(message, 502, providerStatus);
   return payload;
 }
 

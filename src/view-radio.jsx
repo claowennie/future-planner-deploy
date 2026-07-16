@@ -55,7 +55,7 @@ const MELO_COPY = {
     chineseVoice: '中文声线', englishVoice: '英文声线', browserVoiceAuto: '浏览器将自动选择中英文最佳可用声线。',
     testVoice: '试听声音', testingVoice: '正在生成试听…', voiceTested: '试听成功，保存设置后 Melo 将使用这套声音。',
     voiceKeyRequired: '请先填写当前语音服务的 API Key。', voiceKeyCleared: '当前语音服务的 Key 已清除。', voiceKeyInvalid: 'API Key 无效或没有语音调用权限。',
-    voiceQuota: 'MiniMax 账户没有可用的语音额度。请确认余额、Token Plan 及当前 Key 类型。', voiceConfigInvalid: '当前模型或声线不可用，请检查账号区域后重试。',
+    voiceQuota: 'MiniMax 账户没有可用的语音额度。请确认余额、Token Plan 及当前 Key 类型。', voiceRateLimited: 'MiniMax 请求过于频繁，请稍后再试听。', voiceConfigInvalid: '当前模型或声线不可用，请检查账号区域后重试。',
     voiceUnavailable: '暂时无法生成云端语音，请检查接口区域、额度或网络后重试。',
     showKey: '显示', hideKey: '隐藏', clearVoiceKey: '清除语音 Key', voiceSample: '你好，我是 Melo。接下来，让我们一起听一首适合此刻的歌。',
     tasteTitle: '我的音乐口味', tasteNote: '从你自己的歌单提取歌名与歌手，让 DS 分析语言比例、常听歌手和曲风。不会上传音频、Cookie 或登录凭证。',
@@ -103,7 +103,7 @@ const MELO_COPY = {
     chineseVoice: 'Chinese voice', englishVoice: 'English voice', browserVoiceAuto: 'The browser will automatically choose the best available Chinese and English voices.',
     testVoice: 'Test voice', testingVoice: 'Generating a voice sample…', voiceTested: 'Voice test successful. Save settings to use it for Melo.',
     voiceKeyRequired: 'Enter an API key for the selected voice provider first.', voiceKeyCleared: 'The selected voice provider key was cleared.', voiceKeyInvalid: 'The API key is invalid or does not have permission to use text-to-speech.',
-    voiceQuota: 'This MiniMax account has no available speech credits. Check the balance, Token Plan, and key type.', voiceConfigInvalid: 'The selected model or voice is unavailable. Check the account region and try again.',
+    voiceQuota: 'This MiniMax account has no available speech credits. Check the balance, Token Plan, and key type.', voiceRateLimited: 'MiniMax is receiving too many requests. Wait a moment and test again.', voiceConfigInvalid: 'The selected model or voice is unavailable. Check the account region and try again.',
     voiceUnavailable: 'Cloud speech could not be generated. Check the API region, quota, or connection and try again.',
     showKey: 'Show', hideKey: 'Hide', clearVoiceKey: 'Clear voice key', voiceSample: 'Hi, I’m Melo. Let’s listen to a song that fits this moment.',
     tasteTitle: 'My music taste', tasteNote: 'Read track and artist names from your playlists so DS can analyze languages, favorite artists, and styles. Audio, cookies, and sign-in credentials are never uploaded.',
@@ -1062,6 +1062,7 @@ function RadioView() {
         throw new Error(copy(error.code === 'tts_key_required' ? 'voiceKeyRequired' : 'voiceKeyInvalid'));
       }
       if (error.code === 'tts_quota_exhausted') throw new Error(copy('voiceQuota'));
+      if (error.code === 'tts_rate_limited') throw new Error(copy('voiceRateLimited'));
       if (error.code === 'tts_configuration_invalid') throw new Error(copy('voiceConfigInvalid'));
       throw new Error(copy('voiceUnavailable'));
     }
