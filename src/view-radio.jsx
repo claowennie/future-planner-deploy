@@ -42,6 +42,8 @@ import {
 const { useState: _us, useEffect: _ue, useRef: _ur } = React;
 const MUSIC_VOLUME = 0.55;
 const COMPANION_VOLUME_KEY = 'future_companion_volume';
+const COMPANION_DOWNLOAD_PATH = '/downloads/future-companion-windows-v0.6.0.zip';
+const COMPANION_DOWNLOAD_SHA256 = 'FBD89FAFCC97DCAEE1C85CA208E2E982EDC167856242815E1E5209F5AB42A7D0';
 let youtubeApiPromise = null;
 
 const MELO_COPY = {
@@ -65,6 +67,13 @@ const MELO_COPY = {
     sourceA: '方式 A · 导入在线歌单', sourceANote: '支持 YouTube 与 YouTube Music 的公开或不公开歌单链接。', recognized: '已识别',
     playlistPlaceholder: '粘贴 youtube.com 或 music.youtube.com 的歌单链接', youtubeAuthNote: '账号登录由 YouTube 官方页面完成；如需登录，请点“在 YouTube 打开”完成后返回。本站不会收到你的 YouTube 密码。私人歌单暂不支持。',
     sourceB: '方式 B · 网易云桌面桥', sourceBNote: '可选功能。音乐与登录凭证都留在你的电脑；网站只发送白名单播放指令。',
+    companionDownloadTitle: '下载 Future Companion', companionDownloadNote: 'Windows 10/11 · v0.6.0 · 16 KB 轻量安装包', companionDownload: '下载 Windows ZIP',
+    companionGuide: '安装与配对指南', companionRequirements: '安装前准备', companionNode: 'Node.js 18+', companionMpv: 'mpv 播放器', companionNcm: '网易云 CLI 配置说明',
+    companionStep1: '下载 ZIP 并完整解压，不要直接在压缩包预览窗口里运行。', companionStep2: '先安装 Node.js 18+ 与 mpv，再双击 setup-companion.cmd。',
+    companionStep3: '按终端提示填写网易云开放平台 App ID 与 Private Key，并用网易云音乐 App 扫码登录。', companionStep4: '双击 start-companion.cmd，保持终端窗口开启，复制窗口中的本机配对码。',
+    companionStep5: '把配对码粘贴到下方，地址保持默认，然后点击“测试本机桥”。', companionRelogin: '登录过期时：关闭 Companion，双击 login-companion.cmd 重新扫码，再重新启动。',
+    companionSecurity: '安全说明：服务只监听本机 127.0.0.1；登录凭证和音频不会上传。配对码仅保存在当前标签页。',
+    companionSmartScreen: 'Windows 可能提示 SmartScreen。请先确认文件来自 Future 官方网站；需要继续时选择“更多信息 → 仍要运行”。', companionChecksum: 'SHA-256：{hash}',
     connected: '已连接', checking: '连接中', disconnected: '未连接', companionPlaceholder: '粘贴 future-companion 显示的本机配对码',
     testCompanion: '测试本机桥', disconnect: '断开', companionNote: '配对码只保存在当前标签页，不会上传到 Supabase、DeepSeek 或 Cloudflare。',
     sourceC: '方式 C · 上传私有音频', sourceCNote: '音频直接上传到你的 Supabase 私有存储，单曲不超过 30 MB。',
@@ -113,6 +122,13 @@ const MELO_COPY = {
     sourceA: 'Option A · Import an online playlist', sourceANote: 'Supports public and unlisted YouTube or YouTube Music playlist links.', recognized: 'Recognized',
     playlistPlaceholder: 'Paste a youtube.com or music.youtube.com playlist link', youtubeAuthNote: 'YouTube sign-in happens on the official YouTube page. If needed, choose “Open in YouTube,” sign in, then return. This site never receives your YouTube password. Private playlists are not supported yet.',
     sourceB: 'Option B · NetEase desktop companion', sourceBNote: 'Optional. Music and sign-in credentials stay on your computer; the site sends allowlisted playback commands only.',
+    companionDownloadTitle: 'Download Future Companion', companionDownloadNote: 'Windows 10/11 · v0.6.0 · 16 KB lightweight package', companionDownload: 'Download Windows ZIP',
+    companionGuide: 'Setup & pairing guide', companionRequirements: 'Before you start', companionNode: 'Node.js 18+', companionMpv: 'mpv player', companionNcm: 'NetEase CLI setup',
+    companionStep1: 'Download and fully extract the ZIP. Do not run it from inside the ZIP preview.', companionStep2: 'Install Node.js 18+ and mpv, then double-click setup-companion.cmd.',
+    companionStep3: 'Enter your NetEase Open Platform App ID and Private Key when prompted, then scan the QR code with the NetEase app.', companionStep4: 'Double-click start-companion.cmd, keep the terminal open, and copy its local pairing code.',
+    companionStep5: 'Paste the code below, keep the default address, then choose “Test companion.”', companionRelogin: 'If sign-in expires: close Companion, run login-companion.cmd, scan again, and restart it.',
+    companionSecurity: 'Security: the service listens only on local 127.0.0.1. Credentials and audio are not uploaded, and the pairing code stays in this tab.',
+    companionSmartScreen: 'Windows may show SmartScreen. First confirm the file came from the official Future site; to continue, choose “More info → Run anyway.”', companionChecksum: 'SHA-256: {hash}',
     connected: 'Connected', checking: 'Connecting', disconnected: 'Not connected', companionPlaceholder: 'Paste the pairing code shown by future-companion',
     testCompanion: 'Test companion', disconnect: 'Disconnect', companionNote: 'The pairing code stays in this tab and is never uploaded to Supabase, DeepSeek, or Cloudflare.',
     sourceC: 'Option C · Upload private audio', sourceCNote: 'Audio uploads directly to your private Supabase storage. Maximum 30 MB per track.',
@@ -771,6 +787,41 @@ function RadioSettings({
           <span className={companionStatus === 'online' ? 'radio-source-ready' : ''}>
             {copy(companionStatus === 'online' ? 'connected' : companionStatus === 'checking' ? 'checking' : 'disconnected')}
           </span>
+        </div>
+        <div className="radio-companion-download">
+          <div className="radio-companion-download-head">
+            <div>
+              <strong>{copy('companionDownloadTitle')}</strong>
+              <span>{copy('companionDownloadNote')}</span>
+            </div>
+            <a className="btn btn-primary" href={COMPANION_DOWNLOAD_PATH} download>
+              {copy('companionDownload')}
+            </a>
+          </div>
+          <details className="radio-companion-guide">
+            <summary>{copy('companionGuide')}</summary>
+            <div className="radio-companion-guide-body">
+              <div className="radio-companion-requirements">
+                <b>{copy('companionRequirements')}</b>
+                <span>
+                  <a href="https://nodejs.org/en/download" target="_blank" rel="noreferrer">{copy('companionNode')} ↗</a>
+                  <a href="https://mpv.io/installation/" target="_blank" rel="noreferrer">{copy('companionMpv')} ↗</a>
+                  <a href="https://www.npmjs.com/package/@music163/ncm-cli" target="_blank" rel="noreferrer">{copy('companionNcm')} ↗</a>
+                </span>
+              </div>
+              <ol>
+                <li>{copy('companionStep1')}</li>
+                <li>{copy('companionStep2')}</li>
+                <li>{copy('companionStep3')}</li>
+                <li>{copy('companionStep4')}</li>
+                <li>{copy('companionStep5')}</li>
+              </ol>
+              <p>{copy('companionRelogin')}</p>
+              <p className="radio-companion-security">{copy('companionSecurity')}</p>
+              <p>{copy('companionSmartScreen')}</p>
+              <code>{copy('companionChecksum', { hash: COMPANION_DOWNLOAD_SHA256 })}</code>
+            </div>
+          </details>
         </div>
         <div className="radio-companion-grid">
           <input value={companionUrl} onChange={(event) => setCompanionUrl(event.target.value)}

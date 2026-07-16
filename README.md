@@ -8,6 +8,7 @@
 - DeepSeek 与语音 Key 只保存在当前标签页的 `sessionStorage`，关闭标签页、退出登录或删除账号时清除，不写入 Supabase 或 Worker 配置
 - 可导入 YouTube / YouTube Music 公开或不公开歌单，也可把私有音频上传到 Supabase Storage
 - Melo 支持浏览器免费语音、Google Chirp 3 HD 与 MiniMax Speech 2.8 HD；YouTube 官方播放器负责在线歌单播放
+- Melo 设置内提供 Windows 版 Future Companion 直接下载与中英文安装、配对、重新登录说明
 
 原目录 `future.v2` 不参与本项目的构建或部署。
 
@@ -147,6 +148,17 @@ POST /api/radio/tts
 - 与站点同源的浏览器请求
 
 生产默认模型是 `deepseek-v4-flash`，可选择 `deepseek-v4-pro`。旧的 `deepseek-chat` / `deepseek-reasoner` 不在允许列表中。
+
+## Future Companion 下载包
+
+公开站点通过 `/downloads/future-companion-windows-v0.6.0.zip` 提供轻量 Windows ZIP。它包含 Companion 源码、首次安装向导、独立重新登录脚本和中英文 README；Node.js、mpv 与官方 `@music163/ncm-cli` 在用户电脑上安装，不打入 ZIP。
+
+- 版本：`0.6.0`
+- 大小：`16,197 bytes`
+- SHA-256：`FBD89FAFCC97DCAEE1C85CA208E2E982EDC167856242815E1E5209F5AB42A7D0`
+- 打包内容不包含 `.future-companion/config.json`、网易云 Cookie、App Private Key、API Key 或用户音频
+
+更新 Companion 源码后需要重新生成 ZIP、更新页面版本与 SHA-256，并确认静态文件仍低于 Cloudflare 单文件限制。
 
 ## 安全与运维检查
 
