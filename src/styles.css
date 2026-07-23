@@ -4325,6 +4325,8 @@ body.tod-night .set-btn.set-danger:hover { background: rgba(178, 92, 76, 0.18); 
 .feedback-modal {
   width: min(440px, calc(100vw - 28px));
   max-width: 440px;
+  max-height: min(90vh, 760px);
+  overflow-y: auto;
 }
 .survey-modal {
   width: min(540px, calc(100vw - 28px));
@@ -4398,7 +4400,7 @@ body.tod-night .set-btn.set-danger:hover { background: rgba(178, 92, 76, 0.18); 
 .feedback-question textarea {
   box-sizing: border-box;
   width: 100%;
-  min-height: 82px;
+  min-height: 66px;
   resize: vertical;
   padding: 11px 12px 24px;
   border: 1px solid var(--line);
@@ -4408,6 +4410,20 @@ body.tod-night .set-btn.set-danger:hover { background: rgba(178, 92, 76, 0.18); 
   font: inherit;
   font-size: 13px;
   line-height: 1.55;
+}
+.feedback-progressive {
+  animation: feedback-reveal 180ms ease-out both;
+}
+.feedback-message textarea {
+  animation: feedback-expand 180ms ease-out both;
+}
+@keyframes feedback-reveal {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes feedback-expand {
+  from { min-height: 42px; }
+  to { min-height: 66px; }
 }
 .feedback-question textarea:focus { border-color: var(--accent); }
 .feedback-question textarea::placeholder { color: var(--ink-soft); }
@@ -4420,12 +4436,14 @@ body.tod-night .set-btn.set-danger:hover { background: rgba(178, 92, 76, 0.18); 
 }
 .feedback-privacy {
   margin-top: 14px;
-  padding: 9px 11px;
-  border-radius: 9px;
-  background: color-mix(in srgb, var(--accent-soft) 56%, transparent);
-  color: var(--ink-soft);
-  font-size: 10.5px;
+  color: var(--ink-2);
+  font-size: 11px;
   line-height: 1.55;
+}
+.feedback-privacy::before {
+  content: 'ⓘ';
+  margin-right: 5px;
+  color: var(--accent-ink);
 }
 .feedback-submit { width: 100%; margin-top: 16px; }
 .feedback-actions {

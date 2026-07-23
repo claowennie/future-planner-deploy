@@ -47,10 +47,17 @@ function ChoiceList({ values, selected, onSelect, multiple = false }) {
 
 function FeedbackModal({ initial, onClose }) {
   const [feedbackType, setFeedbackType] = useState(initial.feedbackType);
+  const [completionStatus, setCompletionStatus] = useState('');
   const [message, setMessage] = useState('');
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState('');
   const types = tArr('feedback.types');
+  const completionOptions = tArr('feedback.completionOptions');
+  const selectedType = types.find((item) => item.value === feedbackType);
+  const messageRequired = feedbackType === 'other';
+  const complete = feedbackType
+    && completionStatus
+    && (!messageRequired || message.trim());
 
   useEffect(() => {
     const onKey = (event) => { if (event.key === 'Escape' && !busy) onClose(); };
@@ -60,13 +67,14 @@ function FeedbackModal({ initial, onClose }) {
 
   const submit = async (event) => {
     event.preventDefault();
-    if (!feedbackType || busy) return;
+    if (!complete || busy) return;
     setBusy(true);
     setError('');
     try {
       await submitFeedback({
         feedbackType,
         pageName: initial.pageName,
+        completionStatus,
         message,
       });
       onClose('submitted');
@@ -92,23 +100,46 @@ function FeedbackModal({ initial, onClose }) {
 
         <div className="feedback-question">
           <div className="feedback-label">{t('feedback.typeLabel')}</div>
-          <ChoiceList values={types} selected={feedbackType} onSelect={setFeedbackType} />
+          <ChoiceList
+            values={types}
+            selected={feedbackType}
+            onSelect={(value) => {
+              setFeedbackType(value);
+              setMessage('');
+            }}
+          />
         </div>
 
-        <label className="feedback-question">
-          <span className="feedback-label">{t('feedback.messageLabel')}</span>
-          <textarea
-            value={message}
-            maxLength={MESSAGE_LIMIT}
-            onChange={(event) => setMessage(event.target.value)}
-            placeholder={t('feedback.messagePlaceholder')}
-          />
-          <span className="feedback-count">{Array.from(message).length}/{MESSAGE_LIMIT}</span>
-        </label>
+        {feedbackType && (
+          <div className="feedback-progressive">
+            <div className="feedback-question">
+              <div className="feedback-label">{t('feedback.completionLabel')}</div>
+              <ChoiceList
+                values={completionOptions}
+                selected={completionStatus}
+                onSelect={setCompletionStatus}
+              />
+            </div>
+
+            <label className="feedback-question feedback-message">
+              <span className="feedback-label">
+                {messageRequired ? t('feedback.messageRequired') : t('feedback.messageOptional')}
+              </span>
+              <textarea
+                value={message}
+                required={messageRequired}
+                maxLength={MESSAGE_LIMIT}
+                onChange={(event) => setMessage(event.target.value)}
+                placeholder={selectedType?.placeholder || t('feedback.messagePlaceholder')}
+              />
+              <span className="feedback-count">{Array.from(message).length}/{MESSAGE_LIMIT}</span>
+            </label>
+          </div>
+        )}
 
         <div className="feedback-privacy">{t('feedback.privacy')}</div>
         {error && <div className="auth-err">{error}</div>}
-        <button className="btn btn-primary feedback-submit" type="submit" disabled={!feedbackType || busy}>
+        <button className="btn btn-primary feedback-submit" type="submit" disabled={!complete || busy}>
           {busy ? t('feedback.submitting') : t('feedback.submit')}
         </button>
       </form>

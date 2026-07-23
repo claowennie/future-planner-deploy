@@ -1,10 +1,16 @@
 const FEEDBACK_TYPES = new Set([
   'feature_broken',
   'cannot_find',
+  'unclear_next_step',
   'cumbersome',
-  'previous_tool_better',
   'other',
 ]);
+const COMPLETION_STATUSES = new Set([
+  'completed',
+  'completed_with_effort',
+  'not_completed',
+]);
+const DEVICE_TYPES = new Set(['mobile', 'tablet', 'desktop', 'unknown']);
 
 const PAGE_NAMES = new Set([
   'today',
@@ -86,20 +92,47 @@ function exactKeys(body, allowed) {
 }
 
 function validateFeedback(body) {
-  exactKeys(body, new Set(['feedback_type', 'page_name', 'message_optional', 'anonymous_test_id']));
+  exactKeys(body, new Set([
+    'feedback_type',
+    'page_name',
+    'completion_status',
+    'message_optional',
+    'anonymous_test_id',
+    'app_version',
+    'device_type',
+  ]));
   const feedbackType = String(body.feedback_type || '');
   const pageName = String(body.page_name || '');
+  const completionStatus = String(body.completion_status || '');
+  const appVersion = String(body.app_version || '').trim();
+  const deviceType = String(body.device_type || '');
   if (!FEEDBACK_TYPES.has(feedbackType)) {
     throw new FeedbackError('请选择反馈类型', 422, 'feedback_type_invalid');
   }
   if (!PAGE_NAMES.has(pageName)) {
     throw new FeedbackError('页面名称无效', 422, 'page_name_invalid');
   }
+  if (!COMPLETION_STATUSES.has(completionStatus)) {
+    throw new FeedbackError('请选择最后是否完成', 422, 'completion_status_invalid');
+  }
+  if (!appVersion || textLength(appVersion) > 40) {
+    throw new FeedbackError('网站版本无效', 422, 'app_version_invalid');
+  }
+  if (!DEVICE_TYPES.has(deviceType)) {
+    throw new FeedbackError('设备类型无效', 422, 'device_type_invalid');
+  }
+  const message = optionalMessage(body.message_optional);
+  if (feedbackType === 'other' && !message) {
+    throw new FeedbackError('选择“其他”时请简单补充一句', 422, 'message_required');
+  }
   return {
     feedback_type: feedbackType,
     page_name: pageName,
-    message_optional: optionalMessage(body.message_optional),
+    completion_status: completionStatus,
+    message_optional: message,
     anonymous_test_id: anonymousId(body.anonymous_test_id),
+    app_version: appVersion,
+    device_type: deviceType,
   };
 }
 

@@ -21,29 +21,51 @@ const anonymousId = '550e8400-e29b-41d4-a716-446655440000';
 assert.deepEqual(validateFeedback({
   feedback_type: 'cannot_find',
   page_name: 'week',
+  completion_status: 'not_completed',
   message_optional: '周计划入口在哪里？',
   anonymous_test_id: anonymousId,
+  app_version: '3.1.0',
+  device_type: 'desktop',
 }), {
   feedback_type: 'cannot_find',
   page_name: 'week',
+  completion_status: 'not_completed',
   message_optional: '周计划入口在哪里？',
   anonymous_test_id: anonymousId,
+  app_version: '3.1.0',
+  device_type: 'desktop',
 });
 
 assert.throws(() => validateFeedback({
   feedback_type: 'other',
   page_name: 'today',
+  completion_status: 'completed',
   message_optional: '',
   anonymous_test_id: anonymousId,
+  app_version: '3.1.0',
+  device_type: 'mobile',
   task_content: 'private',
 }), (error) => error instanceof FeedbackError && error.code === 'feedback_extra_fields');
 
 assert.throws(() => validateFeedback({
   feedback_type: 'other',
   page_name: 'today',
+  completion_status: 'completed',
   message_optional: '长'.repeat(101),
   anonymous_test_id: anonymousId,
+  app_version: '3.1.0',
+  device_type: 'mobile',
 }), (error) => error.code === 'message_optional_too_long');
+
+assert.throws(() => validateFeedback({
+  feedback_type: 'other',
+  page_name: 'today',
+  completion_status: 'completed',
+  message_optional: '',
+  anonymous_test_id: anonymousId,
+  app_version: '3.1.0',
+  device_type: 'mobile',
+}), (error) => error.code === 'message_required');
 
 assert.deepEqual(validateSurvey({
   usage_days: '3-4',
@@ -95,15 +117,16 @@ assert.match(memory.get(SURVEY_STATE_KEY), /skipped/);
 delete globalThis.localStorage;
 
 const digest = buildFeedbackDigest([
-  { feedback_type: 'feature_broken', page_name: 'today' },
-  { feedback_type: 'feature_broken', page_name: 'today' },
-  { feedback_type: 'cannot_find', page_name: 'week' },
+  { feedback_type: 'feature_broken', page_name: 'today', completion_status: 'not_completed' },
+  { feedback_type: 'feature_broken', page_name: 'today', completion_status: 'not_completed' },
+  { feedback_type: 'cannot_find', page_name: 'week', completion_status: 'completed_with_effort' },
 ], [
   { reopen_intent: 'yes' },
   { reopen_intent: 'unsure' },
 ], new Date('2026-07-23T01:00:00Z'));
 assert.match(digest.subject, /Future 用户反馈周报/);
-assert.match(digest.text, /功能出错：2/);
+assert.match(digest.text, /页面出错／没有反应：2/);
+assert.match(digest.text, /没完成：2/);
 assert.match(digest.text, /会：1/);
 assert.doesNotMatch(digest.text, /message_optional/);
 
@@ -124,8 +147,11 @@ const response = await feedbackWorker.fetch(
     body: JSON.stringify({
       feedback_type: 'cumbersome',
       page_name: 'radio',
+      completion_status: 'completed_with_effort',
       message_optional: '配置步骤有点多',
       anonymous_test_id: anonymousId,
+      app_version: '3.1.0',
+      device_type: 'desktop',
     }),
   }),
   {
@@ -140,5 +166,8 @@ globalThis.fetch = originalFetch;
 assert.equal(response.status, 201);
 assert.equal(storedBody.message_optional, '配置步骤有点多');
 assert.equal(storedBody.anonymous_test_id, anonymousId);
+assert.equal(storedBody.completion_status, 'completed_with_effort');
+assert.equal(storedBody.app_version, '3.1.0');
+assert.equal(storedBody.device_type, 'desktop');
 
 console.log('feedback.test: all passed\n');

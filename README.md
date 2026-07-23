@@ -146,6 +146,7 @@ npm install
 3. [`supabase/delete_user.sql`](./supabase/delete_user.sql)：账号自助删除
 4. [`supabase/WEB_PUSH_SETUP.md`](./supabase/WEB_PUSH_SETUP.md)：可选 Web Push
 5. [`supabase/feedback.sql`](./supabase/feedback.sql)：匿名产品反馈、第 7 天问卷、RLS 与最近 7 天汇总视图
+6. [`supabase/feedback-v2.sql`](./supabase/feedback-v2.sql)：已有项目升级即时反馈的完成状态、网站版本和设备大类字段
 
 复制前端公开配置：
 

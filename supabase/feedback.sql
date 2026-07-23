@@ -8,8 +8,8 @@ create table if not exists public.feedback (
   feedback_type text not null check (feedback_type in (
     'feature_broken',
     'cannot_find',
+    'unclear_next_step',
     'cumbersome',
-    'previous_tool_better',
     'other'
   )),
   page_name text not null check (page_name in (
@@ -23,10 +23,22 @@ create table if not exists public.feedback (
     'settings',
     'unknown'
   )),
+  completion_status text not null check (completion_status in (
+    'completed',
+    'completed_with_effort',
+    'not_completed'
+  )),
   message_optional text check (
     message_optional is null or char_length(message_optional) <= 100
   ),
   anonymous_test_id uuid not null,
+  app_version text not null check (char_length(app_version) between 1 and 40),
+  device_type text not null check (device_type in (
+    'mobile',
+    'tablet',
+    'desktop',
+    'unknown'
+  )),
   created_at timestamptz not null default now()
 );
 
@@ -76,6 +88,8 @@ create index if not exists feedback_created_at_idx
   on public.feedback (created_at desc);
 create index if not exists feedback_type_page_idx
   on public.feedback (feedback_type, page_name, created_at desc);
+create index if not exists feedback_completion_idx
+  on public.feedback (completion_status, created_at desc);
 create index if not exists feedback_anonymous_test_idx
   on public.feedback (anonymous_test_id, created_at desc);
 create index if not exists day7_survey_created_at_idx
@@ -94,18 +108,20 @@ grant all on table public.day7_survey to service_role;
 grant usage, select on sequence public.feedback_id_seq to service_role;
 grant usage, select on sequence public.day7_survey_id_seq to service_role;
 
-create or replace view public.feedback_weekly_summary
+drop view if exists public.feedback_weekly_summary;
+create view public.feedback_weekly_summary
 with (security_invoker = true)
 as
 select
   feedback_type,
   page_name,
+  completion_status,
   count(*)::bigint as report_count,
   count(distinct anonymous_test_id)::bigint as unique_testers
 from public.feedback
 where created_at >= now() - interval '7 days'
-group by feedback_type, page_name
-order by report_count desc, feedback_type, page_name;
+group by feedback_type, page_name, completion_status
+order by report_count desc, feedback_type, page_name, completion_status;
 
 create or replace view public.day7_survey_weekly_summary
 with (security_invoker = true)

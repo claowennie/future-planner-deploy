@@ -1,10 +1,14 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import pkg from './package.json' with { type: 'json' };
 
 // 开发时 Vite 跑在 5173，Cloudflare Worker 跑在 8787。
 // 浏览器始终请求同源 /api，生产与本地不需要两套地址。
 export default defineConfig({
   plugins: [react()],
+  define: {
+    __APP_VERSION__: JSON.stringify(pkg.version),
+  },
   server: {
     strictPort: true,
     proxy: {

@@ -6,6 +6,15 @@ const PAGE_NAMES = new Set([
   'today', 'week', 'month', 'year', 'journal', 'notes', 'radio', 'settings', 'unknown',
 ]);
 
+function deviceType() {
+  if (typeof window === 'undefined') return 'unknown';
+  const width = Number(window.innerWidth || 0);
+  const touch = Number(navigator.maxTouchPoints || 0) > 0;
+  if (width > 0 && width <= 767) return 'mobile';
+  if (touch && width > 0 && width <= 1180) return 'tablet';
+  return width > 0 ? 'desktop' : 'unknown';
+}
+
 function localDateString(date = new Date()) {
   const year = date.getFullYear();
   const month = String(date.getMonth() + 1).padStart(2, '0');
@@ -98,12 +107,20 @@ async function postFeedback(path, payload) {
   }
 }
 
-function submitFeedback({ feedbackType, pageName, message }) {
+function submitFeedback({
+  feedbackType,
+  pageName,
+  completionStatus,
+  message,
+}) {
   return postFeedback('/api/feedback', {
     feedback_type: feedbackType,
     page_name: PAGE_NAMES.has(pageName) ? pageName : 'unknown',
+    completion_status: completionStatus,
     message_optional: String(message || '').trim(),
     anonymous_test_id: getAnonymousTestId(),
+    app_version: typeof __APP_VERSION__ === 'string' ? __APP_VERSION__ : 'unknown',
+    device_type: deviceType(),
   });
 }
 
@@ -123,6 +140,7 @@ export {
   ID_KEY,
   SURVEY_STATE_KEY,
   currentFeedbackPage,
+  deviceType,
   ensureFirstSeen,
   getAnonymousTestId,
   getSurveyState,
