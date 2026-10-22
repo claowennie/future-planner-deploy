@@ -22,6 +22,7 @@ Future 不是另一个只记录任务的 Todo List。它把年度目标、月度
 
 | 模块 | 能做什么 |
 | --- | --- |
+| AI 每日规划 | 结合长期目标、当天精力与最近完成情况，自动提出一个有且仅有一项主任务的弹性日计划，并支持 Minimum Day 与重新规划 |
 | 分层规划 | 年度 OKR、月度主题、每周拆解、今日待办与重复任务形成同一条执行链路 |
 | 专注与习惯 | 番茄钟、环境音、习惯打卡、连续天数和成长树共同提供即时反馈 |
 | 记录与复盘 | 五件好事、每日 Reflection、成功日记和卡片式随手笔记沉淀过程 |
@@ -68,7 +69,7 @@ Future 不是另一个只记录任务的 Todo List。它把年度目标、月度
 | Frontend | React 18、Vite 8、JavaScript、CSS、PWA、Web Speech API、YouTube IFrame API |
 | Backend / Edge | Cloudflare Workers、Workers Static Assets、Wrangler、Rate Limiting |
 | Data / Auth | Supabase Auth、Postgres、Row Level Security、Realtime、Private Storage |
-| AI | DeepSeek BYOK、Google Chirp 3 HD、MiniMax Speech 2.8 HD、浏览器免费语音 |
+| AI | DeepSeek（AI Planner 服务端调用 + Melo BYOK）、Google Chirp 3 HD、MiniMax Speech 2.8 HD、浏览器免费语音 |
 | Local Companion | Node.js、`@music163/ncm-cli`、mpv、localhost pairing |
 | Quality / Ops | ESLint、Node test runner、Vite production build、可选 Sentry、GitHub + Cloudflare Builds |
 
@@ -85,6 +86,7 @@ Browser / PWA
   └─ Cloudflare Worker /api/*
        ├─ validates Supabase identity and same-origin requests
        ├─ reads user-scoped context through JWT + RLS
+       ├─ creates versioned AI Daily Plans with server-side structured-output validation
        ├─ validates structured AI output and allowlisted track IDs
        ├─ forwards DeepSeek requests with the user's temporary Key
        └─ forwards optional Google / MiniMax TTS requests
@@ -92,8 +94,9 @@ Browser / PWA
 
 ### Key technical decisions
 
-- **BYOK 且短暂保存**：DeepSeek、Google TTS 和 MiniMax Key 只进入当前标签页的 `sessionStorage`，关闭标签页、退出登录或删除账号时清除，不写入 Supabase、Worker 配置、日志或构建产物。
-- **用 RLS 做用户隔离**：Worker 不持有 Supabase `service_role`；数据库与私有音频访问均使用当前用户 JWT，由 Row Level Security 限定范围。
+- **Melo BYOK 且短暂保存**：Melo 的 DeepSeek、Google TTS 和 MiniMax Key 只进入当前标签页的 `sessionStorage`，关闭标签页、退出登录或删除账号时清除，不写入 Supabase、Worker 配置、日志或构建产物。
+- **Planner 服务端密钥**：AI Daily Planner 使用 Worker 端的独立 DeepSeek Key；浏览器只提交轻量 check-in，目标、历史和规划档案由 Worker 使用用户 JWT 经 RLS 读取，服务端密钥不会进入前端。
+- **用 RLS 做用户隔离**：规划、电台与私有音频的数据访问使用当前用户 JWT，由 Row Level Security 限定范围；服务端管理密钥仅用于反馈等专用后台功能，不参与用户规划数据访问。
 - **限制 AI 的执行能力**：模型只返回经过 Worker 校验的结构化动作和受限 `trackId`，不能生成任意存储路径、URL 或本机命令。
 - **把本地凭证留在本地**：Future Companion 只监听 `127.0.0.1`，校验网页来源、配对码和动作白名单；网易云 Cookie、Private Key 与音频地址不会交给网站。
 - **运行配置与前端同源**：生产环境通过 `/api/runtime-config.js` 注入 Supabase 公开配置；`/api/*` 与运行配置均禁止缓存。
@@ -110,6 +113,15 @@ POST /api/radio/tts
 ```
 
 所有 POST 请求都要求 Supabase 登录态和同源浏览器请求。DeepSeek 接口使用 `X-DeepSeek-Key`，可选云语音接口使用 `X-TTS-Key`；浏览器默认语音不调用 TTS API。Worker 对电台接口执行每账号/路由每分钟 20 次的速率限制。
+
+### AI Daily Planner API
+
+```text
+POST /api/planner/generate
+POST /api/planner/replan
+```
+
+两个接口都要求 Supabase 登录态。Worker 读取 `planner_profiles`、最近 7 天 `daily_plans` 和现有 `planner_data` 中的 OKR/待办，要求 DeepSeek 返回结构化 JSON，并在服务端校验“一项主任务、弹性时段、合理负荷和 Minimum Day”。无效输出重试一次，仍无效则保存保守的个性化 fallback；重新规划会新增版本而不是覆盖旧版本。
 
 ### Future Companion
 
@@ -147,6 +159,7 @@ npm install
 4. [`supabase/WEB_PUSH_SETUP.md`](./supabase/WEB_PUSH_SETUP.md)：可选 Web Push
 5. [`supabase/feedback.sql`](./supabase/feedback.sql)：匿名产品反馈、第 7 天问卷、RLS 与最近 7 天汇总视图
 6. [`supabase/feedback-v2.sql`](./supabase/feedback-v2.sql)：已有项目升级即时反馈的完成状态、网站版本和设备大类字段
+7. [`supabase/ai-daily-planner.sql`](./supabase/ai-daily-planner.sql)：AI Planner 档案、版本化日计划、索引与用户级 RLS
 
 复制前端公开配置：
 
@@ -171,6 +184,8 @@ Copy-Item .dev.vars.example .dev.vars
 SUPABASE_URL=https://YOUR-PROJECT-REF.supabase.co
 SUPABASE_PUBLISHABLE_KEY=YOUR-SUPABASE-PUBLISHABLE-OR-ANON-KEY
 SUPABASE_SERVICE_ROLE_KEY=YOUR-SUPABASE-SECRET-OR-SERVICE-ROLE-KEY
+DEEPSEEK_API_KEY=YOUR-PLANNER-SERVER-KEY
+PLANNER_MODEL=deepseek-flash
 
 # 可选：每周一 09:00（台北时间）发送只含数量的反馈摘要
 RESEND_API_KEY=
@@ -178,7 +193,7 @@ FEEDBACK_DIGEST_TO=
 FEEDBACK_DIGEST_FROM=Future Feedback <feedback@YOUR-VERIFIED-DOMAIN>
 ```
 
-所有 `VITE_*` 都会进入浏览器产物，只能填写公开配置。`SUPABASE_SERVICE_ROLE_KEY` 只能放在不会提交的 `.dev.vars` 或 Cloudflare Secret 中，绝不能放进 `.env.local`、前端变量或仓库。DeepSeek / TTS Key 仍由用户在浏览器会话中临时提供。
+所有 `VITE_*` 都会进入浏览器产物，只能填写公开配置。`SUPABASE_SERVICE_ROLE_KEY` 与 Planner 的 `DEEPSEEK_API_KEY` 只能放在不会提交的 `.dev.vars` 或 Cloudflare Secret 中，绝不能放进 `.env.local`、前端变量或仓库。Melo 的 DeepSeek / TTS Key 仍由用户在浏览器会话中临时提供。
 
 ### 2. Run locally
 
@@ -227,6 +242,8 @@ Root directory: /
 SUPABASE_URL=https://YOUR-PROJECT-REF.supabase.co
 SUPABASE_PUBLISHABLE_KEY=YOUR-SUPABASE-PUBLISHABLE-OR-ANON-KEY
 SUPABASE_SERVICE_ROLE_KEY=YOUR-SUPABASE-SECRET-OR-SERVICE-ROLE-KEY
+DEEPSEEK_API_KEY=YOUR-PLANNER-SERVER-KEY
+PLANNER_MODEL=deepseek-flash
 
 # 可选周报邮件
 RESEND_API_KEY=YOUR-RESEND-KEY

@@ -20,7 +20,9 @@ const candidates = [
 console.log('radio.test:');
 
 assert.equal(normalizeModel('deepseek-v4-pro'), 'deepseek-v4-pro');
-assert.equal(normalizeModel('deepseek-chat'), 'deepseek-v4-flash');
+assert.equal(normalizeModel('deepseek-chat'), 'deepseek-flash');
+assert.equal(normalizeModel('deepseek-v4-flash'), 'deepseek-flash');
+assert.equal(normalizeModel('deepseek-flash'), 'deepseek-flash');
 assert.equal(validateTastePayload({ taste: 'Mostly English indie pop.' }), 'Mostly English indie pop.');
 assert.throws(() => validateTastePayload({ taste: '' }), RadioOutputError);
 

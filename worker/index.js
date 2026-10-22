@@ -7,6 +7,7 @@ import {
   FeedbackError, insertDay7Survey, insertFeedback,
 } from './feedback.js';
 import { sendFeedbackDigest } from './feedback-digest.js';
+import { generatePlannerDay, PlannerError } from './planner.js';
 import {
   bearerToken,
   loadRadioContext,
@@ -100,7 +101,8 @@ function errorResponse(error) {
     error instanceof DeepSeekError ||
     error instanceof SupabaseError ||
     error instanceof TtsError ||
-    error instanceof FeedbackError
+    error instanceof FeedbackError ||
+    error instanceof PlannerError
   ) {
     return json({ error: error.message, code: error.code }, error.status);
   }
@@ -141,6 +143,13 @@ async function handleApi(request, env, ctx) {
   const user = await verifySupabaseUser(env, token);
   await rateLimit(env, user.id, url.pathname);
   const body = await requestBody(request);
+
+  if (url.pathname === '/api/planner/generate' || url.pathname === '/api/planner/replan') {
+    const result = await generatePlannerDay(env, token, user.id, body, {
+      replan: url.pathname.endsWith('/replan'),
+    });
+    return json({ plan: result.row, source: result.source }, result.source === 'existing' ? 200 : 201);
+  }
 
   if (url.pathname === `${API_PREFIX}/tts`) {
     return json(await synthesizeTts({

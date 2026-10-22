@@ -1,5 +1,5 @@
 // 生产环境优先读取同源 Worker 注入的公开配置；VITE_* 仅作为本地开发后备。
-// DeepSeek API key 永远不属于站点配置，由每位登录用户在当前标签页中自行输入。
+// Public config never contains AI keys: Melo uses tab-scoped BYOK; the planner uses a private Worker secret.
 const runtime = window.__FUTURE_PUBLIC_CONFIG__ || {};
 const url = String(runtime.supabaseUrl || import.meta.env.VITE_SUPABASE_URL || '').trim();
 const key = String(

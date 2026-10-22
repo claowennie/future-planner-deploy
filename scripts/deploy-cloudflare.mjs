@@ -4,7 +4,9 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 
 const required = ['SUPABASE_URL', 'SUPABASE_PUBLISHABLE_KEY', 'SUPABASE_SERVICE_ROLE_KEY'];
-const optional = ['RESEND_API_KEY', 'FEEDBACK_DIGEST_TO', 'FEEDBACK_DIGEST_FROM'];
+// Wrangler preserves existing runtime secrets when deploying with --secrets-file.
+// Supply the planner key here only when initially configuring or rotating it.
+const optional = ['DEEPSEEK_API_KEY', 'PLANNER_MODEL', 'RESEND_API_KEY', 'FEEDBACK_DIGEST_TO', 'FEEDBACK_DIGEST_FROM'];
 const missing = required.filter((name) => !String(process.env[name] || '').trim());
 
 if (missing.length) {

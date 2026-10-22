@@ -10,12 +10,37 @@ Last updated: 2026-10-22 (Asia/Taipei)
 - GitHub: <https://github.com/claowennie/future-deploy>
 - Production Worker: `future-planner`
 - Current branch: `main`
-- Latest product change: Melo NetEase playback repair and Companion v0.6.3 (this release).
-- Latest verified Worker version: `7bac018b-bed6-4157-917a-b4ff3de06497`
+- Latest product change: AI Daily Planner v1, released with app version 3.2.0. Melo Companion remains v0.6.3.
+- Latest verified Worker version: `3682dd05-b254-435b-9b04-a5c6fd829e4c`
 - Public contact: `claowennie@gmail.com`
-- Local AI Daily Planner changes remain uncommitted and are excluded from the Melo hotfix release.
+- AI Daily Planner migration, Worker secret, production deployment, and authenticated end-to-end verification are complete.
 
-The product is live. The next product-facing milestone is preparing the short demonstration video, after confirming the Supabase Auth production URL settings described below.
+The product is live. AI Daily Planner v1 is available on Today after signing in: save a planning profile, answer the daily check-in, then click to generate a plan. Generation is user-triggered; no scheduled daily generation or notification is enabled.
+
+## AI Daily Planner v1 (production, 2026-10-22)
+
+- Adds a lightweight, reusable planning profile for priorities, interests, planning style, rhythm, and typical activities.
+- Adds a 10–20 second daily check-in for energy, available time, day style, and optional must-do.
+- Reads existing OKRs/todos from `planner_data` plus the latest seven days of planner history on the Worker; the browser never sends hidden user context.
+- Generates exactly one Main Task and a humane set of Explore / Learn / Move / Read / Enjoy items in flexible dayparts.
+- Validates structured JSON server-side, retries invalid output once, and persists a conservative personalized fallback if the second output is invalid.
+- Supports immediate completion persistence, a non-judgmental Minimum Day, and versioned replanning without overwriting earlier plan rows.
+- New database migration: `supabase/ai-daily-planner.sql` (`planner_profiles`, `daily_plans`, indexes, grants, RLS).
+- New Worker routes: `POST /api/planner/generate` and `POST /api/planner/replan`.
+- Planner AI uses the Worker-side `DEEPSEEK_API_KEY`; Melo remains user BYOK. These are intentionally separate product/security decisions.
+- Full release checks pass. Production browser verification with temporary accounts covered profile creation, live AI generation, completion persistence after reload, Minimum Day persistence, versioned live AI replanning, Chinese defaults, saved English UI, and 390px mobile layout. A second account could neither read nor update the first account’s plans or impersonate its profile. Anonymous generation returned 401. Test accounts and cascading planner data were deleted afterward.
+
+## Daily Planner release verification (2026-10-22)
+
+- Full `npm run check` passed: lint, all test suites, Worker syntax checks, and production build.
+- DeepSeek model discovery confirmed `deepseek-flash`; legacy flash aliases now normalize to that supported model. A live synthetic generation passed the planner contract.
+- Chinese profile options and item labels are localized. Plan completion saves are serialized, disabled while pending, and roll back visibly on failure. Calendar-date validation rejects invalid dates; recent history respects Minimum Day completion.
+- Applied the transactional migration for `planner_profiles` and `daily_plans`, grants, and RLS; read-back confirmed both tables exist. Supabase CLI temporary metadata is ignored by Git.
+- Supabase reported a Management API incident affecting dashboard login at 19:32 Asia/Taipei. The initial CLI login attempt was stopped. After dashboard recovery, the user completed CLI authorization and the migration succeeded. No Supabase login configuration was changed.
+- Deployed with `npm run deploy`; official home and runtime config return 200. The final Worker version is `3682dd05-b254-435b-9b04-a5c6fd829e4c`.
+- Production screenshots exposed JSONB object-key reordering. The UI now explicitly orders morning, afternoon, evening, and night; regression and production browser checks cover the database round trip.
+- Cloudflare Build deployment accepts the planner key as an optional supplied secret and preserves the existing runtime secret. Set it once before enabling the planner, or supply it when rotating.
+- Local verification artifacts are ignored under `.wrangler/`: `planner-production-qa-result.json`, desktop/mobile screenshots, and release check/deploy logs. The QA helper uses temporary account credentials in memory and cleans up its accounts.
 
 ## Product positioning
 
@@ -146,7 +171,7 @@ Core stack: React, Vite, JavaScript, CSS, PWA, Cloudflare Workers and Static Ass
 - Setup/login verification now exits unsuccessfully when the CLI reports `success: false`, even if the CLI process exits with code 0. Search execution errors are preserved when every search fails.
 - Browser command requests allow 180 seconds for native login/search/queue/play steps; connection checks keep the 12-second deadline.
 - Companion regression coverage includes upgrade notices, malformed JSON, failed login verification, and the deferred search-to-play flow using a fixture CLI. After reauthentication, real CLI playback and Companion HTTP playback were both verified: the player reported playing, a nonzero duration, and advancing position. Test audio was stopped/paused afterward.
-- Verification: all 11 Companion tests and both working-tree/release `npm run check` passed. Deployed with `npm run deploy`; custom-domain home/runtime config return 200, and the production v0.6.3 ZIP hash matches the package below. Browser UI automation was unavailable. The local v0.6.3 bridge is running, and authenticated requests carrying the official website Origin successfully exercised health, resume, advancing playback state, and pause. Some tracks are explicitly unavailable through the NetEase API even when signed in; matching continues to respect playFlag/visible and exact artists.
+- Verification: all 11 Companion tests and both working-tree/release `npm run check` passed. Deployed with `npm run deploy`; custom-domain home/runtime config return 200, and the production v0.6.3 ZIP hash matches the package below. Browser UI automation was unavailable. The local v0.6.3 bridge was subsequently stopped at the user?s request (port 45731 released); before stopping it, and authenticated requests carrying the official website Origin successfully exercised health, resume, advancing playback state, and pause. Some tracks are explicitly unavailable through the NetEase API even when signed in; matching continues to respect playFlag/visible and exact artists.
 - Release is built from the committed baseline plus only the Melo fix. Existing local AI Daily Planner work is preserved and is not part of this release.
 
 ## Future Companion release

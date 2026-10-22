@@ -4,6 +4,7 @@ import { Icon, TodoRows, TodoAdd, GhostTodo, hasNoTodosAtAll } from './component
 import { primeAlert, ringPhaseEnd, playChime, SOUND_OFF_KEY } from './pomo-alert.js';
 import { appConfirm } from './modal.jsx';
 import { t, tArr, weekdayFull } from './i18n.js';
+import { AIPlanner } from './ai-planner.jsx';
 
 // ===== Inline-editable name (click to edit) =====
 function NameEditor() {
@@ -172,6 +173,8 @@ const TodayView = () => {
         </div>
         <window.SelfNote />
       </div>
+
+      <AIPlanner />
 
       <WeekReviewPrompt />
 

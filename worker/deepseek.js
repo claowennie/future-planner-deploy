@@ -1,5 +1,5 @@
 const DEEPSEEK_URL = 'https://api.deepseek.com/chat/completions';
-const ALLOWED_MODELS = new Set(['deepseek-v4-flash', 'deepseek-v4-pro']);
+const ALLOWED_MODELS = new Set(['deepseek-flash', 'deepseek-v4-pro']);
 const PLAYLIST_ACTIONS = new Set(['none', 'play', 'pause', 'next', 'previous', 'shuffle']);
 const COMPANION_ACTIONS = new Set([
   'none', 'play_daily', 'search_and_play', 'pause', 'resume', 'stop', 'next', 'previous',
@@ -23,7 +23,8 @@ export class RadioOutputError extends Error {
 }
 
 export function normalizeModel(model) {
-  return ALLOWED_MODELS.has(model) ? model : 'deepseek-v4-flash';
+  // Saved legacy Flash identifiers continue to resolve to the current API model.
+  return ALLOWED_MODELS.has(model) ? model : 'deepseek-flash';
 }
 
 function parseContent(content) {
