@@ -2,7 +2,7 @@
 
 > Persistent handoff for future Codex sessions. Read this file together with the latest Git status and commit history before continuing.
 
-Last updated: 2026-07-17 (Asia/Taipei)
+Last updated: 2026-10-22 (Asia/Taipei)
 
 ## Resume snapshot
 
@@ -10,10 +10,10 @@ Last updated: 2026-07-17 (Asia/Taipei)
 - GitHub: <https://github.com/claowennie/future-deploy>
 - Production Worker: `future-planner`
 - Current branch: `main`
-- Latest product change before this handoff: `dd7f1bb` — `Rename Chinese product title`
-- Latest verified Worker version: `661bf07f-83b8-4c20-b0d6-968265bbd8df`
+- Latest product change: Melo NetEase playback repair and Companion v0.6.3 (this release).
+- Latest verified Worker version: `7bac018b-bed6-4157-917a-b4ff3de06497`
 - Public contact: `claowennie@gmail.com`
-- Working tree was clean when this handoff was created.
+- Local AI Daily Planner changes remain uncommitted and are excluded from the Melo hotfix release.
 
 The product is live. The next product-facing milestone is preparing the short demonstration video, after confirming the Supabase Auth production URL settings described below.
 
@@ -105,7 +105,7 @@ Core stack: React, Vite, JavaScript, CSS, PWA, Cloudflare Workers and Static Ass
 - User rows and private audio are isolated with Supabase RLS.
 - Browser and cloud TTS receive only the text required for synthesis.
 - Future Companion accepts only paired, allowlisted commands and keeps NetEase credentials/audio local.
-- The old `workers.dev` origin is retained in Companion v0.6.2 only for migration compatibility.
+- The old `workers.dev` origin is retained in Companion v0.6.3 only for migration compatibility.
 
 ## Completed iteration history
 
@@ -140,20 +140,29 @@ Core stack: React, Vite, JavaScript, CSS, PWA, Cloudflare Workers and Static Ass
 - Updated canonical metadata, Open Graph URL/title, README links, deployment docs, and GitHub repository Website.
 - Changed the default UI from browser-language detection to Chinese-first while preserving saved English preferences.
 
+## Melo playback repair (2026-10-22)
+
+- Companion v0.6.3 accepts CLI upgrade notices before/after JSON. The installed ncm-cli 0.1.6 prints its 0.1.7 update notice on stdout, which previously broke login checks and player state parsing.
+- Setup/login verification now exits unsuccessfully when the CLI reports `success: false`, even if the CLI process exits with code 0. Search execution errors are preserved when every search fails.
+- Browser command requests allow 180 seconds for native login/search/queue/play steps; connection checks keep the 12-second deadline.
+- Companion regression coverage includes upgrade notices, malformed JSON, failed login verification, and the deferred search-to-play flow using a fixture CLI. Real playback still requires an authenticated local NetEase session; the inspected local session was signed out.
+- Verification: all 11 Companion tests and both working-tree/release `npm run check` passed. Deployed with `npm run deploy`; custom-domain home/runtime config return 200, and the production v0.6.3 ZIP hash matches the package below. Browser UI automation was unavailable; real authenticated audio playback remains to be checked after NetEase sign-in.
+- Release is built from the committed baseline plus only the Melo fix. Existing local AI Daily Planner work is preserved and is not part of this release.
+
 ## Future Companion release
 
-Current public release: `v0.6.2`
+Current public release: `v0.6.3`
 
 Download:
 
-<https://future-planner.claireeek.com/downloads/future-companion-windows-v0.6.2.zip>
+<https://future-planner.claireeek.com/downloads/future-companion-windows-v0.6.3.zip>
 
 ```text
-Size:    15,615 bytes
-SHA-256: 0F608BEEAFAB4BCD3F11ABE2993C6A2A2318D329628C57FD08DBAA29A76880AE
+Size:    19,223 bytes
+SHA-256: 8153B8149BA1A8B40118598A43CE57F63DBDBDF00524A55E85C56F862D7533C8
 ```
 
-Default allowed website origins in v0.6.2:
+Default allowed website origins in v0.6.3:
 
 ```text
 https://future-planner.claireeek.com
@@ -162,7 +171,7 @@ http://localhost:5173
 http://127.0.0.1:5173
 ```
 
-Users running v0.6.0 must download v0.6.2 before connecting from the custom domain, because v0.6.0 does not allow the new origin.
+Users on v0.6.2 or earlier should upgrade to v0.6.3 for CLI output compatibility. v0.6.0 also lacks the custom-domain origin. Existing local users can keep their pairing configuration, then run login-companion.cmd and restart Companion.
 
 When releasing another Companion version:
 

@@ -91,7 +91,7 @@ export function clearCompanionConfig() {
   } catch { /* ignore */ }
 }
 
-async function companionRequest(path, config, { method = 'GET', body } = {}) {
+async function companionRequest(path, config, { method = 'GET', body, timeoutMs = 12000 } = {}) {
   const { url, token } = setCompanionConfig(config);
   let response;
   try {
@@ -107,7 +107,7 @@ async function companionRequest(path, config, { method = 'GET', body } = {}) {
         ...(body === undefined ? {} : { 'Content-Type': 'application/json' }),
       },
       body: body === undefined ? undefined : JSON.stringify(body),
-      signal: AbortSignal.timeout(12000),
+      signal: AbortSignal.timeout(timeoutMs),
     });
   } catch (error) {
     if (error?.name === 'TimeoutError') throw new Error('本机桥响应超时');
@@ -129,6 +129,9 @@ export function getCompanionState(config) {
 export function sendCompanionCommand(config, action, query = '', queries = [], options = {}) {
   return companionRequest('/command', config, {
     method: 'POST',
+    // Login, search, queue preparation and mpv startup each need time to finish.
+    // A premature abort loses the prepared queue before play_index can run.
+    timeoutMs: 180000,
     body: {
       action,
       query: String(query || '').trim().slice(0, 120),

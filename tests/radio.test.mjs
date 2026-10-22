@@ -8,7 +8,7 @@ import { parseYouTubePlaylistUrl } from '../src/radio-client.js';
 import { clearTtsKeys, normalizeTtsConfig, ttsVoiceForLanguage } from '../src/tts-client.js';
 import {
   isCompanionTrackNearEnd, mapCompanionVolumeToPlayback, markCompanionPlaybackStarted,
-  normalizeCompanionVolume,
+  normalizeCompanionVolume, checkCompanion, sendCompanionCommand,
 } from '../src/companion-client.js';
 import { buildTtsRequest, synthesizeTts, ttsApiKey } from '../worker/tts.js';
 
@@ -317,5 +317,34 @@ const configResponse = await radioWorker.fetch(
 assert.equal(configResponse.status, 200);
 assert.equal(configResponse.headers.get('cache-control'), 'no-store');
 assert.match(await configResponse.text(), /https:\/\/project\.supabase\.co/);
+
+// Reproduce slow native queue preparation: command requests must outlive the
+// former 12-second connection deadline, while health checks still fail fast.
+const originalCompanionFetch = globalThis.fetch;
+const originalCompanionTimeout = AbortSignal.timeout;
+const companionTimeouts = [];
+try {
+  AbortSignal.timeout = (ms) => {
+    companionTimeouts.push(ms);
+    return new AbortController().signal;
+  };
+  globalThis.fetch = async (url, options) => {
+    assert.equal(options.credentials, 'omit');
+    if (url.endsWith('/health')) return Response.json({ ok: true });
+    const body = JSON.parse(options.body);
+    assert.equal(body.action, 'search_and_play');
+    assert.equal(body.deferPlayback, true);
+    return Response.json({ ok: true, tracks: [{ name: 'Song', artists: ['Artist'] }] });
+  };
+  const config = { url: 'http://127.0.0.1:45731', token: 'test-only-pairing-code-123456' };
+  assert.equal((await checkCompanion(config)).ok, true);
+  const result = await sendCompanionCommand(config, 'search_and_play', 'Song', [], { deferPlayback: true });
+  assert.equal(result.tracks[0].name, 'Song');
+  assert.equal(companionTimeouts[0], 12000);
+  assert.ok(companionTimeouts[1] >= 120000, 'native login/search/queue steps need more than 12 seconds');
+} finally {
+  globalThis.fetch = originalCompanionFetch;
+  AbortSignal.timeout = originalCompanionTimeout;
+}
 
 console.log('radio.test: all passed\n');
