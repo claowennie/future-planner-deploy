@@ -174,13 +174,13 @@ const TodayView = () => {
         <window.SelfNote />
       </div>
 
-      <AIPlanner />
-
       <WeekReviewPrompt />
 
       <window.GrowthStatusPill streak={store.overallStreak} />
 
       <OkrStrip />
+
+      <AIPlanner />
 
       <div className="grid grid-today">
         {/* Todos — spans across both rows on left */}

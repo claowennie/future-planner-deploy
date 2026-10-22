@@ -1,7 +1,9 @@
 import assert from 'node:assert/strict';
 import { buildPlannerPrompt, fallbackPlan, generatePlannerDay, validatePlannerInput } from '../worker/planner.js';
 import { planItems, validateDailyPlan } from '../worker/planner-schema.js';
-import { orderedPlanSections, setPlanMode, togglePlanItem } from '../src/planner-plan.js';
+import {
+  orderedPlanSections, planProgress, setPlanMode, setPlanReview, togglePlanItem,
+} from '../src/planner-plan.js';
 
 const date = '2026-08-22';
 const input = {
@@ -48,6 +50,18 @@ const completedPlan = togglePlanItem(valid, 'main-1');
 assert.equal(completedPlan.mainTask.completed, true);
 assert.equal(valid.mainTask.completed, false);
 assert.equal(setPlanMode(completedPlan, 'minimum').activeMode, 'minimum');
+assert.deepEqual(planProgress(completedPlan), { completed: 1, total: 6 });
+assert.deepEqual(planProgress(setPlanMode(completedPlan, 'minimum')), { completed: 0, total: 3 });
+
+// End-of-day review snapshots progress and ignores unknown feelings.
+const reviewedPlan = setPlanReview(completedPlan, { feeling: 'too_much', note: `  ${'n'.repeat(300)} ` }, new Date('2026-08-22T21:00:00Z'));
+assert.equal(reviewedPlan.review.feeling, 'too_much');
+assert.equal(reviewedPlan.review.note.length, 240);
+assert.equal(reviewedPlan.review.completed, 1);
+assert.equal(reviewedPlan.review.total, 6);
+assert.equal(reviewedPlan.review.reviewedAt, '2026-08-22T21:00:00.000Z');
+assert.equal(completedPlan.review, undefined);
+assert.equal(setPlanReview(completedPlan, { feeling: 'great' }), completedPlan);
 
 assert.throws(() => validateDailyPlan({
   ...valid,
@@ -98,6 +112,7 @@ const aiPayload = {
   },
 };
 let inserted = null;
+let capturedPrompt = '';
 globalThis.fetch = async (url, options = {}) => {
   const target = String(url);
   if (target.includes('/rest/v1/planner_profiles')) return Response.json([{
@@ -107,13 +122,19 @@ globalThis.fetch = async (url, options = {}) => {
   if (target.includes('/rest/v1/planner_data')) return Response.json([{ data: {
     okrs: [{ id: 'goal-1', name: 'Build a personal AI product', aim: 'Ship a useful first version', krs: [] }],
     todos: { [date]: [{ id: 'task-1', text: input.mustDo, done: false, okrId: 'goal-1' }] },
+    reflection: { '2026-08-21': 'Felt scattered after lunch.', [date]: 'Future reflection', '2026-08-20': '   ' },
   } }]);
-  if (target.includes('/rest/v1/daily_plans') && (options.method || 'GET') === 'GET') return Response.json([]);
+  if (target.includes('/rest/v1/daily_plans') && (options.method || 'GET') === 'GET') return Response.json([
+    { id: 'yesterday', date: '2026-08-21', day_type: 'balanced', version: 1, plan_json: { ...reviewedPlan, date: '2026-08-21', review: { ...reviewedPlan.review, note: 'Too many errands' } } },
+  ]);
   if (target.includes('/rest/v1/daily_plans') && options.method === 'POST') {
     inserted = JSON.parse(options.body);
     return Response.json([{ id: 'plan-row', ...inserted }]);
   }
-  if (target.includes('api.deepseek.com')) return Response.json({ choices: [{ message: { content: JSON.stringify(aiPayload) } }] });
+  if (target.includes('api.deepseek.com')) {
+    capturedPrompt = JSON.parse(options.body).messages[1].content;
+    return Response.json({ choices: [{ message: { content: JSON.stringify(aiPayload) } }] });
+  }
   throw new Error(`Unexpected URL ${target}`);
 };
 const generated = await generatePlannerDay({
@@ -121,6 +142,10 @@ const generated = await generatePlannerDay({
   DEEPSEEK_API_KEY: 'x'.repeat(32), PLANNER_MODEL: 'deepseek-flash',
 }, 'user-token', 'user-1', input);
 assert.equal(generated.source, 'ai');
+assert.match(capturedPrompt, /"completed":"1\/6"/);
+assert.match(capturedPrompt, /"review":\{"feeling":"too_much","note":"Too many errands"\}/);
+assert.match(capturedPrompt, /"reflections":\[\{"date":"2026-08-21","text":"Felt scattered after lunch."\}\]/);
+assert.doesNotMatch(capturedPrompt, /Future reflection/);
 assert.equal(generated.row.plan_json.mainTask.title, 'Ship the planner flow');
 assert.equal(inserted.user_id, 'user-1');
 assert.equal(inserted.version, 1);

@@ -13,15 +13,23 @@ async function authState() {
 
 async function plannerState(date) {
   const { client, user } = await authState();
-  if (!client || !user) return { signedIn: false, profile: null, plan: null };
-  const [profileResult, planResult] = await Promise.all([
+  if (!client || !user) return { signedIn: false, profile: null, plan: null, previous: null };
+  const [profileResult, planResult, previousResult] = await Promise.all([
     client.from('planner_profiles').select('*').eq('user_id', user.id).maybeSingle(),
     client.from('daily_plans').select('*').eq('user_id', user.id).eq('date', date)
       .order('version', { ascending: false }).limit(1).maybeSingle(),
+    // Most recent earlier day, so the check-in can recap how it went.
+    client.from('daily_plans').select('date,plan_json').eq('user_id', user.id).lt('date', date)
+      .order('date', { ascending: false }).order('version', { ascending: false }).limit(1).maybeSingle(),
   ]);
   const error = profileResult.error || planResult.error;
   if (error && error.code !== 'PGRST116') throw error;
-  return { signedIn: true, profile: profileResult.data || null, plan: planResult.data || null };
+  return {
+    signedIn: true,
+    profile: profileResult.data || null,
+    plan: planResult.data || null,
+    previous: previousResult.error ? null : previousResult.data || null,
+  };
 }
 
 async function savePlannerProfile(profile) {
@@ -56,12 +64,15 @@ async function callPlanner(path, input) {
       body: JSON.stringify(input),
     });
   } catch {
-    throw new Error('network');
+    const error = new Error('network');
+    error.code = 'network';
+    throw error;
   }
   const payload = await response.json().catch(() => ({}));
   if (!response.ok) {
     const error = new Error(payload.error || 'planner_failed');
     error.code = payload.code || '';
+    error.status = response.status;
     throw error;
   }
   return payload.plan;

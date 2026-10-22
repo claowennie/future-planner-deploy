@@ -10,12 +10,22 @@ Last updated: 2026-10-22 (Asia/Taipei)
 - GitHub: <https://github.com/claowennie/future-deploy>
 - Production Worker: `future-planner`
 - Current branch: `main`
-- Latest product change: AI Daily Planner v1, released with app version 3.2.0. Melo Companion remains v0.6.3.
-- Latest verified Worker version: `3682dd05-b254-435b-9b04-a5c6fd829e4c`
+- Latest product change: AI Daily Planner v1.1 — daily review loop and Today-card redesign (app version 3.2.0). Melo Companion remains v0.6.3.
+- Latest verified Worker version: `e7a1bc9a-c63e-4df5-af74-3462f366e8ff`
 - Public contact: `claowennie@gmail.com`
 - AI Daily Planner migration, Worker secret, production deployment, and authenticated end-to-end verification are complete.
 
 The product is live. AI Daily Planner v1 is available on Today after signing in: save a planning profile, answer the daily check-in, then click to generate a plan. Generation is user-triggered; no scheduled daily generation or notification is enabled.
+
+## AI Daily Planner v1.1 — review loop and redesign (production, 2026-10-22)
+
+- UI now uses the Today card system (`.card`, card header, shared night palette) at full page width instead of a centered standalone panel, and sits below the OKR strip: goals → today's plan → todos.
+- Plan layout is two columns on desktop (main focus + progress + actions + review on the left, dayparts timeline on the right) and stacks on ≤900px. Items look like todo rows with typed tags. The card can be collapsed to a one-line main-task row (`ai_planner_collapsed_v1`, browser-local).
+- `mainTask.reason` is shown as “为什么是它 / Why this”. The “good day” hint is computed from the plan size instead of a hard-coded 4/6.
+- New end-of-day review (收尾复盘): feeling `too_much | just_right | too_light`, an optional note, and a completion snapshot are stored in `plan_json.review` (no migration). The check-in shows a recap of the previous planned day.
+- The Worker passes per-day completion, review, and the last three Today-page reflections (`state.reflection`, trimmed, treated as untrusted) to the prompt. The model is told to lighten after `too_much` or low completion and to connect today to recent days in one sentence.
+- Fixes: profile editing can be cancelled; retry re-runs the failed generate/replan with the same input; hourly token refreshes no longer reset the card to loading; rate-limit, network, timeout, and unconfigured errors have specific copy; the replan sheet closes with Escape.
+- Verification: `npm run check` passed. A local Playwright run with mocked Supabase/Worker covered signed-out, profile, check-in with recap, plan (day/night, 1440px/390px), collapsed, Minimum Day in English, and saving a review. Production returned 200 for home/runtime config and served the new bundle, and anonymous planner generation returned 401. No authenticated production run was made with temporary accounts for this release.
 
 ## AI Daily Planner v1 (production, 2026-10-22)
 
