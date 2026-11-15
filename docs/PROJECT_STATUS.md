@@ -11,15 +11,15 @@ Last updated: 2026-11-15 (Asia/Taipei)
 - Production Worker: `future-planner`
 - Current branch: `main`
 - Latest product change: AI Daily Planner v1.1 — daily review loop and Today-card redesign (app version 3.2.0). Melo Companion remains v0.6.3.
-- Latest verified Worker version: `e7a1bc9a-c63e-4df5-af74-3462f366e8ff`
+- Latest deployed Worker version: `4dc7b137-bf67-4b15-855f-3e1b4addb59f` (2026-11-15, planner generation quality pass). The last version with an authenticated production run is `e7a1bc9a-c63e-4df5-af74-3462f366e8ff`.
 - Public contact: `claowennie@gmail.com`
 - AI Daily Planner migration, Worker secret, production deployment, and authenticated end-to-end verification are complete.
 
 The product is live. AI Daily Planner v1 is available on Today after signing in: save a planning profile, answer the daily check-in, then click to generate a plan. Generation is user-triggered; no scheduled daily generation or notification is enabled.
 
-## AI Daily Planner generation quality pass (local commits, NOT deployed, 2026-11-15)
+## AI Daily Planner generation quality pass (production, 2026-11-15)
 
-Worker-only changes to how plans are generated and validated. No UI change, no migration, and `plan_json` keeps its shape. The commits are on local `main`; they have not been pushed or deployed, so production still runs the v1.1 Worker listed above. Deploying is waiting for the owner's review.
+Worker-only changes to how plans are generated and validated. No UI change, no migration, and `plan_json` keeps its shape. Deployed with `npm run deploy` after the owner's review and pushed to `main`. Post-deploy checks on the custom domain: home 200 with the Chinese title and canonical URL, runtime config 200 without private values, and anonymous `generate`/`replan` 401. No authenticated production generation was run against this version; the evidence for the new behaviour is `npm run check` and the eval runs below, which call the same code and model outside the Worker.
 
 - Eval harness: `evals/planner/` holds eight synthetic scenarios (`scenarios.json`) and `run.mjs`, which runs each scenario three times through the real generate → validate → retry → fallback path against the live model without Supabase. `node evals/planner/run.mjs --label <name>` writes raw outputs to `evals/planner/<name>/` and rewrites `report.md` with a comparison against `baseline/`. It needs `DEEPSEEK_API_KEY` in the environment and never writes it. Results are 24 runs at temperature 0.72, so they are directional only.
 - Retry with feedback: when the first reply fails validation, the second request includes that reply and the validator's error instead of resending the same prompt.
