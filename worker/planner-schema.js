@@ -32,7 +32,10 @@ function item(value, field, { allowMain = false } = {}) {
   }
   const type = String(value.type || '').toLowerCase();
   if (!ITEM_TYPES.has(type) || (!allowMain && type === 'main')) {
-    throw new PlannerOutputError(`${field}.type is not supported`);
+    // Specific enough for the model to repair on retry.
+    throw new PlannerOutputError(allowMain
+      ? `${field}.type is not supported (use main, explore, learn, move, read, or enjoy)`
+      : `${field}.type is not supported (use explore, learn, move, read, or enjoy; the main task belongs only in mainTask, never in sections)`);
   }
   return {
     id: text(value.id || crypto.randomUUID(), 80, `${field}.id`),

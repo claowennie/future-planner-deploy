@@ -1,0 +1,146 @@
+{
+  "scenario": "busy",
+  "run": 2,
+  "ms": 4269,
+  "source": "ai",
+  "attempts": [
+    {
+      "status": 200,
+      "requestRoles": [
+        "system",
+        "user"
+      ],
+      "requestExtra": [],
+      "raw": "{\"date\":\"2026-11-16\",\"dayType\":\"productive\",\"message\":\"昨天作品集提纲没写完，今天不急着补全，先把下午的季度报告稳稳交出去，剩下的力气留给一个小开头。\",\"mainTask\":{\"id\":\"main-quarterly-report-2026-11-16\",\"title\":\"完成并提交季度报告\",\"description\":\"上午整理已有数据和结论，列出报告的三段骨架；下午集中写完正文并检查一遍后提交。先保证能交出去，不追求完美排版。\",\"durationMinutes\":90,\"reason\":\"这是今天的硬性截止事项，先完成它，整天都会松一口气，也为作品集留出心理空间。\"},\"sections\":{\"morning\":[{\"id\":\"explore-morning-2026-11-16\",\"type\":\"explore\",\"title\":\"翻一翻 AI 产品的最新动态\",\"description\":\"随便看一两篇最近的产品更新或讨论，只记下一个让你好奇的点，不做深入整理。\",\"durationMinutes\":20}],\"afternoon\":[{\"id\":\"move-afternoon-2026-11-16\",\"type\":\"move\",\"title\":\"楼下快走一圈\",\"description\":\"交完报告后出门走一走，让眼睛和脑子换个节奏。\",\"durationMinutes\":20}],\"evening\":[{\"id\":\"learn-evening-2026-11-16\",\"type\":\"learn\",\"title\":\"作品集第二案例：只写三行开头\",\"description\":\"不要求写完提纲，只写下案例的背景、你做了什么、结果三行，明天好接。\",\"durationMinutes\":25},{\"id\":\"read-evening-2026-11-16\",\"type\":\"read\",\"title\":\"读一点海洋或历史\",\"description\":\"睡前翻几页轻松的非虚构，纯为兴趣。\",\"durationMinutes\":20}],\"night\":[{\"id\":\"enjoy-night-2026-11-16\",\"type\":\"enjoy\",\"title\":\"无负担放松时间\",\"description\":\"看点喜欢的视频或发发呆，今天到此为止。\"}]},\"minimumDay\":{\"message\":\"如果今天只剩一点力气，就交报告、动一动、写三行作品集，也算完整的一天。\",\"items\":[{\"id\":\"min-main-2026-11-16\",\"type\":\"main\",\"title\":\"把季度报告写完并提交\",\"description\":\"只做核心内容，能交就行。\",\"durationMinutes\":30},{\"id\":\"min-explore-2026-11-16\",\"type\":\"explore\",\"title\":\"看一个 AI 产品动态\",\"description\":\"随手看一条，记下一个好奇点。\",\"durationMinutes\":20},{\"id\":\"min-move-2026-11-16\",\"type\":\"move\",\"title\":\"出门走一走\",\"description\":\"短距离散步，活动一下身体。\",\"durationMinutes\":20},{\"id\":\"min-read-2026-11-16\",\"type\":\"read\",\"title\":\"读几页感兴趣的书\",\"description\":\"海洋或历史，随便翻翻。\",\"durationMinutes\":15}]}}",
+      "finishReason": "stop",
+      "usage": {
+        "prompt": 929,
+        "completion": 610
+      },
+      "valid": true,
+      "measure": {
+        "mainMinutes": 90,
+        "supportCount": 5,
+        "mainInTier": false,
+        "supportInTier": false,
+        "minimumMainMinutes": 30,
+        "minimumMainIs30": true,
+        "clockHits": [],
+        "extraMains": 0,
+        "mainTitle": "完成并提交季度报告"
+      }
+    }
+  ],
+  "finalPlan": {
+    "date": "2026-11-16",
+    "dayType": "productive",
+    "message": "昨天作品集提纲没写完，今天不急着补全，先把下午的季度报告稳稳交出去，剩下的力气留给一个小开头。",
+    "mainTask": {
+      "id": "main-quarterly-report-2026-11-16",
+      "type": "main",
+      "title": "完成并提交季度报告",
+      "description": "上午整理已有数据和结论，列出报告的三段骨架；下午集中写完正文并检查一遍后提交。先保证能交出去，不追求完美排版。",
+      "durationMinutes": 90,
+      "reason": "这是今天的硬性截止事项，先完成它，整天都会松一口气，也为作品集留出心理空间。",
+      "completed": false
+    },
+    "sections": {
+      "morning": [
+        {
+          "id": "explore-morning-2026-11-16",
+          "type": "explore",
+          "title": "翻一翻 AI 产品的最新动态",
+          "description": "随便看一两篇最近的产品更新或讨论，只记下一个让你好奇的点，不做深入整理。",
+          "durationMinutes": 20,
+          "completed": false
+        }
+      ],
+      "afternoon": [
+        {
+          "id": "move-afternoon-2026-11-16",
+          "type": "move",
+          "title": "楼下快走一圈",
+          "description": "交完报告后出门走一走，让眼睛和脑子换个节奏。",
+          "durationMinutes": 20,
+          "completed": false
+        }
+      ],
+      "evening": [
+        {
+          "id": "learn-evening-2026-11-16",
+          "type": "learn",
+          "title": "作品集第二案例：只写三行开头",
+          "description": "不要求写完提纲，只写下案例的背景、你做了什么、结果三行，明天好接。",
+          "durationMinutes": 25,
+          "completed": false
+        },
+        {
+          "id": "read-evening-2026-11-16",
+          "type": "read",
+          "title": "读一点海洋或历史",
+          "description": "睡前翻几页轻松的非虚构，纯为兴趣。",
+          "durationMinutes": 20,
+          "completed": false
+        }
+      ],
+      "night": [
+        {
+          "id": "enjoy-night-2026-11-16",
+          "type": "enjoy",
+          "title": "无负担放松时间",
+          "description": "看点喜欢的视频或发发呆，今天到此为止。",
+          "completed": false
+        }
+      ]
+    },
+    "minimumDay": {
+      "message": "如果今天只剩一点力气，就交报告、动一动、写三行作品集，也算完整的一天。",
+      "items": [
+        {
+          "id": "min-main-2026-11-16",
+          "type": "main",
+          "title": "把季度报告写完并提交",
+          "description": "只做核心内容，能交就行。",
+          "durationMinutes": 30,
+          "completed": false
+        },
+        {
+          "id": "min-explore-2026-11-16",
+          "type": "explore",
+          "title": "看一个 AI 产品动态",
+          "description": "随手看一条，记下一个好奇点。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-move-2026-11-16",
+          "type": "move",
+          "title": "出门走一走",
+          "description": "短距离散步，活动一下身体。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-read-2026-11-16",
+          "type": "read",
+          "title": "读几页感兴趣的书",
+          "description": "海洋或历史，随便翻翻。",
+          "durationMinutes": 15,
+          "completed": false
+        }
+      ]
+    },
+    "activeMode": "standard"
+  },
+  "finalMeasure": {
+    "mainMinutes": 90,
+    "supportCount": 5,
+    "mainInTier": false,
+    "supportInTier": false,
+    "minimumMainMinutes": 30,
+    "minimumMainIs30": true,
+    "clockHits": [],
+    "extraMains": 0,
+    "mainTitle": "完成并提交季度报告"
+  }
+}

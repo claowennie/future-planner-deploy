@@ -184,6 +184,8 @@ function tally(records) {
       ...(record.finalMeasure?.clockHits || []), ...(record.attempts[0]?.measure?.clockHits || []),
     ]))],
   };
+  out.retried = out.runs - out.errors - out.firstPassValid;
+  out.retryRecovered = out.retried - out.fallback;
   const canaryRuns = records.filter((record) => record.attempts[0]?.measure && 'canaryAnywhere' in record.attempts[0].measure);
   if (canaryRuns.length) {
     out.canaryRuns = canaryRuns.length;
@@ -204,6 +206,7 @@ const frac = (n, d) => (d ? `${n}/${d} (${Math.round((n / d) * 100)}%)` : '—')
 
 const TOTAL_ROWS = [
   ['首次校验通过', 'firstPassValid', 'runs'],
+  ['首次失败后重试救回', 'retryRecovered', 'retried'],
   ['回退到 fallback', 'fallback', 'runs'],
   ['API 调用失败', 'errors', 'runs'],
   ['首次输出：主任务时长符合档位', 'firstMainInTier', 'firstMeasured'],
@@ -222,6 +225,11 @@ const TOTAL_ROWS = [
 
 function section(summary, baseline) {
   const lines = [];
+  // Summaries written before these keys existed.
+  for (const s of [summary.total, baseline?.total].filter(Boolean)) {
+    s.retried ??= s.runs - s.errors - s.firstPassValid;
+    s.retryRecovered ??= s.retried - s.fallback;
+  }
   const t = summary.total;
   lines.push(`## ${summary.label}`, '');
   lines.push(`- 时间：${summary.finishedAt}；模型：\`${summary.model}\`；每个场景 ${summary.runsPerScenario} 次，共 ${t.runs} 次；API 调用 ${t.apiCalls} 次。`);

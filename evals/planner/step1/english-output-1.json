@@ -1,0 +1,146 @@
+{
+  "scenario": "english-output",
+  "run": 1,
+  "ms": 4247,
+  "source": "ai",
+  "attempts": [
+    {
+      "status": 200,
+      "requestRoles": [
+        "system",
+        "user"
+      ],
+      "requestExtra": [],
+      "raw": "{\n  \"date\": \"2026-11-16\",\n  \"dayType\": \"balanced\",\n  \"message\": \"You had a solid, just-right day yesterday with the planner test cases, so let's keep that rhythm and take a gentle first step back into the portfolio case study.\",\n  \"mainTask\": {\n    \"id\": \"portfolio-case-study-2-outline-v2\",\n    \"title\": \"Outline the second portfolio case study\",\n    \"description\": \"Create a simple bullet outline for your second case study: the problem, your role, two or three key decisions, and the outcome. Aim for a rough skeleton, not polished writing.\",\n    \"durationMinutes\": 75,\n    \"reason\": \"This continues the case study you started yesterday and moves your portfolio goal forward with a smaller, concrete first step.\"\n  },\n  \"sections\": {\n    \"morning\": [\n      {\n        \"id\": \"morning-walk-reset\",\n        \"type\": \"move\",\n        \"title\": \"Short morning walk\",\n        \"description\": \"Get outside for a relaxed walk to wake up your body and clear your head before focused work.\",\n        \"durationMinutes\": 25\n      }\n    ],\n    \"afternoon\": [\n      {\n        \"id\": \"explore-tide-pools\",\n        \"type\": \"explore\",\n        \"title\": \"How tide pools work as micro-ecosystems\",\n        \"description\": \"Follow your curiosity into a short article or video about the tiny worlds in tide pools and how they survive between tides.\",\n        \"durationMinutes\": 25\n      },\n      {\n        \"id\": \"learn-ai-eval-basics\",\n        \"type\": \"learn\",\n        \"title\": \"Basics of evaluating AI product output\",\n        \"description\": \"Read a short primer on how to judge whether an AI feature is actually useful, focusing on one simple evaluation idea you could apply to your planner.\",\n        \"durationMinutes\": 30\n      }\n    ],\n    \"evening\": [\n      {\n        \"id\": \"read-history-essay\",\n        \"type\": \"read\",\n        \"title\": \"Read a short history essay\",\n        \"description\": \"Pick a short essay on a historical topic that interests you and read it at an easy pace.\",\n        \"durationMinutes\": 25\n      },\n      {\n        \"id\": \"enjoy-quiet-music\",\n        \"type\": \"enjoy\",\n        \"title\": \"Guilt-free listening time\",\n        \"description\": \"Put on music or a podcast you enjoy with no goal attached. Just enjoy it.\"\n      }\n    ],\n    \"night\": []\n  },\n  \"minimumDay\": {\n    \"message\": \"A lighter version of today if energy or time runs short, still touching what matters.\",\n    \"items\": [\n      {\n        \"id\": \"min-main-case-study-sketch\",\n        \"type\": \"main\",\n        \"title\": \"Sketch the case study skeleton\",\n        \"description\": \"Write just five bullets: problem, role, two decisions, outcome. That's enough for today.\",\n        \"durationMinutes\": 30\n      },\n      {\n        \"id\": \"min-learn-eval-tip\",\n        \"type\": \"learn\",\n        \"title\": \"One AI evaluation tip\",\n        \"description\": \"Read a single short piece on evaluating AI output and note one idea.\",\n        \"durationMinutes\": 20\n      },\n      {\n        \"id\": \"min-move-walk\",\n        \"type\": \"move\",\n        \"title\": \"Easy walk\",\n        \"description\": \"A short walk to move your body without pressure.\",\n        \"durationMinutes\": 20\n      },\n      {\n        \"id\": \"min-enjoy-music\",\n        \"type\": \"enjoy\",\n        \"title\": \"Listen to something you like\",\n        \"description\": \"A few minutes of music or a podcast, purely for enjoyment.\"\n      }\n    ]\n  }\n}",
+      "finishReason": "stop",
+      "usage": {
+        "prompt": 1002,
+        "completion": 822
+      },
+      "valid": true,
+      "measure": {
+        "mainMinutes": 75,
+        "supportCount": 5,
+        "mainInTier": true,
+        "supportInTier": true,
+        "minimumMainMinutes": 30,
+        "minimumMainIs30": true,
+        "clockHits": [],
+        "extraMains": 0,
+        "mainTitle": "Outline the second portfolio case study",
+        "cjkInText": false
+      }
+    }
+  ],
+  "finalPlan": {
+    "date": "2026-11-16",
+    "dayType": "balanced",
+    "message": "You had a solid, just-right day yesterday with the planner test cases, so let's keep that rhythm and take a gentle first step back into the portfolio case study.",
+    "mainTask": {
+      "id": "portfolio-case-study-2-outline-v2",
+      "type": "main",
+      "title": "Outline the second portfolio case study",
+      "description": "Create a simple bullet outline for your second case study: the problem, your role, two or three key decisions, and the outcome. Aim for a rough skeleton, not polished writing.",
+      "durationMinutes": 75,
+      "reason": "This continues the case study you started yesterday and moves your portfolio goal forward with a smaller, concrete first step.",
+      "completed": false
+    },
+    "sections": {
+      "morning": [
+        {
+          "id": "morning-walk-reset",
+          "type": "move",
+          "title": "Short morning walk",
+          "description": "Get outside for a relaxed walk to wake up your body and clear your head before focused work.",
+          "durationMinutes": 25,
+          "completed": false
+        }
+      ],
+      "afternoon": [
+        {
+          "id": "explore-tide-pools",
+          "type": "explore",
+          "title": "How tide pools work as micro-ecosystems",
+          "description": "Follow your curiosity into a short article or video about the tiny worlds in tide pools and how they survive between tides.",
+          "durationMinutes": 25,
+          "completed": false
+        },
+        {
+          "id": "learn-ai-eval-basics",
+          "type": "learn",
+          "title": "Basics of evaluating AI product output",
+          "description": "Read a short primer on how to judge whether an AI feature is actually useful, focusing on one simple evaluation idea you could apply to your planner.",
+          "durationMinutes": 30,
+          "completed": false
+        }
+      ],
+      "evening": [
+        {
+          "id": "read-history-essay",
+          "type": "read",
+          "title": "Read a short history essay",
+          "description": "Pick a short essay on a historical topic that interests you and read it at an easy pace.",
+          "durationMinutes": 25,
+          "completed": false
+        },
+        {
+          "id": "enjoy-quiet-music",
+          "type": "enjoy",
+          "title": "Guilt-free listening time",
+          "description": "Put on music or a podcast you enjoy with no goal attached. Just enjoy it.",
+          "completed": false
+        }
+      ],
+      "night": []
+    },
+    "minimumDay": {
+      "message": "A lighter version of today if energy or time runs short, still touching what matters.",
+      "items": [
+        {
+          "id": "min-main-case-study-sketch",
+          "type": "main",
+          "title": "Sketch the case study skeleton",
+          "description": "Write just five bullets: problem, role, two decisions, outcome. That's enough for today.",
+          "durationMinutes": 30,
+          "completed": false
+        },
+        {
+          "id": "min-learn-eval-tip",
+          "type": "learn",
+          "title": "One AI evaluation tip",
+          "description": "Read a single short piece on evaluating AI output and note one idea.",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-move-walk",
+          "type": "move",
+          "title": "Easy walk",
+          "description": "A short walk to move your body without pressure.",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-enjoy-music",
+          "type": "enjoy",
+          "title": "Listen to something you like",
+          "description": "A few minutes of music or a podcast, purely for enjoyment.",
+          "completed": false
+        }
+      ]
+    },
+    "activeMode": "standard"
+  },
+  "finalMeasure": {
+    "mainMinutes": 75,
+    "supportCount": 5,
+    "mainInTier": true,
+    "supportInTier": true,
+    "minimumMainMinutes": 30,
+    "minimumMainIs30": true,
+    "clockHits": [],
+    "extraMains": 0,
+    "mainTitle": "Outline the second portfolio case study",
+    "cjkInText": false
+  }
+}

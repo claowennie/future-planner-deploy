@@ -1,0 +1,146 @@
+{
+  "scenario": "yesterday-main-unfinished",
+  "run": 1,
+  "ms": 3746,
+  "source": "ai",
+  "attempts": [
+    {
+      "status": 200,
+      "requestRoles": [
+        "system",
+        "user"
+      ],
+      "requestExtra": [],
+      "raw": "{\"date\":\"2026-11-16\",\"dayType\":\"balanced\",\"message\":\"昨天作品集初稿没写完，今天先迈小一步就好，别急，慢慢来。\",\"mainTask\":{\"id\":\"portfolio-case2-outline\",\"title\":\"把作品集第二个案例的提纲补完\",\"description\":\"先不追求完整初稿，只把案例的问题背景、你的角色、关键决策和结果四块各写两三句，凑成能看懂的骨架即可。\",\"durationMinutes\":75,\"reason\":\"昨天这项没完成，缩小第一步比重新来一遍更容易启动，也直接推进求职作品集。\"},\"sections\":{\"morning\":[{\"id\":\"move-morning-walk\",\"type\":\"move\",\"title\":\"出门散步醒醒神\",\"description\":\"不带耳机走一小段，让脑子先开机。\",\"durationMinutes\":25}],\"afternoon\":[{\"id\":\"learn-ai-product-teardown\",\"type\":\"learn\",\"title\":\"拆解一个 AI 产品的引导流程\",\"description\":\"挑一个你常用的 AI 工具，记录它新用户第一屏怎么引导、哪里让你困惑。\",\"durationMinutes\":30}],\"evening\":[{\"id\":\"explore-ocean-currents\",\"type\":\"explore\",\"title\":\"看看洋流是怎么形成的\",\"description\":\"随便翻翻科普，找一条你觉得意外的洋流小知识。\",\"durationMinutes\":20},{\"id\":\"enjoy-free-evening\",\"type\":\"enjoy\",\"title\":\"无负担的放松时间\",\"description\":\"看剧、发呆、随便逛逛都行，不用有产出。\"}],\"night\":[{\"id\":\"read-history-before-sleep\",\"type\":\"read\",\"title\":\"读几页历史书\",\"description\":\"睡前翻几页，困了就停。\",\"durationMinutes\":20}]},\"minimumDay\":{\"message\":\"如果今天状态一般，就只做这一件小事，其余随缘。\",\"items\":[{\"id\":\"min-main-outline\",\"type\":\"main\",\"title\":\"写出案例提纲的四块要点\",\"description\":\"每块一两句话，能看懂就行。\",\"durationMinutes\":30},{\"id\":\"min-learn-teardown\",\"type\":\"learn\",\"title\":\"记录一个 AI 产品的引导细节\",\"description\":\"写三条观察即可。\",\"durationMinutes\":20},{\"id\":\"min-move-walk\",\"type\":\"move\",\"title\":\"短散步\",\"description\":\"楼下走一圈，透透气。\",\"durationMinutes\":20},{\"id\":\"min-read-pages\",\"type\":\"read\",\"title\":\"读几页书\",\"description\":\"睡前随意翻翻。\",\"durationMinutes\":15}]}}",
+      "finishReason": "stop",
+      "usage": {
+        "prompt": 989,
+        "completion": 527
+      },
+      "valid": true,
+      "measure": {
+        "mainMinutes": 75,
+        "supportCount": 5,
+        "mainInTier": true,
+        "supportInTier": true,
+        "minimumMainMinutes": 30,
+        "minimumMainIs30": true,
+        "clockHits": [],
+        "extraMains": 0,
+        "mainTitle": "把作品集第二个案例的提纲补完"
+      }
+    }
+  ],
+  "finalPlan": {
+    "date": "2026-11-16",
+    "dayType": "balanced",
+    "message": "昨天作品集初稿没写完，今天先迈小一步就好，别急，慢慢来。",
+    "mainTask": {
+      "id": "portfolio-case2-outline",
+      "type": "main",
+      "title": "把作品集第二个案例的提纲补完",
+      "description": "先不追求完整初稿，只把案例的问题背景、你的角色、关键决策和结果四块各写两三句，凑成能看懂的骨架即可。",
+      "durationMinutes": 75,
+      "reason": "昨天这项没完成，缩小第一步比重新来一遍更容易启动，也直接推进求职作品集。",
+      "completed": false
+    },
+    "sections": {
+      "morning": [
+        {
+          "id": "move-morning-walk",
+          "type": "move",
+          "title": "出门散步醒醒神",
+          "description": "不带耳机走一小段，让脑子先开机。",
+          "durationMinutes": 25,
+          "completed": false
+        }
+      ],
+      "afternoon": [
+        {
+          "id": "learn-ai-product-teardown",
+          "type": "learn",
+          "title": "拆解一个 AI 产品的引导流程",
+          "description": "挑一个你常用的 AI 工具，记录它新用户第一屏怎么引导、哪里让你困惑。",
+          "durationMinutes": 30,
+          "completed": false
+        }
+      ],
+      "evening": [
+        {
+          "id": "explore-ocean-currents",
+          "type": "explore",
+          "title": "看看洋流是怎么形成的",
+          "description": "随便翻翻科普，找一条你觉得意外的洋流小知识。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "enjoy-free-evening",
+          "type": "enjoy",
+          "title": "无负担的放松时间",
+          "description": "看剧、发呆、随便逛逛都行，不用有产出。",
+          "completed": false
+        }
+      ],
+      "night": [
+        {
+          "id": "read-history-before-sleep",
+          "type": "read",
+          "title": "读几页历史书",
+          "description": "睡前翻几页，困了就停。",
+          "durationMinutes": 20,
+          "completed": false
+        }
+      ]
+    },
+    "minimumDay": {
+      "message": "如果今天状态一般，就只做这一件小事，其余随缘。",
+      "items": [
+        {
+          "id": "min-main-outline",
+          "type": "main",
+          "title": "写出案例提纲的四块要点",
+          "description": "每块一两句话，能看懂就行。",
+          "durationMinutes": 30,
+          "completed": false
+        },
+        {
+          "id": "min-learn-teardown",
+          "type": "learn",
+          "title": "记录一个 AI 产品的引导细节",
+          "description": "写三条观察即可。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-move-walk",
+          "type": "move",
+          "title": "短散步",
+          "description": "楼下走一圈，透透气。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-read-pages",
+          "type": "read",
+          "title": "读几页书",
+          "description": "睡前随意翻翻。",
+          "durationMinutes": 15,
+          "completed": false
+        }
+      ]
+    },
+    "activeMode": "standard"
+  },
+  "finalMeasure": {
+    "mainMinutes": 75,
+    "supportCount": 5,
+    "mainInTier": true,
+    "supportInTier": true,
+    "minimumMainMinutes": 30,
+    "minimumMainIs30": true,
+    "clockHits": [],
+    "extraMains": 0,
+    "mainTitle": "把作品集第二个案例的提纲补完"
+  }
+}

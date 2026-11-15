@@ -1,0 +1,137 @@
+{
+  "scenario": "ordinary",
+  "run": 2,
+  "ms": 3912,
+  "source": "ai",
+  "attempts": [
+    {
+      "status": 200,
+      "requestRoles": [
+        "system",
+        "user"
+      ],
+      "requestExtra": [],
+      "raw": "{\"date\":\"2026-11-16\",\"dayType\":\"balanced\",\"message\":\"昨天你完成了4/5的任务，感觉刚刚好；今天保留一件真正重要的事就好，其余时间留给身体和好奇心。\",\"mainTask\":{\"id\":\"portfolio-case-2-outline\",\"title\":\"写作品集第二个案例的提纲\",\"description\":\"先花10分钟列出这个案例要讲的故事线（问题—你的角色—关键决策—结果），再补全成一份可用的提纲。不用写完整文章，先把结构定下来就算完成。\",\"durationMinutes\":75,\"reason\":\"这是你昨天没完成但依然重要的作品集任务，先做小而清晰的第一步，比从头写全文更省力。\"},\"sections\":{\"morning\":[{\"id\":\"morning-move\",\"type\":\"move\",\"title\":\"出门散步二十分钟\",\"description\":\"不带耳机，走一段有阳光的路，让身体先醒过来。\",\"durationMinutes\":20}],\"afternoon\":[{\"id\":\"afternoon-learn\",\"type\":\"learn\",\"title\":\"读一篇关于 AI 产品评估的文章\",\"description\":\"挑一篇讲模型/产品评估指标的文章，读完记下两三条能用到自己产品上的想法。\",\"durationMinutes\":30}],\"evening\":[{\"id\":\"evening-enjoy\",\"type\":\"enjoy\",\"title\":\"看一集海洋纪录片\",\"description\":\"纯放松，不需要做笔记。\"}],\"night\":[{\"id\":\"night-read\",\"type\":\"read\",\"title\":\"睡前读几页历史书\",\"description\":\"读到困就停，不设页数目标。\",\"durationMinutes\":20}]},\"minimumDay\":{\"message\":\"如果今天状态低，只做这一件小事也算完整的一天。\",\"items\":[{\"id\":\"min-main\",\"type\":\"main\",\"title\":\"列出作品集第二案例的故事线\",\"description\":\"只写问题、你的角色、关键决策、结果四行。\",\"durationMinutes\":30},{\"id\":\"min-explore\",\"type\":\"explore\",\"title\":\"看看别人的产品案例怎么写\",\"description\":\"找一两个产品案例，留意它们怎么组织结构。\",\"durationMinutes\":20},{\"id\":\"min-move\",\"type\":\"move\",\"title\":\"室内拉伸或短走\",\"description\":\"活动一下肩颈和腰背。\",\"durationMinutes\":20},{\"id\":\"min-enjoy\",\"type\":\"enjoy\",\"title\":\"听一首喜欢的歌\",\"description\":\"什么都不用产出。\"}]}}",
+      "finishReason": "stop",
+      "usage": {
+        "prompt": 999,
+        "completion": 492
+      },
+      "valid": true,
+      "measure": {
+        "mainMinutes": 75,
+        "supportCount": 4,
+        "mainInTier": true,
+        "supportInTier": true,
+        "minimumMainMinutes": 30,
+        "minimumMainIs30": true,
+        "clockHits": [],
+        "extraMains": 0,
+        "mainTitle": "写作品集第二个案例的提纲"
+      }
+    }
+  ],
+  "finalPlan": {
+    "date": "2026-11-16",
+    "dayType": "balanced",
+    "message": "昨天你完成了4/5的任务，感觉刚刚好；今天保留一件真正重要的事就好，其余时间留给身体和好奇心。",
+    "mainTask": {
+      "id": "portfolio-case-2-outline",
+      "type": "main",
+      "title": "写作品集第二个案例的提纲",
+      "description": "先花10分钟列出这个案例要讲的故事线（问题—你的角色—关键决策—结果），再补全成一份可用的提纲。不用写完整文章，先把结构定下来就算完成。",
+      "durationMinutes": 75,
+      "reason": "这是你昨天没完成但依然重要的作品集任务，先做小而清晰的第一步，比从头写全文更省力。",
+      "completed": false
+    },
+    "sections": {
+      "morning": [
+        {
+          "id": "morning-move",
+          "type": "move",
+          "title": "出门散步二十分钟",
+          "description": "不带耳机，走一段有阳光的路，让身体先醒过来。",
+          "durationMinutes": 20,
+          "completed": false
+        }
+      ],
+      "afternoon": [
+        {
+          "id": "afternoon-learn",
+          "type": "learn",
+          "title": "读一篇关于 AI 产品评估的文章",
+          "description": "挑一篇讲模型/产品评估指标的文章，读完记下两三条能用到自己产品上的想法。",
+          "durationMinutes": 30,
+          "completed": false
+        }
+      ],
+      "evening": [
+        {
+          "id": "evening-enjoy",
+          "type": "enjoy",
+          "title": "看一集海洋纪录片",
+          "description": "纯放松，不需要做笔记。",
+          "completed": false
+        }
+      ],
+      "night": [
+        {
+          "id": "night-read",
+          "type": "read",
+          "title": "睡前读几页历史书",
+          "description": "读到困就停，不设页数目标。",
+          "durationMinutes": 20,
+          "completed": false
+        }
+      ]
+    },
+    "minimumDay": {
+      "message": "如果今天状态低，只做这一件小事也算完整的一天。",
+      "items": [
+        {
+          "id": "min-main",
+          "type": "main",
+          "title": "列出作品集第二案例的故事线",
+          "description": "只写问题、你的角色、关键决策、结果四行。",
+          "durationMinutes": 30,
+          "completed": false
+        },
+        {
+          "id": "min-explore",
+          "type": "explore",
+          "title": "看看别人的产品案例怎么写",
+          "description": "找一两个产品案例，留意它们怎么组织结构。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-move",
+          "type": "move",
+          "title": "室内拉伸或短走",
+          "description": "活动一下肩颈和腰背。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-enjoy",
+          "type": "enjoy",
+          "title": "听一首喜欢的歌",
+          "description": "什么都不用产出。",
+          "completed": false
+        }
+      ]
+    },
+    "activeMode": "standard"
+  },
+  "finalMeasure": {
+    "mainMinutes": 75,
+    "supportCount": 4,
+    "mainInTier": true,
+    "supportInTier": true,
+    "minimumMainMinutes": 30,
+    "minimumMainIs30": true,
+    "clockHits": [],
+    "extraMains": 0,
+    "mainTitle": "写作品集第二个案例的提纲"
+  }
+}

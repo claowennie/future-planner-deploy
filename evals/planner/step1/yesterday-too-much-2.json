@@ -1,0 +1,129 @@
+{
+  "scenario": "yesterday-too-much",
+  "run": 2,
+  "ms": 3157,
+  "source": "ai",
+  "attempts": [
+    {
+      "status": 200,
+      "requestRoles": [
+        "system",
+        "user"
+      ],
+      "requestExtra": [],
+      "raw": "{\"date\":\"2026-11-16\",\"dayType\":\"balanced\",\"message\":\"昨天排得太满、下午就没力气了，今天刻意放松一点，把力气留给一件真正重要的事。\",\"mainTask\":{\"id\":\"main-portfolio-case2-outline\",\"title\":\"补完作品集第二个案例的提纲\",\"description\":\"接着上次没写完的提纲继续，先只补出结构骨架：问题背景、你的角色、关键决策、结果。不用写完整正文，能理清脉络就算成功。\",\"durationMinutes\":75,\"reason\":\"这是昨天没完成、但对你求职目标很关键的一步；用更小的第一步降低启动阻力。\"},\"sections\":{\"morning\":[{\"id\":\"move-morning-walk\",\"type\":\"move\",\"title\":\"出门散步二十分钟\",\"description\":\"不带耳机，随便走走，让身体先醒过来。\",\"durationMinutes\":20}],\"afternoon\":[{\"id\":\"explore-ocean-data\",\"type\":\"explore\",\"title\":\"逛逛海洋数据的开放数据集\",\"description\":\"随便翻翻公开的海洋观测数据，看看别人怎么组织和可视化它们，纯属好奇。\",\"durationMinutes\":30}],\"evening\":[{\"id\":\"read-history-evening\",\"type\":\"read\",\"title\":\"读一会儿历史\",\"description\":\"挑一本轻松的历史读物，读到你不想读为止。\",\"durationMinutes\":25},{\"id\":\"enjoy-evening\",\"type\":\"enjoy\",\"title\":\"给自己一段无目的的时间\",\"description\":\"看点喜欢的视频或随手做点什么，不需要有产出。\"}],\"night\":[]},\"minimumDay\":{\"message\":\"如果今天状态一般，就只做这三件小事，也算完整的一天。\",\"items\":[{\"id\":\"min-main-outline\",\"type\":\"main\",\"title\":\"写作品集案例提纲的第一段\",\"description\":\"只写问题背景这一小节，写完就停。\",\"durationMinutes\":30},{\"id\":\"min-learn-structured-output\",\"type\":\"learn\",\"title\":\"复习结构化输出的一点细节\",\"description\":\"回顾一个你之前用过的小技巧，记一条笔记。\",\"durationMinutes\":25},{\"id\":\"min-move-stretch\",\"type\":\"move\",\"title\":\"拉伸或散步\",\"description\":\"活动一下肩颈和腰背。\",\"durationMinutes\":20}]}}",
+      "finishReason": "stop",
+      "usage": {
+        "prompt": 1013,
+        "completion": 459
+      },
+      "valid": true,
+      "measure": {
+        "mainMinutes": 75,
+        "supportCount": 4,
+        "mainInTier": true,
+        "supportInTier": true,
+        "minimumMainMinutes": 30,
+        "minimumMainIs30": true,
+        "clockHits": [],
+        "extraMains": 0,
+        "mainTitle": "补完作品集第二个案例的提纲"
+      }
+    }
+  ],
+  "finalPlan": {
+    "date": "2026-11-16",
+    "dayType": "balanced",
+    "message": "昨天排得太满、下午就没力气了，今天刻意放松一点，把力气留给一件真正重要的事。",
+    "mainTask": {
+      "id": "main-portfolio-case2-outline",
+      "type": "main",
+      "title": "补完作品集第二个案例的提纲",
+      "description": "接着上次没写完的提纲继续，先只补出结构骨架：问题背景、你的角色、关键决策、结果。不用写完整正文，能理清脉络就算成功。",
+      "durationMinutes": 75,
+      "reason": "这是昨天没完成、但对你求职目标很关键的一步；用更小的第一步降低启动阻力。",
+      "completed": false
+    },
+    "sections": {
+      "morning": [
+        {
+          "id": "move-morning-walk",
+          "type": "move",
+          "title": "出门散步二十分钟",
+          "description": "不带耳机，随便走走，让身体先醒过来。",
+          "durationMinutes": 20,
+          "completed": false
+        }
+      ],
+      "afternoon": [
+        {
+          "id": "explore-ocean-data",
+          "type": "explore",
+          "title": "逛逛海洋数据的开放数据集",
+          "description": "随便翻翻公开的海洋观测数据，看看别人怎么组织和可视化它们，纯属好奇。",
+          "durationMinutes": 30,
+          "completed": false
+        }
+      ],
+      "evening": [
+        {
+          "id": "read-history-evening",
+          "type": "read",
+          "title": "读一会儿历史",
+          "description": "挑一本轻松的历史读物，读到你不想读为止。",
+          "durationMinutes": 25,
+          "completed": false
+        },
+        {
+          "id": "enjoy-evening",
+          "type": "enjoy",
+          "title": "给自己一段无目的的时间",
+          "description": "看点喜欢的视频或随手做点什么，不需要有产出。",
+          "completed": false
+        }
+      ],
+      "night": []
+    },
+    "minimumDay": {
+      "message": "如果今天状态一般，就只做这三件小事，也算完整的一天。",
+      "items": [
+        {
+          "id": "min-main-outline",
+          "type": "main",
+          "title": "写作品集案例提纲的第一段",
+          "description": "只写问题背景这一小节，写完就停。",
+          "durationMinutes": 30,
+          "completed": false
+        },
+        {
+          "id": "min-learn-structured-output",
+          "type": "learn",
+          "title": "复习结构化输出的一点细节",
+          "description": "回顾一个你之前用过的小技巧，记一条笔记。",
+          "durationMinutes": 25,
+          "completed": false
+        },
+        {
+          "id": "min-move-stretch",
+          "type": "move",
+          "title": "拉伸或散步",
+          "description": "活动一下肩颈和腰背。",
+          "durationMinutes": 20,
+          "completed": false
+        }
+      ]
+    },
+    "activeMode": "standard"
+  },
+  "finalMeasure": {
+    "mainMinutes": 75,
+    "supportCount": 4,
+    "mainInTier": true,
+    "supportInTier": true,
+    "minimumMainMinutes": 30,
+    "minimumMainIs30": true,
+    "clockHits": [],
+    "extraMains": 0,
+    "mainTitle": "补完作品集第二个案例的提纲"
+  }
+}

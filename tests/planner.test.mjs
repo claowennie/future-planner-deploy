@@ -198,6 +198,50 @@ assert.equal(invalidCalls, 2);
 assert.equal(fallbackGenerated.source, 'fallback');
 assert.equal(fallbackGenerated.row.plan_json.mainTask.title, input.mustDo);
 
+// A rejected first reply is sent back with the validation error instead of being retried blind.
+const repairRequests = [];
+const duplicatedMain = {
+  ...aiPayload,
+  sections: { ...aiPayload.sections, afternoon: [{ id: 'dup-main', type: 'main', title: 'Ship the planner flow', durationMinutes: 90 }, ...aiPayload.sections.afternoon] },
+};
+const repairFetch = (replies) => async (url, options = {}) => {
+  const target = String(url);
+  if (target.includes('/rest/v1/planner_profiles')) return Response.json([{
+    priorities: profile.priorities, interests: profile.interests,
+    planning_style: 'flexible', daily_rhythm: 'neutral', preferred_activities: profile.preferredActivities,
+  }]);
+  if (target.includes('/rest/v1/planner_data')) return Response.json([{ data: {} }]);
+  if (target.includes('/rest/v1/daily_plans') && (options.method || 'GET') === 'GET') return Response.json([]);
+  if (target.includes('/rest/v1/daily_plans') && options.method === 'POST') return Response.json([{ id: 'repair-row', ...JSON.parse(options.body) }]);
+  if (target.includes('api.deepseek.com')) {
+    repairRequests.push(JSON.parse(options.body).messages);
+    return Response.json({ choices: [{ message: { content: replies[repairRequests.length - 1] } }] });
+  }
+  throw new Error(`Unexpected URL ${target}`);
+};
+const plannerEnv = {
+  SUPABASE_URL: 'https://example.supabase.co', SUPABASE_PUBLISHABLE_KEY: 'public-key',
+  DEEPSEEK_API_KEY: 'x'.repeat(32),
+};
+globalThis.fetch = repairFetch([JSON.stringify(duplicatedMain), JSON.stringify(aiPayload)]);
+const repaired = await generatePlannerDay(plannerEnv, 'user-token', 'user-1', input);
+assert.equal(repaired.source, 'ai');
+assert.equal(repairRequests.length, 2);
+assert.deepEqual(repairRequests[0].map((message) => message.role), ['system', 'user']);
+assert.deepEqual(repairRequests[1].map((message) => message.role), ['system', 'user', 'assistant', 'user']);
+assert.equal(repairRequests[1][1].content, repairRequests[0][1].content);
+assert.equal(repairRequests[1][2].content, JSON.stringify(duplicatedMain));
+assert.match(repairRequests[1][3].content, /sections\.afternoon\[0\]\.type is not supported/);
+assert.match(repairRequests[1][3].content, /belongs only in mainTask/);
+
+// An empty first reply has nothing to quote, so the error is appended to the original prompt.
+repairRequests.length = 0;
+globalThis.fetch = repairFetch(['', JSON.stringify(aiPayload)]);
+const repairedEmpty = await generatePlannerDay(plannerEnv, 'user-token', 'user-1', input);
+assert.equal(repairedEmpty.source, 'ai');
+assert.deepEqual(repairRequests[1].map((message) => message.role), ['system', 'user']);
+assert.match(repairRequests[1][1].content, /rejected by validation: Model returned empty content/);
+
 globalThis.fetch = originalFetch;
 
 console.log('planner tests passed');

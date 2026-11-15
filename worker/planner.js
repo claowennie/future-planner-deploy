@@ -227,7 +227,24 @@ ${JSON.stringify(context.recent)}
 ${previousPlan ? `REPLAN CONTEXT\nThe current plan is below. Change it meaningfully for reason "${input.reason}" without blindly preserving it.\n${JSON.stringify(previousPlan)}` : ''}`;
 }
 
-async function requestPlannerCompletion(env, prompt) {
+// Tells the model what the validator rejected instead of resending the same request.
+function plannerMessages(prompt, repair) {
+  const messages = [
+    { role: 'system', content: 'Return only valid JSON that follows the supplied contract.' },
+    { role: 'user', content: prompt },
+  ];
+  if (!repair) return messages;
+  const note = `Your previous reply was rejected by validation: ${String(repair.error || 'invalid output').slice(0, 300)}. Fix that problem and return the complete corrected JSON object. All earlier rules still apply.`;
+  const previous = String(repair.output || '').trim().slice(0, 6000);
+  if (!previous) {
+    messages[1].content = `${prompt}\n\n${note}`;
+    return messages;
+  }
+  messages.push({ role: 'assistant', content: previous }, { role: 'user', content: note });
+  return messages;
+}
+
+async function requestPlannerCompletion(env, prompt, repair = null) {
   const apiKey = String(env.DEEPSEEK_API_KEY || '').trim();
   if (apiKey.length < 20) {
     throw new PlannerError('Planner AI is not configured', 503, 'planner_ai_not_configured');
@@ -239,10 +256,7 @@ async function requestPlannerCompletion(env, prompt) {
       headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${apiKey}` },
       body: JSON.stringify({
         model: normalizeModel(env.PLANNER_MODEL || 'deepseek-flash'),
-        messages: [
-          { role: 'system', content: 'Return only valid JSON that follows the supplied contract.' },
-          { role: 'user', content: prompt },
-        ],
+        messages: plannerMessages(prompt, repair),
         thinking: { type: 'disabled' },
         response_format: { type: 'json_object' },
         temperature: 0.72,
@@ -294,14 +308,13 @@ export function fallbackPlan(input, profile = {}) {
 }
 
 export async function generateValidatedPlan(env, prompt, input, profile) {
-  let invalidOutput = false;
+  let repair = null;
   for (let attempt = 0; attempt < 2; attempt += 1) {
-    const content = await requestPlannerCompletion(env, prompt);
+    const content = await requestPlannerCompletion(env, prompt, repair);
     try { return { plan: validateDailyPlan(parsePlannerJson(content), input.date), source: 'ai' }; }
-    catch { invalidOutput = true; }
+    catch (error) { repair = { error: error?.message, output: content }; }
   }
-  if (invalidOutput) return { plan: fallbackPlan(input, profile), source: 'fallback' };
-  throw new PlannerError('Future could not plan this day', 502, 'planner_generation_failed');
+  return { plan: fallbackPlan(input, profile), source: 'fallback' };
 }
 
 export async function generatePlannerDay(env, token, userId, rawInput, { replan = false } = {}) {

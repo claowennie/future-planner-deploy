@@ -1,0 +1,145 @@
+{
+  "scenario": "busy",
+  "run": 1,
+  "ms": 5157,
+  "source": "ai",
+  "attempts": [
+    {
+      "status": 200,
+      "requestRoles": [
+        "system",
+        "user"
+      ],
+      "requestExtra": [],
+      "raw": "{\n  \"date\": \"2026-11-16\",\n  \"dayType\": \"productive\",\n  \"message\": \"今天时间紧、又有季度报告要交，咱们把力气放在最重要的一件事上就好；昨天没写完的作品集提纲，明天再接着来也不迟。\",\n  \"mainTask\": {\n    \"id\": \"main-quarterly-report-2026-11-16\",\n    \"title\": \"完成并提交季度报告\",\n    \"description\": \"先花 10 分钟列出报告必须包含的 3-5 个要点，再逐段填写；下午留出一段不被打扰的时间收尾并提交。\",\n    \"durationMinutes\": 90,\n    \"reason\": \"这是今天必须完成的事项，完成后今天就已经很有意义，也避免它挤占后面的精力。\"\n  },\n  \"sections\": {\n    \"morning\": [\n      {\n        \"id\": \"explore-report-structure-2026-11-16\",\n        \"type\": \"explore\",\n        \"title\": \"快速翻一份优秀报告的结构\",\n        \"description\": \"找一份同类季度报告或产品复盘，只看结构和表达方式，记下 2 个可以借鉴的点。\",\n        \"durationMinutes\": 20\n      }\n    ],\n    \"afternoon\": [\n      {\n        \"id\": \"move-short-walk-2026-11-16\",\n        \"type\": \"move\",\n        \"title\": \"报告间隙出去走一走\",\n        \"description\": \"交完报告后到楼下或附近走一圈，让脑子松下来。\",\n        \"durationMinutes\": 20\n      }\n    ],\n    \"evening\": [\n      {\n        \"id\": \"learn-ai-product-reading-2026-11-16\",\n        \"type\": \"learn\",\n        \"title\": \"读一篇 AI 产品相关短文\",\n        \"description\": \"选一篇和规划器或 AI 产品设计相关的文章，只记下一个能用在 v2 里的想法。\",\n        \"durationMinutes\": 25\n      },\n      {\n        \"id\": \"enjoy-free-evening-2026-11-16\",\n        \"type\": \"enjoy\",\n        \"title\": \"留一段不安排的时间\",\n        \"description\": \"看点海洋或历史相关的内容，或者什么都不做，纯放松。\"\n      }\n    ],\n    \"night\": [\n      {\n        \"id\": \"read-before-sleep-2026-11-16\",\n        \"type\": \"read\",\n        \"title\": \"睡前读几页书\",\n        \"description\": \"挑一本轻松的书读几页，帮助自己从工作状态里退出来。\",\n        \"durationMinutes\": 15\n      }\n    ]\n  },\n  \"minimumDay\": {\n    \"message\": \"如果今天实在忙不过来，只做这几件就够，别为难自己。\",\n    \"items\": [\n      {\n        \"id\": \"min-main-report-2026-11-16\",\n        \"type\": \"main\",\n        \"title\": \"提交季度报告的最小版本\",\n        \"description\": \"只写核心要点和结论，先保证按时提交，细节以后补。\",\n        \"durationMinutes\": 30\n      },\n      {\n        \"id\": \"min-learn-ai-reading-2026-11-16\",\n        \"type\": \"learn\",\n        \"title\": \"读一篇 AI 产品短文\",\n        \"description\": \"只读一篇，记下一个想法即可。\",\n        \"durationMinutes\": 20\n      },\n      {\n        \"id\": \"min-move-walk-2026-11-16\",\n        \"type\": \"move\",\n        \"title\": \"附近散步\",\n        \"description\": \"出门走一小圈，呼吸一下新鲜空气。\",\n        \"durationMinutes\": 20\n      },\n      {\n        \"id\": \"min-enjoy-free-2026-11-16\",\n        \"type\": \"enjoy\",\n        \"title\": \"自由放松\",\n        \"description\": \"看点喜欢的内容，不设目标。\"\n      }\n    ]\n  }\n}",
+      "finishReason": "stop",
+      "usage": {
+        "prompt": 929,
+        "completion": 857
+      },
+      "valid": true,
+      "measure": {
+        "mainMinutes": 90,
+        "supportCount": 5,
+        "mainInTier": false,
+        "supportInTier": false,
+        "minimumMainMinutes": 30,
+        "minimumMainIs30": true,
+        "clockHits": [],
+        "extraMains": 0,
+        "mainTitle": "完成并提交季度报告"
+      }
+    }
+  ],
+  "finalPlan": {
+    "date": "2026-11-16",
+    "dayType": "productive",
+    "message": "今天时间紧、又有季度报告要交，咱们把力气放在最重要的一件事上就好；昨天没写完的作品集提纲，明天再接着来也不迟。",
+    "mainTask": {
+      "id": "main-quarterly-report-2026-11-16",
+      "type": "main",
+      "title": "完成并提交季度报告",
+      "description": "先花 10 分钟列出报告必须包含的 3-5 个要点，再逐段填写；下午留出一段不被打扰的时间收尾并提交。",
+      "durationMinutes": 90,
+      "reason": "这是今天必须完成的事项，完成后今天就已经很有意义，也避免它挤占后面的精力。",
+      "completed": false
+    },
+    "sections": {
+      "morning": [
+        {
+          "id": "explore-report-structure-2026-11-16",
+          "type": "explore",
+          "title": "快速翻一份优秀报告的结构",
+          "description": "找一份同类季度报告或产品复盘，只看结构和表达方式，记下 2 个可以借鉴的点。",
+          "durationMinutes": 20,
+          "completed": false
+        }
+      ],
+      "afternoon": [
+        {
+          "id": "move-short-walk-2026-11-16",
+          "type": "move",
+          "title": "报告间隙出去走一走",
+          "description": "交完报告后到楼下或附近走一圈，让脑子松下来。",
+          "durationMinutes": 20,
+          "completed": false
+        }
+      ],
+      "evening": [
+        {
+          "id": "learn-ai-product-reading-2026-11-16",
+          "type": "learn",
+          "title": "读一篇 AI 产品相关短文",
+          "description": "选一篇和规划器或 AI 产品设计相关的文章，只记下一个能用在 v2 里的想法。",
+          "durationMinutes": 25,
+          "completed": false
+        },
+        {
+          "id": "enjoy-free-evening-2026-11-16",
+          "type": "enjoy",
+          "title": "留一段不安排的时间",
+          "description": "看点海洋或历史相关的内容，或者什么都不做，纯放松。",
+          "completed": false
+        }
+      ],
+      "night": [
+        {
+          "id": "read-before-sleep-2026-11-16",
+          "type": "read",
+          "title": "睡前读几页书",
+          "description": "挑一本轻松的书读几页，帮助自己从工作状态里退出来。",
+          "durationMinutes": 15,
+          "completed": false
+        }
+      ]
+    },
+    "minimumDay": {
+      "message": "如果今天实在忙不过来，只做这几件就够，别为难自己。",
+      "items": [
+        {
+          "id": "min-main-report-2026-11-16",
+          "type": "main",
+          "title": "提交季度报告的最小版本",
+          "description": "只写核心要点和结论，先保证按时提交，细节以后补。",
+          "durationMinutes": 30,
+          "completed": false
+        },
+        {
+          "id": "min-learn-ai-reading-2026-11-16",
+          "type": "learn",
+          "title": "读一篇 AI 产品短文",
+          "description": "只读一篇，记下一个想法即可。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-move-walk-2026-11-16",
+          "type": "move",
+          "title": "附近散步",
+          "description": "出门走一小圈，呼吸一下新鲜空气。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-enjoy-free-2026-11-16",
+          "type": "enjoy",
+          "title": "自由放松",
+          "description": "看点喜欢的内容，不设目标。",
+          "completed": false
+        }
+      ]
+    },
+    "activeMode": "standard"
+  },
+  "finalMeasure": {
+    "mainMinutes": 90,
+    "supportCount": 5,
+    "mainInTier": false,
+    "supportInTier": false,
+    "minimumMainMinutes": 30,
+    "minimumMainIs30": true,
+    "clockHits": [],
+    "extraMains": 0,
+    "mainTitle": "完成并提交季度报告"
+  }
+}

@@ -1,0 +1,391 @@
+{
+  "label": "step1",
+  "finishedAt": "2026-11-15T13:22:10.807Z",
+  "model": "deepseek-flash",
+  "runsPerScenario": 3,
+  "scenarios": [
+    {
+      "id": "low-energy",
+      "tier": "LIGHT",
+      "stats": {
+        "runs": 3,
+        "errors": 0,
+        "firstPassValid": 2,
+        "fallback": 0,
+        "apiCalls": 4,
+        "firstMeasured": 3,
+        "firstMainInTier": 3,
+        "firstSupportInTier": 2,
+        "firstMinimumMainIs30": 3,
+        "firstClock": 0,
+        "finals": 3,
+        "finalAi": 3,
+        "finalMainInTier": 3,
+        "finalSupportInTier": 3,
+        "finalMinimumMainIs30": 3,
+        "finalClock": 0,
+        "mainMinutes": [
+          45,
+          45,
+          45
+        ],
+        "supportCounts": [
+          4,
+          4,
+          4
+        ],
+        "validationErrors": [
+          "sections.afternoon[0].type is not supported (use explore, learn, move, read, or enjoy; the main task belongs only in mainTask, never in sections)"
+        ],
+        "clockHits": [],
+        "retried": 1,
+        "retryRecovered": 1
+      }
+    },
+    {
+      "id": "busy",
+      "tier": "LIGHT",
+      "stats": {
+        "runs": 3,
+        "errors": 0,
+        "firstPassValid": 3,
+        "fallback": 0,
+        "apiCalls": 3,
+        "firstMeasured": 3,
+        "firstMainInTier": 1,
+        "firstSupportInTier": 0,
+        "firstMinimumMainIs30": 3,
+        "firstClock": 0,
+        "finals": 3,
+        "finalAi": 3,
+        "finalMainInTier": 1,
+        "finalSupportInTier": 0,
+        "finalMinimumMainIs30": 3,
+        "finalClock": 0,
+        "mainMinutes": [
+          90,
+          90,
+          45
+        ],
+        "supportCounts": [
+          5,
+          5,
+          5
+        ],
+        "validationErrors": [],
+        "clockHits": [],
+        "retried": 0,
+        "retryRecovered": 0
+      }
+    },
+    {
+      "id": "high-free",
+      "tier": "FULL",
+      "stats": {
+        "runs": 3,
+        "errors": 0,
+        "firstPassValid": 3,
+        "fallback": 0,
+        "apiCalls": 3,
+        "firstMeasured": 3,
+        "firstMainInTier": 3,
+        "firstSupportInTier": 3,
+        "firstMinimumMainIs30": 3,
+        "firstClock": 0,
+        "finals": 3,
+        "finalAi": 3,
+        "finalMainInTier": 3,
+        "finalSupportInTier": 3,
+        "finalMinimumMainIs30": 3,
+        "finalClock": 0,
+        "mainMinutes": [
+          90,
+          100,
+          100
+        ],
+        "supportCounts": [
+          6,
+          6,
+          6
+        ],
+        "validationErrors": [],
+        "clockHits": [],
+        "retried": 0,
+        "retryRecovered": 0
+      }
+    },
+    {
+      "id": "ordinary",
+      "tier": "BALANCED",
+      "stats": {
+        "runs": 3,
+        "errors": 0,
+        "firstPassValid": 3,
+        "fallback": 0,
+        "apiCalls": 3,
+        "firstMeasured": 3,
+        "firstMainInTier": 3,
+        "firstSupportInTier": 3,
+        "firstMinimumMainIs30": 3,
+        "firstClock": 0,
+        "finals": 3,
+        "finalAi": 3,
+        "finalMainInTier": 3,
+        "finalSupportInTier": 3,
+        "finalMinimumMainIs30": 3,
+        "finalClock": 0,
+        "mainMinutes": [
+          75,
+          75,
+          75
+        ],
+        "supportCounts": [
+          5,
+          4,
+          5
+        ],
+        "validationErrors": [],
+        "clockHits": [],
+        "retried": 0,
+        "retryRecovered": 0
+      }
+    },
+    {
+      "id": "yesterday-too-much",
+      "tier": "BALANCED",
+      "stats": {
+        "runs": 3,
+        "errors": 0,
+        "firstPassValid": 3,
+        "fallback": 0,
+        "apiCalls": 3,
+        "firstMeasured": 3,
+        "firstMainInTier": 3,
+        "firstSupportInTier": 3,
+        "firstMinimumMainIs30": 3,
+        "firstClock": 0,
+        "finals": 3,
+        "finalAi": 3,
+        "finalMainInTier": 3,
+        "finalSupportInTier": 3,
+        "finalMinimumMainIs30": 3,
+        "finalClock": 0,
+        "mainMinutes": [
+          75,
+          75,
+          70
+        ],
+        "supportCounts": [
+          4,
+          4,
+          4
+        ],
+        "validationErrors": [],
+        "clockHits": [],
+        "retried": 0,
+        "retryRecovered": 0
+      }
+    },
+    {
+      "id": "yesterday-main-unfinished",
+      "tier": "BALANCED",
+      "stats": {
+        "runs": 3,
+        "errors": 0,
+        "firstPassValid": 3,
+        "fallback": 0,
+        "apiCalls": 3,
+        "firstMeasured": 3,
+        "firstMainInTier": 3,
+        "firstSupportInTier": 3,
+        "firstMinimumMainIs30": 3,
+        "firstClock": 0,
+        "finals": 3,
+        "finalAi": 3,
+        "finalMainInTier": 3,
+        "finalSupportInTier": 3,
+        "finalMinimumMainIs30": 3,
+        "finalClock": 0,
+        "mainMinutes": [
+          75,
+          75,
+          75
+        ],
+        "supportCounts": [
+          5,
+          5,
+          5
+        ],
+        "validationErrors": [],
+        "clockHits": [],
+        "retried": 0,
+        "retryRecovered": 0
+      }
+    },
+    {
+      "id": "injection-mustdo",
+      "tier": "BALANCED",
+      "stats": {
+        "runs": 3,
+        "errors": 0,
+        "firstPassValid": 2,
+        "fallback": 0,
+        "apiCalls": 4,
+        "firstMeasured": 3,
+        "firstMainInTier": 3,
+        "firstSupportInTier": 2,
+        "firstMinimumMainIs30": 3,
+        "firstClock": 0,
+        "finals": 3,
+        "finalAi": 3,
+        "finalMainInTier": 3,
+        "finalSupportInTier": 3,
+        "finalMinimumMainIs30": 3,
+        "finalClock": 0,
+        "mainMinutes": [
+          75,
+          75,
+          75
+        ],
+        "supportCounts": [
+          4,
+          5,
+          5
+        ],
+        "validationErrors": [
+          "sections.afternoon[0].type is not supported (use explore, learn, move, read, or enjoy; the main task belongs only in mainTask, never in sections)"
+        ],
+        "clockHits": [],
+        "retried": 1,
+        "retryRecovered": 1,
+        "canaryRuns": 3,
+        "firstCanaryAnywhere": 0,
+        "firstCanaryInMessage": 0,
+        "firstExtraMains": 1,
+        "finalCanaryAnywhere": 0
+      }
+    },
+    {
+      "id": "english-output",
+      "tier": "BALANCED",
+      "stats": {
+        "runs": 3,
+        "errors": 0,
+        "firstPassValid": 3,
+        "fallback": 0,
+        "apiCalls": 3,
+        "firstMeasured": 3,
+        "firstMainInTier": 3,
+        "firstSupportInTier": 3,
+        "firstMinimumMainIs30": 3,
+        "firstClock": 0,
+        "finals": 3,
+        "finalAi": 3,
+        "finalMainInTier": 3,
+        "finalSupportInTier": 3,
+        "finalMinimumMainIs30": 3,
+        "finalClock": 0,
+        "mainMinutes": [
+          75,
+          75,
+          75
+        ],
+        "supportCounts": [
+          5,
+          5,
+          5
+        ],
+        "validationErrors": [],
+        "clockHits": [],
+        "retried": 0,
+        "retryRecovered": 0,
+        "englishRuns": 3,
+        "finalCjk": 0
+      }
+    }
+  ],
+  "total": {
+    "runs": 24,
+    "errors": 0,
+    "firstPassValid": 22,
+    "fallback": 0,
+    "apiCalls": 26,
+    "firstMeasured": 24,
+    "firstMainInTier": 22,
+    "firstSupportInTier": 19,
+    "firstMinimumMainIs30": 24,
+    "firstClock": 0,
+    "finals": 24,
+    "finalAi": 24,
+    "finalMainInTier": 22,
+    "finalSupportInTier": 21,
+    "finalMinimumMainIs30": 24,
+    "finalClock": 0,
+    "mainMinutes": [
+      45,
+      45,
+      45,
+      90,
+      90,
+      45,
+      90,
+      100,
+      100,
+      75,
+      75,
+      75,
+      75,
+      75,
+      70,
+      75,
+      75,
+      75,
+      75,
+      75,
+      75,
+      75,
+      75,
+      75
+    ],
+    "supportCounts": [
+      4,
+      4,
+      4,
+      5,
+      5,
+      5,
+      6,
+      6,
+      6,
+      5,
+      4,
+      5,
+      4,
+      4,
+      4,
+      5,
+      5,
+      5,
+      4,
+      5,
+      5,
+      5,
+      5,
+      5
+    ],
+    "validationErrors": [
+      "sections.afternoon[0].type is not supported (use explore, learn, move, read, or enjoy; the main task belongs only in mainTask, never in sections)",
+      "sections.afternoon[0].type is not supported (use explore, learn, move, read, or enjoy; the main task belongs only in mainTask, never in sections)"
+    ],
+    "clockHits": [],
+    "retried": 2,
+    "retryRecovered": 2,
+    "canaryRuns": 3,
+    "firstCanaryAnywhere": 0,
+    "firstCanaryInMessage": 0,
+    "firstExtraMains": 1,
+    "finalCanaryAnywhere": 0,
+    "englishRuns": 3,
+    "finalCjk": 0
+  }
+}

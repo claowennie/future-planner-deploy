@@ -1,0 +1,148 @@
+{
+  "scenario": "english-output",
+  "run": 2,
+  "ms": 4779,
+  "source": "ai",
+  "attempts": [
+    {
+      "status": 200,
+      "requestRoles": [
+        "system",
+        "user"
+      ],
+      "requestExtra": [],
+      "raw": "{\n  \"date\": \"2026-11-16\",\n  \"dayType\": \"balanced\",\n  \"message\": \"Yesterday you landed 4 of 5 and felt just right, so today stays similarly sized — with a smaller first step on the portfolio outline you didn't get to.\",\n  \"mainTask\": {\n    \"id\": \"main-portfolio-case-study-2-outline\",\n    \"title\": \"Outline the second portfolio case study\",\n    \"description\": \"Write a rough 8-bullet skeleton for case study #2: problem, constraints, your role, two decisions, outcome, what you'd do differently. Stop at the outline — no polishing.\",\n    \"durationMinutes\": 75,\n    \"reason\": \"It's the unfinished task from yesterday and the next step toward your 3-case-study goal; a shorter, scoped version lowers the restart cost.\"\n  },\n  \"sections\": {\n    \"morning\": [\n      {\n        \"id\": \"explore-morning-ocean-mapping\",\n        \"type\": \"explore\",\n        \"title\": \"How seafloor mapping data becomes public maps\",\n        \"description\": \"Skim one article or short video on bathymetric surveys and how raw sonar data turns into the maps researchers use.\",\n        \"durationMinutes\": 25\n      }\n    ],\n    \"afternoon\": [\n      {\n        \"id\": \"move-afternoon-walk\",\n        \"type\": \"move\",\n        \"title\": \"Brisk walk outside\",\n        \"description\": \"A steady walk, no podcast obligations — just pace and daylight.\",\n        \"durationMinutes\": 30\n      }\n    ],\n    \"evening\": [\n      {\n        \"id\": \"learn-evening-product-teardown\",\n        \"type\": \"learn\",\n        \"title\": \"Teardown of one AI planning app's onboarding\",\n        \"description\": \"Open a competing planning tool, click through the first-run experience, and note three choices you'd keep or change for your own product.\",\n        \"durationMinutes\": 30\n      }\n    ],\n    \"night\": [\n      {\n        \"id\": \"read-night-history\",\n        \"type\": \"read\",\n        \"title\": \"Read a chapter of narrative history\",\n        \"description\": \"Something non-work, on paper if possible.\",\n        \"durationMinutes\": 25\n      },\n      {\n        \"id\": \"enjoy-night-unwind\",\n        \"type\": \"enjoy\",\n        \"title\": \"Guilt-free evening wind-down\",\n        \"description\": \"Whatever genuinely relaxes you — show, music, or just an early slow evening. No output expected.\"\n      }\n    ]\n  },\n  \"minimumDay\": {\n    \"message\": \"A lighter version for low-energy days: one small move forward, one bit of curiosity, and a walk.\",\n    \"items\": [\n      {\n        \"id\": \"min-main-portfolio-outline\",\n        \"type\": \"main\",\n        \"title\": \"Three-bullet outline for case study #2\",\n        \"description\": \"Just problem, your role, and outcome. That's the whole task.\",\n        \"durationMinutes\": 30\n      },\n      {\n        \"id\": \"min-learn-onboarding-note\",\n        \"type\": \"learn\",\n        \"title\": \"One onboarding observation\",\n        \"description\": \"Open any AI product, note one thing it does well or badly in its first screen.\",\n        \"durationMinutes\": 20\n      },\n      {\n        \"id\": \"min-move-short-walk\",\n        \"type\": \"move\",\n        \"title\": \"Short walk\",\n        \"description\": \"Out the door and back, no distance target.\",\n        \"durationMinutes\": 20\n      },\n      {\n        \"id\": \"min-read-evening\",\n        \"type\": \"read\",\n        \"title\": \"A few pages before bed\",\n        \"description\": \"Pick up whatever book is closest.\",\n        \"durationMinutes\": 15\n      }\n    ]\n  }\n}",
+      "finishReason": "stop",
+      "usage": {
+        "prompt": 1002,
+        "completion": 834
+      },
+      "valid": true,
+      "measure": {
+        "mainMinutes": 75,
+        "supportCount": 5,
+        "mainInTier": true,
+        "supportInTier": true,
+        "minimumMainMinutes": 30,
+        "minimumMainIs30": true,
+        "clockHits": [],
+        "extraMains": 0,
+        "mainTitle": "Outline the second portfolio case study",
+        "cjkInText": false
+      }
+    }
+  ],
+  "finalPlan": {
+    "date": "2026-11-16",
+    "dayType": "balanced",
+    "message": "Yesterday you landed 4 of 5 and felt just right, so today stays similarly sized — with a smaller first step on the portfolio outline you didn't get to.",
+    "mainTask": {
+      "id": "main-portfolio-case-study-2-outline",
+      "type": "main",
+      "title": "Outline the second portfolio case study",
+      "description": "Write a rough 8-bullet skeleton for case study #2: problem, constraints, your role, two decisions, outcome, what you'd do differently. Stop at the outline — no polishing.",
+      "durationMinutes": 75,
+      "reason": "It's the unfinished task from yesterday and the next step toward your 3-case-study goal; a shorter, scoped version lowers the restart cost.",
+      "completed": false
+    },
+    "sections": {
+      "morning": [
+        {
+          "id": "explore-morning-ocean-mapping",
+          "type": "explore",
+          "title": "How seafloor mapping data becomes public maps",
+          "description": "Skim one article or short video on bathymetric surveys and how raw sonar data turns into the maps researchers use.",
+          "durationMinutes": 25,
+          "completed": false
+        }
+      ],
+      "afternoon": [
+        {
+          "id": "move-afternoon-walk",
+          "type": "move",
+          "title": "Brisk walk outside",
+          "description": "A steady walk, no podcast obligations — just pace and daylight.",
+          "durationMinutes": 30,
+          "completed": false
+        }
+      ],
+      "evening": [
+        {
+          "id": "learn-evening-product-teardown",
+          "type": "learn",
+          "title": "Teardown of one AI planning app's onboarding",
+          "description": "Open a competing planning tool, click through the first-run experience, and note three choices you'd keep or change for your own product.",
+          "durationMinutes": 30,
+          "completed": false
+        }
+      ],
+      "night": [
+        {
+          "id": "read-night-history",
+          "type": "read",
+          "title": "Read a chapter of narrative history",
+          "description": "Something non-work, on paper if possible.",
+          "durationMinutes": 25,
+          "completed": false
+        },
+        {
+          "id": "enjoy-night-unwind",
+          "type": "enjoy",
+          "title": "Guilt-free evening wind-down",
+          "description": "Whatever genuinely relaxes you — show, music, or just an early slow evening. No output expected.",
+          "completed": false
+        }
+      ]
+    },
+    "minimumDay": {
+      "message": "A lighter version for low-energy days: one small move forward, one bit of curiosity, and a walk.",
+      "items": [
+        {
+          "id": "min-main-portfolio-outline",
+          "type": "main",
+          "title": "Three-bullet outline for case study #2",
+          "description": "Just problem, your role, and outcome. That's the whole task.",
+          "durationMinutes": 30,
+          "completed": false
+        },
+        {
+          "id": "min-learn-onboarding-note",
+          "type": "learn",
+          "title": "One onboarding observation",
+          "description": "Open any AI product, note one thing it does well or badly in its first screen.",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-move-short-walk",
+          "type": "move",
+          "title": "Short walk",
+          "description": "Out the door and back, no distance target.",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-read-evening",
+          "type": "read",
+          "title": "A few pages before bed",
+          "description": "Pick up whatever book is closest.",
+          "durationMinutes": 15,
+          "completed": false
+        }
+      ]
+    },
+    "activeMode": "standard"
+  },
+  "finalMeasure": {
+    "mainMinutes": 75,
+    "supportCount": 5,
+    "mainInTier": true,
+    "supportInTier": true,
+    "minimumMainMinutes": 30,
+    "minimumMainIs30": true,
+    "clockHits": [],
+    "extraMains": 0,
+    "mainTitle": "Outline the second portfolio case study",
+    "cjkInText": false
+  }
+}

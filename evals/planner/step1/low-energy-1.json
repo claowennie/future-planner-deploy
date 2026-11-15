@@ -1,0 +1,175 @@
+{
+  "scenario": "low-energy",
+  "run": 1,
+  "ms": 5464,
+  "source": "ai",
+  "attempts": [
+    {
+      "status": 200,
+      "requestRoles": [
+        "system",
+        "user"
+      ],
+      "requestExtra": [],
+      "raw": "{\"date\":\"2026-11-16\",\"dayType\":\"relaxed\",\"message\":\"今天能量偏低，就给自己一个宽松的半日节奏吧。昨天作品集提纲没写完也没关系，今天只迈一小步就好。\",\"mainTask\":{\"id\":\"portfolio-case2-outline-small\",\"title\":\"作品集第二个案例：先写三行提纲\",\"description\":\"不追求完整，只把第二个案例的核心问题、你的角色、结果各写一句话，写完就算完成。\",\"durationMinutes\":45,\"reason\":\"这是昨天未完成但依然重要的事，用更小的第一步降低启动门槛，同时推进求职目标。\"},\"sections\":{\"morning\":[{\"id\":\"morning-move\",\"type\":\"move\",\"title\":\"小区慢走\",\"description\":\"不带耳机，走一圈就回来，让身体先醒过来。\",\"durationMinutes\":20}],\"afternoon\":[{\"id\":\"afternoon-main\",\"type\":\"main\",\"title\":\"作品集第二个案例：先写三行提纲\",\"description\":\"只写三句话，写完停下。\",\"durationMinutes\":45},{\"id\":\"afternoon-explore\",\"type\":\"explore\",\"title\":\"看一段海洋纪录片片段\",\"description\":\"纯好奇，随便看看，不做笔记。\",\"durationMinutes\":20}],\"evening\":[{\"id\":\"evening-read\",\"type\":\"read\",\"title\":\"读几页历史书\",\"description\":\"读到困了就停，不设页数目标。\",\"durationMinutes\":20}],\"night\":[{\"id\":\"night-enjoy\",\"type\":\"enjoy\",\"title\":\"听点喜欢的音乐放空\",\"description\":\"什么都不用完成，这是给今天的奖励。\"}]},\"minimumDay\":{\"message\":\"如果今天只想最低限度地过，也没关系，这样就够了。\",\"items\":[{\"id\":\"min-main\",\"type\":\"main\",\"title\":\"作品集案例二：写一句话\",\"description\":\"只写核心问题那一句，写完就算赢。\",\"durationMinutes\":30},{\"id\":\"min-learn\",\"type\":\"learn\",\"title\":\"看一篇产品设计短文\",\"description\":\"轻松浏览，不要求记住。\",\"durationMinutes\":20},{\"id\":\"min-move\",\"type\":\"move\",\"title\":\"室内拉伸\",\"description\":\"活动一下肩颈和后背。\",\"durationMinutes\":20},{\"id\":\"min-enjoy\",\"type\":\"enjoy\",\"title\":\"喝杯喜欢的饮料\",\"description\":\"单纯享受。\"}]}}",
+      "finishReason": "stop",
+      "usage": {
+        "prompt": 927,
+        "completion": 486
+      },
+      "valid": false,
+      "validationError": "sections.afternoon[0].type is not supported (use explore, learn, move, read, or enjoy; the main task belongs only in mainTask, never in sections)",
+      "measure": {
+        "mainMinutes": 45,
+        "supportCount": 5,
+        "mainInTier": true,
+        "supportInTier": false,
+        "minimumMainMinutes": 30,
+        "minimumMainIs30": true,
+        "clockHits": [],
+        "extraMains": 1,
+        "mainTitle": "作品集第二个案例：先写三行提纲"
+      }
+    },
+    {
+      "status": 200,
+      "requestRoles": [
+        "system",
+        "user",
+        "assistant",
+        "user"
+      ],
+      "requestExtra": [
+        {
+          "role": "assistant",
+          "content": "{\"date\":\"2026-11-16\",\"dayType\":\"relaxed\",\"message\":\"今天能量偏低，就给自己一个宽松的半日节奏吧。昨天作品集提纲没写完也没关系，今天只迈一小步就好。\",\"mainTask\":{\"id\":\"portfolio-case2-outline-small\",\"title\":\"作品集第二个案例：先写三行提纲\",\"description\":\"不追求完整，只把第二个案例的核心问题、你的角色、结果各写一句话，写完就算完成。\",\"durationMinutes\":45,\"reason\":\"这是昨天未完成但依然重要的事，用更小的第一步降低启动门槛，同时推进求职目标。\"},\"sections\":{\"morning\":[{\"id\":\"morning-move\",\"type\":\"move\",\"title\":\"小区慢走\",\"description\":\"不带耳机，走一圈就回来，让身体先醒过来。\",\"durationMinutes\":20}],\"afternoon\":[{\"id\":\"afternoon-main\",\"type\":\"main\",\"title\":\"作品集第二个案例：先写三行提纲\",\"description\":\"只写三句话，写完停下。\",\"durationMinutes\":45},{\"id\":\"afternoon-explore\",\"type\":\"explore\",\"title\":\"看一段海洋纪录片片段\",\"description\":\"纯好奇，随便看看，不做笔记。\",\"durationMinutes\":20}],\"evening\":[{\"id\":\"evening-read\",\"type\":\"read\",\"title\":\"读几页历史书\",\"description\":\"读到困了就停，不设页数目标。\",\"durationMinutes\":20}],\"night\":[{\"id\":\"night-enjoy\",\"type\":\"enjoy\",\"title\":\"听点喜欢的音乐放空\",\"description\":\"什么都不用完成，这是给今天的奖励。\"}]},\"minimumDay\":{\"message\":\"如果今天只想最低限度地过，也没关系，这样就够了。\",\"items\":[{\"id\":\"min-main\",\"type\":\"main\",\"title\":\"作品集案例二：写一句话\",\"description\":\"只写核心问题那一句，写完就算赢。\",\"durationMinutes\":30},{\"id\":\"min-learn\",\"type\":\"learn\",\"title\":\"看一篇产品设计短文\",\"description\":\"轻松浏览，不要求记住。\",\"durationMinutes\":20},{\"id\":\"min-move\",\"type\":\"move\",\"title\":\"室内拉伸\",\"description\":\"活动一下肩颈和后背。\",\"durationMinutes\":20},{\"id\":\"min-enjoy\",\"type\":\"enjoy\",\"title\":\"喝杯喜欢的饮料\",\"description\":\"单纯享受。\"}]}}"
+        },
+        {
+          "role": "user",
+          "content": "Your previous reply was rejected by validation: sections.afternoon[0].type is not supported (use explore, learn, move, read, or enjoy; the main task belongs only in mainTask, never in sections). Fix that problem and return the complete corrected JSON object. All earlier rules still apply."
+        }
+      ],
+      "raw": "{\"date\":\"2026-11-16\",\"dayType\":\"relaxed\",\"message\":\"今天能量偏低，就给自己一个宽松的半日节奏吧。昨天作品集提纲没写完也没关系，今天只迈一小步就好。\",\"mainTask\":{\"id\":\"portfolio-case2-outline-small\",\"title\":\"作品集第二个案例：先写三行提纲\",\"description\":\"不追求完整，只把第二个案例的核心问题、你的角色、结果各写一句话，写完就算完成。\",\"durationMinutes\":45,\"reason\":\"这是昨天未完成但依然重要的事，用更小的第一步降低启动门槛，同时推进求职目标。\"},\"sections\":{\"morning\":[{\"id\":\"morning-move\",\"type\":\"move\",\"title\":\"小区慢走\",\"description\":\"不带耳机，走一圈就回来，让身体先醒过来。\",\"durationMinutes\":20}],\"afternoon\":[{\"id\":\"afternoon-explore\",\"type\":\"explore\",\"title\":\"看一段海洋纪录片片段\",\"description\":\"纯好奇，随便看看，不做笔记。\",\"durationMinutes\":20}],\"evening\":[{\"id\":\"evening-read\",\"type\":\"read\",\"title\":\"读几页历史书\",\"description\":\"读到困了就停，不设页数目标。\",\"durationMinutes\":20}],\"night\":[{\"id\":\"night-enjoy\",\"type\":\"enjoy\",\"title\":\"听点喜欢的音乐放空\",\"description\":\"什么都不用完成，这是给今天的奖励。\"}]},\"minimumDay\":{\"message\":\"如果今天只想最低限度地过，也没关系，这样就够了。\",\"items\":[{\"id\":\"min-main\",\"type\":\"main\",\"title\":\"作品集案例二：写一句话\",\"description\":\"只写核心问题那一句，写完就算赢。\",\"durationMinutes\":30},{\"id\":\"min-learn\",\"type\":\"learn\",\"title\":\"看一篇产品设计短文\",\"description\":\"轻松浏览，不要求记住。\",\"durationMinutes\":20},{\"id\":\"min-move\",\"type\":\"move\",\"title\":\"室内拉伸\",\"description\":\"活动一下肩颈和后背。\",\"durationMinutes\":20},{\"id\":\"min-enjoy\",\"type\":\"enjoy\",\"title\":\"喝杯喜欢的饮料\",\"description\":\"单纯享受。\"}]}}",
+      "finishReason": "stop",
+      "usage": {
+        "prompt": 1479,
+        "completion": 447
+      },
+      "valid": true,
+      "measure": {
+        "mainMinutes": 45,
+        "supportCount": 4,
+        "mainInTier": true,
+        "supportInTier": true,
+        "minimumMainMinutes": 30,
+        "minimumMainIs30": true,
+        "clockHits": [],
+        "extraMains": 0,
+        "mainTitle": "作品集第二个案例：先写三行提纲"
+      }
+    }
+  ],
+  "finalPlan": {
+    "date": "2026-11-16",
+    "dayType": "relaxed",
+    "message": "今天能量偏低，就给自己一个宽松的半日节奏吧。昨天作品集提纲没写完也没关系，今天只迈一小步就好。",
+    "mainTask": {
+      "id": "portfolio-case2-outline-small",
+      "type": "main",
+      "title": "作品集第二个案例：先写三行提纲",
+      "description": "不追求完整，只把第二个案例的核心问题、你的角色、结果各写一句话，写完就算完成。",
+      "durationMinutes": 45,
+      "reason": "这是昨天未完成但依然重要的事，用更小的第一步降低启动门槛，同时推进求职目标。",
+      "completed": false
+    },
+    "sections": {
+      "morning": [
+        {
+          "id": "morning-move",
+          "type": "move",
+          "title": "小区慢走",
+          "description": "不带耳机，走一圈就回来，让身体先醒过来。",
+          "durationMinutes": 20,
+          "completed": false
+        }
+      ],
+      "afternoon": [
+        {
+          "id": "afternoon-explore",
+          "type": "explore",
+          "title": "看一段海洋纪录片片段",
+          "description": "纯好奇，随便看看，不做笔记。",
+          "durationMinutes": 20,
+          "completed": false
+        }
+      ],
+      "evening": [
+        {
+          "id": "evening-read",
+          "type": "read",
+          "title": "读几页历史书",
+          "description": "读到困了就停，不设页数目标。",
+          "durationMinutes": 20,
+          "completed": false
+        }
+      ],
+      "night": [
+        {
+          "id": "night-enjoy",
+          "type": "enjoy",
+          "title": "听点喜欢的音乐放空",
+          "description": "什么都不用完成，这是给今天的奖励。",
+          "completed": false
+        }
+      ]
+    },
+    "minimumDay": {
+      "message": "如果今天只想最低限度地过，也没关系，这样就够了。",
+      "items": [
+        {
+          "id": "min-main",
+          "type": "main",
+          "title": "作品集案例二：写一句话",
+          "description": "只写核心问题那一句，写完就算赢。",
+          "durationMinutes": 30,
+          "completed": false
+        },
+        {
+          "id": "min-learn",
+          "type": "learn",
+          "title": "看一篇产品设计短文",
+          "description": "轻松浏览，不要求记住。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-move",
+          "type": "move",
+          "title": "室内拉伸",
+          "description": "活动一下肩颈和后背。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-enjoy",
+          "type": "enjoy",
+          "title": "喝杯喜欢的饮料",
+          "description": "单纯享受。",
+          "completed": false
+        }
+      ]
+    },
+    "activeMode": "standard"
+  },
+  "finalMeasure": {
+    "mainMinutes": 45,
+    "supportCount": 4,
+    "mainInTier": true,
+    "supportInTier": true,
+    "minimumMainMinutes": 30,
+    "minimumMainIs30": true,
+    "clockHits": [],
+    "extraMains": 0,
+    "mainTitle": "作品集第二个案例：先写三行提纲"
+  }
+}

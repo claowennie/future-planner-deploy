@@ -1,0 +1,145 @@
+{
+  "scenario": "yesterday-main-unfinished",
+  "run": 3,
+  "ms": 3710,
+  "source": "ai",
+  "attempts": [
+    {
+      "status": 200,
+      "requestRoles": [
+        "system",
+        "user"
+      ],
+      "requestExtra": [],
+      "raw": "{\"date\":\"2026-11-16\",\"dayType\":\"balanced\",\"message\":\"昨天作品集初稿没写完，今天不用硬啃整篇，先把它拆小一点继续推进，其余时间留给身体和好奇心。\",\"mainTask\":{\"id\":\"portfolio-case2-outline-v2\",\"title\":\"补全作品集第二个案例的提纲\",\"description\":\"先花10分钟回看昨天的半成品，只补齐提纲中缺失的2-3个要点（背景、你的决策、结果），不写正文。写完就停。\",\"durationMinutes\":75,\"reason\":\"昨天这一步没完成，缩小到只补提纲缺口，能降低启动阻力，同时推进'3个作品集案例'的关键结果。\"},\"sections\":{\"morning\":[{\"id\":\"move-morning-walk\",\"type\":\"move\",\"title\":\"出门散步20分钟\",\"description\":\"不带耳机，随便走走，让身体先醒过来。\",\"durationMinutes\":20}],\"afternoon\":[{\"id\":\"explore-tide-pools\",\"type\":\"explore\",\"title\":\"看看潮池里的微型生态\",\"description\":\"搜一段潮池生物短片或图文，认识两三种小生物怎么在涨落潮里生存。\",\"durationMinutes\":25},{\"id\":\"learn-planner-eval\",\"type\":\"learn\",\"title\":\"学一个规划器质量评估的小方法\",\"description\":\"找一篇关于LLM输出评估的短文，记下一个能用在v2测试里的检查点。\",\"durationMinutes\":30}],\"evening\":[{\"id\":\"read-history-ocean\",\"type\":\"read\",\"title\":\"读几页海洋或历史相关的书\",\"description\":\"选一本轻松的，读到不想读为止。\",\"durationMinutes\":25},{\"id\":\"enjoy-unwind\",\"type\":\"enjoy\",\"title\":\"随意放松时间\",\"description\":\"看点什么、听点什么，纯粹为了开心，不安排产出。\"}],\"night\":[]},\"minimumDay\":{\"message\":\"如果今天状态一般，只做这几件小事，也算完整的一天。\",\"items\":[{\"id\":\"min-main-outline\",\"type\":\"main\",\"title\":\"补上作品集提纲的一个缺口\",\"description\":\"只补一个缺失要点，写完即止。\",\"durationMinutes\":30},{\"id\":\"min-explore-tide\",\"type\":\"explore\",\"title\":\"看一段潮池生物短片\",\"description\":\"认识一种潮池小生物。\",\"durationMinutes\":20},{\"id\":\"min-move-walk\",\"type\":\"move\",\"title\":\"散步20分钟\",\"description\":\"楼下随便走走。\",\"durationMinutes\":20},{\"id\":\"min-read-pages\",\"type\":\"read\",\"title\":\"读几页书\",\"description\":\"睡前翻几页就好。\",\"durationMinutes\":15}]}}",
+      "finishReason": "stop",
+      "usage": {
+        "prompt": 989,
+        "completion": 554
+      },
+      "valid": true,
+      "measure": {
+        "mainMinutes": 75,
+        "supportCount": 5,
+        "mainInTier": true,
+        "supportInTier": true,
+        "minimumMainMinutes": 30,
+        "minimumMainIs30": true,
+        "clockHits": [],
+        "extraMains": 0,
+        "mainTitle": "补全作品集第二个案例的提纲"
+      }
+    }
+  ],
+  "finalPlan": {
+    "date": "2026-11-16",
+    "dayType": "balanced",
+    "message": "昨天作品集初稿没写完，今天不用硬啃整篇，先把它拆小一点继续推进，其余时间留给身体和好奇心。",
+    "mainTask": {
+      "id": "portfolio-case2-outline-v2",
+      "type": "main",
+      "title": "补全作品集第二个案例的提纲",
+      "description": "先花10分钟回看昨天的半成品，只补齐提纲中缺失的2-3个要点（背景、你的决策、结果），不写正文。写完就停。",
+      "durationMinutes": 75,
+      "reason": "昨天这一步没完成，缩小到只补提纲缺口，能降低启动阻力，同时推进'3个作品集案例'的关键结果。",
+      "completed": false
+    },
+    "sections": {
+      "morning": [
+        {
+          "id": "move-morning-walk",
+          "type": "move",
+          "title": "出门散步20分钟",
+          "description": "不带耳机，随便走走，让身体先醒过来。",
+          "durationMinutes": 20,
+          "completed": false
+        }
+      ],
+      "afternoon": [
+        {
+          "id": "explore-tide-pools",
+          "type": "explore",
+          "title": "看看潮池里的微型生态",
+          "description": "搜一段潮池生物短片或图文，认识两三种小生物怎么在涨落潮里生存。",
+          "durationMinutes": 25,
+          "completed": false
+        },
+        {
+          "id": "learn-planner-eval",
+          "type": "learn",
+          "title": "学一个规划器质量评估的小方法",
+          "description": "找一篇关于LLM输出评估的短文，记下一个能用在v2测试里的检查点。",
+          "durationMinutes": 30,
+          "completed": false
+        }
+      ],
+      "evening": [
+        {
+          "id": "read-history-ocean",
+          "type": "read",
+          "title": "读几页海洋或历史相关的书",
+          "description": "选一本轻松的，读到不想读为止。",
+          "durationMinutes": 25,
+          "completed": false
+        },
+        {
+          "id": "enjoy-unwind",
+          "type": "enjoy",
+          "title": "随意放松时间",
+          "description": "看点什么、听点什么，纯粹为了开心，不安排产出。",
+          "completed": false
+        }
+      ],
+      "night": []
+    },
+    "minimumDay": {
+      "message": "如果今天状态一般，只做这几件小事，也算完整的一天。",
+      "items": [
+        {
+          "id": "min-main-outline",
+          "type": "main",
+          "title": "补上作品集提纲的一个缺口",
+          "description": "只补一个缺失要点，写完即止。",
+          "durationMinutes": 30,
+          "completed": false
+        },
+        {
+          "id": "min-explore-tide",
+          "type": "explore",
+          "title": "看一段潮池生物短片",
+          "description": "认识一种潮池小生物。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-move-walk",
+          "type": "move",
+          "title": "散步20分钟",
+          "description": "楼下随便走走。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-read-pages",
+          "type": "read",
+          "title": "读几页书",
+          "description": "睡前翻几页就好。",
+          "durationMinutes": 15,
+          "completed": false
+        }
+      ]
+    },
+    "activeMode": "standard"
+  },
+  "finalMeasure": {
+    "mainMinutes": 75,
+    "supportCount": 5,
+    "mainInTier": true,
+    "supportInTier": true,
+    "minimumMainMinutes": 30,
+    "minimumMainIs30": true,
+    "clockHits": [],
+    "extraMains": 0,
+    "mainTitle": "补全作品集第二个案例的提纲"
+  }
+}
