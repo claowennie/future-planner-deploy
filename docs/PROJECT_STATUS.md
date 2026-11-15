@@ -2,7 +2,7 @@
 
 > Persistent handoff for future Codex sessions. Read this file together with the latest Git status and commit history before continuing.
 
-Last updated: 2026-10-22 (Asia/Taipei)
+Last updated: 2026-11-15 (Asia/Taipei)
 
 ## Resume snapshot
 
@@ -16,6 +16,18 @@ Last updated: 2026-10-22 (Asia/Taipei)
 - AI Daily Planner migration, Worker secret, production deployment, and authenticated end-to-end verification are complete.
 
 The product is live. AI Daily Planner v1 is available on Today after signing in: save a planning profile, answer the daily check-in, then click to generate a plan. Generation is user-triggered; no scheduled daily generation or notification is enabled.
+
+## AI Daily Planner generation quality pass (local commits, NOT deployed, 2026-11-15)
+
+Worker-only changes to how plans are generated and validated. No UI change, no migration, and `plan_json` keeps its shape. The commits are on local `main`; they have not been pushed or deployed, so production still runs the v1.1 Worker listed above. Deploying is waiting for the owner's review.
+
+- Eval harness: `evals/planner/` holds eight synthetic scenarios (`scenarios.json`) and `run.mjs`, which runs each scenario three times through the real generate → validate → retry → fallback path against the live model without Supabase. `node evals/planner/run.mjs --label <name>` writes raw outputs to `evals/planner/<name>/` and rewrites `report.md` with a comparison against `baseline/`. It needs `DEEPSEEK_API_KEY` in the environment and never writes it. Results are 24 runs at temperature 0.72, so they are directional only.
+- Retry with feedback: when the first reply fails validation, the second request includes that reply and the validator's error instead of resending the same prompt.
+- Load tiers are enforced: `loadTier` in `worker/planner-schema.js` is the single source for LIGHT (main 30–60 min, 2–4 supporting items), BALANCED (60–90, 3–5), and FULL (90–120, 3–6). The prompt, `validateDailyPlan` (when given the check-in), and `fallbackPlan` all use it. The Minimum Day main item must be exactly 30 minutes. A replan for `too_much`/`less_time` moves one tier lighter and `too_easy`/`more_time` one tier fuller.
+- Fallback reads history: `fallbackPlan(input, profile, recent)` sizes the day toward the low or high end of the tier after a `too_much`/`too_light` review or low completion, and carries an unfinished main task forward as a smaller first step when there is no must-do.
+- Untrusted text is isolated: must-do, reflections, and review notes go through `sanitizeUntrusted` and are placed in `<<<USER_TEXT …>>>` blocks outside the JSON context. Goal names, task titles, and profile lists are still passed as JSON.
+- Measured against the baseline: final plans inside their tier went from 22/24 (main duration) and 21/24 (item count) to 24/24 for both. First-pass validity and fallback rate did not clearly change (18/24 → 19/24 and 1/24 → 1/24 in the last run).
+- Known gaps at this point: the `busy` scenario usually fails its first attempt and needs the retry; a must-do that mixes a task with injected instructions often loses the task as well; the fallback's "avoid recent topics" check is a plain substring match.
 
 ## AI Daily Planner v1.1 — review loop and redesign (production, 2026-10-22)
 
@@ -259,6 +271,7 @@ Use a prepared demo account, hide email/API keys, record at 1920×1080, avoid lo
 
 ## Current roadmap and known follow-ups
 
+- AI Daily Planner key ownership and costs (user decision, 2026-10-22): keep the current owner-funded, Worker-side DeepSeek key for this test version. This is a temporary testing arrangement, not a settled model for future multi-user availability. How users provide keys or how AI usage is funded remains undecided; discuss before expanding beyond the test version. No configuration change is requested now.
 - Confirm Supabase Auth Site URL and redirect allowlist for the custom domain.
 - Record and publish the two-minute product demo and concise iteration Case Study.
 - Improve first-load feedback, weak-network recovery, and error fallback to reduce perceived blank screens.
