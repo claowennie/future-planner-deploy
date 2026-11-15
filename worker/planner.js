@@ -293,7 +293,7 @@ export function fallbackPlan(input, profile = {}) {
   }, input.date);
 }
 
-async function generateValidatedPlan(env, prompt, input, profile) {
+export async function generateValidatedPlan(env, prompt, input, profile) {
   let invalidOutput = false;
   for (let attempt = 0; attempt < 2; attempt += 1) {
     const content = await requestPlannerCompletion(env, prompt);

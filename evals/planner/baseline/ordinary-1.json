@@ -1,0 +1,172 @@
+{
+  "scenario": "ordinary",
+  "run": 1,
+  "ms": 7996,
+  "source": "ai",
+  "attempts": [
+    {
+      "status": 200,
+      "requestRoles": [
+        "system",
+        "user"
+      ],
+      "requestExtra": [],
+      "raw": "{\"date\":\"2026-11-16\",\"dayType\":\"balanced\",\"message\":\"昨天你完成了测试用例整理、节奏刚刚好，今天延续这份手感，把作品集第二个案例的提纲重新捡起来，先做小小一步就好。\",\"mainTask\":{\"id\":\"portfolio-case2-outline\",\"title\":\"写作品集第二个案例的提纲\",\"description\":\"先只做提纲：列出案例背景、你的角色、关键决策和结果四块，每块写两三句要点，不追求成稿。\",\"durationMinutes\":75,\"reason\":\"这是昨天没完成、但对你找工作很关键的一步，先拆小降低启动阻力。\"},\"sections\":{\"morning\":[{\"id\":\"move-morning-walk\",\"type\":\"move\",\"title\":\"出门散步二十分钟\",\"description\":\"不带耳机，随便走走，让脑子先醒过来。\",\"durationMinutes\":20}],\"afternoon\":[{\"id\":\"main-portfolio\",\"type\":\"main\",\"title\":\"写作品集第二个案例的提纲\",\"description\":\"只搭骨架，四块要点各写两三句，写完就停。\",\"durationMinutes\":75},{\"id\":\"learn-schema-advance\",\"type\":\"learn\",\"title\":\"继续学一点 JSON Schema 进阶\",\"description\":\"挑一个昨天没弄懂的点深入看看，比如条件校验。\",\"durationMinutes\":25}],\"evening\":[{\"id\":\"explore-ocean-tech\",\"type\":\"explore\",\"title\":\"看看海洋数据是怎么被采集的\",\"description\":\"随便逛逛浮标或潜标的数据采集方式，满足好奇心就好。\",\"durationMinutes\":20},{\"id\":\"enjoy-evening\",\"type\":\"enjoy\",\"title\":\"留一段完全放松的时间\",\"description\":\"看点喜欢的东西或发发呆，不需要产出。\"}],\"night\":[{\"id\":\"read-night\",\"type\":\"read\",\"title\":\"睡前读几页书\",\"description\":\"挑一本历史类的，读到你自然想睡为止。\",\"durationMinutes\":20}]},\"minimumDay\":{\"message\":\"如果今天状态一般，只做最小版本也完全够了。\",\"items\":[{\"id\":\"min-main-portfolio\",\"type\":\"main\",\"title\":\"写作品集案例提纲的一小块\",\"description\":\"只写背景和你的角色两块要点。\",\"durationMinutes\":30},{\"id\":\"min-learn-schema\",\"type\":\"learn\",\"title\":\"看一个 JSON Schema 小知识点\",\"description\":\"挑一个点看懂就行。\",\"durationMinutes\":20},{\"id\":\"min-move-walk\",\"type\":\"move\",\"title\":\"散步\",\"description\":\"轻松走一走，活动身体。\",\"durationMinutes\":20},{\"id\":\"min-read\",\"type\":\"read\",\"title\":\"读几页书\",\"description\":\"想读就读，不用读完。\",\"durationMinutes\":15}]}}",
+      "finishReason": "stop",
+      "usage": {
+        "prompt": 999,
+        "completion": 560
+      },
+      "valid": false,
+      "validationError": "sections.afternoon[0].type is not supported",
+      "measure": {
+        "mainMinutes": 75,
+        "supportCount": 6,
+        "mainInTier": true,
+        "supportInTier": false,
+        "minimumMainMinutes": 30,
+        "minimumMainIs30": true,
+        "clockHits": [],
+        "extraMains": 1,
+        "mainTitle": "写作品集第二个案例的提纲"
+      }
+    },
+    {
+      "status": 200,
+      "requestRoles": [
+        "system",
+        "user"
+      ],
+      "requestExtra": [],
+      "raw": "{\n  \"date\": \"2026-11-16\",\n  \"dayType\": \"balanced\",\n  \"message\": \"昨天完成得不错，节奏刚好，今天继续把作品集提纲往前推一小步就好。\",\n  \"mainTask\": {\n    \"id\": \"portfolio-case2-outline\",\n    \"title\": \"写作品集第二个案例的提纲\",\n    \"description\": \"先把第二个案例的结构骨架列出来：背景、问题、你的角色、关键决策、结果。不求完整，只求能往下填。\",\n    \"durationMinutes\": 75,\n    \"reason\": \"昨天这一步没完成，今天用更小的第一步继续推进，避免卡住。\"\n  },\n  \"sections\": {\n    \"morning\": [\n      {\n        \"id\": \"morning-move-walk\",\n        \"type\": \"move\",\n        \"title\": \"出门散步 25 分钟\",\n        \"description\": \"不带耳机或只放轻音乐，让脑子先醒过来。\",\n        \"durationMinutes\": 25\n      }\n    ],\n    \"afternoon\": [\n      {\n        \"id\": \"afternoon-explore-tide\",\n        \"type\": \"explore\",\n        \"title\": \"看看潮汐能是怎么发电的\",\n        \"description\": \"找一篇科普或短视频，了解潮汐发电的基本原理和现实难点。\",\n        \"durationMinutes\": 25\n      },\n      {\n        \"id\": \"afternoon-learn-schema\",\n        \"type\": \"learn\",\n        \"title\": \"继续学 JSON Schema 的校验写法\",\n        \"description\": \"接着昨天的内容，练习写一个带必填字段和类型约束的简单 schema。\",\n        \"durationMinutes\": 30\n      }\n    ],\n    \"evening\": [\n      {\n        \"id\": \"evening-read-history\",\n        \"type\": \"read\",\n        \"title\": \"读几页海洋史或航海史\",\n        \"description\": \"随手翻翻，不设页数目标，读到想停就停。\",\n        \"durationMinutes\": 20\n      },\n      {\n        \"id\": \"evening-enjoy-music\",\n        \"type\": \"enjoy\",\n        \"title\": \"听点喜欢的音乐或看一集轻松的节目\",\n        \"description\": \"纯粹放松，不需要产出。\"\n      }\n    ],\n    \"night\": []\n  },\n  \"minimumDay\": {\n    \"message\": \"如果今天状态一般，就只做这几件小事，也算完整的一天。\",\n    \"items\": [\n      {\n        \"id\": \"min-main-outline\",\n        \"type\": \"main\",\n        \"title\": \"写作品集第二个案例提纲的第一部分\",\n        \"description\": \"只写背景和问题两段，写完就停。\",\n        \"durationMinutes\": 30\n      },\n      {\n        \"id\": \"min-explore-tide\",\n        \"type\": \"explore\",\n        \"title\": \"了解潮汐能发电的基本原理\",\n        \"description\": \"看一篇短文或一个短视频即可。\",\n        \"durationMinutes\": 20\n      },\n      {\n        \"id\": \"min-move-walk\",\n        \"type\": \"move\",\n        \"title\": \"散步 20 分钟\",\n        \"description\": \"楼下或附近走走，呼吸一下新鲜空气。\",\n        \"durationMinutes\": 20\n      },\n      {\n        \"id\": \"min-read-history\",\n        \"type\": \"read\",\n        \"title\": \"读两页海洋史\",\n        \"description\": \"读多少算多少。\",\n        \"durationMinutes\": 10\n      }\n    ]\n  }\n}",
+      "finishReason": "stop",
+      "usage": {
+        "prompt": 999,
+        "completion": 761
+      },
+      "valid": true,
+      "measure": {
+        "mainMinutes": 75,
+        "supportCount": 5,
+        "mainInTier": true,
+        "supportInTier": true,
+        "minimumMainMinutes": 30,
+        "minimumMainIs30": true,
+        "clockHits": [],
+        "extraMains": 0,
+        "mainTitle": "写作品集第二个案例的提纲"
+      }
+    }
+  ],
+  "finalPlan": {
+    "date": "2026-11-16",
+    "dayType": "balanced",
+    "message": "昨天完成得不错，节奏刚好，今天继续把作品集提纲往前推一小步就好。",
+    "mainTask": {
+      "id": "portfolio-case2-outline",
+      "type": "main",
+      "title": "写作品集第二个案例的提纲",
+      "description": "先把第二个案例的结构骨架列出来：背景、问题、你的角色、关键决策、结果。不求完整，只求能往下填。",
+      "durationMinutes": 75,
+      "reason": "昨天这一步没完成，今天用更小的第一步继续推进，避免卡住。",
+      "completed": false
+    },
+    "sections": {
+      "morning": [
+        {
+          "id": "morning-move-walk",
+          "type": "move",
+          "title": "出门散步 25 分钟",
+          "description": "不带耳机或只放轻音乐，让脑子先醒过来。",
+          "durationMinutes": 25,
+          "completed": false
+        }
+      ],
+      "afternoon": [
+        {
+          "id": "afternoon-explore-tide",
+          "type": "explore",
+          "title": "看看潮汐能是怎么发电的",
+          "description": "找一篇科普或短视频，了解潮汐发电的基本原理和现实难点。",
+          "durationMinutes": 25,
+          "completed": false
+        },
+        {
+          "id": "afternoon-learn-schema",
+          "type": "learn",
+          "title": "继续学 JSON Schema 的校验写法",
+          "description": "接着昨天的内容，练习写一个带必填字段和类型约束的简单 schema。",
+          "durationMinutes": 30,
+          "completed": false
+        }
+      ],
+      "evening": [
+        {
+          "id": "evening-read-history",
+          "type": "read",
+          "title": "读几页海洋史或航海史",
+          "description": "随手翻翻，不设页数目标，读到想停就停。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "evening-enjoy-music",
+          "type": "enjoy",
+          "title": "听点喜欢的音乐或看一集轻松的节目",
+          "description": "纯粹放松，不需要产出。",
+          "completed": false
+        }
+      ],
+      "night": []
+    },
+    "minimumDay": {
+      "message": "如果今天状态一般，就只做这几件小事，也算完整的一天。",
+      "items": [
+        {
+          "id": "min-main-outline",
+          "type": "main",
+          "title": "写作品集第二个案例提纲的第一部分",
+          "description": "只写背景和问题两段，写完就停。",
+          "durationMinutes": 30,
+          "completed": false
+        },
+        {
+          "id": "min-explore-tide",
+          "type": "explore",
+          "title": "了解潮汐能发电的基本原理",
+          "description": "看一篇短文或一个短视频即可。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-move-walk",
+          "type": "move",
+          "title": "散步 20 分钟",
+          "description": "楼下或附近走走，呼吸一下新鲜空气。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-read-history",
+          "type": "read",
+          "title": "读两页海洋史",
+          "description": "读多少算多少。",
+          "durationMinutes": 10,
+          "completed": false
+        }
+      ]
+    },
+    "activeMode": "standard"
+  },
+  "finalMeasure": {
+    "mainMinutes": 75,
+    "supportCount": 5,
+    "mainInTier": true,
+    "supportInTier": true,
+    "minimumMainMinutes": 30,
+    "minimumMainIs30": true,
+    "clockHits": [],
+    "extraMains": 0,
+    "mainTitle": "写作品集第二个案例的提纲"
+  }
+}

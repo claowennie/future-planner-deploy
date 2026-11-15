@@ -1,0 +1,136 @@
+{
+  "scenario": "busy",
+  "run": 1,
+  "ms": 3597,
+  "source": "ai",
+  "attempts": [
+    {
+      "status": 200,
+      "requestRoles": [
+        "system",
+        "user"
+      ],
+      "requestExtra": [],
+      "raw": "{\"date\":\"2026-11-16\",\"dayType\":\"productive\",\"message\":\"今天时间紧、还要交季度报告，我把重点收得很窄：先稳稳把报告交出去，其余都是轻量的小事。昨天作品集提纲没写完没关系，先不急着补。\",\"mainTask\":{\"id\":\"main-quarterly-report\",\"title\":\"完成并提交季度报告\",\"description\":\"先花10分钟列出报告结构和已有材料，然后集中写完主体内容，最后通读一遍、确认数据无误后提交。\",\"durationMinutes\":75,\"reason\":\"这是今天明确要交的成果，完成它今天就算有意义，其余安排都围绕它留出精力。\"},\"sections\":{\"morning\":[{\"id\":\"explore-ai-agent-patterns\",\"type\":\"explore\",\"title\":\"看一个AI产品的小案例\",\"description\":\"随手读一篇关于AI产品交互设计的短文或案例，只记下一个让你有启发的点。\",\"durationMinutes\":20}],\"afternoon\":[{\"id\":\"move-short-walk\",\"type\":\"move\",\"title\":\"午后散步\",\"description\":\"出门走一小段，让眼睛和脑子从报告里歇一歇。\",\"durationMinutes\":20}],\"evening\":[{\"id\":\"read-history-light\",\"type\":\"read\",\"title\":\"读几页历史\",\"description\":\"挑一本轻松的历史书读一会儿，不设进度。\",\"durationMinutes\":20},{\"id\":\"enjoy-free-evening\",\"type\":\"enjoy\",\"title\":\"随意放松\",\"description\":\"做点纯粹让自己舒服的事，不带着任务感。\"}],\"night\":[]},\"minimumDay\":{\"message\":\"如果今天实在忙不过来，就只做这些，也算完整的一天。\",\"items\":[{\"id\":\"min-main-report\",\"type\":\"main\",\"title\":\"推进季度报告\",\"description\":\"只写报告最关键的一节，能交多少交多少。\",\"durationMinutes\":30},{\"id\":\"min-learn-product\",\"type\":\"learn\",\"title\":\"学一个小产品知识点\",\"description\":\"读一篇产品设计相关的短文，记一句话。\",\"durationMinutes\":20},{\"id\":\"min-move-walk\",\"type\":\"move\",\"title\":\"短走一圈\",\"description\":\"出门走20分钟，透透气。\",\"durationMinutes\":20},{\"id\":\"min-enjoy\",\"type\":\"enjoy\",\"title\":\"轻松一下\",\"description\":\"做点让自己开心的小事，不设时长。\"}]}}",
+      "finishReason": "stop",
+      "usage": {
+        "prompt": 929,
+        "completion": 489
+      },
+      "valid": true,
+      "measure": {
+        "mainMinutes": 75,
+        "supportCount": 4,
+        "mainInTier": false,
+        "supportInTier": true,
+        "minimumMainMinutes": 30,
+        "minimumMainIs30": true,
+        "clockHits": [],
+        "extraMains": 0,
+        "mainTitle": "完成并提交季度报告"
+      }
+    }
+  ],
+  "finalPlan": {
+    "date": "2026-11-16",
+    "dayType": "productive",
+    "message": "今天时间紧、还要交季度报告，我把重点收得很窄：先稳稳把报告交出去，其余都是轻量的小事。昨天作品集提纲没写完没关系，先不急着补。",
+    "mainTask": {
+      "id": "main-quarterly-report",
+      "type": "main",
+      "title": "完成并提交季度报告",
+      "description": "先花10分钟列出报告结构和已有材料，然后集中写完主体内容，最后通读一遍、确认数据无误后提交。",
+      "durationMinutes": 75,
+      "reason": "这是今天明确要交的成果，完成它今天就算有意义，其余安排都围绕它留出精力。",
+      "completed": false
+    },
+    "sections": {
+      "morning": [
+        {
+          "id": "explore-ai-agent-patterns",
+          "type": "explore",
+          "title": "看一个AI产品的小案例",
+          "description": "随手读一篇关于AI产品交互设计的短文或案例，只记下一个让你有启发的点。",
+          "durationMinutes": 20,
+          "completed": false
+        }
+      ],
+      "afternoon": [
+        {
+          "id": "move-short-walk",
+          "type": "move",
+          "title": "午后散步",
+          "description": "出门走一小段，让眼睛和脑子从报告里歇一歇。",
+          "durationMinutes": 20,
+          "completed": false
+        }
+      ],
+      "evening": [
+        {
+          "id": "read-history-light",
+          "type": "read",
+          "title": "读几页历史",
+          "description": "挑一本轻松的历史书读一会儿，不设进度。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "enjoy-free-evening",
+          "type": "enjoy",
+          "title": "随意放松",
+          "description": "做点纯粹让自己舒服的事，不带着任务感。",
+          "completed": false
+        }
+      ],
+      "night": []
+    },
+    "minimumDay": {
+      "message": "如果今天实在忙不过来，就只做这些，也算完整的一天。",
+      "items": [
+        {
+          "id": "min-main-report",
+          "type": "main",
+          "title": "推进季度报告",
+          "description": "只写报告最关键的一节，能交多少交多少。",
+          "durationMinutes": 30,
+          "completed": false
+        },
+        {
+          "id": "min-learn-product",
+          "type": "learn",
+          "title": "学一个小产品知识点",
+          "description": "读一篇产品设计相关的短文，记一句话。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-move-walk",
+          "type": "move",
+          "title": "短走一圈",
+          "description": "出门走20分钟，透透气。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-enjoy",
+          "type": "enjoy",
+          "title": "轻松一下",
+          "description": "做点让自己开心的小事，不设时长。",
+          "completed": false
+        }
+      ]
+    },
+    "activeMode": "standard"
+  },
+  "finalMeasure": {
+    "mainMinutes": 75,
+    "supportCount": 4,
+    "mainInTier": false,
+    "supportInTier": true,
+    "minimumMainMinutes": 30,
+    "minimumMainIs30": true,
+    "clockHits": [],
+    "extraMains": 0,
+    "mainTitle": "完成并提交季度报告"
+  }
+}

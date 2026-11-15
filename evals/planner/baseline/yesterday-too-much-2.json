@@ -1,0 +1,138 @@
+{
+  "scenario": "yesterday-too-much",
+  "run": 2,
+  "ms": 3605,
+  "source": "ai",
+  "attempts": [
+    {
+      "status": 200,
+      "requestRoles": [
+        "system",
+        "user"
+      ],
+      "requestExtra": [],
+      "raw": "{\"date\":\"2026-11-16\",\"dayType\":\"relaxed\",\"message\":\"昨天排得太满、下午就没力气了，今天特意留出空白，只守住一件真正重要的事，其余都轻松来。\",\"mainTask\":{\"id\":\"portfolio-case2-outline\",\"title\":\"写作品集第二个案例的提纲\",\"description\":\"只做提纲：用半页纸列出这个案例的背景、你的角色、关键决策和结果，先写粗糙版本，不追求措辞。\",\"durationMinutes\":60,\"reason\":\"这是昨天没完成、但对求职目标很关键的一步；今天用更小的第一步重新接上，降低启动阻力。\"},\"sections\":{\"morning\":[{\"id\":\"morning-walk\",\"type\":\"move\",\"title\":\"出门散步晒太阳\",\"description\":\"不带耳机，随便走走，让身体先醒过来。\",\"durationMinutes\":25}],\"afternoon\":[{\"id\":\"afternoon-explore\",\"type\":\"explore\",\"title\":\"看一个真实 AI 产品怎么设计引导流程\",\"description\":\"挑一个你常用的 AI 工具，观察它如何带新用户完成第一次任务，记下两点启发。\",\"durationMinutes\":30}],\"evening\":[{\"id\":\"evening-read\",\"type\":\"read\",\"title\":\"读一点海洋或历史\",\"description\":\"随手翻几页感兴趣的书，不求进度。\",\"durationMinutes\":25}],\"night\":[{\"id\":\"night-enjoy\",\"type\":\"enjoy\",\"title\":\"无负担的放松时间\",\"description\":\"看剧、听音乐或发呆都行，不需要有产出。\"}]},\"minimumDay\":{\"message\":\"如果今天状态很一般，就只做这三件小事，也算完整的一天。\",\"items\":[{\"id\":\"min-main\",\"type\":\"main\",\"title\":\"写作品集案例提纲的第一段\",\"description\":\"只写背景和你自己的角色，写完就停。\",\"durationMinutes\":30,\"target\":\"作品集第二个案例\"},{\"id\":\"min-learn\",\"type\":\"learn\",\"title\":\"了解一个案例写作框架\",\"description\":\"找一篇讲作品集案例结构的短文，读并记一条要点。\",\"durationMinutes\":20},{\"id\":\"min-move\",\"type\":\"move\",\"title\":\"轻松散步\",\"description\":\"楼下走一圈，活动一下身体。\",\"durationMinutes\":20},{\"id\":\"min-enjoy\",\"type\":\"enjoy\",\"title\":\"随意放松\",\"description\":\"做一件单纯让自己舒服的事。\"}]}}",
+      "finishReason": "stop",
+      "usage": {
+        "prompt": 1013,
+        "completion": 496
+      },
+      "valid": true,
+      "measure": {
+        "mainMinutes": 60,
+        "supportCount": 4,
+        "mainInTier": true,
+        "supportInTier": true,
+        "minimumMainMinutes": 30,
+        "minimumMainIs30": true,
+        "clockHits": [],
+        "extraMains": 0,
+        "mainTitle": "写作品集第二个案例的提纲"
+      }
+    }
+  ],
+  "finalPlan": {
+    "date": "2026-11-16",
+    "dayType": "relaxed",
+    "message": "昨天排得太满、下午就没力气了，今天特意留出空白，只守住一件真正重要的事，其余都轻松来。",
+    "mainTask": {
+      "id": "portfolio-case2-outline",
+      "type": "main",
+      "title": "写作品集第二个案例的提纲",
+      "description": "只做提纲：用半页纸列出这个案例的背景、你的角色、关键决策和结果，先写粗糙版本，不追求措辞。",
+      "durationMinutes": 60,
+      "reason": "这是昨天没完成、但对求职目标很关键的一步；今天用更小的第一步重新接上，降低启动阻力。",
+      "completed": false
+    },
+    "sections": {
+      "morning": [
+        {
+          "id": "morning-walk",
+          "type": "move",
+          "title": "出门散步晒太阳",
+          "description": "不带耳机，随便走走，让身体先醒过来。",
+          "durationMinutes": 25,
+          "completed": false
+        }
+      ],
+      "afternoon": [
+        {
+          "id": "afternoon-explore",
+          "type": "explore",
+          "title": "看一个真实 AI 产品怎么设计引导流程",
+          "description": "挑一个你常用的 AI 工具，观察它如何带新用户完成第一次任务，记下两点启发。",
+          "durationMinutes": 30,
+          "completed": false
+        }
+      ],
+      "evening": [
+        {
+          "id": "evening-read",
+          "type": "read",
+          "title": "读一点海洋或历史",
+          "description": "随手翻几页感兴趣的书，不求进度。",
+          "durationMinutes": 25,
+          "completed": false
+        }
+      ],
+      "night": [
+        {
+          "id": "night-enjoy",
+          "type": "enjoy",
+          "title": "无负担的放松时间",
+          "description": "看剧、听音乐或发呆都行，不需要有产出。",
+          "completed": false
+        }
+      ]
+    },
+    "minimumDay": {
+      "message": "如果今天状态很一般，就只做这三件小事，也算完整的一天。",
+      "items": [
+        {
+          "id": "min-main",
+          "type": "main",
+          "title": "写作品集案例提纲的第一段",
+          "description": "只写背景和你自己的角色，写完就停。",
+          "durationMinutes": 30,
+          "target": "作品集第二个案例",
+          "completed": false
+        },
+        {
+          "id": "min-learn",
+          "type": "learn",
+          "title": "了解一个案例写作框架",
+          "description": "找一篇讲作品集案例结构的短文，读并记一条要点。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-move",
+          "type": "move",
+          "title": "轻松散步",
+          "description": "楼下走一圈，活动一下身体。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-enjoy",
+          "type": "enjoy",
+          "title": "随意放松",
+          "description": "做一件单纯让自己舒服的事。",
+          "completed": false
+        }
+      ]
+    },
+    "activeMode": "standard"
+  },
+  "finalMeasure": {
+    "mainMinutes": 60,
+    "supportCount": 4,
+    "mainInTier": true,
+    "supportInTier": true,
+    "minimumMainMinutes": 30,
+    "minimumMainIs30": true,
+    "clockHits": [],
+    "extraMains": 0,
+    "mainTitle": "写作品集第二个案例的提纲"
+  }
+}

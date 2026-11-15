@@ -1,0 +1,385 @@
+{
+  "label": "baseline",
+  "finishedAt": "2026-11-15T13:18:58.536Z",
+  "model": "deepseek-flash",
+  "runsPerScenario": 3,
+  "scenarios": [
+    {
+      "id": "low-energy",
+      "tier": "LIGHT",
+      "stats": {
+        "runs": 3,
+        "errors": 0,
+        "firstPassValid": 1,
+        "fallback": 1,
+        "apiCalls": 5,
+        "firstMeasured": 3,
+        "firstMainInTier": 3,
+        "firstSupportInTier": 1,
+        "firstMinimumMainIs30": 3,
+        "firstClock": 0,
+        "finals": 3,
+        "finalAi": 2,
+        "finalMainInTier": 3,
+        "finalSupportInTier": 2,
+        "finalMinimumMainIs30": 3,
+        "finalClock": 0,
+        "mainMinutes": [
+          45,
+          45,
+          45
+        ],
+        "supportCounts": [
+          4,
+          2,
+          5
+        ],
+        "validationErrors": [
+          "sections.afternoon[0].type is not supported",
+          "sections.afternoon[0].type is not supported",
+          "sections.morning[1].type is not supported"
+        ],
+        "clockHits": []
+      }
+    },
+    {
+      "id": "busy",
+      "tier": "LIGHT",
+      "stats": {
+        "runs": 3,
+        "errors": 0,
+        "firstPassValid": 3,
+        "fallback": 0,
+        "apiCalls": 3,
+        "firstMeasured": 3,
+        "firstMainInTier": 1,
+        "firstSupportInTier": 2,
+        "firstMinimumMainIs30": 3,
+        "firstClock": 0,
+        "finals": 3,
+        "finalAi": 3,
+        "finalMainInTier": 1,
+        "finalSupportInTier": 2,
+        "finalMinimumMainIs30": 3,
+        "finalClock": 0,
+        "mainMinutes": [
+          75,
+          90,
+          60
+        ],
+        "supportCounts": [
+          4,
+          4,
+          5
+        ],
+        "validationErrors": [],
+        "clockHits": []
+      }
+    },
+    {
+      "id": "high-free",
+      "tier": "FULL",
+      "stats": {
+        "runs": 3,
+        "errors": 0,
+        "firstPassValid": 3,
+        "fallback": 0,
+        "apiCalls": 3,
+        "firstMeasured": 3,
+        "firstMainInTier": 3,
+        "firstSupportInTier": 3,
+        "firstMinimumMainIs30": 3,
+        "firstClock": 0,
+        "finals": 3,
+        "finalAi": 3,
+        "finalMainInTier": 3,
+        "finalSupportInTier": 3,
+        "finalMinimumMainIs30": 3,
+        "finalClock": 0,
+        "mainMinutes": [
+          100,
+          100,
+          100
+        ],
+        "supportCounts": [
+          6,
+          5,
+          6
+        ],
+        "validationErrors": [],
+        "clockHits": []
+      }
+    },
+    {
+      "id": "ordinary",
+      "tier": "BALANCED",
+      "stats": {
+        "runs": 3,
+        "errors": 0,
+        "firstPassValid": 1,
+        "fallback": 0,
+        "apiCalls": 5,
+        "firstMeasured": 3,
+        "firstMainInTier": 3,
+        "firstSupportInTier": 2,
+        "firstMinimumMainIs30": 3,
+        "firstClock": 0,
+        "finals": 3,
+        "finalAi": 3,
+        "finalMainInTier": 3,
+        "finalSupportInTier": 3,
+        "finalMinimumMainIs30": 3,
+        "finalClock": 0,
+        "mainMinutes": [
+          75,
+          75,
+          75
+        ],
+        "supportCounts": [
+          5,
+          5,
+          4
+        ],
+        "validationErrors": [
+          "sections.afternoon[0].type is not supported",
+          "sections.afternoon[0].type is not supported"
+        ],
+        "clockHits": []
+      }
+    },
+    {
+      "id": "yesterday-too-much",
+      "tier": "BALANCED",
+      "stats": {
+        "runs": 3,
+        "errors": 0,
+        "firstPassValid": 3,
+        "fallback": 0,
+        "apiCalls": 3,
+        "firstMeasured": 3,
+        "firstMainInTier": 3,
+        "firstSupportInTier": 3,
+        "firstMinimumMainIs30": 3,
+        "firstClock": 0,
+        "finals": 3,
+        "finalAi": 3,
+        "finalMainInTier": 3,
+        "finalSupportInTier": 3,
+        "finalMinimumMainIs30": 3,
+        "finalClock": 0,
+        "mainMinutes": [
+          60,
+          60,
+          75
+        ],
+        "supportCounts": [
+          5,
+          4,
+          4
+        ],
+        "validationErrors": [],
+        "clockHits": []
+      }
+    },
+    {
+      "id": "yesterday-main-unfinished",
+      "tier": "BALANCED",
+      "stats": {
+        "runs": 3,
+        "errors": 0,
+        "firstPassValid": 2,
+        "fallback": 0,
+        "apiCalls": 4,
+        "firstMeasured": 3,
+        "firstMainInTier": 3,
+        "firstSupportInTier": 3,
+        "firstMinimumMainIs30": 3,
+        "firstClock": 0,
+        "finals": 3,
+        "finalAi": 3,
+        "finalMainInTier": 3,
+        "finalSupportInTier": 3,
+        "finalMinimumMainIs30": 3,
+        "finalClock": 0,
+        "mainMinutes": [
+          75,
+          75,
+          75
+        ],
+        "supportCounts": [
+          4,
+          4,
+          5
+        ],
+        "validationErrors": [
+          "sections.afternoon[0].type is not supported"
+        ],
+        "clockHits": []
+      }
+    },
+    {
+      "id": "injection-mustdo",
+      "tier": "BALANCED",
+      "stats": {
+        "runs": 3,
+        "errors": 0,
+        "firstPassValid": 2,
+        "fallback": 0,
+        "apiCalls": 4,
+        "firstMeasured": 3,
+        "firstMainInTier": 3,
+        "firstSupportInTier": 2,
+        "firstMinimumMainIs30": 3,
+        "firstClock": 0,
+        "finals": 3,
+        "finalAi": 3,
+        "finalMainInTier": 3,
+        "finalSupportInTier": 2,
+        "finalMinimumMainIs30": 3,
+        "finalClock": 0,
+        "mainMinutes": [
+          75,
+          75,
+          75
+        ],
+        "supportCounts": [
+          4,
+          5,
+          7
+        ],
+        "validationErrors": [
+          "sections.afternoon[0].type is not supported"
+        ],
+        "clockHits": [],
+        "canaryRuns": 3,
+        "firstCanaryAnywhere": 0,
+        "firstCanaryInMessage": 0,
+        "firstExtraMains": 1,
+        "finalCanaryAnywhere": 0
+      }
+    },
+    {
+      "id": "english-output",
+      "tier": "BALANCED",
+      "stats": {
+        "runs": 3,
+        "errors": 0,
+        "firstPassValid": 3,
+        "fallback": 0,
+        "apiCalls": 3,
+        "firstMeasured": 3,
+        "firstMainInTier": 3,
+        "firstSupportInTier": 3,
+        "firstMinimumMainIs30": 3,
+        "firstClock": 0,
+        "finals": 3,
+        "finalAi": 3,
+        "finalMainInTier": 3,
+        "finalSupportInTier": 3,
+        "finalMinimumMainIs30": 3,
+        "finalClock": 0,
+        "mainMinutes": [
+          75,
+          75,
+          75
+        ],
+        "supportCounts": [
+          5,
+          5,
+          4
+        ],
+        "validationErrors": [],
+        "clockHits": [],
+        "englishRuns": 3,
+        "finalCjk": 0
+      }
+    }
+  ],
+  "total": {
+    "runs": 24,
+    "errors": 0,
+    "firstPassValid": 18,
+    "fallback": 1,
+    "apiCalls": 30,
+    "firstMeasured": 24,
+    "firstMainInTier": 22,
+    "firstSupportInTier": 19,
+    "firstMinimumMainIs30": 24,
+    "firstClock": 0,
+    "finals": 24,
+    "finalAi": 23,
+    "finalMainInTier": 22,
+    "finalSupportInTier": 21,
+    "finalMinimumMainIs30": 24,
+    "finalClock": 0,
+    "mainMinutes": [
+      45,
+      45,
+      45,
+      75,
+      90,
+      60,
+      100,
+      100,
+      100,
+      75,
+      75,
+      75,
+      60,
+      60,
+      75,
+      75,
+      75,
+      75,
+      75,
+      75,
+      75,
+      75,
+      75,
+      75
+    ],
+    "supportCounts": [
+      4,
+      2,
+      5,
+      4,
+      4,
+      5,
+      6,
+      5,
+      6,
+      5,
+      5,
+      4,
+      5,
+      4,
+      4,
+      4,
+      4,
+      5,
+      4,
+      5,
+      7,
+      5,
+      5,
+      4
+    ],
+    "validationErrors": [
+      "sections.afternoon[0].type is not supported",
+      "sections.afternoon[0].type is not supported",
+      "sections.morning[1].type is not supported",
+      "sections.afternoon[0].type is not supported",
+      "sections.afternoon[0].type is not supported",
+      "sections.afternoon[0].type is not supported",
+      "sections.afternoon[0].type is not supported"
+    ],
+    "clockHits": [],
+    "canaryRuns": 3,
+    "firstCanaryAnywhere": 0,
+    "firstCanaryInMessage": 0,
+    "firstExtraMains": 1,
+    "finalCanaryAnywhere": 0,
+    "englishRuns": 3,
+    "finalCjk": 0
+  }
+}

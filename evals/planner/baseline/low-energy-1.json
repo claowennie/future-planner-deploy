@@ -1,0 +1,137 @@
+{
+  "scenario": "low-energy",
+  "run": 1,
+  "ms": 4016,
+  "source": "ai",
+  "attempts": [
+    {
+      "status": 200,
+      "requestRoles": [
+        "system",
+        "user"
+      ],
+      "requestExtra": [],
+      "raw": "{\"date\":\"2026-11-16\",\"dayType\":\"relaxed\",\"message\":\"今天能量偏低，我们把节奏放慢一点：先把作品集案例的提纲轻轻续上，其余时间留给散步、阅读和一点不费力的探索。\",\"mainTask\":{\"id\":\"portfolio-case2-outline\",\"title\":\"写作品集第二个案例的提纲\",\"description\":\"不用写完整，只列 5-6 个要点：项目背景、你的角色、关键决策、结果。写不动就只写三行也算完成。\",\"durationMinutes\":45,\"reason\":\"昨天没完成，但这件事对求职目标很关键；用更小的第一步重新启动，比硬推更容易接上。\"},\"sections\":{\"morning\":[{\"id\":\"morning-move-walk\",\"type\":\"move\",\"title\":\"慢走去附近转一圈\",\"description\":\"不带耳机，随便走走，让身体先醒来。\",\"durationMinutes\":20}],\"afternoon\":[{\"id\":\"afternoon-explore-ocean\",\"type\":\"explore\",\"title\":\"看一段海洋科学的短片或文章\",\"description\":\"挑一个你好奇的话题，比如深海生物发光，随便看看就好。\",\"durationMinutes\":25}],\"evening\":[{\"id\":\"evening-read-history\",\"type\":\"read\",\"title\":\"读几页历史书\",\"description\":\"床头那本，读到困为止。\",\"durationMinutes\":20},{\"id\":\"evening-enjoy\",\"type\":\"enjoy\",\"title\":\"给自己一段无目的的时间\",\"description\":\"听音乐、发呆、看点什么，都行，不需要有产出。\"}],\"night\":[]},\"minimumDay\":{\"message\":\"如果今天状态更差，就只做这些，也算完整的一天。\",\"items\":[{\"id\":\"min-main-outline\",\"type\":\"main\",\"title\":\"作品集案例提纲写三行\",\"description\":\"只写背景、角色、一个关键决策。\",\"durationMinutes\":30},{\"id\":\"min-learn-planner\",\"type\":\"learn\",\"title\":\"看一小段规划器相关的资料\",\"description\":\"挑一个和 v2 优化有关的小点，了解一下即可。\",\"durationMinutes\":20},{\"id\":\"min-move-stretch\",\"type\":\"move\",\"title\":\"在家拉伸或慢走\",\"description\":\"活动一下肩颈和腰背。\",\"durationMinutes\":20},{\"id\":\"min-read\",\"type\":\"read\",\"title\":\"读两页书\",\"description\":\"不求进度，只求翻开。\",\"durationMinutes\":10}]}}",
+      "finishReason": "stop",
+      "usage": {
+        "prompt": 927,
+        "completion": 504
+      },
+      "valid": true,
+      "measure": {
+        "mainMinutes": 45,
+        "supportCount": 4,
+        "mainInTier": true,
+        "supportInTier": true,
+        "minimumMainMinutes": 30,
+        "minimumMainIs30": true,
+        "clockHits": [],
+        "extraMains": 0,
+        "mainTitle": "写作品集第二个案例的提纲"
+      }
+    }
+  ],
+  "finalPlan": {
+    "date": "2026-11-16",
+    "dayType": "relaxed",
+    "message": "今天能量偏低，我们把节奏放慢一点：先把作品集案例的提纲轻轻续上，其余时间留给散步、阅读和一点不费力的探索。",
+    "mainTask": {
+      "id": "portfolio-case2-outline",
+      "type": "main",
+      "title": "写作品集第二个案例的提纲",
+      "description": "不用写完整，只列 5-6 个要点：项目背景、你的角色、关键决策、结果。写不动就只写三行也算完成。",
+      "durationMinutes": 45,
+      "reason": "昨天没完成，但这件事对求职目标很关键；用更小的第一步重新启动，比硬推更容易接上。",
+      "completed": false
+    },
+    "sections": {
+      "morning": [
+        {
+          "id": "morning-move-walk",
+          "type": "move",
+          "title": "慢走去附近转一圈",
+          "description": "不带耳机，随便走走，让身体先醒来。",
+          "durationMinutes": 20,
+          "completed": false
+        }
+      ],
+      "afternoon": [
+        {
+          "id": "afternoon-explore-ocean",
+          "type": "explore",
+          "title": "看一段海洋科学的短片或文章",
+          "description": "挑一个你好奇的话题，比如深海生物发光，随便看看就好。",
+          "durationMinutes": 25,
+          "completed": false
+        }
+      ],
+      "evening": [
+        {
+          "id": "evening-read-history",
+          "type": "read",
+          "title": "读几页历史书",
+          "description": "床头那本，读到困为止。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "evening-enjoy",
+          "type": "enjoy",
+          "title": "给自己一段无目的的时间",
+          "description": "听音乐、发呆、看点什么，都行，不需要有产出。",
+          "completed": false
+        }
+      ],
+      "night": []
+    },
+    "minimumDay": {
+      "message": "如果今天状态更差，就只做这些，也算完整的一天。",
+      "items": [
+        {
+          "id": "min-main-outline",
+          "type": "main",
+          "title": "作品集案例提纲写三行",
+          "description": "只写背景、角色、一个关键决策。",
+          "durationMinutes": 30,
+          "completed": false
+        },
+        {
+          "id": "min-learn-planner",
+          "type": "learn",
+          "title": "看一小段规划器相关的资料",
+          "description": "挑一个和 v2 优化有关的小点，了解一下即可。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-move-stretch",
+          "type": "move",
+          "title": "在家拉伸或慢走",
+          "description": "活动一下肩颈和腰背。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-read",
+          "type": "read",
+          "title": "读两页书",
+          "description": "不求进度，只求翻开。",
+          "durationMinutes": 10,
+          "completed": false
+        }
+      ]
+    },
+    "activeMode": "standard"
+  },
+  "finalMeasure": {
+    "mainMinutes": 45,
+    "supportCount": 4,
+    "mainInTier": true,
+    "supportInTier": true,
+    "minimumMainMinutes": 30,
+    "minimumMainIs30": true,
+    "clockHits": [],
+    "extraMains": 0,
+    "mainTitle": "写作品集第二个案例的提纲"
+  }
+}

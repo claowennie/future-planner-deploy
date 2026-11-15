@@ -1,0 +1,138 @@
+{
+  "scenario": "english-output",
+  "run": 3,
+  "ms": 4082,
+  "source": "ai",
+  "attempts": [
+    {
+      "status": 200,
+      "requestRoles": [
+        "system",
+        "user"
+      ],
+      "requestExtra": [],
+      "raw": "{\n  \"date\": \"2026-11-16\",\n  \"dayType\": \"balanced\",\n  \"message\": \"Yesterday felt just right and you finished most of it, so today stays similarly sized — with a gentle first step back into the portfolio case study that got set aside.\",\n  \"mainTask\": {\n    \"id\": \"portfolio-case-study-2-outline-revisit\",\n    \"title\": \"Draft the outline for portfolio case study #2\",\n    \"description\": \"Open yesterday's partial outline and write only the first pass: problem, your role, and the key decisions. Stop at a rough skeleton — polish comes later.\",\n    \"durationMinutes\": 75,\n    \"reason\": \"Continues a goal that slipped yesterday, but with a smaller, clearly bounded first step so it's easy to restart.\"\n  },\n  \"sections\": {\n    \"morning\": [\n      {\n        \"id\": \"move-morning-walk\",\n        \"type\": \"move\",\n        \"title\": \"Short walk before sitting down\",\n        \"description\": \"A gentle 20-minute walk to wake up, no podcast required.\",\n        \"durationMinutes\": 20\n      }\n    ],\n    \"afternoon\": [\n      {\n        \"id\": \"explore-ocean-buoys\",\n        \"type\": \"explore\",\n        \"title\": \"How ocean buoys collect live data\",\n        \"description\": \"Skim one article or short video on drifting buoys and what they measure.\",\n        \"durationMinutes\": 25\n      }\n    ],\n    \"evening\": [\n      {\n        \"id\": \"read-history-essay\",\n        \"type\": \"read\",\n        \"title\": \"Read a history essay\",\n        \"description\": \"Pick something short and narrative — a chapter or long-form piece.\",\n        \"durationMinutes\": 30\n      },\n      {\n        \"id\": \"enjoy-quiet-evening\",\n        \"type\": \"enjoy\",\n        \"title\": \"Unstructured evening\",\n        \"description\": \"No goal here — music, a show, or just doing nothing.\"\n      }\n    ],\n    \"night\": []\n  },\n  \"minimumDay\": {\n    \"message\": \"A lighter version for low-energy days — still one meaningful step.\",\n    \"items\": [\n      {\n        \"id\": \"min-main-case-study\",\n        \"type\": \"main\",\n        \"title\": \"Write three bullets for case study #2\",\n        \"description\": \"Just problem, role, and one key decision. That's enough.\",\n        \"durationMinutes\": 30\n      },\n      {\n        \"id\": \"min-learn-json-schema\",\n        \"type\": \"learn\",\n        \"title\": \"Skim JSON Schema validation refresher\",\n        \"description\": \"Re-read notes or one short doc page on validation basics.\",\n        \"durationMinutes\": 20\n      },\n      {\n        \"id\": \"min-move-walk\",\n        \"type\": \"move\",\n        \"title\": \"Short walk\",\n        \"description\": \"Around the block, no pressure on pace.\",\n        \"durationMinutes\": 20\n      },\n      {\n        \"id\": \"min-enjoy-calm\",\n        \"type\": \"enjoy\",\n        \"title\": \"Guilt-free downtime\",\n        \"description\": \"Whatever feels restful.\"\n      }\n    ]\n  }\n}",
+      "finishReason": "stop",
+      "usage": {
+        "prompt": 1002,
+        "completion": 698
+      },
+      "valid": true,
+      "measure": {
+        "mainMinutes": 75,
+        "supportCount": 4,
+        "mainInTier": true,
+        "supportInTier": true,
+        "minimumMainMinutes": 30,
+        "minimumMainIs30": true,
+        "clockHits": [],
+        "extraMains": 0,
+        "mainTitle": "Draft the outline for portfolio case study #2",
+        "cjkInText": false
+      }
+    }
+  ],
+  "finalPlan": {
+    "date": "2026-11-16",
+    "dayType": "balanced",
+    "message": "Yesterday felt just right and you finished most of it, so today stays similarly sized — with a gentle first step back into the portfolio case study that got set aside.",
+    "mainTask": {
+      "id": "portfolio-case-study-2-outline-revisit",
+      "type": "main",
+      "title": "Draft the outline for portfolio case study #2",
+      "description": "Open yesterday's partial outline and write only the first pass: problem, your role, and the key decisions. Stop at a rough skeleton — polish comes later.",
+      "durationMinutes": 75,
+      "reason": "Continues a goal that slipped yesterday, but with a smaller, clearly bounded first step so it's easy to restart.",
+      "completed": false
+    },
+    "sections": {
+      "morning": [
+        {
+          "id": "move-morning-walk",
+          "type": "move",
+          "title": "Short walk before sitting down",
+          "description": "A gentle 20-minute walk to wake up, no podcast required.",
+          "durationMinutes": 20,
+          "completed": false
+        }
+      ],
+      "afternoon": [
+        {
+          "id": "explore-ocean-buoys",
+          "type": "explore",
+          "title": "How ocean buoys collect live data",
+          "description": "Skim one article or short video on drifting buoys and what they measure.",
+          "durationMinutes": 25,
+          "completed": false
+        }
+      ],
+      "evening": [
+        {
+          "id": "read-history-essay",
+          "type": "read",
+          "title": "Read a history essay",
+          "description": "Pick something short and narrative — a chapter or long-form piece.",
+          "durationMinutes": 30,
+          "completed": false
+        },
+        {
+          "id": "enjoy-quiet-evening",
+          "type": "enjoy",
+          "title": "Unstructured evening",
+          "description": "No goal here — music, a show, or just doing nothing.",
+          "completed": false
+        }
+      ],
+      "night": []
+    },
+    "minimumDay": {
+      "message": "A lighter version for low-energy days — still one meaningful step.",
+      "items": [
+        {
+          "id": "min-main-case-study",
+          "type": "main",
+          "title": "Write three bullets for case study #2",
+          "description": "Just problem, role, and one key decision. That's enough.",
+          "durationMinutes": 30,
+          "completed": false
+        },
+        {
+          "id": "min-learn-json-schema",
+          "type": "learn",
+          "title": "Skim JSON Schema validation refresher",
+          "description": "Re-read notes or one short doc page on validation basics.",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-move-walk",
+          "type": "move",
+          "title": "Short walk",
+          "description": "Around the block, no pressure on pace.",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-enjoy-calm",
+          "type": "enjoy",
+          "title": "Guilt-free downtime",
+          "description": "Whatever feels restful.",
+          "completed": false
+        }
+      ]
+    },
+    "activeMode": "standard"
+  },
+  "finalMeasure": {
+    "mainMinutes": 75,
+    "supportCount": 4,
+    "mainInTier": true,
+    "supportInTier": true,
+    "minimumMainMinutes": 30,
+    "minimumMainIs30": true,
+    "clockHits": [],
+    "extraMains": 0,
+    "mainTitle": "Draft the outline for portfolio case study #2",
+    "cjkInText": false
+  }
+}

@@ -1,0 +1,129 @@
+{
+  "scenario": "busy",
+  "run": 2,
+  "ms": 4300,
+  "source": "ai",
+  "attempts": [
+    {
+      "status": 200,
+      "requestRoles": [
+        "system",
+        "user"
+      ],
+      "requestExtra": [],
+      "raw": "{\n  \"date\": \"2026-11-16\",\n  \"dayType\": \"productive\",\n  \"message\": \"今天时间紧，先把季度报告交掉，其他都放轻一点；昨天作品集提纲没动也没关系，改天再续。\",\n  \"mainTask\": {\n    \"id\": \"main-2026-11-16-quarterly-report\",\n    \"title\": \"完成并提交季度报告\",\n    \"description\": \"先花 10 分钟列出报告的三到五个核心结论，再按结论补数据与图表，最后通读一遍并提交。目标是下午下班前交出去，不追求完美排版。\",\n    \"durationMinutes\": 90,\n    \"reason\": \"这是今天唯一的硬性截止事项，完成后今天就算有意义；集中精力一次做完，避免反复切换。\"\n  },\n  \"sections\": {\n    \"morning\": [\n      {\n        \"id\": \"sup-2026-11-16-move-walk\",\n        \"type\": \"move\",\n        \"title\": \"出门快走 20 分钟\",\n        \"description\": \"不带耳机或只听轻音乐，让脑子先清空，为写报告做准备。\",\n        \"durationMinutes\": 20\n      }\n    ],\n    \"afternoon\": [\n      {\n        \"id\": \"sup-2026-11-16-explore-product\",\n        \"type\": \"explore\",\n        \"title\": \"看一个 AI 产品案例拆解\",\n        \"description\": \"找一篇近期 AI 产品的设计或功能拆解，随手记下一条可以借鉴到作品集或规划器里的想法。\",\n        \"durationMinutes\": 30\n      }\n    ],\n    \"evening\": [\n      {\n        \"id\": \"sup-2026-11-16-read-ocean\",\n        \"type\": \"read\",\n        \"title\": \"读几页海洋或历史相关的书\",\n        \"description\": \"纯兴趣阅读，不要求记笔记。\",\n        \"durationMinutes\": 25\n      },\n      {\n        \"id\": \"sup-2026-11-16-enjoy-rest\",\n        \"type\": \"enjoy\",\n        \"title\": \"无负担放松\",\n        \"description\": \"看剧、听播客或发呆都行，今天报告交完就值得奖励自己。\"\n      }\n    ],\n    \"night\": []\n  },\n  \"minimumDay\": {\n    \"message\": \"如果今天实在没精力，只做最小版本：交报告、动一动、看一眼感兴趣的东西。\",\n    \"items\": [\n      {\n        \"id\": \"min-2026-11-16-main\",\n        \"type\": \"main\",\n        \"title\": \"完成并提交季度报告的最小版本\",\n        \"description\": \"只写核心结论和必要数据，先交出去，细节后续再补。\",\n        \"durationMinutes\": 30\n      },\n      {\n        \"id\": \"min-2026-11-16-learn\",\n        \"type\": \"learn\",\n        \"title\": \"读一篇 AI 产品短文\",\n        \"description\": \"选一篇 20 分钟内能读完的文章，记一条收获即可。\",\n        \"durationMinutes\": 20\n      },\n      {\n        \"id\": \"min-2026-11-16-move\",\n        \"type\": \"move\",\n        \"title\": \"散步 20 分钟\",\n        \"description\": \"楼下或附近走走，不追求步数。\",\n        \"durationMinutes\": 20\n      }\n    ]\n  }\n}",
+      "finishReason": "stop",
+      "usage": {
+        "prompt": 929,
+        "completion": 742
+      },
+      "valid": true,
+      "measure": {
+        "mainMinutes": 90,
+        "supportCount": 4,
+        "mainInTier": false,
+        "supportInTier": true,
+        "minimumMainMinutes": 30,
+        "minimumMainIs30": true,
+        "clockHits": [],
+        "extraMains": 0,
+        "mainTitle": "完成并提交季度报告"
+      }
+    }
+  ],
+  "finalPlan": {
+    "date": "2026-11-16",
+    "dayType": "productive",
+    "message": "今天时间紧，先把季度报告交掉，其他都放轻一点；昨天作品集提纲没动也没关系，改天再续。",
+    "mainTask": {
+      "id": "main-2026-11-16-quarterly-report",
+      "type": "main",
+      "title": "完成并提交季度报告",
+      "description": "先花 10 分钟列出报告的三到五个核心结论，再按结论补数据与图表，最后通读一遍并提交。目标是下午下班前交出去，不追求完美排版。",
+      "durationMinutes": 90,
+      "reason": "这是今天唯一的硬性截止事项，完成后今天就算有意义；集中精力一次做完，避免反复切换。",
+      "completed": false
+    },
+    "sections": {
+      "morning": [
+        {
+          "id": "sup-2026-11-16-move-walk",
+          "type": "move",
+          "title": "出门快走 20 分钟",
+          "description": "不带耳机或只听轻音乐，让脑子先清空，为写报告做准备。",
+          "durationMinutes": 20,
+          "completed": false
+        }
+      ],
+      "afternoon": [
+        {
+          "id": "sup-2026-11-16-explore-product",
+          "type": "explore",
+          "title": "看一个 AI 产品案例拆解",
+          "description": "找一篇近期 AI 产品的设计或功能拆解，随手记下一条可以借鉴到作品集或规划器里的想法。",
+          "durationMinutes": 30,
+          "completed": false
+        }
+      ],
+      "evening": [
+        {
+          "id": "sup-2026-11-16-read-ocean",
+          "type": "read",
+          "title": "读几页海洋或历史相关的书",
+          "description": "纯兴趣阅读，不要求记笔记。",
+          "durationMinutes": 25,
+          "completed": false
+        },
+        {
+          "id": "sup-2026-11-16-enjoy-rest",
+          "type": "enjoy",
+          "title": "无负担放松",
+          "description": "看剧、听播客或发呆都行，今天报告交完就值得奖励自己。",
+          "completed": false
+        }
+      ],
+      "night": []
+    },
+    "minimumDay": {
+      "message": "如果今天实在没精力，只做最小版本：交报告、动一动、看一眼感兴趣的东西。",
+      "items": [
+        {
+          "id": "min-2026-11-16-main",
+          "type": "main",
+          "title": "完成并提交季度报告的最小版本",
+          "description": "只写核心结论和必要数据，先交出去，细节后续再补。",
+          "durationMinutes": 30,
+          "completed": false
+        },
+        {
+          "id": "min-2026-11-16-learn",
+          "type": "learn",
+          "title": "读一篇 AI 产品短文",
+          "description": "选一篇 20 分钟内能读完的文章，记一条收获即可。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-2026-11-16-move",
+          "type": "move",
+          "title": "散步 20 分钟",
+          "description": "楼下或附近走走，不追求步数。",
+          "durationMinutes": 20,
+          "completed": false
+        }
+      ]
+    },
+    "activeMode": "standard"
+  },
+  "finalMeasure": {
+    "mainMinutes": 90,
+    "supportCount": 4,
+    "mainInTier": false,
+    "supportInTier": true,
+    "minimumMainMinutes": 30,
+    "minimumMainIs30": true,
+    "clockHits": [],
+    "extraMains": 0,
+    "mainTitle": "完成并提交季度报告"
+  }
+}

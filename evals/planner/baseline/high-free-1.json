@@ -1,0 +1,152 @@
+{
+  "scenario": "high-free",
+  "run": 1,
+  "ms": 4335,
+  "source": "ai",
+  "attempts": [
+    {
+      "status": 200,
+      "requestRoles": [
+        "system",
+        "user"
+      ],
+      "requestExtra": [],
+      "raw": "{\n  \"date\": \"2026-11-16\",\n  \"dayType\": \"productive\",\n  \"message\": \"今天精力充沛，正好继续推进规划器质量优化；昨天作品集提纲没完成，别急，先做一个小开头就好。\",\n  \"mainTask\": {\n    \"id\": \"main-planner-quality-opt\",\n    \"title\": \"规划器质量优化：完成一个核心改进点\",\n    \"description\": \"从规划器质量优化的 5 个关键结果中选一个最影响可用性的点（例如每日任务生成逻辑或能量适配），完成实现和一次自测。\",\n    \"durationMinutes\": 100,\n    \"reason\": \"直接推进个人 AI 产品 v2 的核心目标，今天精力高、时间充裕，适合做深度工作。\"\n  },\n  \"sections\": {\n    \"morning\": [\n      {\n        \"id\": \"explore-planner-edge-cases\",\n        \"type\": \"explore\",\n        \"title\": \"探索规划器的边界场景\",\n        \"description\": \"花 20 分钟列出 3 个可能让规划器输出不合理的输入场景，作为主任务的参考。\",\n        \"durationMinutes\": 20\n      },\n      {\n        \"id\": \"move-morning-walk\",\n        \"type\": \"move\",\n        \"title\": \"早晨散步\",\n        \"description\": \"出门走一圈，不戴耳机，让脑子放空。\",\n        \"durationMinutes\": 25\n      }\n    ],\n    \"afternoon\": [\n      {\n        \"id\": \"learn-ai-product-reading\",\n        \"type\": \"learn\",\n        \"title\": \"读一篇 AI 产品设计文章\",\n        \"description\": \"选一篇关于 AI 产品可用性或评估的文章，读 25 分钟并记下一条可用的点。\",\n        \"durationMinutes\": 25\n      },\n      {\n        \"id\": \"enjoy-portfolio-small-start\",\n        \"type\": \"enjoy\",\n        \"title\": \"轻松开个头：作品集第二个案例\",\n        \"description\": \"不追求完成，只花 15 分钟写下三个想讲的故事点，降低昨天的启动门槛。\"\n      }\n    ],\n    \"evening\": [\n      {\n        \"id\": \"read-history\",\n        \"type\": \"read\",\n        \"title\": \"读一点历史\",\n        \"description\": \"读你正在看的历史书，享受阅读本身。\",\n        \"durationMinutes\": 30\n      }\n    ],\n    \"night\": [\n      {\n        \"id\": \"enjoy-unwind\",\n        \"type\": \"enjoy\",\n        \"title\": \"自由放松时间\",\n        \"description\": \"做点纯粹让自己开心的事，不设目标。\"\n      }\n    ]\n  },\n  \"minimumDay\": {\n    \"message\": \"如果今天状态下滑，只做最低版本也完全够。\",\n    \"items\": [\n      {\n        \"id\": \"min-main-planner-step\",\n        \"type\": \"main\",\n        \"title\": \"规划器优化：只做一个小步骤\",\n        \"description\": \"打开代码，完成一个最小的改进点或写下一个明确的下一步。\",\n        \"durationMinutes\": 30\n      },\n      {\n        \"id\": \"min-explore-edge-case\",\n        \"type\": \"explore\",\n        \"title\": \"想一个规划器边界场景\",\n        \"description\": \"花 20 分钟想一个让规划器出错的输入，记下来。\",\n        \"durationMinutes\": 20\n      },\n      {\n        \"id\": \"min-move-walk\",\n        \"type\": \"move\",\n        \"title\": \"短散步\",\n        \"description\": \"出门走 20 分钟，呼吸一下。\",\n        \"durationMinutes\": 20\n      },\n      {\n        \"id\": \"min-enjoy-free\",\n        \"type\": \"enjoy\",\n        \"title\": \"自由放松\",\n        \"description\": \"做点轻松的事，不设目标。\"\n      }\n    ]\n  }\n}",
+      "finishReason": "stop",
+      "usage": {
+        "prompt": 928,
+        "completion": 846
+      },
+      "valid": true,
+      "measure": {
+        "mainMinutes": 100,
+        "supportCount": 6,
+        "mainInTier": true,
+        "supportInTier": true,
+        "minimumMainMinutes": 30,
+        "minimumMainIs30": true,
+        "clockHits": [],
+        "extraMains": 0,
+        "mainTitle": "规划器质量优化：完成一个核心改进点"
+      }
+    }
+  ],
+  "finalPlan": {
+    "date": "2026-11-16",
+    "dayType": "productive",
+    "message": "今天精力充沛，正好继续推进规划器质量优化；昨天作品集提纲没完成，别急，先做一个小开头就好。",
+    "mainTask": {
+      "id": "main-planner-quality-opt",
+      "type": "main",
+      "title": "规划器质量优化：完成一个核心改进点",
+      "description": "从规划器质量优化的 5 个关键结果中选一个最影响可用性的点（例如每日任务生成逻辑或能量适配），完成实现和一次自测。",
+      "durationMinutes": 100,
+      "reason": "直接推进个人 AI 产品 v2 的核心目标，今天精力高、时间充裕，适合做深度工作。",
+      "completed": false
+    },
+    "sections": {
+      "morning": [
+        {
+          "id": "explore-planner-edge-cases",
+          "type": "explore",
+          "title": "探索规划器的边界场景",
+          "description": "花 20 分钟列出 3 个可能让规划器输出不合理的输入场景，作为主任务的参考。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "move-morning-walk",
+          "type": "move",
+          "title": "早晨散步",
+          "description": "出门走一圈，不戴耳机，让脑子放空。",
+          "durationMinutes": 25,
+          "completed": false
+        }
+      ],
+      "afternoon": [
+        {
+          "id": "learn-ai-product-reading",
+          "type": "learn",
+          "title": "读一篇 AI 产品设计文章",
+          "description": "选一篇关于 AI 产品可用性或评估的文章，读 25 分钟并记下一条可用的点。",
+          "durationMinutes": 25,
+          "completed": false
+        },
+        {
+          "id": "enjoy-portfolio-small-start",
+          "type": "enjoy",
+          "title": "轻松开个头：作品集第二个案例",
+          "description": "不追求完成，只花 15 分钟写下三个想讲的故事点，降低昨天的启动门槛。",
+          "completed": false
+        }
+      ],
+      "evening": [
+        {
+          "id": "read-history",
+          "type": "read",
+          "title": "读一点历史",
+          "description": "读你正在看的历史书，享受阅读本身。",
+          "durationMinutes": 30,
+          "completed": false
+        }
+      ],
+      "night": [
+        {
+          "id": "enjoy-unwind",
+          "type": "enjoy",
+          "title": "自由放松时间",
+          "description": "做点纯粹让自己开心的事，不设目标。",
+          "completed": false
+        }
+      ]
+    },
+    "minimumDay": {
+      "message": "如果今天状态下滑，只做最低版本也完全够。",
+      "items": [
+        {
+          "id": "min-main-planner-step",
+          "type": "main",
+          "title": "规划器优化：只做一个小步骤",
+          "description": "打开代码，完成一个最小的改进点或写下一个明确的下一步。",
+          "durationMinutes": 30,
+          "completed": false
+        },
+        {
+          "id": "min-explore-edge-case",
+          "type": "explore",
+          "title": "想一个规划器边界场景",
+          "description": "花 20 分钟想一个让规划器出错的输入，记下来。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-move-walk",
+          "type": "move",
+          "title": "短散步",
+          "description": "出门走 20 分钟，呼吸一下。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-enjoy-free",
+          "type": "enjoy",
+          "title": "自由放松",
+          "description": "做点轻松的事，不设目标。",
+          "completed": false
+        }
+      ]
+    },
+    "activeMode": "standard"
+  },
+  "finalMeasure": {
+    "mainMinutes": 100,
+    "supportCount": 6,
+    "mainInTier": true,
+    "supportInTier": true,
+    "minimumMainMinutes": 30,
+    "minimumMainIs30": true,
+    "clockHits": [],
+    "extraMains": 0,
+    "mainTitle": "规划器质量优化：完成一个核心改进点"
+  }
+}

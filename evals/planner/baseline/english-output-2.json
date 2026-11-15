@@ -1,0 +1,147 @@
+{
+  "scenario": "english-output",
+  "run": 2,
+  "ms": 3722,
+  "source": "ai",
+  "attempts": [
+    {
+      "status": 200,
+      "requestRoles": [
+        "system",
+        "user"
+      ],
+      "requestExtra": [],
+      "raw": "{\"date\":\"2026-11-16\",\"dayType\":\"balanced\",\"message\":\"Yesterday you closed out the planner test cases and hit four of five — a solid rhythm. Since you have a half day today, let's keep it steady and give the unfinished portfolio outline a gentler, smaller first step.\",\"mainTask\":{\"id\":\"portfolio-case-study-2-outline\",\"title\":\"Draft a rough outline for portfolio case study #2\",\"description\":\"Write a loose skeleton: problem, your role, 2-3 key decisions, and the outcome. Bullet points are fine — the goal is a shape you can refine later, not polished prose.\",\"durationMinutes\":75,\"reason\":\"Continues the case study you started yesterday, but with a smaller first step to rebuild momentum toward your product-role goal.\"},\"sections\":{\"morning\":[{\"id\":\"morning-walk\",\"type\":\"move\",\"title\":\"Morning walk\",\"description\":\"A relaxed walk outside to start the day with fresh air and clear thinking.\",\"durationMinutes\":25}],\"afternoon\":[{\"id\":\"explore-tidal-energy\",\"type\":\"explore\",\"title\":\"Explore tidal and wave energy tech\",\"description\":\"Dip into how ocean energy projects actually work — a curiosity detour that connects your AI and ocean-science interests.\",\"durationMinutes\":25},{\"id\":\"learn-css-grid\",\"type\":\"learn\",\"title\":\"Learn a layout technique for your portfolio\",\"description\":\"Pick up one practical CSS layout pattern you can apply directly to the case study pages.\",\"durationMinutes\":30}],\"evening\":[{\"id\":\"read-history-evening\",\"type\":\"read\",\"title\":\"Read a chapter of history\",\"description\":\"Wind down with something from your history shelf — purely for pleasure.\",\"durationMinutes\":30},{\"id\":\"enjoy-evening\",\"type\":\"enjoy\",\"title\":\"Unstructured evening\",\"description\":\"Guilt-free time to do whatever feels good — a show, cooking, or nothing at all.\"}],\"night\":[]},\"minimumDay\":{\"message\":\"A lighter version for a low-energy day — just enough to feel like progress without pressure.\",\"items\":[{\"id\":\"min-main-outline\",\"type\":\"main\",\"title\":\"One small step on case study #2\",\"description\":\"Jot just the problem and your role in a few bullets, then stop.\",\"durationMinutes\":30},{\"id\":\"min-explore-ocean\",\"type\":\"explore\",\"title\":\"Skim one article on ocean science\",\"description\":\"Read a short piece on a topic that catches your eye.\",\"durationMinutes\":20},{\"id\":\"min-move-walk\",\"type\":\"move\",\"title\":\"Short walk\",\"description\":\"Get outside for a bit of movement and air.\",\"durationMinutes\":20},{\"id\":\"min-read\",\"type\":\"read\",\"title\":\"A few pages of history\",\"description\":\"Optional light reading to close the day.\",\"durationMinutes\":15}]}}",
+      "finishReason": "stop",
+      "usage": {
+        "prompt": 1002,
+        "completion": 595
+      },
+      "valid": true,
+      "measure": {
+        "mainMinutes": 75,
+        "supportCount": 5,
+        "mainInTier": true,
+        "supportInTier": true,
+        "minimumMainMinutes": 30,
+        "minimumMainIs30": true,
+        "clockHits": [],
+        "extraMains": 0,
+        "mainTitle": "Draft a rough outline for portfolio case study #2",
+        "cjkInText": false
+      }
+    }
+  ],
+  "finalPlan": {
+    "date": "2026-11-16",
+    "dayType": "balanced",
+    "message": "Yesterday you closed out the planner test cases and hit four of five — a solid rhythm. Since you have a half day today, let's keep it steady and give the unfinished portfolio outline a gentler, smaller first step.",
+    "mainTask": {
+      "id": "portfolio-case-study-2-outline",
+      "type": "main",
+      "title": "Draft a rough outline for portfolio case study #2",
+      "description": "Write a loose skeleton: problem, your role, 2-3 key decisions, and the outcome. Bullet points are fine — the goal is a shape you can refine later, not polished prose.",
+      "durationMinutes": 75,
+      "reason": "Continues the case study you started yesterday, but with a smaller first step to rebuild momentum toward your product-role goal.",
+      "completed": false
+    },
+    "sections": {
+      "morning": [
+        {
+          "id": "morning-walk",
+          "type": "move",
+          "title": "Morning walk",
+          "description": "A relaxed walk outside to start the day with fresh air and clear thinking.",
+          "durationMinutes": 25,
+          "completed": false
+        }
+      ],
+      "afternoon": [
+        {
+          "id": "explore-tidal-energy",
+          "type": "explore",
+          "title": "Explore tidal and wave energy tech",
+          "description": "Dip into how ocean energy projects actually work — a curiosity detour that connects your AI and ocean-science interests.",
+          "durationMinutes": 25,
+          "completed": false
+        },
+        {
+          "id": "learn-css-grid",
+          "type": "learn",
+          "title": "Learn a layout technique for your portfolio",
+          "description": "Pick up one practical CSS layout pattern you can apply directly to the case study pages.",
+          "durationMinutes": 30,
+          "completed": false
+        }
+      ],
+      "evening": [
+        {
+          "id": "read-history-evening",
+          "type": "read",
+          "title": "Read a chapter of history",
+          "description": "Wind down with something from your history shelf — purely for pleasure.",
+          "durationMinutes": 30,
+          "completed": false
+        },
+        {
+          "id": "enjoy-evening",
+          "type": "enjoy",
+          "title": "Unstructured evening",
+          "description": "Guilt-free time to do whatever feels good — a show, cooking, or nothing at all.",
+          "completed": false
+        }
+      ],
+      "night": []
+    },
+    "minimumDay": {
+      "message": "A lighter version for a low-energy day — just enough to feel like progress without pressure.",
+      "items": [
+        {
+          "id": "min-main-outline",
+          "type": "main",
+          "title": "One small step on case study #2",
+          "description": "Jot just the problem and your role in a few bullets, then stop.",
+          "durationMinutes": 30,
+          "completed": false
+        },
+        {
+          "id": "min-explore-ocean",
+          "type": "explore",
+          "title": "Skim one article on ocean science",
+          "description": "Read a short piece on a topic that catches your eye.",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-move-walk",
+          "type": "move",
+          "title": "Short walk",
+          "description": "Get outside for a bit of movement and air.",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-read",
+          "type": "read",
+          "title": "A few pages of history",
+          "description": "Optional light reading to close the day.",
+          "durationMinutes": 15,
+          "completed": false
+        }
+      ]
+    },
+    "activeMode": "standard"
+  },
+  "finalMeasure": {
+    "mainMinutes": 75,
+    "supportCount": 5,
+    "mainInTier": true,
+    "supportInTier": true,
+    "minimumMainMinutes": 30,
+    "minimumMainIs30": true,
+    "clockHits": [],
+    "extraMains": 0,
+    "mainTitle": "Draft a rough outline for portfolio case study #2",
+    "cjkInText": false
+  }
+}

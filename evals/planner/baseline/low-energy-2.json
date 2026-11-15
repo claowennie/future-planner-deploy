@@ -1,0 +1,143 @@
+{
+  "scenario": "low-energy",
+  "run": 2,
+  "ms": 7269,
+  "source": "fallback",
+  "attempts": [
+    {
+      "status": 200,
+      "requestRoles": [
+        "system",
+        "user"
+      ],
+      "requestExtra": [],
+      "raw": "{\n  \"date\": \"2026-11-16\",\n  \"dayType\": \"relaxed\",\n  \"message\": \"今天能量偏低，我们把节奏放慢一点。昨天作品集提纲没写完也没关系，今天只迈一小步就好。\",\n  \"mainTask\": {\n    \"id\": \"portfolio-case2-outline-small\",\n    \"title\": \"写作品集第二个案例的提纲（小步版）\",\n    \"description\": \"只列出案例二的核心结构：问题、你的角色、关键决策、结果。每部分写 2-3 个要点即可，不追求完整。\",\n    \"durationMinutes\": 45,\n    \"reason\": \"延续昨天未完成的作品集提纲，但缩小到只写骨架，降低启动门槛，同时推进求职目标。\"\n  },\n  \"sections\": {\n    \"morning\": [\n      {\n        \"id\": \"morning-walk\",\n        \"type\": \"move\",\n        \"title\": \"轻松散步\",\n        \"description\": \"出门走一走，不设距离目标，让身体先醒过来。\",\n        \"durationMinutes\": 20\n      }\n    ],\n    \"afternoon\": [\n      {\n        \"id\": \"main-focus\",\n        \"type\": \"main\",\n        \"title\": \"写作品集第二个案例的提纲（小步版）\",\n        \"description\": \"只列出案例二的核心结构：问题、你的角色、关键决策、结果。每部分写 2-3 个要点即可。\",\n        \"durationMinutes\": 45\n      },\n      {\n        \"id\": \"explore-ocean-tech\",\n        \"type\": \"explore\",\n        \"title\": \"看看海洋科技的一个小话题\",\n        \"description\": \"随便浏览一篇关于海洋观测或海洋数据应用的短文，保持好奇心即可。\",\n        \"durationMinutes\": 20\n      }\n    ],\n    \"evening\": [\n      {\n        \"id\": \"read-history\",\n        \"type\": \"read\",\n        \"title\": \"读几页历史书\",\n        \"description\": \"读你手边那本历史书，读多少算多少。\",\n        \"durationMinutes\": 20\n      },\n      {\n        \"id\": \"enjoy-free\",\n        \"type\": \"enjoy\",\n        \"title\": \"无负担放松\",\n        \"description\": \"看点什么、听点什么，或者什么都不做，都算数。\"\n      }\n    ],\n    \"night\": []\n  },\n  \"minimumDay\": {\n    \"message\": \"如果今天只能做一点点，就做这些，已经足够。\",\n    \"items\": [\n      {\n        \"id\": \"min-main\",\n        \"type\": \"main\",\n        \"title\": \"写作品集案例二的三个小标题\",\n        \"description\": \"只写三个小标题，不展开。\",\n        \"durationMinutes\": 30\n      },\n      {\n        \"id\": \"min-learn\",\n        \"type\": \"learn\",\n        \"title\": \"看一个产品设计小技巧\",\n        \"description\": \"看一篇短文或一个短视频，记下一个可以用在作品集里的点。\",\n        \"durationMinutes\": 20\n      },\n      {\n        \"id\": \"min-move\",\n        \"type\": \"move\",\n        \"title\": \"室内拉伸或散步\",\n        \"description\": \"动一动身体，不追求强度。\",\n        \"durationMinutes\": 20\n      },\n      {\n        \"id\": \"min-read\",\n        \"type\": \"read\",\n        \"title\": \"读两页书\",\n        \"description\": \"随便读两页历史或海洋科学。\",\n        \"durationMinutes\": 10\n      }\n    ]\n  }\n}",
+      "finishReason": "stop",
+      "usage": {
+        "prompt": 927,
+        "completion": 775
+      },
+      "valid": false,
+      "validationError": "sections.afternoon[0].type is not supported",
+      "measure": {
+        "mainMinutes": 45,
+        "supportCount": 5,
+        "mainInTier": true,
+        "supportInTier": false,
+        "minimumMainMinutes": 30,
+        "minimumMainIs30": true,
+        "clockHits": [],
+        "extraMains": 1,
+        "mainTitle": "写作品集第二个案例的提纲（小步版）"
+      }
+    },
+    {
+      "status": 200,
+      "requestRoles": [
+        "system",
+        "user"
+      ],
+      "requestExtra": [],
+      "raw": "{\n  \"date\": \"2026-11-16\",\n  \"dayType\": \"relaxed\",\n  \"message\": \"今天能量偏低，安排得轻一些。昨天作品集提纲没完成，没关系，今天只写一小段就好。\",\n  \"mainTask\": {\n    \"id\": \"portfolio-case2-outline-small\",\n    \"title\": \"写作品集第二个案例的一小段提纲\",\n    \"description\": \"只写开头一小段：这个案例要解决什么问题、你的角色是什么。写 150 字左右就停，不追求完整。\",\n    \"durationMinutes\": 45,\n    \"reason\": \"昨天这个任务没完成，今天用更小的第一步重新启动，降低开始的门槛。\"\n  },\n  \"sections\": {\n    \"morning\": [\n      {\n        \"id\": \"morning-move-walk\",\n        \"type\": \"move\",\n        \"title\": \"出门散步 20 分钟\",\n        \"description\": \"不戴耳机，随便走走，看看周围。\",\n        \"durationMinutes\": 20\n      }\n    ],\n    \"afternoon\": [\n      {\n        \"id\": \"afternoon-main-portfolio\",\n        \"type\": \"main\",\n        \"title\": \"写作品集第二个案例的一小段提纲\",\n        \"description\": \"只写开头一小段：这个案例要解决什么问题、你的角色是什么。写 150 字左右就停，不追求完整。\",\n        \"durationMinutes\": 45\n      }\n    ],\n    \"evening\": [\n      {\n        \"id\": \"evening-enjoy-ocean-doc\",\n        \"type\": \"enjoy\",\n        \"title\": \"看一集海洋纪录片\",\n        \"description\": \"纯放松，不需要记笔记。\"\n      }\n    ],\n    \"night\": [\n      {\n        \"id\": \"night-read-history\",\n        \"type\": \"read\",\n        \"title\": \"读几页历史书\",\n        \"description\": \"读到困就停，不设页数目标。\",\n        \"durationMinutes\": 15\n      }\n    ]\n  },\n  \"minimumDay\": {\n    \"message\": \"如果今天状态更差，只做这些也算完整的一天。\",\n    \"items\": [\n      {\n        \"id\": \"min-main-portfolio\",\n        \"type\": \"main\",\n        \"title\": \"写作品集案例提纲的一句话\",\n        \"description\": \"只写一句话：这个案例解决什么问题。写完就算完成。\",\n        \"durationMinutes\": 30\n      },\n      {\n        \"id\": \"min-explore-ai-product\",\n        \"type\": \"explore\",\n        \"title\": \"看一个 AI 产品的小案例\",\n        \"description\": \"随便翻一个感兴趣的产品，看看它怎么解决一个小问题。\",\n        \"durationMinutes\": 20\n      },\n      {\n        \"id\": \"min-move-stretch\",\n        \"type\": \"move\",\n        \"title\": \"在家拉伸 20 分钟\",\n        \"description\": \"跟着视频做简单拉伸，活动肩颈和腰背。\",\n        \"durationMinutes\": 20\n      },\n      {\n        \"id\": \"min-enjoy-music\",\n        \"type\": \"enjoy\",\n        \"title\": \"听喜欢的音乐放松\",\n        \"description\": \"什么都不做，单纯听几首歌。\"\n      }\n    ]\n  }\n}",
+      "finishReason": "stop",
+      "usage": {
+        "prompt": 927,
+        "completion": 708
+      },
+      "valid": false,
+      "validationError": "sections.afternoon[0].type is not supported",
+      "measure": {
+        "mainMinutes": 45,
+        "supportCount": 4,
+        "mainInTier": true,
+        "supportInTier": true,
+        "minimumMainMinutes": 30,
+        "minimumMainIs30": true,
+        "clockHits": [],
+        "extraMains": 1,
+        "mainTitle": "写作品集第二个案例的一小段提纲"
+      }
+    }
+  ],
+  "finalPlan": {
+    "date": "2026-11-16",
+    "dayType": "relaxed",
+    "message": "先从最重要的一件事开始，也给生活留一点空间。",
+    "mainTask": {
+      "id": "7094b1e7-68d0-4f44-9f7b-d97ca9ff6c2d",
+      "type": "main",
+      "title": "完成个人 AI 产品的下一个版本",
+      "durationMinutes": 45,
+      "reason": "完成这一件，今天就已经有意义。",
+      "completed": false
+    },
+    "sections": {
+      "morning": [],
+      "afternoon": [
+        {
+          "id": "30471d75-8786-4aed-8d79-5f0bea1f2148",
+          "type": "explore",
+          "title": "探索：人工智能",
+          "durationMinutes": 20,
+          "completed": false
+        }
+      ],
+      "evening": [
+        {
+          "id": "75c48522-1e1c-4a3b-9230-9ffc5dc921c4",
+          "type": "move",
+          "title": "出去走走或舒展身体",
+          "durationMinutes": 20,
+          "completed": false
+        }
+      ],
+      "night": []
+    },
+    "minimumDay": {
+      "message": "今天可以轻一点。做几件小事，就已经足够。",
+      "items": [
+        {
+          "id": "81191b36-255a-42cd-aa28-e6306a357b7a",
+          "type": "main",
+          "title": "完成个人 AI 产品的下一个版本",
+          "durationMinutes": 30,
+          "completed": false
+        },
+        {
+          "id": "7554c324-45ee-4946-8916-60d45709aa33",
+          "type": "explore",
+          "title": "随便看看：人工智能",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "b755beb2-0026-438a-b198-0b657c4741a5",
+          "type": "move",
+          "title": "散步或拉伸",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "1e3fd476-1af6-4ff9-8afa-6e62dc4bf417",
+          "type": "read",
+          "title": "读 10 页",
+          "durationMinutes": 15,
+          "target": "10 页",
+          "completed": false
+        }
+      ]
+    },
+    "activeMode": "standard"
+  },
+  "finalMeasure": {
+    "mainMinutes": 45,
+    "supportCount": 2,
+    "mainInTier": true,
+    "supportInTier": true,
+    "minimumMainMinutes": 30,
+    "minimumMainIs30": true,
+    "clockHits": [],
+    "extraMains": 0,
+    "mainTitle": "完成个人 AI 产品的下一个版本"
+  }
+}

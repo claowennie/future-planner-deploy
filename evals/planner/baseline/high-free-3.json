@@ -1,0 +1,153 @@
+{
+  "scenario": "high-free",
+  "run": 3,
+  "ms": 4473,
+  "source": "ai",
+  "attempts": [
+    {
+      "status": 200,
+      "requestRoles": [
+        "system",
+        "user"
+      ],
+      "requestExtra": [],
+      "raw": "{\n  \"date\": \"2026-11-16\",\n  \"dayType\": \"productive\",\n  \"message\": \"今天精力充沛、时间宽裕，适合把作品集第二个案例的提纲先写出一个能用的初稿；昨天没完成也没关系，今天从更小的第一步开始。\",\n  \"mainTask\": {\n    \"id\": \"portfolio-case2-outline-draft\",\n    \"title\": \"写出作品集第二个案例的提纲初稿\",\n    \"description\": \"先列出案例背景、问题、你的角色与关键决策，再补上结果与反思四个部分的小标题和要点，形成一页可继续扩写的提纲。\",\n    \"durationMinutes\": 100,\n    \"reason\": \"这是求职作品集的关键一步，昨天未完成，今天用更小的第一步继续推进。\"\n  },\n  \"sections\": {\n    \"morning\": [\n      {\n        \"id\": \"morning-explore-ocean-tech\",\n        \"type\": \"explore\",\n        \"title\": \"浏览海洋科技与 AI 结合的新应用\",\n        \"description\": \"找两三个海洋数据或监测相关的产品案例，记下让你好奇的一点。\",\n        \"durationMinutes\": 25\n      },\n      {\n        \"id\": \"morning-move-walk\",\n        \"type\": \"move\",\n        \"title\": \"户外快走\",\n        \"description\": \"轻松散步，顺便让大脑从提纲任务里松一松。\",\n        \"durationMinutes\": 30\n      }\n    ],\n    \"afternoon\": [\n      {\n        \"id\": \"afternoon-learn-planner-quality\",\n        \"type\": \"learn\",\n        \"title\": \"学习规划器质量评估的一个方法\",\n        \"description\": \"阅读或观看一段关于 LLM 输出质量评估的材料，记录一个可以用于自己规划器的检查点。\",\n        \"durationMinutes\": 35\n      },\n      {\n        \"id\": \"afternoon-read-history\",\n        \"type\": \"read\",\n        \"title\": \"读一段历史\",\n        \"description\": \"读你正在看的历史书或长文，纯粹为了兴趣。\",\n        \"durationMinutes\": 25\n      }\n    ],\n    \"evening\": [\n      {\n        \"id\": \"evening-enjoy-free\",\n        \"type\": \"enjoy\",\n        \"title\": \"自由放松时间\",\n        \"description\": \"做一件纯粹让你开心的事，不需要有产出。\"\n      }\n    ],\n    \"night\": [\n      {\n        \"id\": \"night-read-light\",\n        \"type\": \"read\",\n        \"title\": \"睡前轻阅读\",\n        \"description\": \"读几页轻松的内容，帮助收尾。\",\n        \"durationMinutes\": 15\n      }\n    ]\n  },\n  \"minimumDay\": {\n    \"message\": \"如果今天状态下滑，只做最小版本也算完整的一天。\",\n    \"items\": [\n      {\n        \"id\": \"min-main-outline-step\",\n        \"type\": \"main\",\n        \"title\": \"写出案例提纲的三个小标题\",\n        \"description\": \"只列出背景、问题、你的角色三个部分的小标题，先不展开。\",\n        \"durationMinutes\": 30\n      },\n      {\n        \"id\": \"min-explore-ocean\",\n        \"type\": \"explore\",\n        \"title\": \"看一个海洋科技案例\",\n        \"description\": \"花 20 分钟浏览一个海洋数据相关的产品，记下一个想法。\",\n        \"durationMinutes\": 20\n      },\n      {\n        \"id\": \"min-move-walk\",\n        \"type\": \"move\",\n        \"title\": \"轻松散步\",\n        \"description\": \"出门走一走，不追求距离。\",\n        \"durationMinutes\": 20\n      },\n      {\n        \"id\": \"min-enjoy-free\",\n        \"type\": \"enjoy\",\n        \"title\": \"无压力放松\",\n        \"description\": \"做一件让自己舒服的小事。\"\n      }\n    ]\n  }\n}",
+      "finishReason": "stop",
+      "usage": {
+        "prompt": 928,
+        "completion": 837
+      },
+      "valid": true,
+      "measure": {
+        "mainMinutes": 100,
+        "supportCount": 6,
+        "mainInTier": true,
+        "supportInTier": true,
+        "minimumMainMinutes": 30,
+        "minimumMainIs30": true,
+        "clockHits": [],
+        "extraMains": 0,
+        "mainTitle": "写出作品集第二个案例的提纲初稿"
+      }
+    }
+  ],
+  "finalPlan": {
+    "date": "2026-11-16",
+    "dayType": "productive",
+    "message": "今天精力充沛、时间宽裕，适合把作品集第二个案例的提纲先写出一个能用的初稿；昨天没完成也没关系，今天从更小的第一步开始。",
+    "mainTask": {
+      "id": "portfolio-case2-outline-draft",
+      "type": "main",
+      "title": "写出作品集第二个案例的提纲初稿",
+      "description": "先列出案例背景、问题、你的角色与关键决策，再补上结果与反思四个部分的小标题和要点，形成一页可继续扩写的提纲。",
+      "durationMinutes": 100,
+      "reason": "这是求职作品集的关键一步，昨天未完成，今天用更小的第一步继续推进。",
+      "completed": false
+    },
+    "sections": {
+      "morning": [
+        {
+          "id": "morning-explore-ocean-tech",
+          "type": "explore",
+          "title": "浏览海洋科技与 AI 结合的新应用",
+          "description": "找两三个海洋数据或监测相关的产品案例，记下让你好奇的一点。",
+          "durationMinutes": 25,
+          "completed": false
+        },
+        {
+          "id": "morning-move-walk",
+          "type": "move",
+          "title": "户外快走",
+          "description": "轻松散步，顺便让大脑从提纲任务里松一松。",
+          "durationMinutes": 30,
+          "completed": false
+        }
+      ],
+      "afternoon": [
+        {
+          "id": "afternoon-learn-planner-quality",
+          "type": "learn",
+          "title": "学习规划器质量评估的一个方法",
+          "description": "阅读或观看一段关于 LLM 输出质量评估的材料，记录一个可以用于自己规划器的检查点。",
+          "durationMinutes": 35,
+          "completed": false
+        },
+        {
+          "id": "afternoon-read-history",
+          "type": "read",
+          "title": "读一段历史",
+          "description": "读你正在看的历史书或长文，纯粹为了兴趣。",
+          "durationMinutes": 25,
+          "completed": false
+        }
+      ],
+      "evening": [
+        {
+          "id": "evening-enjoy-free",
+          "type": "enjoy",
+          "title": "自由放松时间",
+          "description": "做一件纯粹让你开心的事，不需要有产出。",
+          "completed": false
+        }
+      ],
+      "night": [
+        {
+          "id": "night-read-light",
+          "type": "read",
+          "title": "睡前轻阅读",
+          "description": "读几页轻松的内容，帮助收尾。",
+          "durationMinutes": 15,
+          "completed": false
+        }
+      ]
+    },
+    "minimumDay": {
+      "message": "如果今天状态下滑，只做最小版本也算完整的一天。",
+      "items": [
+        {
+          "id": "min-main-outline-step",
+          "type": "main",
+          "title": "写出案例提纲的三个小标题",
+          "description": "只列出背景、问题、你的角色三个部分的小标题，先不展开。",
+          "durationMinutes": 30,
+          "completed": false
+        },
+        {
+          "id": "min-explore-ocean",
+          "type": "explore",
+          "title": "看一个海洋科技案例",
+          "description": "花 20 分钟浏览一个海洋数据相关的产品，记下一个想法。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-move-walk",
+          "type": "move",
+          "title": "轻松散步",
+          "description": "出门走一走，不追求距离。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-enjoy-free",
+          "type": "enjoy",
+          "title": "无压力放松",
+          "description": "做一件让自己舒服的小事。",
+          "completed": false
+        }
+      ]
+    },
+    "activeMode": "standard"
+  },
+  "finalMeasure": {
+    "mainMinutes": 100,
+    "supportCount": 6,
+    "mainInTier": true,
+    "supportInTier": true,
+    "minimumMainMinutes": 30,
+    "minimumMainIs30": true,
+    "clockHits": [],
+    "extraMains": 0,
+    "mainTitle": "写出作品集第二个案例的提纲初稿"
+  }
+}

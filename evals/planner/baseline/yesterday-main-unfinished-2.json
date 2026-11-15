@@ -1,0 +1,164 @@
+{
+  "scenario": "yesterday-main-unfinished",
+  "run": 2,
+  "ms": 7424,
+  "source": "ai",
+  "attempts": [
+    {
+      "status": 200,
+      "requestRoles": [
+        "system",
+        "user"
+      ],
+      "requestExtra": [],
+      "raw": "{\"date\":\"2026-11-16\",\"dayType\":\"balanced\",\"message\":\"昨天作品集案例没写完也没关系，今天先迈小一步把它接上，剩下的时间留给自己喘口气。\",\"mainTask\":{\"id\":\"portfolio-case2-outline\",\"title\":\"写出作品集第二个案例的提纲\",\"description\":\"只做提纲：用要点列出背景、你的角色、关键决策和结果四部分，不追求完整句子，写完就算完成。\",\"durationMinutes\":75,\"reason\":\"这是昨天没完成但仍重要的任务，用更小的第一步重新启动，降低阻力。\"},\"sections\":{\"morning\":[{\"id\":\"morning-move-walk\",\"type\":\"move\",\"title\":\"出门散步\",\"description\":\"不戴耳机走一圈，让脑子清醒起来。\",\"durationMinutes\":25}],\"afternoon\":[{\"id\":\"afternoon-focus-main\",\"type\":\"main\",\"title\":\"写出作品集第二个案例的提纲\",\"description\":\"只做提纲：背景、角色、关键决策、结果四部分，用要点写。\",\"durationMinutes\":75},{\"id\":\"afternoon-explore-ocean\",\"type\":\"explore\",\"title\":\"看看深海热液喷口的生态系统\",\"description\":\"随便翻翻纪录片片段或科普文章，纯好奇，不做笔记。\",\"durationMinutes\":25}],\"evening\":[{\"id\":\"evening-enjoy-music\",\"type\":\"enjoy\",\"title\":\"放点喜欢的音乐，随便做点吃的\",\"description\":\"不安排产出，允许自己什么都不想。\"}],\"night\":[{\"id\":\"night-read-history\",\"type\":\"read\",\"title\":\"读几页历史书\",\"description\":\"读到困了就停，不设页数目标。\",\"durationMinutes\":20}]},\"minimumDay\":{\"message\":\"状态一般也没关系，完成这三件小事，今天就算过关。\",\"items\":[{\"id\":\"min-main-outline\",\"type\":\"main\",\"title\":\"写三个案例提纲要点\",\"description\":\"只列背景、角色、结果三条要点，写出来就停。\",\"durationMinutes\":30},{\"id\":\"min-learn-planner\",\"type\":\"learn\",\"title\":\"看一段产品规划相关的分享\",\"description\":\"挑一个短内容，记下一个能用上的点。\",\"durationMinutes\":20},{\"id\":\"min-move-stretch\",\"type\":\"move\",\"title\":\"室内拉伸或快走\",\"description\":\"活动一下肩颈和腰背。\",\"durationMinutes\":20},{\"id\":\"min-read-history\",\"type\":\"read\",\"title\":\"读几页历史书\",\"description\":\"睡前随意翻几页。\",\"durationMinutes\":15}]}}",
+      "finishReason": "stop",
+      "usage": {
+        "prompt": 989,
+        "completion": 526
+      },
+      "valid": false,
+      "validationError": "sections.afternoon[0].type is not supported",
+      "measure": {
+        "mainMinutes": 75,
+        "supportCount": 5,
+        "mainInTier": true,
+        "supportInTier": true,
+        "minimumMainMinutes": 30,
+        "minimumMainIs30": true,
+        "clockHits": [],
+        "extraMains": 1,
+        "mainTitle": "写出作品集第二个案例的提纲"
+      }
+    },
+    {
+      "status": 200,
+      "requestRoles": [
+        "system",
+        "user"
+      ],
+      "requestExtra": [],
+      "raw": "{\"date\":\"2026-11-16\",\"dayType\":\"balanced\",\"message\":\"昨天作品集的主任务没走完，今天先把它拆小一点、轻轻接上，同时给身体和好奇心留点空间。\",\"mainTask\":{\"id\":\"portfolio-case2-outline-2026-11-16\",\"title\":\"写作品集第二个案例的提纲\",\"description\":\"不追求完整初稿，只列出一页提纲：背景、你的角色、关键决策、结果四块各写两三句即可。\",\"durationMinutes\":75,\"reason\":\"昨天这项没完成，先用更小的第一步重新接上，降低启动阻力。\"},\"sections\":{\"morning\":[{\"id\":\"morning-move-walk-1116\",\"type\":\"move\",\"title\":\"出门散步二十分钟\",\"description\":\"不带耳机，让脑子先醒过来。\",\"durationMinutes\":20}],\"afternoon\":[{\"id\":\"afternoon-explore-ocean-1116\",\"type\":\"explore\",\"title\":\"看看深海热液喷口的生态系统\",\"description\":\"随意浏览，挑一个让你意外的细节记下来。\",\"durationMinutes\":25}],\"evening\":[{\"id\":\"evening-read-history-1116\",\"type\":\"read\",\"title\":\"读几页历史书\",\"description\":\"睡前随手翻翻，不求进度。\",\"durationMinutes\":20},{\"id\":\"evening-enjoy-1116\",\"type\":\"enjoy\",\"title\":\"给自己一段无目的的放松时间\",\"description\":\"看点轻松的、听点音乐，或者什么都不做。\",\"durationMinutes\":30}],\"night\":[]},\"minimumDay\":{\"message\":\"如果今天能量不够，就只做这些，也已经是完整的一天。\",\"items\":[{\"id\":\"min-main-1116\",\"type\":\"main\",\"title\":\"写案例提纲的一小块\",\"description\":\"只写背景和你的角色两段，各两三句。\",\"durationMinutes\":30},{\"id\":\"min-learn-1116\",\"type\":\"learn\",\"title\":\"了解一个产品设计小概念\",\"description\":\"挑一个你作品集里能用上的点，随手记两句。\",\"durationMinutes\":25},{\"id\":\"min-move-1116\",\"type\":\"move\",\"title\":\"轻松散步\",\"description\":\"出门走一走，放松一下。\",\"durationMinutes\":20},{\"id\":\"min-enjoy-1116\",\"type\":\"enjoy\",\"title\":\"给自己一点放松时间\",\"description\":\"随便做点让自己舒服的事。\"}]}}",
+      "finishReason": "stop",
+      "usage": {
+        "prompt": 989,
+        "completion": 496
+      },
+      "valid": true,
+      "measure": {
+        "mainMinutes": 75,
+        "supportCount": 4,
+        "mainInTier": true,
+        "supportInTier": true,
+        "minimumMainMinutes": 30,
+        "minimumMainIs30": true,
+        "clockHits": [],
+        "extraMains": 0,
+        "mainTitle": "写作品集第二个案例的提纲"
+      }
+    }
+  ],
+  "finalPlan": {
+    "date": "2026-11-16",
+    "dayType": "balanced",
+    "message": "昨天作品集的主任务没走完，今天先把它拆小一点、轻轻接上，同时给身体和好奇心留点空间。",
+    "mainTask": {
+      "id": "portfolio-case2-outline-2026-11-16",
+      "type": "main",
+      "title": "写作品集第二个案例的提纲",
+      "description": "不追求完整初稿，只列出一页提纲：背景、你的角色、关键决策、结果四块各写两三句即可。",
+      "durationMinutes": 75,
+      "reason": "昨天这项没完成，先用更小的第一步重新接上，降低启动阻力。",
+      "completed": false
+    },
+    "sections": {
+      "morning": [
+        {
+          "id": "morning-move-walk-1116",
+          "type": "move",
+          "title": "出门散步二十分钟",
+          "description": "不带耳机，让脑子先醒过来。",
+          "durationMinutes": 20,
+          "completed": false
+        }
+      ],
+      "afternoon": [
+        {
+          "id": "afternoon-explore-ocean-1116",
+          "type": "explore",
+          "title": "看看深海热液喷口的生态系统",
+          "description": "随意浏览，挑一个让你意外的细节记下来。",
+          "durationMinutes": 25,
+          "completed": false
+        }
+      ],
+      "evening": [
+        {
+          "id": "evening-read-history-1116",
+          "type": "read",
+          "title": "读几页历史书",
+          "description": "睡前随手翻翻，不求进度。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "evening-enjoy-1116",
+          "type": "enjoy",
+          "title": "给自己一段无目的的放松时间",
+          "description": "看点轻松的、听点音乐，或者什么都不做。",
+          "durationMinutes": 30,
+          "completed": false
+        }
+      ],
+      "night": []
+    },
+    "minimumDay": {
+      "message": "如果今天能量不够，就只做这些，也已经是完整的一天。",
+      "items": [
+        {
+          "id": "min-main-1116",
+          "type": "main",
+          "title": "写案例提纲的一小块",
+          "description": "只写背景和你的角色两段，各两三句。",
+          "durationMinutes": 30,
+          "completed": false
+        },
+        {
+          "id": "min-learn-1116",
+          "type": "learn",
+          "title": "了解一个产品设计小概念",
+          "description": "挑一个你作品集里能用上的点，随手记两句。",
+          "durationMinutes": 25,
+          "completed": false
+        },
+        {
+          "id": "min-move-1116",
+          "type": "move",
+          "title": "轻松散步",
+          "description": "出门走一走，放松一下。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-enjoy-1116",
+          "type": "enjoy",
+          "title": "给自己一点放松时间",
+          "description": "随便做点让自己舒服的事。",
+          "completed": false
+        }
+      ]
+    },
+    "activeMode": "standard"
+  },
+  "finalMeasure": {
+    "mainMinutes": 75,
+    "supportCount": 4,
+    "mainInTier": true,
+    "supportInTier": true,
+    "minimumMainMinutes": 30,
+    "minimumMainIs30": true,
+    "clockHits": [],
+    "extraMains": 0,
+    "mainTitle": "写作品集第二个案例的提纲"
+  }
+}
