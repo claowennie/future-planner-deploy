@@ -11,7 +11,7 @@ Last updated: 2026-11-15 (Asia/Taipei)
 - Production Worker: `future-planner`
 - Current branch: `main`
 - Latest product change: AI Daily Planner v1.1 — daily review loop and Today-card redesign (app version 3.2.0). Melo Companion remains v0.6.3.
-- Latest deployed Worker version: `4dc7b137-bf67-4b15-855f-3e1b4addb59f` (2026-11-15, planner generation quality pass). The last version with an authenticated production run is `e7a1bc9a-c63e-4df5-af74-3462f366e8ff`.
+- Latest deployed Worker version: `4dc7b137-bf67-4b15-855f-3e1b4addb59f` (2026-11-15, planner generation quality pass). Authenticated production QA passed on this version.
 - Public contact: `claowennie@gmail.com`
 - AI Daily Planner migration, Worker secret, production deployment, and authenticated end-to-end verification are complete.
 
@@ -19,7 +19,7 @@ The product is live. AI Daily Planner v1 is available on Today after signing in:
 
 ## AI Daily Planner generation quality pass (production, 2026-11-15)
 
-Worker-only changes to how plans are generated and validated. No UI change, no migration, and `plan_json` keeps its shape. Deployed with `npm run deploy` after the owner's review and pushed to `main`. Post-deploy checks on the custom domain: home 200 with the Chinese title and canonical URL, runtime config 200 without private values, and anonymous `generate`/`replan` 401. No authenticated production generation was run against this version; the evidence for the new behaviour is `npm run check` and the eval runs below, which call the same code and model outside the Worker.
+Worker-only changes to how plans are generated and validated. No UI change, no migration, and `plan_json` keeps its shape. Deployed with `npm run deploy` after the owner's review and pushed to `main`. Post-deploy checks on the custom domain: home 200 with the Chinese title and canonical URL, runtime config 200 without private values, and anonymous `generate`/`replan` 401. Authenticated production QA then passed 49/49 checks with two temporary accounts: the earlier v1.1 flow (profile, recap of a seeded `too_much` day, live generation, completion, review, collapse, Minimum Day, 390px layout, live replan to version 2, RLS isolation, language preferences) plus new checks that the generated and replanned plans sit inside their load tier and have a 30-minute Minimum Day main item. Generation returned `source: ai` on a BALANCED day (75 min, 5 supporting items) and its message referred to the seeded review; the `too_much` replan returned `source: ai` on a LIGHT day (45 min, 4 items). The UI sent `energy: low` with that replan, so the tier was already LIGHT and the one-tier shift for replan reasons was not exercised on its own in production. Temporary accounts and their planner data were deleted. The helper is `.wrangler/planner-quality-production-qa.mjs` (ignored).
 
 - Eval harness: `evals/planner/` holds eight synthetic scenarios (`scenarios.json`) and `run.mjs`, which runs each scenario three times through the real generate → validate → retry → fallback path against the live model without Supabase. `node evals/planner/run.mjs --label <name>` writes raw outputs to `evals/planner/<name>/` and rewrites `report.md` with a comparison against `baseline/`. It needs `DEEPSEEK_API_KEY` in the environment and never writes it. Results are 24 runs at temperature 0.72, so they are directional only.
 - Retry with feedback: when the first reply fails validation, the second request includes that reply and the validator's error instead of resending the same prompt.
