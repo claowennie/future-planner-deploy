@@ -1,0 +1,138 @@
+{
+  "scenario": "low-energy",
+  "run": 2,
+  "ms": 3973,
+  "source": "ai",
+  "attempts": [
+    {
+      "status": 200,
+      "requestRoles": [
+        "system",
+        "user"
+      ],
+      "requestExtra": [],
+      "raw": "{\n  \"date\": \"2026-11-16\",\n  \"dayType\": \"relaxed\",\n  \"message\": \"今天能量偏低，就轻一点来。昨天作品集提纲没写完也没关系，今天只动一小步就好。\",\n  \"mainTask\": {\n    \"id\": \"portfolio-case2-outline-small\",\n    \"title\": \"写作品集第二个案例的提纲（只列 3 个小标题）\",\n    \"description\": \"打开昨天的文档，只写下三个小标题或要点，不追求完整，写完就收工。\",\n    \"durationMinutes\": 40,\n    \"reason\": \"昨天这一步没完成，把第一步缩到最小，先恢复推进感。\"\n  },\n  \"sections\": {\n    \"morning\": [\n      {\n        \"id\": \"morning-walk\",\n        \"type\": \"move\",\n        \"title\": \"出门散步 20 分钟\",\n        \"description\": \"不带耳机，随便走走，让脑子先醒过来。\",\n        \"durationMinutes\": 20\n      }\n    ],\n    \"afternoon\": [\n      {\n        \"id\": \"explore-planner-ux\",\n        \"type\": \"explore\",\n        \"title\": \"看看别人怎么设计每日规划界面\",\n        \"description\": \"随手翻一两个规划类产品的界面，记下一个你喜欢的细节。\",\n        \"durationMinutes\": 25\n      }\n    ],\n    \"evening\": [\n      {\n        \"id\": \"read-history\",\n        \"type\": \"read\",\n        \"title\": \"读几页历史书\",\n        \"description\": \"随便读，读到想停就停。\",\n        \"durationMinutes\": 20\n      }\n    ],\n    \"night\": [\n      {\n        \"id\": \"enjoy-music\",\n        \"type\": \"enjoy\",\n        \"title\": \"听点喜欢的音乐或看一集轻松的片子\",\n        \"description\": \"完全不为了产出，单纯放松。\"\n      }\n    ]\n  },\n  \"minimumDay\": {\n    \"message\": \"如果今天实在没劲，就只做这几件最小的事。\",\n    \"items\": [\n      {\n        \"id\": \"min-main\",\n        \"type\": \"main\",\n        \"title\": \"写下作品集第二个案例的 3 个小标题\",\n        \"description\": \"只列标题，不展开。\",\n        \"durationMinutes\": 30\n      },\n      {\n        \"id\": \"min-learn\",\n        \"type\": \"learn\",\n        \"title\": \"看一篇 AI 产品相关的短文\",\n        \"description\": \"挑一篇短的，读完记一句话。\",\n        \"durationMinutes\": 25\n      },\n      {\n        \"id\": \"min-move\",\n        \"type\": \"move\",\n        \"title\": \"散步 20 分钟\",\n        \"description\": \"楼下或附近走走即可。\",\n        \"durationMinutes\": 20\n      },\n      {\n        \"id\": \"min-read\",\n        \"type\": \"read\",\n        \"title\": \"读几页书\",\n        \"description\": \"想读什么读什么。\",\n        \"durationMinutes\": 15\n      }\n    ]\n  }\n}",
+      "finishReason": "stop",
+      "usage": {
+        "prompt": 1100,
+        "completion": 668
+      },
+      "valid": true,
+      "measure": {
+        "mainMinutes": 40,
+        "supportCount": 4,
+        "mainInTier": true,
+        "supportInTier": true,
+        "minimumMainMinutes": 30,
+        "minimumMainIs30": true,
+        "clockHits": [],
+        "extraMains": 0,
+        "mainTitle": "写作品集第二个案例的提纲（只列 3 个小标题）"
+      }
+    }
+  ],
+  "finalPlan": {
+    "date": "2026-11-16",
+    "dayType": "relaxed",
+    "message": "今天能量偏低，就轻一点来。昨天作品集提纲没写完也没关系，今天只动一小步就好。",
+    "mainTask": {
+      "id": "portfolio-case2-outline-small",
+      "type": "main",
+      "title": "写作品集第二个案例的提纲（只列 3 个小标题）",
+      "description": "打开昨天的文档，只写下三个小标题或要点，不追求完整，写完就收工。",
+      "durationMinutes": 40,
+      "reason": "昨天这一步没完成，把第一步缩到最小，先恢复推进感。",
+      "completed": false
+    },
+    "sections": {
+      "morning": [
+        {
+          "id": "morning-walk",
+          "type": "move",
+          "title": "出门散步 20 分钟",
+          "description": "不带耳机，随便走走，让脑子先醒过来。",
+          "durationMinutes": 20,
+          "completed": false
+        }
+      ],
+      "afternoon": [
+        {
+          "id": "explore-planner-ux",
+          "type": "explore",
+          "title": "看看别人怎么设计每日规划界面",
+          "description": "随手翻一两个规划类产品的界面，记下一个你喜欢的细节。",
+          "durationMinutes": 25,
+          "completed": false
+        }
+      ],
+      "evening": [
+        {
+          "id": "read-history",
+          "type": "read",
+          "title": "读几页历史书",
+          "description": "随便读，读到想停就停。",
+          "durationMinutes": 20,
+          "completed": false
+        }
+      ],
+      "night": [
+        {
+          "id": "enjoy-music",
+          "type": "enjoy",
+          "title": "听点喜欢的音乐或看一集轻松的片子",
+          "description": "完全不为了产出，单纯放松。",
+          "completed": false
+        }
+      ]
+    },
+    "minimumDay": {
+      "message": "如果今天实在没劲，就只做这几件最小的事。",
+      "items": [
+        {
+          "id": "min-main",
+          "type": "main",
+          "title": "写下作品集第二个案例的 3 个小标题",
+          "description": "只列标题，不展开。",
+          "durationMinutes": 30,
+          "completed": false
+        },
+        {
+          "id": "min-learn",
+          "type": "learn",
+          "title": "看一篇 AI 产品相关的短文",
+          "description": "挑一篇短的，读完记一句话。",
+          "durationMinutes": 25,
+          "completed": false
+        },
+        {
+          "id": "min-move",
+          "type": "move",
+          "title": "散步 20 分钟",
+          "description": "楼下或附近走走即可。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-read",
+          "type": "read",
+          "title": "读几页书",
+          "description": "想读什么读什么。",
+          "durationMinutes": 15,
+          "completed": false
+        }
+      ]
+    },
+    "activeMode": "standard"
+  },
+  "finalMeasure": {
+    "mainMinutes": 40,
+    "supportCount": 4,
+    "mainInTier": true,
+    "supportInTier": true,
+    "minimumMainMinutes": 30,
+    "minimumMainIs30": true,
+    "clockHits": [],
+    "extraMains": 0,
+    "mainTitle": "写作品集第二个案例的提纲（只列 3 个小标题）"
+  }
+}

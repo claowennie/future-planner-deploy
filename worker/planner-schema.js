@@ -108,47 +108,58 @@ export function validateDailyPlan(payload, expectedDate, checkin = null) {
   if (!payload.sections || typeof payload.sections !== 'object' || Array.isArray(payload.sections)) {
     throw new PlannerOutputError('sections must be an object');
   }
+  // From here on problems are collected and reported together, so one retry can fix all of them.
+  const problems = [];
+  const collect = (values, field, options) => values.flatMap((value, index) => {
+    try { return [item(value, `${field}[${index}]`, options)]; }
+    catch (error) {
+      if (!(error instanceof PlannerOutputError)) throw error;
+      problems.push(error.message);
+      return [];
+    }
+  });
   const sections = {};
   let itemCount = 0;
+  let misplacedMains = 0;
   const ids = new Set([mainTask.id]);
   for (const part of DAYPARTS) {
     const values = payload.sections[part];
     if (!Array.isArray(values)) throw new PlannerOutputError(`sections.${part} must be an array`);
-    sections[part] = values.map((value, index) => item(value, `sections.${part}[${index}]`));
-    itemCount += sections[part].length;
+    sections[part] = collect(values, `sections.${part}`);
+    // A repeated main task will be removed by the fix; any other rejected item will be corrected and stay.
+    const mains = values.filter((value) => String(value?.type || '').toLowerCase() === 'main').length;
+    misplacedMains += mains;
+    itemCount += values.length - mains;
     for (const planItem of sections[part]) {
       if (ids.has(planItem.id)) planItem.id = crypto.randomUUID();
       ids.add(planItem.id);
     }
   }
-  if (itemCount < 2 || itemCount > 7) throw new PlannerOutputError('Plan must contain 2-7 supporting items');
-  // Load problems are reported together so one retry can fix all of them.
-  const loadProblems = [];
+  const counted = `got ${itemCount}${misplacedMains ? ', not counting the main item that must be removed from sections' : ''}`;
   if (checkin) {
     const tier = loadTier(checkin);
     if (mainTask.durationMinutes < tier.mainMin || mainTask.durationMinutes > tier.mainMax) {
-      loadProblems.push(`mainTask.durationMinutes must be ${tier.mainMin}-${tier.mainMax} on a ${tier.name} day (got ${mainTask.durationMinutes})`);
+      problems.push(`mainTask.durationMinutes must be ${tier.mainMin}-${tier.mainMax} on a ${tier.name} day (got ${mainTask.durationMinutes})`);
     }
     if (itemCount < tier.supportMin || itemCount > tier.supportMax) {
-      loadProblems.push(`sections must contain ${tier.supportMin}-${tier.supportMax} supporting items in total on a ${tier.name} day (got ${itemCount})`);
+      problems.push(`sections must contain ${tier.supportMin}-${tier.supportMax} supporting items in total on a ${tier.name} day (${counted})`);
     }
+  } else if (itemCount < 2 || itemCount > 7) {
+    problems.push(`Plan must contain 2-7 supporting items (${counted})`);
   }
 
-  const minimumValues = payload.minimumDay?.items;
-  if (!Array.isArray(minimumValues) || minimumValues.length < 3 || minimumValues.length > 5) {
-    throw new PlannerOutputError('minimumDay.items must contain 3-5 items');
+  const minimumValues = Array.isArray(payload.minimumDay?.items) ? payload.minimumDay.items : [];
+  if (minimumValues.length < 3 || minimumValues.length > 5) {
+    problems.push(`minimumDay.items must contain 3-5 items (got ${minimumValues.length})`);
   }
-  const minimumItems = minimumValues.map((value, index) => (
-    item(value, `minimumDay.items[${index}]`, { allowMain: true })
-  ));
-  if (minimumItems.filter((value) => value.type === 'main').length !== 1) {
-    throw new PlannerOutputError('minimumDay must contain exactly one main item');
+  const minimumItems = collect(minimumValues, 'minimumDay.items', { allowMain: true });
+  const minimumMains = minimumItems.filter((value) => value.type === 'main');
+  if (minimumMains.length !== 1) {
+    problems.push(`minimumDay must contain exactly one main item (got ${minimumMains.length})`);
+  } else if (checkin && minimumMains[0].durationMinutes !== MINIMUM_MAIN_MINUTES) {
+    problems.push(`minimumDay main item must be exactly ${MINIMUM_MAIN_MINUTES} minutes (got ${minimumMains[0].durationMinutes ?? 'none'})`);
   }
-  const minimumMain = minimumItems.find((value) => value.type === 'main');
-  if (checkin && minimumMain.durationMinutes !== MINIMUM_MAIN_MINUTES) {
-    loadProblems.push(`minimumDay main item must be exactly ${MINIMUM_MAIN_MINUTES} minutes (got ${minimumMain.durationMinutes ?? 'none'})`);
-  }
-  if (loadProblems.length) throw new PlannerOutputError(loadProblems.join('; '));
+  if (problems.length) throw new PlannerOutputError(problems.slice(0, 6).join('; '));
   for (const planItem of minimumItems) {
     if (ids.has(planItem.id)) planItem.id = crypto.randomUUID();
     ids.add(planItem.id);

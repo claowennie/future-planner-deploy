@@ -76,7 +76,10 @@
         ],
         "clockHits": [],
         "retried": 2,
-        "retryRecovered": 2
+        "retryRecovered": 2,
+        "mustDoRuns": 3,
+        "finalMustDoInMain": 3,
+        "finalMustDoAnywhere": 3
       }
     },
     {
@@ -263,7 +266,10 @@
         "firstCanaryAnywhere": 0,
         "firstCanaryInMessage": 0,
         "firstExtraMains": 1,
-        "finalCanaryAnywhere": 0
+        "finalCanaryAnywhere": 0,
+        "mustDoRuns": 3,
+        "finalMustDoInMain": 0,
+        "finalMustDoAnywhere": 1
       }
     },
     {
@@ -323,45 +329,45 @@
     "finalMinimumMainIs30": 24,
     "finalClock": 0,
     "mainMinutes": [
-      45,
-      40,
-      45,
       60,
       50,
       60,
-      100,
-      100,
-      100,
       75,
       75,
       75,
+      100,
+      100,
+      100,
       75,
       75,
       60,
+      45,
+      40,
+      45,
       75,
       75,
       75,
       75,
       75,
-      60,
       75,
       75,
-      75
+      75,
+      60
     ],
     "supportCounts": [
-      4,
-      4,
-      4,
       3,
       4,
       4,
+      5,
+      4,
+      5,
       6,
       5,
       5,
       5,
       4,
-      5,
-      5,
+      4,
+      4,
       4,
       4,
       5,
@@ -369,10 +375,10 @@
       5,
       5,
       4,
-      4,
+      5,
       5,
       4,
-      5
+      4
     ],
     "validationErrors": [
       "mainTask.durationMinutes must be 30-60 on a LIGHT day (got 90); sections must contain 2-4 supporting items in total on a LIGHT day (got 5)",
@@ -387,6 +393,9 @@
     "firstCanaryInMessage": 0,
     "firstExtraMains": 1,
     "finalCanaryAnywhere": 0,
+    "mustDoRuns": 6,
+    "finalMustDoInMain": 3,
+    "finalMustDoAnywhere": 4,
     "englishRuns": 3,
     "finalCjk": 0
   },

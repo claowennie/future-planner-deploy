@@ -1,0 +1,136 @@
+{
+  "scenario": "yesterday-main-unfinished",
+  "run": 1,
+  "ms": 3672,
+  "source": "ai",
+  "attempts": [
+    {
+      "status": 200,
+      "requestRoles": [
+        "system",
+        "user"
+      ],
+      "requestExtra": [],
+      "raw": "{\"date\":\"2026-11-16\",\"dayType\":\"balanced\",\"message\":\"昨天作品集初稿没写完，今天把第一步缩小一点，先动笔就好；房东的消息顺手回掉，剩下的时间留给散步和一点好奇心。\",\"mainTask\":{\"id\":\"portfolio-case2-outline\",\"title\":\"完成作品集第二个案例的提纲\",\"description\":\"先花 10 分钟列出案例的背景、问题和你的角色，再补上 3-4 个关键决策点和对应的结果要点，写到能看出结构即可，不追求措辞完美。\",\"durationMinutes\":75,\"reason\":\"这是昨天未完成的主线任务，缩小第一步能降低启动阻力，并推进作品集 3 个案例的目标。\"},\"sections\":{\"morning\":[{\"id\":\"reply-landlord\",\"type\":\"enjoy\",\"title\":\"回复房东的消息\",\"description\":\"趁早上脑子清醒，把房东的问题一次说清楚，了结这件悬着的小事。\"},{\"id\":\"morning-walk\",\"type\":\"move\",\"title\":\"出门散步 20 分钟\",\"description\":\"不带耳机，走一段熟悉的路线，让身体先醒过来。\",\"durationMinutes\":20}],\"afternoon\":[{\"id\":\"explore-deep-sea\",\"type\":\"explore\",\"title\":\"看看深海热液喷口的最新发现\",\"description\":\"找一篇科普文章或短视频，了解深海生态系统如何在极端环境下生存。\",\"durationMinutes\":30}],\"evening\":[{\"id\":\"read-history\",\"type\":\"read\",\"title\":\"读几页历史书\",\"description\":\"挑一本轻松的叙事历史，读 20 分钟就停，不给自己加任务。\",\"durationMinutes\":20},{\"id\":\"enjoy-music\",\"type\":\"enjoy\",\"title\":\"听一张完整的专辑\",\"description\":\"什么都不做，只是听。允许自己完全放空。\"}],\"night\":[]},\"minimumDay\":{\"message\":\"如果今天状态不好，就只做这三件事，也算完整的一天。\",\"items\":[{\"id\":\"min-main\",\"type\":\"main\",\"title\":\"写出案例提纲的骨架\",\"description\":\"只列 5 条要点，能看出背景、问题、你的角色和结果即可。\",\"durationMinutes\":30},{\"id\":\"min-learn\",\"type\":\"learn\",\"title\":\"了解一个 AI 产品设计原则\",\"description\":\"读一篇短文，记下一个可以用在自己产品里的点。\",\"durationMinutes\":20},{\"id\":\"min-move\",\"type\":\"move\",\"title\":\"散步 20 分钟\",\"description\":\"楼下随便走走，活动一下身体。\",\"durationMinutes\":20}]}}",
+      "finishReason": "stop",
+      "usage": {
+        "prompt": 1148,
+        "completion": 525
+      },
+      "valid": true,
+      "measure": {
+        "mainMinutes": 75,
+        "supportCount": 5,
+        "mainInTier": true,
+        "supportInTier": true,
+        "minimumMainMinutes": 30,
+        "minimumMainIs30": true,
+        "clockHits": [],
+        "extraMains": 0,
+        "mainTitle": "完成作品集第二个案例的提纲"
+      }
+    }
+  ],
+  "finalPlan": {
+    "date": "2026-11-16",
+    "dayType": "balanced",
+    "message": "昨天作品集初稿没写完，今天把第一步缩小一点，先动笔就好；房东的消息顺手回掉，剩下的时间留给散步和一点好奇心。",
+    "mainTask": {
+      "id": "portfolio-case2-outline",
+      "type": "main",
+      "title": "完成作品集第二个案例的提纲",
+      "description": "先花 10 分钟列出案例的背景、问题和你的角色，再补上 3-4 个关键决策点和对应的结果要点，写到能看出结构即可，不追求措辞完美。",
+      "durationMinutes": 75,
+      "reason": "这是昨天未完成的主线任务，缩小第一步能降低启动阻力，并推进作品集 3 个案例的目标。",
+      "completed": false
+    },
+    "sections": {
+      "morning": [
+        {
+          "id": "reply-landlord",
+          "type": "enjoy",
+          "title": "回复房东的消息",
+          "description": "趁早上脑子清醒，把房东的问题一次说清楚，了结这件悬着的小事。",
+          "completed": false
+        },
+        {
+          "id": "morning-walk",
+          "type": "move",
+          "title": "出门散步 20 分钟",
+          "description": "不带耳机，走一段熟悉的路线，让身体先醒过来。",
+          "durationMinutes": 20,
+          "completed": false
+        }
+      ],
+      "afternoon": [
+        {
+          "id": "explore-deep-sea",
+          "type": "explore",
+          "title": "看看深海热液喷口的最新发现",
+          "description": "找一篇科普文章或短视频，了解深海生态系统如何在极端环境下生存。",
+          "durationMinutes": 30,
+          "completed": false
+        }
+      ],
+      "evening": [
+        {
+          "id": "read-history",
+          "type": "read",
+          "title": "读几页历史书",
+          "description": "挑一本轻松的叙事历史，读 20 分钟就停，不给自己加任务。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "enjoy-music",
+          "type": "enjoy",
+          "title": "听一张完整的专辑",
+          "description": "什么都不做，只是听。允许自己完全放空。",
+          "completed": false
+        }
+      ],
+      "night": []
+    },
+    "minimumDay": {
+      "message": "如果今天状态不好，就只做这三件事，也算完整的一天。",
+      "items": [
+        {
+          "id": "min-main",
+          "type": "main",
+          "title": "写出案例提纲的骨架",
+          "description": "只列 5 条要点，能看出背景、问题、你的角色和结果即可。",
+          "durationMinutes": 30,
+          "completed": false
+        },
+        {
+          "id": "min-learn",
+          "type": "learn",
+          "title": "了解一个 AI 产品设计原则",
+          "description": "读一篇短文，记下一个可以用在自己产品里的点。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-move",
+          "type": "move",
+          "title": "散步 20 分钟",
+          "description": "楼下随便走走，活动一下身体。",
+          "durationMinutes": 20,
+          "completed": false
+        }
+      ]
+    },
+    "activeMode": "standard"
+  },
+  "finalMeasure": {
+    "mainMinutes": 75,
+    "supportCount": 5,
+    "mainInTier": true,
+    "supportInTier": true,
+    "minimumMainMinutes": 30,
+    "minimumMainIs30": true,
+    "clockHits": [],
+    "extraMains": 0,
+    "mainTitle": "完成作品集第二个案例的提纲"
+  }
+}

@@ -1,0 +1,144 @@
+{
+  "scenario": "yesterday-too-much",
+  "run": 2,
+  "ms": 3532,
+  "source": "ai",
+  "attempts": [
+    {
+      "status": 200,
+      "requestRoles": [
+        "system",
+        "user"
+      ],
+      "requestExtra": [],
+      "raw": "{\"date\":\"2026-11-16\",\"dayType\":\"relaxed\",\"message\":\"昨天排得太满、下午就没力气了，今天特意轻一些，先把作品集第二个案例的提纲写出来就好。\",\"mainTask\":{\"id\":\"portfolio-case2-outline\",\"title\":\"写作品集第二个案例的提纲\",\"description\":\"只做提纲：列出案例背景、你的角色、关键决策和结果四块，每块写 2-3 条要点，不展开成文。\",\"durationMinutes\":60,\"reason\":\"这是昨天没完成、但对你求职目标很关键的一步，用更小的第一步接上。\"},\"sections\":{\"morning\":[{\"id\":\"morning-walk\",\"type\":\"move\",\"title\":\"出门散步 20 分钟\",\"description\":\"不带耳机，随便走走，让脑子先醒过来。\",\"durationMinutes\":20}],\"afternoon\":[{\"id\":\"explore-portfolio-inspo\",\"type\":\"explore\",\"title\":\"看两个产品案例的写法\",\"description\":\"找两个你欣赏的产品作品集案例，只记下它们怎么讲清“为什么这么做”。\",\"durationMinutes\":25}],\"evening\":[{\"id\":\"read-ocean\",\"type\":\"read\",\"title\":\"读一会儿海洋科学\",\"description\":\"随手翻几页，纯为好奇，不做笔记。\",\"durationMinutes\":20},{\"id\":\"enjoy-free\",\"type\":\"enjoy\",\"title\":\"完全放空的一段时间\",\"description\":\"想干嘛干嘛，看剧、发呆、听音乐都行，不用有产出。\"}],\"night\":[{\"id\":\"night-tidy\",\"type\":\"enjoy\",\"title\":\"睡前简单收尾\",\"description\":\"花几分钟把明天的第一件事写下来，然后早点休息。\"}]},\"minimumDay\":{\"message\":\"如果今天状态很低，就只做这一件小事，其余都可以放下。\",\"items\":[{\"id\":\"min-main\",\"type\":\"main\",\"title\":\"写作品集第二个案例的提纲\",\"description\":\"只列四块要点，写不动就写三行也算完成。\",\"durationMinutes\":30},{\"id\":\"min-learn\",\"type\":\"learn\",\"title\":\"看一个产品案例的讲解\",\"description\":\"挑一个短视频或文章看完即可。\",\"durationMinutes\":20},{\"id\":\"min-move\",\"type\":\"move\",\"title\":\"散步 20 分钟\",\"description\":\"楼下随便走走，晒点太阳。\",\"durationMinutes\":20},{\"id\":\"min-enjoy\",\"type\":\"enjoy\",\"title\":\"无压力放松\",\"description\":\"做一件单纯让你开心的小事。\"}]}}",
+      "finishReason": "stop",
+      "usage": {
+        "prompt": 1190,
+        "completion": 523
+      },
+      "valid": true,
+      "measure": {
+        "mainMinutes": 60,
+        "supportCount": 5,
+        "mainInTier": true,
+        "supportInTier": true,
+        "minimumMainMinutes": 30,
+        "minimumMainIs30": true,
+        "clockHits": [],
+        "extraMains": 0,
+        "mainTitle": "写作品集第二个案例的提纲"
+      }
+    }
+  ],
+  "finalPlan": {
+    "date": "2026-11-16",
+    "dayType": "relaxed",
+    "message": "昨天排得太满、下午就没力气了，今天特意轻一些，先把作品集第二个案例的提纲写出来就好。",
+    "mainTask": {
+      "id": "portfolio-case2-outline",
+      "type": "main",
+      "title": "写作品集第二个案例的提纲",
+      "description": "只做提纲：列出案例背景、你的角色、关键决策和结果四块，每块写 2-3 条要点，不展开成文。",
+      "durationMinutes": 60,
+      "reason": "这是昨天没完成、但对你求职目标很关键的一步，用更小的第一步接上。",
+      "completed": false
+    },
+    "sections": {
+      "morning": [
+        {
+          "id": "morning-walk",
+          "type": "move",
+          "title": "出门散步 20 分钟",
+          "description": "不带耳机，随便走走，让脑子先醒过来。",
+          "durationMinutes": 20,
+          "completed": false
+        }
+      ],
+      "afternoon": [
+        {
+          "id": "explore-portfolio-inspo",
+          "type": "explore",
+          "title": "看两个产品案例的写法",
+          "description": "找两个你欣赏的产品作品集案例，只记下它们怎么讲清“为什么这么做”。",
+          "durationMinutes": 25,
+          "completed": false
+        }
+      ],
+      "evening": [
+        {
+          "id": "read-ocean",
+          "type": "read",
+          "title": "读一会儿海洋科学",
+          "description": "随手翻几页，纯为好奇，不做笔记。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "enjoy-free",
+          "type": "enjoy",
+          "title": "完全放空的一段时间",
+          "description": "想干嘛干嘛，看剧、发呆、听音乐都行，不用有产出。",
+          "completed": false
+        }
+      ],
+      "night": [
+        {
+          "id": "night-tidy",
+          "type": "enjoy",
+          "title": "睡前简单收尾",
+          "description": "花几分钟把明天的第一件事写下来，然后早点休息。",
+          "completed": false
+        }
+      ]
+    },
+    "minimumDay": {
+      "message": "如果今天状态很低，就只做这一件小事，其余都可以放下。",
+      "items": [
+        {
+          "id": "min-main",
+          "type": "main",
+          "title": "写作品集第二个案例的提纲",
+          "description": "只列四块要点，写不动就写三行也算完成。",
+          "durationMinutes": 30,
+          "completed": false
+        },
+        {
+          "id": "min-learn",
+          "type": "learn",
+          "title": "看一个产品案例的讲解",
+          "description": "挑一个短视频或文章看完即可。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-move",
+          "type": "move",
+          "title": "散步 20 分钟",
+          "description": "楼下随便走走，晒点太阳。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-enjoy",
+          "type": "enjoy",
+          "title": "无压力放松",
+          "description": "做一件单纯让你开心的小事。",
+          "completed": false
+        }
+      ]
+    },
+    "activeMode": "standard"
+  },
+  "finalMeasure": {
+    "mainMinutes": 60,
+    "supportCount": 5,
+    "mainInTier": true,
+    "supportInTier": true,
+    "minimumMainMinutes": 30,
+    "minimumMainIs30": true,
+    "clockHits": [],
+    "extraMains": 0,
+    "mainTitle": "写作品集第二个案例的提纲"
+  }
+}

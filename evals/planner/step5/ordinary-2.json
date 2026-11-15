@@ -1,0 +1,146 @@
+{
+  "scenario": "ordinary",
+  "run": 2,
+  "ms": 4131,
+  "source": "ai",
+  "attempts": [
+    {
+      "status": 200,
+      "requestRoles": [
+        "system",
+        "user"
+      ],
+      "requestExtra": [],
+      "raw": "{\"date\":\"2026-11-16\",\"dayType\":\"balanced\",\"message\":\"昨天你完成了测试用例的整理，节奏刚刚好；今天继续推进作品集，但不必追求一口气写完，先把提纲理清楚就好。\",\"mainTask\":{\"id\":\"portfolio-case2-outline\",\"title\":\"写完作品集第二个案例的提纲\",\"description\":\"打开作品集文档，为第二个案例列出结构：背景、你的角色、关键决策、结果与反思。先写要点，不追求措辞，30-40 分钟内完成骨架，再用 20 分钟补齐细节。\",\"durationMinutes\":75,\"reason\":\"这是昨天未完成的求职作品集关键一步，先做小颗粒度的提纲能降低启动阻力，也直接推进「完成 3 个作品集案例」的目标。\"},\"sections\":{\"morning\":[{\"id\":\"morning-walk\",\"type\":\"move\",\"title\":\"出门散步 25 分钟\",\"description\":\"不带耳机或只放轻音乐，走一段熟悉的路线，让身体先醒过来。\",\"durationMinutes\":25}],\"afternoon\":[{\"id\":\"explore-ai-product\",\"type\":\"explore\",\"title\":\"拆解一个 AI 产品的每日规划交互\",\"description\":\"挑一个你常用的 AI 工具，观察它如何引导用户做每日计划，记下 2-3 个可借鉴或可避开的点。\",\"durationMinutes\":30}],\"evening\":[{\"id\":\"read-history\",\"type\":\"read\",\"title\":\"读一段历史\",\"description\":\"翻几页正在读的历史书，不设页数目标，读到想停就停。\",\"durationMinutes\":20},{\"id\":\"enjoy-dinner\",\"type\":\"enjoy\",\"title\":\"好好吃一顿晚饭\",\"description\":\"不看屏幕，慢慢吃完，允许自己什么都不想。\"}],\"night\":[{\"id\":\"learn-json-schema\",\"type\":\"learn\",\"title\":\"继续学 JSON Schema 校验\",\"description\":\"在昨天的基础上，试着给规划器的输出写一条校验规则。\",\"durationMinutes\":20}]},\"minimumDay\":{\"message\":\"如果今天状态一般，只做这几件小事，也已经是完整的一天。\",\"items\":[{\"id\":\"min-main\",\"type\":\"main\",\"title\":\"写出第二个案例提纲的前三个要点\",\"description\":\"只写背景、角色、关键决策三条，写完就停。\",\"durationMinutes\":30},{\"id\":\"min-explore\",\"type\":\"explore\",\"title\":\"看一个 AI 产品的一个交互细节\",\"description\":\"花 20 分钟观察并记一句话感受。\",\"durationMinutes\":20},{\"id\":\"min-move\",\"type\":\"move\",\"title\":\"散步 20 分钟\",\"description\":\"楼下或附近走一圈即可。\",\"durationMinutes\":20},{\"id\":\"min-read\",\"type\":\"read\",\"title\":\"读两页书\",\"description\":\"睡前翻两页，轻松收尾。\",\"durationMinutes\":10}]}}",
+      "finishReason": "stop",
+      "usage": {
+        "prompt": 1154,
+        "completion": 594
+      },
+      "valid": true,
+      "measure": {
+        "mainMinutes": 75,
+        "supportCount": 5,
+        "mainInTier": true,
+        "supportInTier": true,
+        "minimumMainMinutes": 30,
+        "minimumMainIs30": true,
+        "clockHits": [],
+        "extraMains": 0,
+        "mainTitle": "写完作品集第二个案例的提纲"
+      }
+    }
+  ],
+  "finalPlan": {
+    "date": "2026-11-16",
+    "dayType": "balanced",
+    "message": "昨天你完成了测试用例的整理，节奏刚刚好；今天继续推进作品集，但不必追求一口气写完，先把提纲理清楚就好。",
+    "mainTask": {
+      "id": "portfolio-case2-outline",
+      "type": "main",
+      "title": "写完作品集第二个案例的提纲",
+      "description": "打开作品集文档，为第二个案例列出结构：背景、你的角色、关键决策、结果与反思。先写要点，不追求措辞，30-40 分钟内完成骨架，再用 20 分钟补齐细节。",
+      "durationMinutes": 75,
+      "reason": "这是昨天未完成的求职作品集关键一步，先做小颗粒度的提纲能降低启动阻力，也直接推进「完成 3 个作品集案例」的目标。",
+      "completed": false
+    },
+    "sections": {
+      "morning": [
+        {
+          "id": "morning-walk",
+          "type": "move",
+          "title": "出门散步 25 分钟",
+          "description": "不带耳机或只放轻音乐，走一段熟悉的路线，让身体先醒过来。",
+          "durationMinutes": 25,
+          "completed": false
+        }
+      ],
+      "afternoon": [
+        {
+          "id": "explore-ai-product",
+          "type": "explore",
+          "title": "拆解一个 AI 产品的每日规划交互",
+          "description": "挑一个你常用的 AI 工具，观察它如何引导用户做每日计划，记下 2-3 个可借鉴或可避开的点。",
+          "durationMinutes": 30,
+          "completed": false
+        }
+      ],
+      "evening": [
+        {
+          "id": "read-history",
+          "type": "read",
+          "title": "读一段历史",
+          "description": "翻几页正在读的历史书，不设页数目标，读到想停就停。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "enjoy-dinner",
+          "type": "enjoy",
+          "title": "好好吃一顿晚饭",
+          "description": "不看屏幕，慢慢吃完，允许自己什么都不想。",
+          "completed": false
+        }
+      ],
+      "night": [
+        {
+          "id": "learn-json-schema",
+          "type": "learn",
+          "title": "继续学 JSON Schema 校验",
+          "description": "在昨天的基础上，试着给规划器的输出写一条校验规则。",
+          "durationMinutes": 20,
+          "completed": false
+        }
+      ]
+    },
+    "minimumDay": {
+      "message": "如果今天状态一般，只做这几件小事，也已经是完整的一天。",
+      "items": [
+        {
+          "id": "min-main",
+          "type": "main",
+          "title": "写出第二个案例提纲的前三个要点",
+          "description": "只写背景、角色、关键决策三条，写完就停。",
+          "durationMinutes": 30,
+          "completed": false
+        },
+        {
+          "id": "min-explore",
+          "type": "explore",
+          "title": "看一个 AI 产品的一个交互细节",
+          "description": "花 20 分钟观察并记一句话感受。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-move",
+          "type": "move",
+          "title": "散步 20 分钟",
+          "description": "楼下或附近走一圈即可。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-read",
+          "type": "read",
+          "title": "读两页书",
+          "description": "睡前翻两页，轻松收尾。",
+          "durationMinutes": 10,
+          "completed": false
+        }
+      ]
+    },
+    "activeMode": "standard"
+  },
+  "finalMeasure": {
+    "mainMinutes": 75,
+    "supportCount": 5,
+    "mainInTier": true,
+    "supportInTier": true,
+    "minimumMainMinutes": 30,
+    "minimumMainIs30": true,
+    "clockHits": [],
+    "extraMains": 0,
+    "mainTitle": "写完作品集第二个案例的提纲"
+  }
+}

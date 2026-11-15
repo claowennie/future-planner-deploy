@@ -1,0 +1,153 @@
+{
+  "scenario": "high-free",
+  "run": 2,
+  "ms": 4199,
+  "source": "ai",
+  "attempts": [
+    {
+      "status": 200,
+      "requestRoles": [
+        "system",
+        "user"
+      ],
+      "requestExtra": [],
+      "raw": "{\"date\":\"2026-11-16\",\"dayType\":\"productive\",\"message\":\"今天精力不错，把昨天没完成的第二个作品集案例往前推一步就好；其余时间留给探索和恢复。\",\"mainTask\":{\"id\":\"portfolio-case-2-outline\",\"title\":\"完成作品集第二个案例的提纲\",\"description\":\"打开昨天的草稿，先列出案例背景、你的角色、关键决策和结果四块要点，每块写 3-5 条，最后用一句话总结这个案例想证明的能力。\",\"durationMinutes\":100,\"reason\":\"昨天这件事没推完，今天精力充足，先把它做成一个能继续扩写的骨架，比重新开始更省力。\"},\"sections\":{\"morning\":[{\"id\":\"morning-walk\",\"type\":\"move\",\"title\":\"晨间散步 25 分钟\",\"description\":\"不带耳机，随便走走，让脑子先醒过来。\",\"durationMinutes\":25},{\"id\":\"learn-planner-eval\",\"type\":\"learn\",\"title\":\"读一篇关于 AI 产品评估的文章\",\"description\":\"关注如何衡量规划类产品的输出质量，顺手记下 2-3 条能用在规划器优化上的想法。\",\"durationMinutes\":30}],\"afternoon\":[{\"id\":\"explore-ocean-tech\",\"type\":\"explore\",\"title\":\"探索海洋科学里的数据可视化项目\",\"description\":\"找 1-2 个海洋数据可视化案例，看看它们怎么讲清复杂信息，可能对产品设计有启发。\",\"durationMinutes\":30},{\"id\":\"read-history\",\"type\":\"read\",\"title\":\"读几页历史书\",\"description\":\"选一本手边的历史读物，轻松读 20 分钟，不求进度。\",\"durationMinutes\":20}],\"evening\":[{\"id\":\"enjoy-cook\",\"type\":\"enjoy\",\"title\":\"做一顿不赶时间的晚饭\",\"description\":\"选一个想吃的菜，慢慢做，当作今天的奖励。\"}],\"night\":[{\"id\":\"night-stretch\",\"type\":\"move\",\"title\":\"睡前拉伸 15 分钟\",\"description\":\"放松肩颈和腰背，帮助入睡。\",\"durationMinutes\":15}]},\"minimumDay\":{\"message\":\"如果今天状态掉下来，就只做这三件事，其余全部放下也没关系。\",\"items\":[{\"id\":\"min-main\",\"type\":\"main\",\"title\":\"写作品集案例提纲的第一块要点\",\"description\":\"只写案例背景和你的角色两部分，够用就行。\",\"durationMinutes\":30},{\"id\":\"min-learn\",\"type\":\"learn\",\"title\":\"读规划器评估文章的前半部分\",\"description\":\"读多少算多少，记一条想法即可。\",\"durationMinutes\":25},{\"id\":\"min-move\",\"type\":\"move\",\"title\":\"散步 20 分钟\",\"description\":\"出门走走，呼吸一下。\",\"durationMinutes\":20},{\"id\":\"min-enjoy\",\"type\":\"enjoy\",\"title\":\"听一张喜欢的专辑\",\"description\":\"什么都不做，就听歌。\"}]}}",
+      "finishReason": "stop",
+      "usage": {
+        "prompt": 1085,
+        "completion": 606
+      },
+      "valid": true,
+      "measure": {
+        "mainMinutes": 100,
+        "supportCount": 6,
+        "mainInTier": true,
+        "supportInTier": true,
+        "minimumMainMinutes": 30,
+        "minimumMainIs30": true,
+        "clockHits": [],
+        "extraMains": 0,
+        "mainTitle": "完成作品集第二个案例的提纲"
+      }
+    }
+  ],
+  "finalPlan": {
+    "date": "2026-11-16",
+    "dayType": "productive",
+    "message": "今天精力不错，把昨天没完成的第二个作品集案例往前推一步就好；其余时间留给探索和恢复。",
+    "mainTask": {
+      "id": "portfolio-case-2-outline",
+      "type": "main",
+      "title": "完成作品集第二个案例的提纲",
+      "description": "打开昨天的草稿，先列出案例背景、你的角色、关键决策和结果四块要点，每块写 3-5 条，最后用一句话总结这个案例想证明的能力。",
+      "durationMinutes": 100,
+      "reason": "昨天这件事没推完，今天精力充足，先把它做成一个能继续扩写的骨架，比重新开始更省力。",
+      "completed": false
+    },
+    "sections": {
+      "morning": [
+        {
+          "id": "morning-walk",
+          "type": "move",
+          "title": "晨间散步 25 分钟",
+          "description": "不带耳机，随便走走，让脑子先醒过来。",
+          "durationMinutes": 25,
+          "completed": false
+        },
+        {
+          "id": "learn-planner-eval",
+          "type": "learn",
+          "title": "读一篇关于 AI 产品评估的文章",
+          "description": "关注如何衡量规划类产品的输出质量，顺手记下 2-3 条能用在规划器优化上的想法。",
+          "durationMinutes": 30,
+          "completed": false
+        }
+      ],
+      "afternoon": [
+        {
+          "id": "explore-ocean-tech",
+          "type": "explore",
+          "title": "探索海洋科学里的数据可视化项目",
+          "description": "找 1-2 个海洋数据可视化案例，看看它们怎么讲清复杂信息，可能对产品设计有启发。",
+          "durationMinutes": 30,
+          "completed": false
+        },
+        {
+          "id": "read-history",
+          "type": "read",
+          "title": "读几页历史书",
+          "description": "选一本手边的历史读物，轻松读 20 分钟，不求进度。",
+          "durationMinutes": 20,
+          "completed": false
+        }
+      ],
+      "evening": [
+        {
+          "id": "enjoy-cook",
+          "type": "enjoy",
+          "title": "做一顿不赶时间的晚饭",
+          "description": "选一个想吃的菜，慢慢做，当作今天的奖励。",
+          "completed": false
+        }
+      ],
+      "night": [
+        {
+          "id": "night-stretch",
+          "type": "move",
+          "title": "睡前拉伸 15 分钟",
+          "description": "放松肩颈和腰背，帮助入睡。",
+          "durationMinutes": 15,
+          "completed": false
+        }
+      ]
+    },
+    "minimumDay": {
+      "message": "如果今天状态掉下来，就只做这三件事，其余全部放下也没关系。",
+      "items": [
+        {
+          "id": "min-main",
+          "type": "main",
+          "title": "写作品集案例提纲的第一块要点",
+          "description": "只写案例背景和你的角色两部分，够用就行。",
+          "durationMinutes": 30,
+          "completed": false
+        },
+        {
+          "id": "min-learn",
+          "type": "learn",
+          "title": "读规划器评估文章的前半部分",
+          "description": "读多少算多少，记一条想法即可。",
+          "durationMinutes": 25,
+          "completed": false
+        },
+        {
+          "id": "min-move",
+          "type": "move",
+          "title": "散步 20 分钟",
+          "description": "出门走走，呼吸一下。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-enjoy",
+          "type": "enjoy",
+          "title": "听一张喜欢的专辑",
+          "description": "什么都不做，就听歌。",
+          "completed": false
+        }
+      ]
+    },
+    "activeMode": "standard"
+  },
+  "finalMeasure": {
+    "mainMinutes": 100,
+    "supportCount": 6,
+    "mainInTier": true,
+    "supportInTier": true,
+    "minimumMainMinutes": 30,
+    "minimumMainIs30": true,
+    "clockHits": [],
+    "extraMains": 0,
+    "mainTitle": "完成作品集第二个案例的提纲"
+  }
+}

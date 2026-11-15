@@ -1,0 +1,138 @@
+{
+  "scenario": "ordinary",
+  "run": 1,
+  "ms": 4256,
+  "source": "ai",
+  "attempts": [
+    {
+      "status": 200,
+      "requestRoles": [
+        "system",
+        "user"
+      ],
+      "requestExtra": [],
+      "raw": "{\n  \"date\": \"2026-11-16\",\n  \"dayType\": \"balanced\",\n  \"message\": \"昨天完成了测试用例、节奏刚好，今天接着把作品集第二个案例的提纲写出来，顺手回复房东的消息就好。\",\n  \"mainTask\": {\n    \"id\": \"portfolio-case2-outline\",\n    \"title\": \"写出作品集第二个案例的提纲\",\n    \"description\": \"用 60–90 分钟把第二个案例的结构搭出来：背景、问题、你的判断、做了什么、结果与反思，每部分先写 2–3 句，不追求润色。\",\n    \"durationMinutes\": 75,\n    \"reason\": \"这是昨天没完成但依然重要的任务，先出提纲能降低后续写作的启动成本，也推进「3 个作品集案例」这个关键结果。\"\n  },\n  \"sections\": {\n    \"morning\": [\n      {\n        \"id\": \"reply-landlord\",\n        \"type\": \"enjoy\",\n        \"title\": \"回复房东的消息\",\n        \"description\": \"趁早上头脑清醒，把房东的消息回掉，清掉一件悬着的小事。\"\n      },\n      {\n        \"id\": \"morning-walk\",\n        \"type\": \"move\",\n        \"title\": \"出门散步 25 分钟\",\n        \"description\": \"不带耳机或只听环境声，走一段固定的路线，让身体先醒过来。\",\n        \"durationMinutes\": 25\n      }\n    ],\n    \"afternoon\": [\n      {\n        \"id\": \"explore-ocean-acid\",\n        \"type\": \"explore\",\n        \"title\": \"看看海洋碱度增强的最新进展\",\n        \"description\": \"接着昨天的海洋酸化话题，找一篇科普或研究综述，了解碱度增强的原理和争议。\",\n        \"durationMinutes\": 30\n      }\n    ],\n    \"evening\": [\n      {\n        \"id\": \"read-history\",\n        \"type\": \"read\",\n        \"title\": \"读一段历史书\",\n        \"description\": \"挑一本在读的历史书，读 20 分钟，不做笔记，纯享受。\",\n        \"durationMinutes\": 20\n      }\n    ],\n    \"night\": [\n      {\n        \"id\": \"learn-schema-review\",\n        \"type\": \"learn\",\n        \"title\": \"复习 JSON Schema 的校验要点\",\n        \"description\": \"把昨天学的校验规则整理成几行自己的备忘，方便以后写规划器时直接查。\",\n        \"durationMinutes\": 20\n      }\n    ]\n  },\n  \"minimumDay\": {\n    \"message\": \"如果今天状态一般，就只做这三件事，也算完整的一天。\",\n    \"items\": [\n      {\n        \"id\": \"min-portfolio-outline\",\n        \"type\": \"main\",\n        \"title\": \"写出第二个案例提纲的第一部分\",\n        \"description\": \"只写背景和问题两段，各 2–3 句。\",\n        \"durationMinutes\": 30\n      },\n      {\n        \"id\": \"min-explore-ocean\",\n        \"type\": \"explore\",\n        \"title\": \"读一篇海洋碱度增强的短文\",\n        \"description\": \"找一篇入门科普，读完就好。\",\n        \"durationMinutes\": 20\n      },\n      {\n        \"id\": \"min-move-walk\",\n        \"type\": \"move\",\n        \"title\": \"散步 20 分钟\",\n        \"description\": \"楼下或附近走一圈，呼吸一下。\",\n        \"durationMinutes\": 20\n      }\n    ]\n  }\n}",
+      "finishReason": "stop",
+      "usage": {
+        "prompt": 1154,
+        "completion": 759
+      },
+      "valid": true,
+      "measure": {
+        "mainMinutes": 75,
+        "supportCount": 5,
+        "mainInTier": true,
+        "supportInTier": true,
+        "minimumMainMinutes": 30,
+        "minimumMainIs30": true,
+        "clockHits": [],
+        "extraMains": 0,
+        "mainTitle": "写出作品集第二个案例的提纲"
+      }
+    }
+  ],
+  "finalPlan": {
+    "date": "2026-11-16",
+    "dayType": "balanced",
+    "message": "昨天完成了测试用例、节奏刚好，今天接着把作品集第二个案例的提纲写出来，顺手回复房东的消息就好。",
+    "mainTask": {
+      "id": "portfolio-case2-outline",
+      "type": "main",
+      "title": "写出作品集第二个案例的提纲",
+      "description": "用 60–90 分钟把第二个案例的结构搭出来：背景、问题、你的判断、做了什么、结果与反思，每部分先写 2–3 句，不追求润色。",
+      "durationMinutes": 75,
+      "reason": "这是昨天没完成但依然重要的任务，先出提纲能降低后续写作的启动成本，也推进「3 个作品集案例」这个关键结果。",
+      "completed": false
+    },
+    "sections": {
+      "morning": [
+        {
+          "id": "reply-landlord",
+          "type": "enjoy",
+          "title": "回复房东的消息",
+          "description": "趁早上头脑清醒，把房东的消息回掉，清掉一件悬着的小事。",
+          "completed": false
+        },
+        {
+          "id": "morning-walk",
+          "type": "move",
+          "title": "出门散步 25 分钟",
+          "description": "不带耳机或只听环境声，走一段固定的路线，让身体先醒过来。",
+          "durationMinutes": 25,
+          "completed": false
+        }
+      ],
+      "afternoon": [
+        {
+          "id": "explore-ocean-acid",
+          "type": "explore",
+          "title": "看看海洋碱度增强的最新进展",
+          "description": "接着昨天的海洋酸化话题，找一篇科普或研究综述，了解碱度增强的原理和争议。",
+          "durationMinutes": 30,
+          "completed": false
+        }
+      ],
+      "evening": [
+        {
+          "id": "read-history",
+          "type": "read",
+          "title": "读一段历史书",
+          "description": "挑一本在读的历史书，读 20 分钟，不做笔记，纯享受。",
+          "durationMinutes": 20,
+          "completed": false
+        }
+      ],
+      "night": [
+        {
+          "id": "learn-schema-review",
+          "type": "learn",
+          "title": "复习 JSON Schema 的校验要点",
+          "description": "把昨天学的校验规则整理成几行自己的备忘，方便以后写规划器时直接查。",
+          "durationMinutes": 20,
+          "completed": false
+        }
+      ]
+    },
+    "minimumDay": {
+      "message": "如果今天状态一般，就只做这三件事，也算完整的一天。",
+      "items": [
+        {
+          "id": "min-portfolio-outline",
+          "type": "main",
+          "title": "写出第二个案例提纲的第一部分",
+          "description": "只写背景和问题两段，各 2–3 句。",
+          "durationMinutes": 30,
+          "completed": false
+        },
+        {
+          "id": "min-explore-ocean",
+          "type": "explore",
+          "title": "读一篇海洋碱度增强的短文",
+          "description": "找一篇入门科普，读完就好。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-move-walk",
+          "type": "move",
+          "title": "散步 20 分钟",
+          "description": "楼下或附近走一圈，呼吸一下。",
+          "durationMinutes": 20,
+          "completed": false
+        }
+      ]
+    },
+    "activeMode": "standard"
+  },
+  "finalMeasure": {
+    "mainMinutes": 75,
+    "supportCount": 5,
+    "mainInTier": true,
+    "supportInTier": true,
+    "minimumMainMinutes": 30,
+    "minimumMainIs30": true,
+    "clockHits": [],
+    "extraMains": 0,
+    "mainTitle": "写出作品集第二个案例的提纲"
+  }
+}

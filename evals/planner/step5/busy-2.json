@@ -1,0 +1,140 @@
+{
+  "scenario": "busy",
+  "run": 2,
+  "ms": 3234,
+  "source": "ai",
+  "attempts": [
+    {
+      "status": 200,
+      "requestRoles": [
+        "system",
+        "user"
+      ],
+      "requestExtra": [],
+      "raw": "{\"date\":\"2026-11-16\",\"dayType\":\"productive\",\"message\":\"昨天作品集的提纲没写完，今天先把季度报告交掉，其余节奏放轻，慢慢来就好。\",\"mainTask\":{\"id\":\"quarterly-report-2026-11-16\",\"title\":\"完成并提交季度报告\",\"description\":\"把季度报告收尾、检查一遍，下午提交出去。\",\"durationMinutes\":50,\"reason\":\"这是今天必须完成的事，做完它今天就算有意义了。\"},\"sections\":{\"morning\":[{\"id\":\"move-morning-walk-2026-11-16\",\"type\":\"move\",\"title\":\"出门散步 20 分钟\",\"description\":\"不带任务，走一走，让脑子先醒过来。\",\"durationMinutes\":20}],\"afternoon\":[],\"evening\":[{\"id\":\"explore-ai-planner-ux-2026-11-16\",\"type\":\"explore\",\"title\":\"看看别人怎么做 AI 规划类产品的交互\",\"description\":\"找一两个同类产品，只记下让你眼前一亮的一个细节。\",\"durationMinutes\":25},{\"id\":\"enjoy-evening-free-2026-11-16\",\"type\":\"enjoy\",\"title\":\"留一段不安排的时间\",\"description\":\"看点海洋或历史相关的东西，纯粹为了好玩。\"}],\"night\":[{\"id\":\"read-night-book-2026-11-16\",\"type\":\"read\",\"title\":\"睡前读几页书\",\"description\":\"轻松的书就行，读困了就睡。\",\"durationMinutes\":15}]},\"minimumDay\":{\"message\":\"忙不过来就只做这些，也已经是完整的一天。\",\"items\":[{\"id\":\"min-main-report-2026-11-16\",\"type\":\"main\",\"title\":\"把季度报告提交出去\",\"description\":\"只求完成和提交，不求完美。\",\"durationMinutes\":30},{\"id\":\"min-learn-planner-2026-11-16\",\"type\":\"learn\",\"title\":\"看一篇规划器相关的短文\",\"description\":\"随手记一条能用上的想法。\",\"durationMinutes\":20},{\"id\":\"min-move-walk-2026-11-16\",\"type\":\"move\",\"title\":\"散步 20 分钟\",\"description\":\"楼下走走就好。\",\"durationMinutes\":20},{\"id\":\"min-enjoy-free-2026-11-16\",\"type\":\"enjoy\",\"title\":\"看点自己感兴趣的内容\",\"description\":\"不设目标。\"}]}}",
+      "finishReason": "stop",
+      "usage": {
+        "prompt": 1116,
+        "completion": 493
+      },
+      "valid": true,
+      "measure": {
+        "mainMinutes": 50,
+        "supportCount": 4,
+        "mainInTier": true,
+        "supportInTier": true,
+        "minimumMainMinutes": 30,
+        "minimumMainIs30": true,
+        "clockHits": [],
+        "extraMains": 0,
+        "mainTitle": "完成并提交季度报告",
+        "mustDoInMain": true,
+        "mustDoAnywhere": true
+      }
+    }
+  ],
+  "finalPlan": {
+    "date": "2026-11-16",
+    "dayType": "productive",
+    "message": "昨天作品集的提纲没写完，今天先把季度报告交掉，其余节奏放轻，慢慢来就好。",
+    "mainTask": {
+      "id": "quarterly-report-2026-11-16",
+      "type": "main",
+      "title": "完成并提交季度报告",
+      "description": "把季度报告收尾、检查一遍，下午提交出去。",
+      "durationMinutes": 50,
+      "reason": "这是今天必须完成的事，做完它今天就算有意义了。",
+      "completed": false
+    },
+    "sections": {
+      "morning": [
+        {
+          "id": "move-morning-walk-2026-11-16",
+          "type": "move",
+          "title": "出门散步 20 分钟",
+          "description": "不带任务，走一走，让脑子先醒过来。",
+          "durationMinutes": 20,
+          "completed": false
+        }
+      ],
+      "afternoon": [],
+      "evening": [
+        {
+          "id": "explore-ai-planner-ux-2026-11-16",
+          "type": "explore",
+          "title": "看看别人怎么做 AI 规划类产品的交互",
+          "description": "找一两个同类产品，只记下让你眼前一亮的一个细节。",
+          "durationMinutes": 25,
+          "completed": false
+        },
+        {
+          "id": "enjoy-evening-free-2026-11-16",
+          "type": "enjoy",
+          "title": "留一段不安排的时间",
+          "description": "看点海洋或历史相关的东西，纯粹为了好玩。",
+          "completed": false
+        }
+      ],
+      "night": [
+        {
+          "id": "read-night-book-2026-11-16",
+          "type": "read",
+          "title": "睡前读几页书",
+          "description": "轻松的书就行，读困了就睡。",
+          "durationMinutes": 15,
+          "completed": false
+        }
+      ]
+    },
+    "minimumDay": {
+      "message": "忙不过来就只做这些，也已经是完整的一天。",
+      "items": [
+        {
+          "id": "min-main-report-2026-11-16",
+          "type": "main",
+          "title": "把季度报告提交出去",
+          "description": "只求完成和提交，不求完美。",
+          "durationMinutes": 30,
+          "completed": false
+        },
+        {
+          "id": "min-learn-planner-2026-11-16",
+          "type": "learn",
+          "title": "看一篇规划器相关的短文",
+          "description": "随手记一条能用上的想法。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-move-walk-2026-11-16",
+          "type": "move",
+          "title": "散步 20 分钟",
+          "description": "楼下走走就好。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-enjoy-free-2026-11-16",
+          "type": "enjoy",
+          "title": "看点自己感兴趣的内容",
+          "description": "不设目标。",
+          "completed": false
+        }
+      ]
+    },
+    "activeMode": "standard"
+  },
+  "finalMeasure": {
+    "mainMinutes": 50,
+    "supportCount": 4,
+    "mainInTier": true,
+    "supportInTier": true,
+    "minimumMainMinutes": 30,
+    "minimumMainIs30": true,
+    "clockHits": [],
+    "extraMains": 0,
+    "mainTitle": "完成并提交季度报告",
+    "mustDoInMain": true,
+    "mustDoAnywhere": true
+  }
+}

@@ -1,0 +1,134 @@
+{
+  "scenario": "busy",
+  "run": 1,
+  "ms": 3627,
+  "source": "ai",
+  "attempts": [
+    {
+      "status": 200,
+      "requestRoles": [
+        "system",
+        "user"
+      ],
+      "requestExtra": [],
+      "raw": "{\"date\":\"2026-11-16\",\"dayType\":\"productive\",\"message\":\"昨天作品集提纲没写完没关系，今天先把季度报告交出去，忙的日子只求稳住一件事。\",\"mainTask\":{\"id\":\"main-2026-11-16-quarterly-report\",\"title\":\"完成并提交季度报告\",\"description\":\"先花几分钟列出报告必须包含的要点，再按要点把内容填完，最后通读一遍、补上遗漏后提交。\",\"durationMinutes\":60,\"reason\":\"这是今天必须交付的事，先完成它，整天都会轻松下来。\"},\"sections\":{\"morning\":[{\"id\":\"explore-2026-11-16\",\"type\":\"explore\",\"title\":\"浏览一个海洋科学小话题\",\"description\":\"随手看一篇关于深海或洋流的短文或视频，只为好奇，不做笔记。\",\"durationMinutes\":20}],\"afternoon\":[{\"id\":\"move-2026-11-16\",\"type\":\"move\",\"title\":\"出门散步\",\"description\":\"报告提交后出去走一走，让脑子放空。\",\"durationMinutes\":20}],\"evening\":[{\"id\":\"read-2026-11-16\",\"type\":\"read\",\"title\":\"读几页闲书\",\"description\":\"读点历史或你手边正在看的书，读多少算多少。\",\"durationMinutes\":20}],\"night\":[{\"id\":\"enjoy-2026-11-16\",\"type\":\"enjoy\",\"title\":\"无负担放松时间\",\"description\":\"看点什么、听点什么，纯粹为了舒服，不用有产出。\"}]},\"minimumDay\":{\"message\":\"如果今天实在忙不过来，只做这几件就够。\",\"items\":[{\"id\":\"min-main-2026-11-16\",\"type\":\"main\",\"title\":\"把季度报告的要点写出来\",\"description\":\"只列提纲和关键数据，能交就交，不能交明天接着写。\",\"durationMinutes\":30},{\"id\":\"min-learn-2026-11-16\",\"type\":\"learn\",\"title\":\"看一段产品设计相关内容\",\"description\":\"看一个案例或一段讲解，保持手感就好。\",\"durationMinutes\":20},{\"id\":\"min-move-2026-11-16\",\"type\":\"move\",\"title\":\"短散步\",\"description\":\"下楼走一圈，活动一下身体。\",\"durationMinutes\":20}]}}",
+      "finishReason": "stop",
+      "usage": {
+        "prompt": 1116,
+        "completion": 479
+      },
+      "valid": true,
+      "measure": {
+        "mainMinutes": 60,
+        "supportCount": 4,
+        "mainInTier": true,
+        "supportInTier": true,
+        "minimumMainMinutes": 30,
+        "minimumMainIs30": true,
+        "clockHits": [],
+        "extraMains": 0,
+        "mainTitle": "完成并提交季度报告",
+        "mustDoInMain": true,
+        "mustDoAnywhere": true
+      }
+    }
+  ],
+  "finalPlan": {
+    "date": "2026-11-16",
+    "dayType": "productive",
+    "message": "昨天作品集提纲没写完没关系，今天先把季度报告交出去，忙的日子只求稳住一件事。",
+    "mainTask": {
+      "id": "main-2026-11-16-quarterly-report",
+      "type": "main",
+      "title": "完成并提交季度报告",
+      "description": "先花几分钟列出报告必须包含的要点，再按要点把内容填完，最后通读一遍、补上遗漏后提交。",
+      "durationMinutes": 60,
+      "reason": "这是今天必须交付的事，先完成它，整天都会轻松下来。",
+      "completed": false
+    },
+    "sections": {
+      "morning": [
+        {
+          "id": "explore-2026-11-16",
+          "type": "explore",
+          "title": "浏览一个海洋科学小话题",
+          "description": "随手看一篇关于深海或洋流的短文或视频，只为好奇，不做笔记。",
+          "durationMinutes": 20,
+          "completed": false
+        }
+      ],
+      "afternoon": [
+        {
+          "id": "move-2026-11-16",
+          "type": "move",
+          "title": "出门散步",
+          "description": "报告提交后出去走一走，让脑子放空。",
+          "durationMinutes": 20,
+          "completed": false
+        }
+      ],
+      "evening": [
+        {
+          "id": "read-2026-11-16",
+          "type": "read",
+          "title": "读几页闲书",
+          "description": "读点历史或你手边正在看的书，读多少算多少。",
+          "durationMinutes": 20,
+          "completed": false
+        }
+      ],
+      "night": [
+        {
+          "id": "enjoy-2026-11-16",
+          "type": "enjoy",
+          "title": "无负担放松时间",
+          "description": "看点什么、听点什么，纯粹为了舒服，不用有产出。",
+          "completed": false
+        }
+      ]
+    },
+    "minimumDay": {
+      "message": "如果今天实在忙不过来，只做这几件就够。",
+      "items": [
+        {
+          "id": "min-main-2026-11-16",
+          "type": "main",
+          "title": "把季度报告的要点写出来",
+          "description": "只列提纲和关键数据，能交就交，不能交明天接着写。",
+          "durationMinutes": 30,
+          "completed": false
+        },
+        {
+          "id": "min-learn-2026-11-16",
+          "type": "learn",
+          "title": "看一段产品设计相关内容",
+          "description": "看一个案例或一段讲解，保持手感就好。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-move-2026-11-16",
+          "type": "move",
+          "title": "短散步",
+          "description": "下楼走一圈，活动一下身体。",
+          "durationMinutes": 20,
+          "completed": false
+        }
+      ]
+    },
+    "activeMode": "standard"
+  },
+  "finalMeasure": {
+    "mainMinutes": 60,
+    "supportCount": 4,
+    "mainInTier": true,
+    "supportInTier": true,
+    "minimumMainMinutes": 30,
+    "minimumMainIs30": true,
+    "clockHits": [],
+    "extraMains": 0,
+    "mainTitle": "完成并提交季度报告",
+    "mustDoInMain": true,
+    "mustDoAnywhere": true
+  }
+}

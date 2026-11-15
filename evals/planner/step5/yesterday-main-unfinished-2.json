@@ -1,0 +1,138 @@
+{
+  "scenario": "yesterday-main-unfinished",
+  "run": 2,
+  "ms": 3853,
+  "source": "ai",
+  "attempts": [
+    {
+      "status": 200,
+      "requestRoles": [
+        "system",
+        "user"
+      ],
+      "requestExtra": [],
+      "raw": "{\"date\":\"2026-11-16\",\"dayType\":\"balanced\",\"message\":\"昨天作品集初稿没写完，没关系，今天把第二个案例的提纲收个尾，剩下的时间留给散步和一点好奇。\",\"mainTask\":{\"id\":\"portfolio-case2-outline\",\"title\":\"完成作品集第二个案例的提纲\",\"description\":\"在昨天的基础上，把案例二的结构定下来：背景、问题、你的角色、关键决策和结果，每部分先写 2-3 句，不求完整。\",\"durationMinutes\":75,\"reason\":\"昨天这项没完成，但它是求职作品集的关键一步；今天用更小的第一步把它推进到可以继续写的状态。\"},\"sections\":{\"morning\":[{\"id\":\"morning-move-walk\",\"type\":\"move\",\"title\":\"小区周围散步\",\"description\":\"不带耳机，随便走走，让身体先醒过来。\",\"durationMinutes\":25}],\"afternoon\":[{\"id\":\"afternoon-explore-ai-planner\",\"type\":\"explore\",\"title\":\"看看别人怎么做 AI 规划类产品\",\"description\":\"挑两个同类产品试用一下，记下它们怎么处理「一天计划被打乱」这件事。\",\"durationMinutes\":30}],\"evening\":[{\"id\":\"evening-read-ocean\",\"type\":\"read\",\"title\":\"读一段海洋科学相关的书或长文\",\"description\":\"找一篇关于深海探索的科普文章，读多少算多少。\",\"durationMinutes\":25},{\"id\":\"evening-enjoy-music\",\"type\":\"enjoy\",\"title\":\"放点音乐，什么都不做\",\"description\":\"纯粹放松，不用有产出。\"}],\"night\":[{\"id\":\"night-learn-planner-quality\",\"type\":\"learn\",\"title\":\"看一篇规划器质量评估的短文\",\"description\":\"找一篇关于评测生成内容质量的资料，为 v2 的优化积累一点思路。\",\"durationMinutes\":20}]},\"minimumDay\":{\"message\":\"如果今天状态一般，只做这三件事也算完整的一天。\",\"items\":[{\"id\":\"min-main-outline\",\"type\":\"main\",\"title\":\"写下案例二提纲的五个小标题\",\"description\":\"只列结构，不写内容。\",\"durationMinutes\":30},{\"id\":\"min-learn-eval\",\"type\":\"learn\",\"title\":\"读一篇内容质量评估的短文\",\"description\":\"挑一篇短的，读完记一句话感受。\",\"durationMinutes\":20},{\"id\":\"min-move-walk\",\"type\":\"move\",\"title\":\"出门走一走\",\"description\":\"绕小区一圈，呼吸一下。\",\"durationMinutes\":20}]}}",
+      "finishReason": "stop",
+      "usage": {
+        "prompt": 1148,
+        "completion": 520
+      },
+      "valid": true,
+      "measure": {
+        "mainMinutes": 75,
+        "supportCount": 5,
+        "mainInTier": true,
+        "supportInTier": true,
+        "minimumMainMinutes": 30,
+        "minimumMainIs30": true,
+        "clockHits": [],
+        "extraMains": 0,
+        "mainTitle": "完成作品集第二个案例的提纲"
+      }
+    }
+  ],
+  "finalPlan": {
+    "date": "2026-11-16",
+    "dayType": "balanced",
+    "message": "昨天作品集初稿没写完，没关系，今天把第二个案例的提纲收个尾，剩下的时间留给散步和一点好奇。",
+    "mainTask": {
+      "id": "portfolio-case2-outline",
+      "type": "main",
+      "title": "完成作品集第二个案例的提纲",
+      "description": "在昨天的基础上，把案例二的结构定下来：背景、问题、你的角色、关键决策和结果，每部分先写 2-3 句，不求完整。",
+      "durationMinutes": 75,
+      "reason": "昨天这项没完成，但它是求职作品集的关键一步；今天用更小的第一步把它推进到可以继续写的状态。",
+      "completed": false
+    },
+    "sections": {
+      "morning": [
+        {
+          "id": "morning-move-walk",
+          "type": "move",
+          "title": "小区周围散步",
+          "description": "不带耳机，随便走走，让身体先醒过来。",
+          "durationMinutes": 25,
+          "completed": false
+        }
+      ],
+      "afternoon": [
+        {
+          "id": "afternoon-explore-ai-planner",
+          "type": "explore",
+          "title": "看看别人怎么做 AI 规划类产品",
+          "description": "挑两个同类产品试用一下，记下它们怎么处理「一天计划被打乱」这件事。",
+          "durationMinutes": 30,
+          "completed": false
+        }
+      ],
+      "evening": [
+        {
+          "id": "evening-read-ocean",
+          "type": "read",
+          "title": "读一段海洋科学相关的书或长文",
+          "description": "找一篇关于深海探索的科普文章，读多少算多少。",
+          "durationMinutes": 25,
+          "completed": false
+        },
+        {
+          "id": "evening-enjoy-music",
+          "type": "enjoy",
+          "title": "放点音乐，什么都不做",
+          "description": "纯粹放松，不用有产出。",
+          "completed": false
+        }
+      ],
+      "night": [
+        {
+          "id": "night-learn-planner-quality",
+          "type": "learn",
+          "title": "看一篇规划器质量评估的短文",
+          "description": "找一篇关于评测生成内容质量的资料，为 v2 的优化积累一点思路。",
+          "durationMinutes": 20,
+          "completed": false
+        }
+      ]
+    },
+    "minimumDay": {
+      "message": "如果今天状态一般，只做这三件事也算完整的一天。",
+      "items": [
+        {
+          "id": "min-main-outline",
+          "type": "main",
+          "title": "写下案例二提纲的五个小标题",
+          "description": "只列结构，不写内容。",
+          "durationMinutes": 30,
+          "completed": false
+        },
+        {
+          "id": "min-learn-eval",
+          "type": "learn",
+          "title": "读一篇内容质量评估的短文",
+          "description": "挑一篇短的，读完记一句话感受。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-move-walk",
+          "type": "move",
+          "title": "出门走一走",
+          "description": "绕小区一圈，呼吸一下。",
+          "durationMinutes": 20,
+          "completed": false
+        }
+      ]
+    },
+    "activeMode": "standard"
+  },
+  "finalMeasure": {
+    "mainMinutes": 75,
+    "supportCount": 5,
+    "mainInTier": true,
+    "supportInTier": true,
+    "minimumMainMinutes": 30,
+    "minimumMainIs30": true,
+    "clockHits": [],
+    "extraMains": 0,
+    "mainTitle": "完成作品集第二个案例的提纲"
+  }
+}

@@ -39,7 +39,9 @@
           "sections.afternoon[0].type is not supported",
           "sections.morning[1].type is not supported"
         ],
-        "clockHits": []
+        "clockHits": [],
+        "retried": 2,
+        "retryRecovered": 1
       }
     },
     {
@@ -73,7 +75,12 @@
           5
         ],
         "validationErrors": [],
-        "clockHits": []
+        "clockHits": [],
+        "retried": 0,
+        "retryRecovered": 0,
+        "mustDoRuns": 3,
+        "finalMustDoInMain": 2,
+        "finalMustDoAnywhere": 3
       }
     },
     {
@@ -107,7 +114,9 @@
           6
         ],
         "validationErrors": [],
-        "clockHits": []
+        "clockHits": [],
+        "retried": 0,
+        "retryRecovered": 0
       }
     },
     {
@@ -144,7 +153,9 @@
           "sections.afternoon[0].type is not supported",
           "sections.afternoon[0].type is not supported"
         ],
-        "clockHits": []
+        "clockHits": [],
+        "retried": 2,
+        "retryRecovered": 2
       }
     },
     {
@@ -178,7 +189,9 @@
           4
         ],
         "validationErrors": [],
-        "clockHits": []
+        "clockHits": [],
+        "retried": 0,
+        "retryRecovered": 0
       }
     },
     {
@@ -214,7 +227,9 @@
         "validationErrors": [
           "sections.afternoon[0].type is not supported"
         ],
-        "clockHits": []
+        "clockHits": [],
+        "retried": 1,
+        "retryRecovered": 1
       }
     },
     {
@@ -251,11 +266,16 @@
           "sections.afternoon[0].type is not supported"
         ],
         "clockHits": [],
+        "retried": 1,
+        "retryRecovered": 1,
         "canaryRuns": 3,
         "firstCanaryAnywhere": 0,
         "firstCanaryInMessage": 0,
         "firstExtraMains": 1,
-        "finalCanaryAnywhere": 0
+        "finalCanaryAnywhere": 0,
+        "mustDoRuns": 3,
+        "finalMustDoInMain": 1,
+        "finalMustDoAnywhere": 1
       }
     },
     {
@@ -290,6 +310,8 @@
         ],
         "validationErrors": [],
         "clockHits": [],
+        "retried": 0,
+        "retryRecovered": 0,
         "englishRuns": 3,
         "finalCjk": 0
       }
@@ -313,72 +335,77 @@
     "finalMinimumMainIs30": 24,
     "finalClock": 0,
     "mainMinutes": [
-      45,
-      45,
-      45,
       75,
       90,
       60,
+      75,
+      75,
+      75,
       100,
       100,
       100,
+      75,
+      75,
+      75,
+      45,
+      45,
+      45,
+      75,
+      75,
+      75,
       75,
       75,
       75,
       60,
       60,
-      75,
-      75,
-      75,
-      75,
-      75,
-      75,
-      75,
-      75,
-      75,
       75
     ],
     "supportCounts": [
       4,
-      2,
-      5,
-      4,
       4,
       5,
+      5,
+      5,
+      4,
       6,
       5,
       6,
-      5,
-      5,
-      4,
-      5,
-      4,
-      4,
-      4,
-      4,
-      5,
       4,
       5,
       7,
+      4,
+      2,
       5,
       5,
+      5,
+      4,
+      4,
+      4,
+      5,
+      5,
+      4,
       4
     ],
     "validationErrors": [
       "sections.afternoon[0].type is not supported",
       "sections.afternoon[0].type is not supported",
-      "sections.morning[1].type is not supported",
       "sections.afternoon[0].type is not supported",
+      "sections.morning[1].type is not supported",
       "sections.afternoon[0].type is not supported",
       "sections.afternoon[0].type is not supported",
       "sections.afternoon[0].type is not supported"
     ],
     "clockHits": [],
+    "retried": 6,
+    "retryRecovered": 5,
     "canaryRuns": 3,
     "firstCanaryAnywhere": 0,
     "firstCanaryInMessage": 0,
     "firstExtraMains": 1,
     "finalCanaryAnywhere": 0,
+    "mustDoRuns": 6,
+    "finalMustDoInMain": 3,
+    "finalMustDoAnywhere": 4,
     "englishRuns": 3,
     "finalCjk": 0
   }

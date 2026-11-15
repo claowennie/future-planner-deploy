@@ -1,0 +1,138 @@
+{
+  "scenario": "ordinary",
+  "run": 3,
+  "ms": 4365,
+  "source": "ai",
+  "attempts": [
+    {
+      "status": 200,
+      "requestRoles": [
+        "system",
+        "user"
+      ],
+      "requestExtra": [],
+      "raw": "{\n  \"date\": \"2026-11-16\",\n  \"dayType\": \"balanced\",\n  \"message\": \"昨天你完成了测试用例整理，节奏刚刚好；今天延续这份手感，先把作品集第二个案例的提纲补上，再留点空间给自己。\",\n  \"mainTask\": {\n    \"id\": \"portfolio-case2-outline\",\n    \"title\": \"写作品集第二个案例的提纲\",\n    \"description\": \"先列出案例二的背景、问题、你的角色与关键决策，形成一页可迭代的提纲；不追求完整成文。\",\n    \"durationMinutes\": 75,\n    \"reason\": \"这是昨天未完成但仍在推进的关键一步，先完成提纲能解除后续写作的阻塞。\"\n  },\n  \"sections\": {\n    \"morning\": [\n      {\n        \"id\": \"morning-move-walk\",\n        \"type\": \"move\",\n        \"title\": \"出门散步 25 分钟\",\n        \"description\": \"不带耳机，让思路自然发散，回来再开始主任务。\",\n        \"durationMinutes\": 25\n      }\n    ],\n    \"afternoon\": [\n      {\n        \"id\": \"afternoon-explore-ocean\",\n        \"type\": \"explore\",\n        \"title\": \"探索海洋热浪的监测方式\",\n        \"description\": \"找一篇科普或研究摘要，了解科学家如何用卫星和浮标数据识别海洋热浪。\",\n        \"durationMinutes\": 30\n      }\n    ],\n    \"evening\": [\n      {\n        \"id\": \"evening-learn-schema\",\n        \"type\": \"learn\",\n        \"title\": \"学习 JSON Schema 的 oneOf 与条件校验\",\n        \"description\": \"承接昨天的校验主题，做一个小例子验证条件规则。\",\n        \"durationMinutes\": 30\n      },\n      {\n        \"id\": \"evening-enjoy-cook\",\n        \"type\": \"enjoy\",\n        \"title\": \"做一顿不赶时间的晚饭\",\n        \"description\": \"选一道想吃的菜慢慢做，享受过程本身。\"\n      }\n    ],\n    \"night\": [\n      {\n        \"id\": \"night-read-history\",\n        \"type\": \"read\",\n        \"title\": \"读几页历史书\",\n        \"description\": \"挑一本轻松的历史读物，读到困了就停。\",\n        \"durationMinutes\": 20\n      }\n    ]\n  },\n  \"minimumDay\": {\n    \"message\": \"如果今天状态不佳，只做这三件事也算完整的一天。\",\n    \"items\": [\n      {\n        \"id\": \"min-main-outline\",\n        \"type\": \"main\",\n        \"title\": \"写作品集第二个案例的三行提纲\",\n        \"description\": \"只写背景、问题、你的角色三行，先让它存在。\",\n        \"durationMinutes\": 30\n      },\n      {\n        \"id\": \"min-explore-ocean\",\n        \"type\": \"explore\",\n        \"title\": \"看一段海洋热浪的科普\",\n        \"description\": \"随手看一篇短文或视频，满足好奇心即可。\",\n        \"durationMinutes\": 20\n      },\n      {\n        \"id\": \"min-move-walk\",\n        \"type\": \"move\",\n        \"title\": \"散步 20 分钟\",\n        \"description\": \"楼下或附近走走，呼吸一下。\",\n        \"durationMinutes\": 20\n      }\n    ]\n  }\n}",
+      "finishReason": "stop",
+      "usage": {
+        "prompt": 1154,
+        "completion": 723
+      },
+      "valid": true,
+      "measure": {
+        "mainMinutes": 75,
+        "supportCount": 5,
+        "mainInTier": true,
+        "supportInTier": true,
+        "minimumMainMinutes": 30,
+        "minimumMainIs30": true,
+        "clockHits": [],
+        "extraMains": 0,
+        "mainTitle": "写作品集第二个案例的提纲"
+      }
+    }
+  ],
+  "finalPlan": {
+    "date": "2026-11-16",
+    "dayType": "balanced",
+    "message": "昨天你完成了测试用例整理，节奏刚刚好；今天延续这份手感，先把作品集第二个案例的提纲补上，再留点空间给自己。",
+    "mainTask": {
+      "id": "portfolio-case2-outline",
+      "type": "main",
+      "title": "写作品集第二个案例的提纲",
+      "description": "先列出案例二的背景、问题、你的角色与关键决策，形成一页可迭代的提纲；不追求完整成文。",
+      "durationMinutes": 75,
+      "reason": "这是昨天未完成但仍在推进的关键一步，先完成提纲能解除后续写作的阻塞。",
+      "completed": false
+    },
+    "sections": {
+      "morning": [
+        {
+          "id": "morning-move-walk",
+          "type": "move",
+          "title": "出门散步 25 分钟",
+          "description": "不带耳机，让思路自然发散，回来再开始主任务。",
+          "durationMinutes": 25,
+          "completed": false
+        }
+      ],
+      "afternoon": [
+        {
+          "id": "afternoon-explore-ocean",
+          "type": "explore",
+          "title": "探索海洋热浪的监测方式",
+          "description": "找一篇科普或研究摘要，了解科学家如何用卫星和浮标数据识别海洋热浪。",
+          "durationMinutes": 30,
+          "completed": false
+        }
+      ],
+      "evening": [
+        {
+          "id": "evening-learn-schema",
+          "type": "learn",
+          "title": "学习 JSON Schema 的 oneOf 与条件校验",
+          "description": "承接昨天的校验主题，做一个小例子验证条件规则。",
+          "durationMinutes": 30,
+          "completed": false
+        },
+        {
+          "id": "evening-enjoy-cook",
+          "type": "enjoy",
+          "title": "做一顿不赶时间的晚饭",
+          "description": "选一道想吃的菜慢慢做，享受过程本身。",
+          "completed": false
+        }
+      ],
+      "night": [
+        {
+          "id": "night-read-history",
+          "type": "read",
+          "title": "读几页历史书",
+          "description": "挑一本轻松的历史读物，读到困了就停。",
+          "durationMinutes": 20,
+          "completed": false
+        }
+      ]
+    },
+    "minimumDay": {
+      "message": "如果今天状态不佳，只做这三件事也算完整的一天。",
+      "items": [
+        {
+          "id": "min-main-outline",
+          "type": "main",
+          "title": "写作品集第二个案例的三行提纲",
+          "description": "只写背景、问题、你的角色三行，先让它存在。",
+          "durationMinutes": 30,
+          "completed": false
+        },
+        {
+          "id": "min-explore-ocean",
+          "type": "explore",
+          "title": "看一段海洋热浪的科普",
+          "description": "随手看一篇短文或视频，满足好奇心即可。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-move-walk",
+          "type": "move",
+          "title": "散步 20 分钟",
+          "description": "楼下或附近走走，呼吸一下。",
+          "durationMinutes": 20,
+          "completed": false
+        }
+      ]
+    },
+    "activeMode": "standard"
+  },
+  "finalMeasure": {
+    "mainMinutes": 75,
+    "supportCount": 5,
+    "mainInTier": true,
+    "supportInTier": true,
+    "minimumMainMinutes": 30,
+    "minimumMainIs30": true,
+    "clockHits": [],
+    "extraMains": 0,
+    "mainTitle": "写作品集第二个案例的提纲"
+  }
+}

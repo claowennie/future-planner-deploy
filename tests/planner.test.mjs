@@ -141,6 +141,33 @@ assert.throws(
   () => validateDailyPlan(tierPayload(90, 5, 45), date, busyDay),
   /got 90\); sections must contain 2-4 supporting items in total on a LIGHT day \(got 5\); minimumDay main item must be exactly 30 minutes \(got 45\)/,
 );
+// Item problems and load problems are reported in one error, so a single retry can fix them all.
+const messy = tierPayload(90, 5);
+messy.sections.afternoon = [{ id: 'dup', type: 'main', title: 'One meaningful thing', durationMinutes: 90 }];
+assert.throws(() => validateDailyPlan(messy, date, busyDay), (error) => {
+  assert.match(error.message, /sections\.afternoon\[0\]\.type is not supported/);
+  assert.match(error.message, /mainTask\.durationMinutes must be 30-60 on a LIGHT day \(got 90\)/);
+  assert.match(error.message, /2-4 supporting items in total on a LIGHT day \(got 5, not counting the main item that must be removed from sections\)/);
+  return true;
+});
+// A repeated main task alone does not also trip the count once it is discounted.
+const onlyDuplicate = tierPayload(45, 4);
+onlyDuplicate.sections.evening = [{ id: 'dup', type: 'main', title: 'One meaningful thing', durationMinutes: 45 }];
+assert.throws(() => validateDailyPlan(onlyDuplicate, date, busyDay), (error) => {
+  assert.match(error.message, /sections\.evening\[0\]\.type is not supported/);
+  assert.doesNotMatch(error.message, /supporting items in total/);
+  return true;
+});
+// An item with a wrong type will be corrected rather than removed, so it still counts.
+const wrongType = tierPayload(45, 4);
+wrongType.sections.evening = [{ id: 'odd', type: 'exercise', title: 'Run', durationMinutes: 20 }];
+assert.throws(() => validateDailyPlan(wrongType, date, busyDay), /sections\.evening\[0\]\.type is not supported.*2-4 supporting items in total on a LIGHT day \(got 5\)/);
+const badMinimum = tierPayload(75, 4);
+badMinimum.minimumDay.items = [{ id: 'm1', type: 'learn', title: 'Read', durationMinutes: 500 }, { id: 'm2', type: 'move', title: 'Walk', durationMinutes: 20 }];
+assert.throws(() => validateDailyPlan(badMinimum, date, balancedDay), /minimumDay\.items must contain 3-5 items \(got 2\); minimumDay\.items\[0\]\.durationMinutes must be 5-240 minutes; minimumDay must contain exactly one main item \(got 0\)/);
+assert.throws(() => validateDailyPlan({ ...tierPayload(75, 4), minimumDay: {} }, date), /minimumDay\.items must contain 3-5 items \(got 0\)/);
+assert.throws(() => validateDailyPlan(tierPayload(75, 1), date), /Plan must contain 2-7 supporting items \(got 1\)/);
+
 // A replan that asks for less is judged against the lighter tier.
 assert.equal(validateDailyPlan(tierPayload(45, 3), date, { ...balancedDay, reason: 'too_much' }).mainTask.durationMinutes, 45);
 assert.throws(() => validateDailyPlan(tierPayload(75, 4), date, { ...balancedDay, reason: 'too_much' }), /on a LIGHT day/);
@@ -151,6 +178,16 @@ assert.equal(validateDailyPlan(tierPayload(200, 7, 45), date).mainTask.durationM
 assert.match(buildPlannerPrompt({ input: { ...input, ...busyDay }, context: { profile, product: {}, recent: [] } }), /LIGHT: main 30-60 min and 2-4 supporting items/);
 assert.match(buildPlannerPrompt({ input: { ...input, ...fullDay }, context: { profile, product: {}, recent: [] } }), /FULL BUT HUMANE: main 90-120 min and 3-6 supporting items/);
 assert.match(buildPlannerPrompt({ input: { ...input, reason: 'too_much' }, context: { profile, product: {}, recent: [] }, previousPlan: valid }), /LIGHT: main 30-60 min/);
+
+// The prompt does not anchor a light day on a 90-minute example or invite all five supporting types.
+const promptFor = (checkin) => buildPlannerPrompt({ input: { ...input, ...checkin }, context: { profile, product: {}, recent: [] } });
+assert.match(promptFor(busyDay), /"mainTask":\{[^}]*"durationMinutes":45,/);
+assert.match(promptFor(balancedDay), /"mainTask":\{[^}]*"durationMinutes":75,/);
+assert.match(promptFor(fullDay), /"mainTask":\{[^}]*"durationMinutes":105,/);
+assert.match(promptFor(busyDay), /fewer than the five supporting types/);
+assert.doesNotMatch(promptFor(balancedDay), /fewer than the five supporting types/);
+assert.match(promptFor(balancedDay), /do not repeat it inside sections/);
+assert.match(promptFor(balancedDay), /When must_do names a task, that task is today's Main Task/);
 
 for (const lang of ['zh', 'en']) {
   for (const checkin of [lightDay, busyDay, balancedDay, fullDay, { ...balancedDay, reason: 'too_much' }, { ...balancedDay, reason: 'too_easy' }]) {
@@ -429,6 +466,19 @@ const tierRepaired = await generatePlannerDay(plannerEnv, 'user-token', 'user-1'
 assert.equal(tierRepaired.source, 'ai');
 assert.equal(tierRepaired.row.plan_json.mainTask.durationMinutes, 45);
 assert.match(repairRequests[1][3].content, /must be 30-60 on a LIGHT day \(got 90\)/);
+
+// The retry receives every problem, not only the first one.
+repairRequests.length = 0;
+globalThis.fetch = repairFetch([
+  JSON.stringify({
+    ...aiPayload, mainTask: { ...aiPayload.mainTask, durationMinutes: 90 },
+    sections: { ...aiPayload.sections, night: [{ id: 'dup-main', type: 'main', title: 'Ship the planner flow', durationMinutes: 90 }, { id: 'n1', type: 'read', title: 'Read' }, { id: 'n2', type: 'enjoy', title: 'Rest' }] },
+  }),
+  JSON.stringify({ ...aiPayload, mainTask: { ...aiPayload.mainTask, durationMinutes: 45 } }),
+]);
+const allAtOnce = await generatePlannerDay(plannerEnv, 'user-token', 'user-1', { ...input, availableTime: 'busy' });
+assert.equal(allAtOnce.source, 'ai');
+assert.match(repairRequests[1][3].content, /sections\.night\[0\]\.type is not supported.*got 90\).*\(got 5, not counting the main item/);
 
 // When both replies are rejected, the persisted fallback reflects yesterday's review and open main task.
 repairRequests.length = 0;

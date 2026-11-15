@@ -1,0 +1,129 @@
+{
+  "scenario": "low-energy",
+  "run": 3,
+  "ms": 3575,
+  "source": "ai",
+  "attempts": [
+    {
+      "status": 200,
+      "requestRoles": [
+        "system",
+        "user"
+      ],
+      "requestExtra": [],
+      "raw": "{\"date\":\"2026-11-16\",\"dayType\":\"relaxed\",\"message\":\"今天能量偏低，正好把节奏放慢一点。昨天没写完的作品集提纲还留着，先从最小的一步接上就好。\",\"mainTask\":{\"id\":\"portfolio-case2-outline\",\"title\":\"补完作品集第二个案例的提纲\",\"description\":\"只做提纲：列出这个案例的问题、你的角色、关键决策和结果，每部分写两三句即可，不追求完整。\",\"durationMinutes\":40,\"reason\":\"这是昨天没完成、但对你求职目标很关键的一步；今天状态低，用提纲这种轻量形式重新接上最合适。\"},\"sections\":{\"morning\":[{\"id\":\"morning-walk\",\"type\":\"move\",\"title\":\"小区里慢走一圈\",\"description\":\"不带耳机，随便走走，让身体先醒过来。\",\"durationMinutes\":20}],\"afternoon\":[],\"evening\":[{\"id\":\"evening-read\",\"type\":\"read\",\"title\":\"读几页海洋或历史相关的书\",\"description\":\"挑一本手边的，读到自己想停就停。\",\"durationMinutes\":20}],\"night\":[{\"id\":\"night-enjoy\",\"type\":\"enjoy\",\"title\":\"看一集喜欢的纪录片\",\"description\":\"纯粹放松，不需要有收获。\"}]},\"minimumDay\":{\"message\":\"如果今天只想做最低限度的事，就做这些。\",\"items\":[{\"id\":\"min-main\",\"type\":\"main\",\"title\":\"补完作品集第二个案例的提纲\",\"description\":\"只列四个小标题和一两句要点，写完就算完成。\",\"durationMinutes\":30},{\"id\":\"min-learn\",\"type\":\"learn\",\"title\":\"看一篇 AI 产品设计的小文章\",\"description\":\"挑一篇短的，读的时候记下一个让你有感觉的点。\",\"durationMinutes\":25},{\"id\":\"min-move\",\"type\":\"move\",\"title\":\"轻度拉伸或散步\",\"description\":\"让身体动一动，出点汗就好。\",\"durationMinutes\":20},{\"id\":\"min-enjoy\",\"type\":\"enjoy\",\"title\":\"听一会儿喜欢的音乐\",\"description\":\"什么都不用做，放松即可。\",\"durationMinutes\":15}]}}",
+      "finishReason": "stop",
+      "usage": {
+        "prompt": 1100,
+        "completion": 445
+      },
+      "valid": true,
+      "measure": {
+        "mainMinutes": 40,
+        "supportCount": 3,
+        "mainInTier": true,
+        "supportInTier": true,
+        "minimumMainMinutes": 30,
+        "minimumMainIs30": true,
+        "clockHits": [],
+        "extraMains": 0,
+        "mainTitle": "补完作品集第二个案例的提纲"
+      }
+    }
+  ],
+  "finalPlan": {
+    "date": "2026-11-16",
+    "dayType": "relaxed",
+    "message": "今天能量偏低，正好把节奏放慢一点。昨天没写完的作品集提纲还留着，先从最小的一步接上就好。",
+    "mainTask": {
+      "id": "portfolio-case2-outline",
+      "type": "main",
+      "title": "补完作品集第二个案例的提纲",
+      "description": "只做提纲：列出这个案例的问题、你的角色、关键决策和结果，每部分写两三句即可，不追求完整。",
+      "durationMinutes": 40,
+      "reason": "这是昨天没完成、但对你求职目标很关键的一步；今天状态低，用提纲这种轻量形式重新接上最合适。",
+      "completed": false
+    },
+    "sections": {
+      "morning": [
+        {
+          "id": "morning-walk",
+          "type": "move",
+          "title": "小区里慢走一圈",
+          "description": "不带耳机，随便走走，让身体先醒过来。",
+          "durationMinutes": 20,
+          "completed": false
+        }
+      ],
+      "afternoon": [],
+      "evening": [
+        {
+          "id": "evening-read",
+          "type": "read",
+          "title": "读几页海洋或历史相关的书",
+          "description": "挑一本手边的，读到自己想停就停。",
+          "durationMinutes": 20,
+          "completed": false
+        }
+      ],
+      "night": [
+        {
+          "id": "night-enjoy",
+          "type": "enjoy",
+          "title": "看一集喜欢的纪录片",
+          "description": "纯粹放松，不需要有收获。",
+          "completed": false
+        }
+      ]
+    },
+    "minimumDay": {
+      "message": "如果今天只想做最低限度的事，就做这些。",
+      "items": [
+        {
+          "id": "min-main",
+          "type": "main",
+          "title": "补完作品集第二个案例的提纲",
+          "description": "只列四个小标题和一两句要点，写完就算完成。",
+          "durationMinutes": 30,
+          "completed": false
+        },
+        {
+          "id": "min-learn",
+          "type": "learn",
+          "title": "看一篇 AI 产品设计的小文章",
+          "description": "挑一篇短的，读的时候记下一个让你有感觉的点。",
+          "durationMinutes": 25,
+          "completed": false
+        },
+        {
+          "id": "min-move",
+          "type": "move",
+          "title": "轻度拉伸或散步",
+          "description": "让身体动一动，出点汗就好。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-enjoy",
+          "type": "enjoy",
+          "title": "听一会儿喜欢的音乐",
+          "description": "什么都不用做，放松即可。",
+          "durationMinutes": 15,
+          "completed": false
+        }
+      ]
+    },
+    "activeMode": "standard"
+  },
+  "finalMeasure": {
+    "mainMinutes": 40,
+    "supportCount": 3,
+    "mainInTier": true,
+    "supportInTier": true,
+    "minimumMainMinutes": 30,
+    "minimumMainIs30": true,
+    "clockHits": [],
+    "extraMains": 0,
+    "mainTitle": "补完作品集第二个案例的提纲"
+  }
+}

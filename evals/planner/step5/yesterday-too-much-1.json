@@ -1,0 +1,129 @@
+{
+  "scenario": "yesterday-too-much",
+  "run": 1,
+  "ms": 3908,
+  "source": "ai",
+  "attempts": [
+    {
+      "status": 200,
+      "requestRoles": [
+        "system",
+        "user"
+      ],
+      "requestExtra": [],
+      "raw": "{\"date\":\"2026-11-16\",\"dayType\":\"relaxed\",\"message\":\"昨天你完成了主任务，但也说下午就没力气了，所以今天刻意排得轻一些，留出喘息的空隙。作品集提纲没写完不要紧，今天只往前挪一小步。\",\"mainTask\":{\"id\":\"portfolio-case2-outline\",\"title\":\"写作品集第二个案例的提纲\",\"description\":\"只做提纲：列出案例的背景、你的角色、关键决策和结果四个小标题，每部分写两三句要点即可，不展开成文。\",\"durationMinutes\":60,\"reason\":\"这是昨天未完成、但对求职目标很关键的一步，缩小到今天只做提纲，降低启动门槛。\"},\"sections\":{\"morning\":[{\"id\":\"explore-local-first-ai\",\"type\":\"explore\",\"title\":\"逛逛本地优先的 AI 工具\",\"description\":\"随便看看一两个把模型跑在本地的小工具，感受它们的产品取舍。\",\"durationMinutes\":25}],\"afternoon\":[{\"id\":\"move-walk\",\"type\":\"move\",\"title\":\"出门散步\",\"description\":\"不带耳机走二十分钟，让脑子放空。\",\"durationMinutes\":20}],\"evening\":[{\"id\":\"read-ocean\",\"type\":\"read\",\"title\":\"读一点海洋科学\",\"description\":\"翻几页关于深海或洋流的内容，纯为好奇。\",\"durationMinutes\":20},{\"id\":\"enjoy-free\",\"type\":\"enjoy\",\"title\":\"自由放松时间\",\"description\":\"想做什么都行，不设目标。\"}],\"night\":[]},\"minimumDay\":{\"message\":\"如果今天状态很低，就只做这三件事，也算完整的一天。\",\"items\":[{\"id\":\"min-main-outline\",\"type\":\"main\",\"title\":\"写作品集第二个案例的提纲\",\"description\":\"只列四个小标题和每部分两三句要点。\",\"durationMinutes\":30},{\"id\":\"min-learn-portfolio\",\"type\":\"learn\",\"title\":\"看一个优秀作品集案例\",\"description\":\"找一篇产品案例，记下它怎么讲清决策过程。\",\"durationMinutes\":20},{\"id\":\"min-move-walk\",\"type\":\"move\",\"title\":\"短散步\",\"description\":\"楼下走一圈，呼吸一下。\",\"durationMinutes\":20}]}}",
+      "finishReason": "stop",
+      "usage": {
+        "prompt": 1190,
+        "completion": 464
+      },
+      "valid": true,
+      "measure": {
+        "mainMinutes": 60,
+        "supportCount": 4,
+        "mainInTier": true,
+        "supportInTier": true,
+        "minimumMainMinutes": 30,
+        "minimumMainIs30": true,
+        "clockHits": [],
+        "extraMains": 0,
+        "mainTitle": "写作品集第二个案例的提纲"
+      }
+    }
+  ],
+  "finalPlan": {
+    "date": "2026-11-16",
+    "dayType": "relaxed",
+    "message": "昨天你完成了主任务，但也说下午就没力气了，所以今天刻意排得轻一些，留出喘息的空隙。作品集提纲没写完不要紧，今天只往前挪一小步。",
+    "mainTask": {
+      "id": "portfolio-case2-outline",
+      "type": "main",
+      "title": "写作品集第二个案例的提纲",
+      "description": "只做提纲：列出案例的背景、你的角色、关键决策和结果四个小标题，每部分写两三句要点即可，不展开成文。",
+      "durationMinutes": 60,
+      "reason": "这是昨天未完成、但对求职目标很关键的一步，缩小到今天只做提纲，降低启动门槛。",
+      "completed": false
+    },
+    "sections": {
+      "morning": [
+        {
+          "id": "explore-local-first-ai",
+          "type": "explore",
+          "title": "逛逛本地优先的 AI 工具",
+          "description": "随便看看一两个把模型跑在本地的小工具，感受它们的产品取舍。",
+          "durationMinutes": 25,
+          "completed": false
+        }
+      ],
+      "afternoon": [
+        {
+          "id": "move-walk",
+          "type": "move",
+          "title": "出门散步",
+          "description": "不带耳机走二十分钟，让脑子放空。",
+          "durationMinutes": 20,
+          "completed": false
+        }
+      ],
+      "evening": [
+        {
+          "id": "read-ocean",
+          "type": "read",
+          "title": "读一点海洋科学",
+          "description": "翻几页关于深海或洋流的内容，纯为好奇。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "enjoy-free",
+          "type": "enjoy",
+          "title": "自由放松时间",
+          "description": "想做什么都行，不设目标。",
+          "completed": false
+        }
+      ],
+      "night": []
+    },
+    "minimumDay": {
+      "message": "如果今天状态很低，就只做这三件事，也算完整的一天。",
+      "items": [
+        {
+          "id": "min-main-outline",
+          "type": "main",
+          "title": "写作品集第二个案例的提纲",
+          "description": "只列四个小标题和每部分两三句要点。",
+          "durationMinutes": 30,
+          "completed": false
+        },
+        {
+          "id": "min-learn-portfolio",
+          "type": "learn",
+          "title": "看一个优秀作品集案例",
+          "description": "找一篇产品案例，记下它怎么讲清决策过程。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-move-walk",
+          "type": "move",
+          "title": "短散步",
+          "description": "楼下走一圈，呼吸一下。",
+          "durationMinutes": 20,
+          "completed": false
+        }
+      ]
+    },
+    "activeMode": "standard"
+  },
+  "finalMeasure": {
+    "mainMinutes": 60,
+    "supportCount": 4,
+    "mainInTier": true,
+    "supportInTier": true,
+    "minimumMainMinutes": 30,
+    "minimumMainIs30": true,
+    "clockHits": [],
+    "extraMains": 0,
+    "mainTitle": "写作品集第二个案例的提纲"
+  }
+}

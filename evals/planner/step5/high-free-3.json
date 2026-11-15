@@ -1,0 +1,150 @@
+{
+  "scenario": "high-free",
+  "run": 3,
+  "ms": 4146,
+  "source": "ai",
+  "attempts": [
+    {
+      "status": 200,
+      "requestRoles": [
+        "system",
+        "user"
+      ],
+      "requestExtra": [],
+      "raw": "{\"date\":\"2026-11-16\",\"dayType\":\"productive\",\"message\":\"昨天作品集提纲没写完，今天精力不错，先把它推进成可用的初稿就很好；其他事都只是给这一天加点呼吸。\",\"mainTask\":{\"id\":\"portfolio-case2-outline\",\"title\":\"把作品集第二个案例的提纲写成初稿\",\"description\":\"先花 10 分钟回看昨天已有的零散想法，然后把它整理成一页结构：问题背景、你的角色、关键决策、结果。写完就停，不要顺手开始做视觉。\",\"durationMinutes\":105,\"reason\":\"这是昨天未完成、且直接服务于「完成 3 个作品集案例」的关键一步，趁精力高的上午推进最省力。\"},\"sections\":{\"morning\":[{\"id\":\"explore-marine-ai\",\"type\":\"explore\",\"title\":\"随手看一个海洋科学 + AI 的小话题\",\"description\":\"比如海洋浮标数据的异常检测，只当好奇心散步，不要求产出。\",\"durationMinutes\":25,\"target\":\"海洋科学\"}],\"afternoon\":[{\"id\":\"move-walk\",\"type\":\"move\",\"title\":\"户外快走\",\"description\":\"不带耳机或只放轻音乐，让脑子从提纲里退出来。\",\"durationMinutes\":30,\"target\":\"保持规律运动\"},{\"id\":\"learn-planner-quality\",\"type\":\"learn\",\"title\":\"读一段规划器评测相关的资料\",\"description\":\"围绕「怎么判断每日规划好不好用」读一篇短文或一段文档，记下一条能用在 v2 上的想法。\",\"durationMinutes\":30,\"target\":\"规划器质量优化\"}],\"evening\":[{\"id\":\"read-history\",\"type\":\"read\",\"title\":\"读几页历史书\",\"description\":\"挑轻松的章节，读到想停就停。\",\"durationMinutes\":25,\"target\":\"历史\"},{\"id\":\"enjoy-something\",\"type\":\"enjoy\",\"title\":\"完全放空的享受时间\",\"description\":\"看片、听歌或随便逛逛，不带任何产出目的。\",\"target\":\"享受\"}],\"night\":[]},\"minimumDay\":{\"message\":\"如果今天状态掉下来，只做这一件小事，也算完整的一天。\",\"items\":[{\"id\":\"min-main-portfolio\",\"type\":\"main\",\"title\":\"写出第二个案例提纲的三个小标题\",\"description\":\"只列背景、角色、结果三行，写完即止。\",\"durationMinutes\":30},{\"id\":\"min-learn-planner\",\"type\":\"learn\",\"title\":\"读一小段规划器评测资料\",\"description\":\"读 20 分钟，记一条想法。\",\"durationMinutes\":20},{\"id\":\"min-move-walk\",\"type\":\"move\",\"title\":\"短距离散步\",\"description\":\"出门走一圈，活动身体。\",\"durationMinutes\":20},{\"id\":\"min-enjoy\",\"type\":\"enjoy\",\"title\":\"轻松享受一小会儿\",\"description\":\"做点纯粹让自己开心的事。\",\"durationMinutes\":15}]}}",
+      "finishReason": "stop",
+      "usage": {
+        "prompt": 1085,
+        "completion": 602
+      },
+      "valid": true,
+      "measure": {
+        "mainMinutes": 105,
+        "supportCount": 5,
+        "mainInTier": true,
+        "supportInTier": true,
+        "minimumMainMinutes": 30,
+        "minimumMainIs30": true,
+        "clockHits": [],
+        "extraMains": 0,
+        "mainTitle": "把作品集第二个案例的提纲写成初稿"
+      }
+    }
+  ],
+  "finalPlan": {
+    "date": "2026-11-16",
+    "dayType": "productive",
+    "message": "昨天作品集提纲没写完，今天精力不错，先把它推进成可用的初稿就很好；其他事都只是给这一天加点呼吸。",
+    "mainTask": {
+      "id": "portfolio-case2-outline",
+      "type": "main",
+      "title": "把作品集第二个案例的提纲写成初稿",
+      "description": "先花 10 分钟回看昨天已有的零散想法，然后把它整理成一页结构：问题背景、你的角色、关键决策、结果。写完就停，不要顺手开始做视觉。",
+      "durationMinutes": 105,
+      "reason": "这是昨天未完成、且直接服务于「完成 3 个作品集案例」的关键一步，趁精力高的上午推进最省力。",
+      "completed": false
+    },
+    "sections": {
+      "morning": [
+        {
+          "id": "explore-marine-ai",
+          "type": "explore",
+          "title": "随手看一个海洋科学 + AI 的小话题",
+          "description": "比如海洋浮标数据的异常检测，只当好奇心散步，不要求产出。",
+          "durationMinutes": 25,
+          "target": "海洋科学",
+          "completed": false
+        }
+      ],
+      "afternoon": [
+        {
+          "id": "move-walk",
+          "type": "move",
+          "title": "户外快走",
+          "description": "不带耳机或只放轻音乐，让脑子从提纲里退出来。",
+          "durationMinutes": 30,
+          "target": "保持规律运动",
+          "completed": false
+        },
+        {
+          "id": "learn-planner-quality",
+          "type": "learn",
+          "title": "读一段规划器评测相关的资料",
+          "description": "围绕「怎么判断每日规划好不好用」读一篇短文或一段文档，记下一条能用在 v2 上的想法。",
+          "durationMinutes": 30,
+          "target": "规划器质量优化",
+          "completed": false
+        }
+      ],
+      "evening": [
+        {
+          "id": "read-history",
+          "type": "read",
+          "title": "读几页历史书",
+          "description": "挑轻松的章节，读到想停就停。",
+          "durationMinutes": 25,
+          "target": "历史",
+          "completed": false
+        },
+        {
+          "id": "enjoy-something",
+          "type": "enjoy",
+          "title": "完全放空的享受时间",
+          "description": "看片、听歌或随便逛逛，不带任何产出目的。",
+          "target": "享受",
+          "completed": false
+        }
+      ],
+      "night": []
+    },
+    "minimumDay": {
+      "message": "如果今天状态掉下来，只做这一件小事，也算完整的一天。",
+      "items": [
+        {
+          "id": "min-main-portfolio",
+          "type": "main",
+          "title": "写出第二个案例提纲的三个小标题",
+          "description": "只列背景、角色、结果三行，写完即止。",
+          "durationMinutes": 30,
+          "completed": false
+        },
+        {
+          "id": "min-learn-planner",
+          "type": "learn",
+          "title": "读一小段规划器评测资料",
+          "description": "读 20 分钟，记一条想法。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-move-walk",
+          "type": "move",
+          "title": "短距离散步",
+          "description": "出门走一圈，活动身体。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-enjoy",
+          "type": "enjoy",
+          "title": "轻松享受一小会儿",
+          "description": "做点纯粹让自己开心的事。",
+          "durationMinutes": 15,
+          "completed": false
+        }
+      ]
+    },
+    "activeMode": "standard"
+  },
+  "finalMeasure": {
+    "mainMinutes": 105,
+    "supportCount": 5,
+    "mainInTier": true,
+    "supportInTier": true,
+    "minimumMainMinutes": 30,
+    "minimumMainIs30": true,
+    "clockHits": [],
+    "extraMains": 0,
+    "mainTitle": "把作品集第二个案例的提纲写成初稿"
+  }
+}

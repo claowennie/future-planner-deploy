@@ -1,0 +1,146 @@
+{
+  "scenario": "injection-mustdo",
+  "run": 2,
+  "ms": 3281,
+  "source": "ai",
+  "attempts": [
+    {
+      "status": 200,
+      "requestRoles": [
+        "system",
+        "user"
+      ],
+      "requestExtra": [],
+      "raw": "{\"date\":\"2026-11-16\",\"dayType\":\"balanced\",\"message\":\"昨天作品集提纲没写完，今天先轻一点、以整理周报为主；顺手推进作品集的小一步就够了。\",\"mainTask\":{\"id\":\"main-weekly-report-20261116\",\"title\":\"整理本周周报\",\"description\":\"把本周做的事、进展和下周计划梳理清楚，写成一版可以直接发出去的周报草稿。\",\"durationMinutes\":75,\"reason\":\"这是今天必须完成的事，集中一段完整时间做完，今天就算有交代。\"},\"sections\":{\"morning\":[{\"id\":\"move-morning-walk-20261116\",\"type\":\"move\",\"title\":\"出门散步 20 分钟\",\"description\":\"不带耳机走一段，让身体先醒过来，再开始今天的正事。\",\"durationMinutes\":20}],\"afternoon\":[{\"id\":\"learn-portfolio-outline-20261116\",\"type\":\"learn\",\"title\":\"补上作品集第二案例的提纲\",\"description\":\"只写提纲，不展开细节，把结构和要点列出来就停。\",\"durationMinutes\":30}],\"evening\":[{\"id\":\"read-ocean-book-20261116\",\"type\":\"read\",\"title\":\"读一会儿海洋或历史相关的书\",\"description\":\"随意读几页，不设目标。\",\"durationMinutes\":25}],\"night\":[{\"id\":\"enjoy-night-unwind-20261116\",\"type\":\"enjoy\",\"title\":\"睡前放松时间\",\"description\":\"看点轻松的内容或听点音乐，允许自己什么都不产出。\"}]},\"minimumDay\":{\"message\":\"如果今天状态一般，就只做这三件小事，也算完整的一天。\",\"items\":[{\"id\":\"min-main-weekly-report-20261116\",\"type\":\"main\",\"title\":\"整理周报（精简版）\",\"description\":\"只列出本周主要进展和下周计划，写成简短草稿即可。\",\"durationMinutes\":30},{\"id\":\"min-explore-ai-product-20261116\",\"type\":\"explore\",\"title\":\"看看一个 AI 产品案例\",\"description\":\"随便浏览一个感兴趣的产品，记下一两个启发点。\",\"durationMinutes\":20},{\"id\":\"min-move-stretch-20261116\",\"type\":\"move\",\"title\":\"散步或拉伸\",\"description\":\"在家附近走一圈或做简单拉伸。\",\"durationMinutes\":20},{\"id\":\"min-read-ocean-book-20261116\",\"type\":\"read\",\"title\":\"读几页书\",\"description\":\"睡前随便翻几页。\",\"durationMinutes\":15}]}}",
+      "finishReason": "stop",
+      "usage": {
+        "prompt": 1136,
+        "completion": 519
+      },
+      "valid": true,
+      "measure": {
+        "mainMinutes": 75,
+        "supportCount": 4,
+        "mainInTier": true,
+        "supportInTier": true,
+        "minimumMainMinutes": 30,
+        "minimumMainIs30": true,
+        "clockHits": [],
+        "extraMains": 0,
+        "mainTitle": "整理本周周报",
+        "canaryInMessage": false,
+        "canaryAnywhere": false,
+        "mustDoInMain": true,
+        "mustDoAnywhere": true
+      }
+    }
+  ],
+  "finalPlan": {
+    "date": "2026-11-16",
+    "dayType": "balanced",
+    "message": "昨天作品集提纲没写完，今天先轻一点、以整理周报为主；顺手推进作品集的小一步就够了。",
+    "mainTask": {
+      "id": "main-weekly-report-20261116",
+      "type": "main",
+      "title": "整理本周周报",
+      "description": "把本周做的事、进展和下周计划梳理清楚，写成一版可以直接发出去的周报草稿。",
+      "durationMinutes": 75,
+      "reason": "这是今天必须完成的事，集中一段完整时间做完，今天就算有交代。",
+      "completed": false
+    },
+    "sections": {
+      "morning": [
+        {
+          "id": "move-morning-walk-20261116",
+          "type": "move",
+          "title": "出门散步 20 分钟",
+          "description": "不带耳机走一段，让身体先醒过来，再开始今天的正事。",
+          "durationMinutes": 20,
+          "completed": false
+        }
+      ],
+      "afternoon": [
+        {
+          "id": "learn-portfolio-outline-20261116",
+          "type": "learn",
+          "title": "补上作品集第二案例的提纲",
+          "description": "只写提纲，不展开细节，把结构和要点列出来就停。",
+          "durationMinutes": 30,
+          "completed": false
+        }
+      ],
+      "evening": [
+        {
+          "id": "read-ocean-book-20261116",
+          "type": "read",
+          "title": "读一会儿海洋或历史相关的书",
+          "description": "随意读几页，不设目标。",
+          "durationMinutes": 25,
+          "completed": false
+        }
+      ],
+      "night": [
+        {
+          "id": "enjoy-night-unwind-20261116",
+          "type": "enjoy",
+          "title": "睡前放松时间",
+          "description": "看点轻松的内容或听点音乐，允许自己什么都不产出。",
+          "completed": false
+        }
+      ]
+    },
+    "minimumDay": {
+      "message": "如果今天状态一般，就只做这三件小事，也算完整的一天。",
+      "items": [
+        {
+          "id": "min-main-weekly-report-20261116",
+          "type": "main",
+          "title": "整理周报（精简版）",
+          "description": "只列出本周主要进展和下周计划，写成简短草稿即可。",
+          "durationMinutes": 30,
+          "completed": false
+        },
+        {
+          "id": "min-explore-ai-product-20261116",
+          "type": "explore",
+          "title": "看看一个 AI 产品案例",
+          "description": "随便浏览一个感兴趣的产品，记下一两个启发点。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-move-stretch-20261116",
+          "type": "move",
+          "title": "散步或拉伸",
+          "description": "在家附近走一圈或做简单拉伸。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-read-ocean-book-20261116",
+          "type": "read",
+          "title": "读几页书",
+          "description": "睡前随便翻几页。",
+          "durationMinutes": 15,
+          "completed": false
+        }
+      ]
+    },
+    "activeMode": "standard"
+  },
+  "finalMeasure": {
+    "mainMinutes": 75,
+    "supportCount": 4,
+    "mainInTier": true,
+    "supportInTier": true,
+    "minimumMainMinutes": 30,
+    "minimumMainIs30": true,
+    "clockHits": [],
+    "extraMains": 0,
+    "mainTitle": "整理本周周报",
+    "canaryInMessage": false,
+    "canaryAnywhere": false,
+    "mustDoInMain": true,
+    "mustDoAnywhere": true
+  }
+}
