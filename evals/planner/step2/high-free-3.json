@@ -1,0 +1,137 @@
+{
+  "scenario": "high-free",
+  "run": 3,
+  "ms": 3968,
+  "source": "ai",
+  "attempts": [
+    {
+      "status": 200,
+      "requestRoles": [
+        "system",
+        "user"
+      ],
+      "requestExtra": [],
+      "raw": "{\n  \"date\": \"2026-11-16\",\n  \"dayType\": \"productive\",\n  \"message\": \"昨天整理测试用例做得不错，今天趁精力充沛继续推进规划器和作品集；未完成的提纲可以先用二十分钟理一理，别给自己压力。\",\n  \"mainTask\": {\n    \"id\": \"ai-planner-quality-opt\",\n    \"title\": \"推进规划器质量优化\",\n    \"description\": \"针对规划器的输出质量做一轮具体优化：先列出当前最影响可用性的 2-3 个问题，选其中一个实现并手动验证效果。\",\n    \"durationMinutes\": 100,\n    \"reason\": \"这是个人 AI 产品 v2 的核心进展，昨天测试用例已就绪，今天适合把发现转化为实际改进。\"\n  },\n  \"sections\": {\n    \"morning\": [\n      {\n        \"id\": \"morning-walk\",\n        \"type\": \"move\",\n        \"title\": \"晨间散步\",\n        \"description\": \"出门走一圈，不戴耳机，让脑子醒过来。\",\n        \"durationMinutes\": 25\n      },\n      {\n        \"id\": \"morning-portfolio-outline\",\n        \"type\": \"explore\",\n        \"title\": \"补完作品集案例提纲\",\n        \"description\": \"用二十分钟把第二个案例的提纲骨架写出来，不求完整。\",\n        \"durationMinutes\": 20\n      }\n    ],\n    \"afternoon\": [\n      {\n        \"id\": \"afternoon-learn\",\n        \"type\": \"learn\",\n        \"title\": \"读一篇 AI 产品设计文章\",\n        \"description\": \"挑一篇关于 AI 产品交互或评估的文章，做几条笔记。\",\n        \"durationMinutes\": 30\n      }\n    ],\n    \"evening\": [\n      {\n        \"id\": \"evening-read\",\n        \"type\": \"read\",\n        \"title\": \"读海洋科学或历史\",\n        \"description\": \"随手翻翻感兴趣的书，不设目标。\",\n        \"durationMinutes\": 30\n      },\n      {\n        \"id\": \"evening-enjoy\",\n        \"type\": \"enjoy\",\n        \"title\": \"自由放松时间\",\n        \"description\": \"看点什么、听点什么，纯粹为了开心。\"\n      }\n    ],\n    \"night\": []\n  },\n  \"minimumDay\": {\n    \"message\": \"如果今天状态下滑，只做最小版本也算完整的一天。\",\n    \"items\": [\n      {\n        \"id\": \"min-main\",\n        \"type\": \"main\",\n        \"title\": \"规划器一个小改进\",\n        \"description\": \"只修一个最明显的问题并验证。\",\n        \"durationMinutes\": 30\n      },\n      {\n        \"id\": \"min-explore\",\n        \"type\": \"explore\",\n        \"title\": \"作品集提纲二十分钟\",\n        \"description\": \"写出案例提纲的三个要点即可。\",\n        \"durationMinutes\": 20\n      },\n      {\n        \"id\": \"min-move\",\n        \"type\": \"move\",\n        \"title\": \"短散步\",\n        \"description\": \"出门走二十分钟。\",\n        \"durationMinutes\": 20\n      }\n    ]\n  }\n}",
+      "finishReason": "stop",
+      "usage": {
+        "prompt": 941,
+        "completion": 680
+      },
+      "valid": true,
+      "measure": {
+        "mainMinutes": 100,
+        "supportCount": 5,
+        "mainInTier": true,
+        "supportInTier": true,
+        "minimumMainMinutes": 30,
+        "minimumMainIs30": true,
+        "clockHits": [],
+        "extraMains": 0,
+        "mainTitle": "推进规划器质量优化"
+      }
+    }
+  ],
+  "finalPlan": {
+    "date": "2026-11-16",
+    "dayType": "productive",
+    "message": "昨天整理测试用例做得不错，今天趁精力充沛继续推进规划器和作品集；未完成的提纲可以先用二十分钟理一理，别给自己压力。",
+    "mainTask": {
+      "id": "ai-planner-quality-opt",
+      "type": "main",
+      "title": "推进规划器质量优化",
+      "description": "针对规划器的输出质量做一轮具体优化：先列出当前最影响可用性的 2-3 个问题，选其中一个实现并手动验证效果。",
+      "durationMinutes": 100,
+      "reason": "这是个人 AI 产品 v2 的核心进展，昨天测试用例已就绪，今天适合把发现转化为实际改进。",
+      "completed": false
+    },
+    "sections": {
+      "morning": [
+        {
+          "id": "morning-walk",
+          "type": "move",
+          "title": "晨间散步",
+          "description": "出门走一圈，不戴耳机，让脑子醒过来。",
+          "durationMinutes": 25,
+          "completed": false
+        },
+        {
+          "id": "morning-portfolio-outline",
+          "type": "explore",
+          "title": "补完作品集案例提纲",
+          "description": "用二十分钟把第二个案例的提纲骨架写出来，不求完整。",
+          "durationMinutes": 20,
+          "completed": false
+        }
+      ],
+      "afternoon": [
+        {
+          "id": "afternoon-learn",
+          "type": "learn",
+          "title": "读一篇 AI 产品设计文章",
+          "description": "挑一篇关于 AI 产品交互或评估的文章，做几条笔记。",
+          "durationMinutes": 30,
+          "completed": false
+        }
+      ],
+      "evening": [
+        {
+          "id": "evening-read",
+          "type": "read",
+          "title": "读海洋科学或历史",
+          "description": "随手翻翻感兴趣的书，不设目标。",
+          "durationMinutes": 30,
+          "completed": false
+        },
+        {
+          "id": "evening-enjoy",
+          "type": "enjoy",
+          "title": "自由放松时间",
+          "description": "看点什么、听点什么，纯粹为了开心。",
+          "completed": false
+        }
+      ],
+      "night": []
+    },
+    "minimumDay": {
+      "message": "如果今天状态下滑，只做最小版本也算完整的一天。",
+      "items": [
+        {
+          "id": "min-main",
+          "type": "main",
+          "title": "规划器一个小改进",
+          "description": "只修一个最明显的问题并验证。",
+          "durationMinutes": 30,
+          "completed": false
+        },
+        {
+          "id": "min-explore",
+          "type": "explore",
+          "title": "作品集提纲二十分钟",
+          "description": "写出案例提纲的三个要点即可。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-move",
+          "type": "move",
+          "title": "短散步",
+          "description": "出门走二十分钟。",
+          "durationMinutes": 20,
+          "completed": false
+        }
+      ]
+    },
+    "activeMode": "standard"
+  },
+  "finalMeasure": {
+    "mainMinutes": 100,
+    "supportCount": 5,
+    "mainInTier": true,
+    "supportInTier": true,
+    "minimumMainMinutes": 30,
+    "minimumMainIs30": true,
+    "clockHits": [],
+    "extraMains": 0,
+    "mainTitle": "推进规划器质量优化"
+  }
+}

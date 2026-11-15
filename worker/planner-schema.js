@@ -2,6 +2,26 @@ const DAY_TYPES = new Set(['productive', 'balanced', 'relaxed', 'minimum']);
 const ITEM_TYPES = new Set(['main', 'explore', 'learn', 'move', 'read', 'enjoy']);
 const DAYPARTS = ['morning', 'afternoon', 'evening', 'night'];
 
+// Single source for the load tiers used by the prompt, the validator, and the fallback plan.
+const LOAD_TIERS = [
+  { name: 'LIGHT', label: 'LIGHT', mainMin: 30, mainMax: 60, supportMin: 2, supportMax: 4 },
+  { name: 'BALANCED', label: 'BALANCED', mainMin: 60, mainMax: 90, supportMin: 3, supportMax: 5 },
+  { name: 'FULL', label: 'FULL BUT HUMANE', mainMin: 90, mainMax: 120, supportMin: 3, supportMax: 6 },
+];
+const LIGHTER_REASONS = new Set(['too_much', 'less_time']);
+const FULLER_REASONS = new Set(['too_easy', 'more_time']);
+const MINIMUM_MAIN_MINUTES = 30;
+
+// A replan that asks for less or more moves one tier, so the prompt and the validator agree.
+export function loadTier(checkin = {}) {
+  let index = 1;
+  if (checkin.energy === 'low' || checkin.availableTime === 'busy') index = 0;
+  else if (checkin.energy === 'high' && checkin.availableTime === 'mostly_free') index = 2;
+  if (LIGHTER_REASONS.has(checkin.reason)) index = Math.max(0, index - 1);
+  if (FULLER_REASONS.has(checkin.reason)) index = Math.min(LOAD_TIERS.length - 1, index + 1);
+  return LOAD_TIERS[index];
+}
+
 export class PlannerOutputError extends Error {
   constructor(message) {
     super(message);
@@ -58,7 +78,8 @@ export function parsePlannerJson(content) {
   catch { throw new PlannerOutputError('Model did not return valid JSON'); }
 }
 
-export function validateDailyPlan(payload, expectedDate) {
+// With a check-in, the load tier and Minimum Day rules from the prompt are enforced too.
+export function validateDailyPlan(payload, expectedDate, checkin = null) {
   if (!payload || typeof payload !== 'object' || Array.isArray(payload)) {
     throw new PlannerOutputError('Daily plan must be an object');
   }
@@ -101,6 +122,17 @@ export function validateDailyPlan(payload, expectedDate) {
     }
   }
   if (itemCount < 2 || itemCount > 7) throw new PlannerOutputError('Plan must contain 2-7 supporting items');
+  // Load problems are reported together so one retry can fix all of them.
+  const loadProblems = [];
+  if (checkin) {
+    const tier = loadTier(checkin);
+    if (mainTask.durationMinutes < tier.mainMin || mainTask.durationMinutes > tier.mainMax) {
+      loadProblems.push(`mainTask.durationMinutes must be ${tier.mainMin}-${tier.mainMax} on a ${tier.name} day (got ${mainTask.durationMinutes})`);
+    }
+    if (itemCount < tier.supportMin || itemCount > tier.supportMax) {
+      loadProblems.push(`sections must contain ${tier.supportMin}-${tier.supportMax} supporting items in total on a ${tier.name} day (got ${itemCount})`);
+    }
+  }
 
   const minimumValues = payload.minimumDay?.items;
   if (!Array.isArray(minimumValues) || minimumValues.length < 3 || minimumValues.length > 5) {
@@ -112,6 +144,11 @@ export function validateDailyPlan(payload, expectedDate) {
   if (minimumItems.filter((value) => value.type === 'main').length !== 1) {
     throw new PlannerOutputError('minimumDay must contain exactly one main item');
   }
+  const minimumMain = minimumItems.find((value) => value.type === 'main');
+  if (checkin && minimumMain.durationMinutes !== MINIMUM_MAIN_MINUTES) {
+    loadProblems.push(`minimumDay main item must be exactly ${MINIMUM_MAIN_MINUTES} minutes (got ${minimumMain.durationMinutes ?? 'none'})`);
+  }
+  if (loadProblems.length) throw new PlannerOutputError(loadProblems.join('; '));
   for (const planItem of minimumItems) {
     if (ids.has(planItem.id)) planItem.id = crypto.randomUUID();
     ids.add(planItem.id);

@@ -1,0 +1,137 @@
+{
+  "scenario": "ordinary",
+  "run": 1,
+  "ms": 3729,
+  "source": "ai",
+  "attempts": [
+    {
+      "status": 200,
+      "requestRoles": [
+        "system",
+        "user"
+      ],
+      "requestExtra": [],
+      "raw": "{\n  \"date\": \"2026-11-16\",\n  \"dayType\": \"balanced\",\n  \"message\": \"昨天节奏刚好、完成度也高，今天继续保持这个舒服的步调，先把作品集第二个案例推进一小步。\",\n  \"mainTask\": {\n    \"id\": \"portfolio-case2-outline\",\n    \"title\": \"完成作品集第二个案例的提纲\",\n    \"description\": \"在昨天未完成的基础上，先只写出一页提纲：问题背景、你的角色、关键决策和结果，不必写细节。\",\n    \"durationMinutes\": 75,\n    \"reason\": \"这是求职作品集的关键一步，昨天没完成但依然重要，用更小的第一步重新启动。\"\n  },\n  \"sections\": {\n    \"morning\": [\n      {\n        \"id\": \"morning-walk\",\n        \"type\": \"move\",\n        \"title\": \"晨间散步\",\n        \"description\": \"出门走一走，不戴耳机，让脑子先醒过来。\",\n        \"durationMinutes\": 25\n      }\n    ],\n    \"afternoon\": [\n      {\n        \"id\": \"explore-tide-pools\",\n        \"type\": \"explore\",\n        \"title\": \"了解潮间带生态\",\n        \"description\": \"看看潮间带生物如何在涨落潮之间生存，满足一下对海洋科学的好奇。\",\n        \"durationMinutes\": 30\n      },\n      {\n        \"id\": \"learn-schema-validation\",\n        \"type\": \"learn\",\n        \"title\": \"继续 JSON Schema 校验\",\n        \"description\": \"在昨天的基础上，试着给规划器输出加一条校验规则。\",\n        \"durationMinutes\": 25\n      }\n    ],\n    \"evening\": [\n      {\n        \"id\": \"read-history-essay\",\n        \"type\": \"read\",\n        \"title\": \"读一篇历史随笔\",\n        \"description\": \"随便读读，不求读完，享受就好。\"\n      }\n    ],\n    \"night\": [\n      {\n        \"id\": \"enjoy-music\",\n        \"type\": \"enjoy\",\n        \"title\": \"听点喜欢的音乐\",\n        \"description\": \"睡前放松，什么都不用完成。\"\n      }\n    ]\n  },\n  \"minimumDay\": {\n    \"message\": \"如果今天状态一般，就只做这几件小事，也算好好过了一天。\",\n    \"items\": [\n      {\n        \"id\": \"min-main-outline\",\n        \"type\": \"main\",\n        \"title\": \"写作品集案例提纲的第一段\",\n        \"description\": \"只写问题背景这一小段，30 分钟就够。\",\n        \"durationMinutes\": 30\n      },\n      {\n        \"id\": \"min-explore-tide\",\n        \"type\": \"explore\",\n        \"title\": \"看一个潮间带小视频\",\n        \"description\": \"轻松了解潮间带生物。\",\n        \"durationMinutes\": 20\n      },\n      {\n        \"id\": \"min-move-walk\",\n        \"type\": \"move\",\n        \"title\": \"短散步\",\n        \"description\": \"出门走 20 分钟，透透气。\",\n        \"durationMinutes\": 20\n      }\n    ]\n  }\n}",
+      "finishReason": "stop",
+      "usage": {
+        "prompt": 1014,
+        "completion": 684
+      },
+      "valid": true,
+      "measure": {
+        "mainMinutes": 75,
+        "supportCount": 5,
+        "mainInTier": true,
+        "supportInTier": true,
+        "minimumMainMinutes": 30,
+        "minimumMainIs30": true,
+        "clockHits": [],
+        "extraMains": 0,
+        "mainTitle": "完成作品集第二个案例的提纲"
+      }
+    }
+  ],
+  "finalPlan": {
+    "date": "2026-11-16",
+    "dayType": "balanced",
+    "message": "昨天节奏刚好、完成度也高，今天继续保持这个舒服的步调，先把作品集第二个案例推进一小步。",
+    "mainTask": {
+      "id": "portfolio-case2-outline",
+      "type": "main",
+      "title": "完成作品集第二个案例的提纲",
+      "description": "在昨天未完成的基础上，先只写出一页提纲：问题背景、你的角色、关键决策和结果，不必写细节。",
+      "durationMinutes": 75,
+      "reason": "这是求职作品集的关键一步，昨天没完成但依然重要，用更小的第一步重新启动。",
+      "completed": false
+    },
+    "sections": {
+      "morning": [
+        {
+          "id": "morning-walk",
+          "type": "move",
+          "title": "晨间散步",
+          "description": "出门走一走，不戴耳机，让脑子先醒过来。",
+          "durationMinutes": 25,
+          "completed": false
+        }
+      ],
+      "afternoon": [
+        {
+          "id": "explore-tide-pools",
+          "type": "explore",
+          "title": "了解潮间带生态",
+          "description": "看看潮间带生物如何在涨落潮之间生存，满足一下对海洋科学的好奇。",
+          "durationMinutes": 30,
+          "completed": false
+        },
+        {
+          "id": "learn-schema-validation",
+          "type": "learn",
+          "title": "继续 JSON Schema 校验",
+          "description": "在昨天的基础上，试着给规划器输出加一条校验规则。",
+          "durationMinutes": 25,
+          "completed": false
+        }
+      ],
+      "evening": [
+        {
+          "id": "read-history-essay",
+          "type": "read",
+          "title": "读一篇历史随笔",
+          "description": "随便读读，不求读完，享受就好。",
+          "completed": false
+        }
+      ],
+      "night": [
+        {
+          "id": "enjoy-music",
+          "type": "enjoy",
+          "title": "听点喜欢的音乐",
+          "description": "睡前放松，什么都不用完成。",
+          "completed": false
+        }
+      ]
+    },
+    "minimumDay": {
+      "message": "如果今天状态一般，就只做这几件小事，也算好好过了一天。",
+      "items": [
+        {
+          "id": "min-main-outline",
+          "type": "main",
+          "title": "写作品集案例提纲的第一段",
+          "description": "只写问题背景这一小段，30 分钟就够。",
+          "durationMinutes": 30,
+          "completed": false
+        },
+        {
+          "id": "min-explore-tide",
+          "type": "explore",
+          "title": "看一个潮间带小视频",
+          "description": "轻松了解潮间带生物。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-move-walk",
+          "type": "move",
+          "title": "短散步",
+          "description": "出门走 20 分钟，透透气。",
+          "durationMinutes": 20,
+          "completed": false
+        }
+      ]
+    },
+    "activeMode": "standard"
+  },
+  "finalMeasure": {
+    "mainMinutes": 75,
+    "supportCount": 5,
+    "mainInTier": true,
+    "supportInTier": true,
+    "minimumMainMinutes": 30,
+    "minimumMainIs30": true,
+    "clockHits": [],
+    "extraMains": 0,
+    "mainTitle": "完成作品集第二个案例的提纲"
+  }
+}

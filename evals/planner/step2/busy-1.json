@@ -1,0 +1,176 @@
+{
+  "scenario": "busy",
+  "run": 1,
+  "ms": 6269,
+  "source": "ai",
+  "attempts": [
+    {
+      "status": 200,
+      "requestRoles": [
+        "system",
+        "user"
+      ],
+      "requestExtra": [],
+      "raw": "{\"date\":\"2026-11-16\",\"dayType\":\"productive\",\"message\":\"今天时间紧，但先把季度报告交掉这件大事搞定，剩下的就轻松了；昨天作品集提纲没写完没关系，改天用更小的第一步接着来。\",\"mainTask\":{\"id\":\"main-quarterly-report\",\"title\":\"完成并提交季度报告\",\"description\":\"先把报告里已有的内容整理成完整结构，补上还缺的数据和结论，通读一遍后下午提交。\",\"durationMinutes\":90,\"reason\":\"这是今天的硬性截止任务，做完它今天就算成功。\"},\"sections\":{\"morning\":[{\"id\":\"morning-report-prep\",\"type\":\"explore\",\"title\":\"快速梳理报告结构\",\"description\":\"用十几分钟把报告的骨架和缺口列出来，明确要补哪几块，避免下午手忙脚乱。\",\"durationMinutes\":20}],\"afternoon\":[{\"id\":\"afternoon-report-submit\",\"type\":\"enjoy\",\"title\":\"提交后给自己一点喘息\",\"description\":\"交完报告，允许自己什么都不干地放松一会儿，喝点东西、看看窗外。\"}],\"evening\":[{\"id\":\"evening-walk\",\"type\":\"move\",\"title\":\"傍晚散步\",\"description\":\"出门走一走，让紧绷的脑子松下来，不用管步数。\",\"durationMinutes\":30}],\"night\":[{\"id\":\"night-read\",\"type\":\"read\",\"title\":\"读点海洋或历史\",\"description\":\"睡前翻几页感兴趣的书，纯粹为了好玩。\",\"durationMinutes\":20}]},\"minimumDay\":{\"message\":\"如果今天实在撑不住，就只做这几件最小的事，也足够。\",\"items\":[{\"id\":\"min-report-step\",\"type\":\"main\",\"title\":\"推进季度报告一小步\",\"description\":\"只把报告最关键的一节写完，不求完整。\",\"durationMinutes\":30},{\"id\":\"min-explore\",\"type\":\"explore\",\"title\":\"看一眼产品灵感\",\"description\":\"随便看看一个 AI 产品或设计案例，找点灵感。\",\"durationMinutes\":20},{\"id\":\"min-move\",\"type\":\"move\",\"title\":\"短散步\",\"description\":\"出门走二十分钟，透透气。\",\"durationMinutes\":20},{\"id\":\"min-read\",\"type\":\"read\",\"title\":\"翻几页书\",\"description\":\"睡前读一点喜欢的题材。\",\"durationMinutes\":10}]}}",
+      "finishReason": "stop",
+      "usage": {
+        "prompt": 943,
+        "completion": 479
+      },
+      "valid": false,
+      "validationError": "mainTask.durationMinutes must be 30-60 on a LIGHT day (got 90)",
+      "measure": {
+        "mainMinutes": 90,
+        "supportCount": 4,
+        "mainInTier": false,
+        "supportInTier": true,
+        "minimumMainMinutes": 30,
+        "minimumMainIs30": true,
+        "clockHits": [],
+        "extraMains": 0,
+        "mainTitle": "完成并提交季度报告"
+      }
+    },
+    {
+      "status": 200,
+      "requestRoles": [
+        "system",
+        "user",
+        "assistant",
+        "user"
+      ],
+      "requestExtra": [
+        {
+          "role": "assistant",
+          "content": "{\"date\":\"2026-11-16\",\"dayType\":\"productive\",\"message\":\"今天时间紧，但先把季度报告交掉这件大事搞定，剩下的就轻松了；昨天作品集提纲没写完没关系，改天用更小的第一步接着来。\",\"mainTask\":{\"id\":\"main-quarterly-report\",\"title\":\"完成并提交季度报告\",\"description\":\"先把报告里已有的内容整理成完整结构，补上还缺的数据和结论，通读一遍后下午提交。\",\"durationMinutes\":90,\"reason\":\"这是今天的硬性截止任务，做完它今天就算成功。\"},\"sections\":{\"morning\":[{\"id\":\"morning-report-prep\",\"type\":\"explore\",\"title\":\"快速梳理报告结构\",\"description\":\"用十几分钟把报告的骨架和缺口列出来，明确要补哪几块，避免下午手忙脚乱。\",\"durationMinutes\":20}],\"afternoon\":[{\"id\":\"afternoon-report-submit\",\"type\":\"enjoy\",\"title\":\"提交后给自己一点喘息\",\"description\":\"交完报告，允许自己什么都不干地放松一会儿，喝点东西、看看窗外。\"}],\"evening\":[{\"id\":\"evening-walk\",\"type\":\"move\",\"title\":\"傍晚散步\",\"description\":\"出门走一走，让紧绷的脑子松下来，不用管步数。\",\"durationMinutes\":30}],\"night\":[{\"id\":\"night-read\",\"type\":\"read\",\"title\":\"读点海洋或历史\",\"description\":\"睡前翻几页感兴趣的书，纯粹为了好玩。\",\"durationMinutes\":20}]},\"minimumDay\":{\"message\":\"如果今天实在撑不住，就只做这几件最小的事，也足够。\",\"items\":[{\"id\":\"min-report-step\",\"type\":\"main\",\"title\":\"推进季度报告一小步\",\"description\":\"只把报告最关键的一节写完，不求完整。\",\"durationMinutes\":30},{\"id\":\"min-explore\",\"type\":\"explore\",\"title\":\"看一眼产品灵感\",\"description\":\"随便看看一个 AI 产品或设计案例，找点灵感。\",\"durationMinutes\":20},{\"id\":\"min-move\",\"type\":\"move\",\"title\":\"短散步\",\"description\":\"出门走二十分钟，透透气。\",\"durationMinutes\":20},{\"id\":\"min-read\",\"type\":\"read\",\"title\":\"翻几页书\",\"description\":\"睡前读一点喜欢的题材。\",\"durationMinutes\":10}]}}"
+        },
+        {
+          "role": "user",
+          "content": "Your previous reply was rejected by validation: mainTask.durationMinutes must be 30-60 on a LIGHT day (got 90). Fix that problem and return the complete corrected JSON object. All earlier rules still apply."
+        }
+      ],
+      "raw": "{\"date\":\"2026-11-16\",\"dayType\":\"productive\",\"message\":\"今天时间紧，先把季度报告交掉这件大事搞定；昨天作品集提纲没写完没关系，改天用更小的第一步接着来。\",\"mainTask\":{\"id\":\"main-quarterly-report\",\"title\":\"完成并提交季度报告\",\"description\":\"先整理已有内容成完整结构，补上关键数据和结论，通读后下午提交。\",\"durationMinutes\":55,\"reason\":\"这是今天的硬性截止任务，做完它今天就算成功。\"},\"sections\":{\"morning\":[{\"id\":\"morning-report-prep\",\"type\":\"explore\",\"title\":\"快速梳理报告结构\",\"description\":\"用十几分钟列出报告骨架和缺口，明确要补哪几块。\",\"durationMinutes\":20}],\"afternoon\":[{\"id\":\"afternoon-breathe\",\"type\":\"enjoy\",\"title\":\"提交后给自己一点喘息\",\"description\":\"交完报告允许自己什么都不干地放松一会儿。\"}],\"evening\":[{\"id\":\"evening-walk\",\"type\":\"move\",\"title\":\"傍晚散步\",\"description\":\"出门走一走，让紧绷的脑子松下来，不用管步数。\",\"durationMinutes\":30}],\"night\":[{\"id\":\"night-read\",\"type\":\"read\",\"title\":\"读点海洋或历史\",\"description\":\"睡前翻几页感兴趣的书，纯粹为了好玩。\",\"durationMinutes\":20}]},\"minimumDay\":{\"message\":\"如果今天实在撑不住，就只做这几件最小的事，也足够。\",\"items\":[{\"id\":\"min-report-step\",\"type\":\"main\",\"title\":\"推进季度报告一小步\",\"description\":\"只把报告最关键的一节写完，不求完整。\",\"durationMinutes\":30},{\"id\":\"min-explore\",\"type\":\"explore\",\"title\":\"看一眼产品灵感\",\"description\":\"随便看看一个 AI 产品或设计案例，找点灵感。\",\"durationMinutes\":20},{\"id\":\"min-move\",\"type\":\"move\",\"title\":\"短散步\",\"description\":\"出门走二十分钟，透透气。\",\"durationMinutes\":20},{\"id\":\"min-read\",\"type\":\"read\",\"title\":\"翻几页书\",\"description\":\"睡前读一点喜欢的题材。\",\"durationMinutes\":10}]}}",
+      "finishReason": "stop",
+      "usage": {
+        "prompt": 1472,
+        "completion": 451
+      },
+      "valid": true,
+      "measure": {
+        "mainMinutes": 55,
+        "supportCount": 4,
+        "mainInTier": true,
+        "supportInTier": true,
+        "minimumMainMinutes": 30,
+        "minimumMainIs30": true,
+        "clockHits": [],
+        "extraMains": 0,
+        "mainTitle": "完成并提交季度报告"
+      }
+    }
+  ],
+  "finalPlan": {
+    "date": "2026-11-16",
+    "dayType": "productive",
+    "message": "今天时间紧，先把季度报告交掉这件大事搞定；昨天作品集提纲没写完没关系，改天用更小的第一步接着来。",
+    "mainTask": {
+      "id": "main-quarterly-report",
+      "type": "main",
+      "title": "完成并提交季度报告",
+      "description": "先整理已有内容成完整结构，补上关键数据和结论，通读后下午提交。",
+      "durationMinutes": 55,
+      "reason": "这是今天的硬性截止任务，做完它今天就算成功。",
+      "completed": false
+    },
+    "sections": {
+      "morning": [
+        {
+          "id": "morning-report-prep",
+          "type": "explore",
+          "title": "快速梳理报告结构",
+          "description": "用十几分钟列出报告骨架和缺口，明确要补哪几块。",
+          "durationMinutes": 20,
+          "completed": false
+        }
+      ],
+      "afternoon": [
+        {
+          "id": "afternoon-breathe",
+          "type": "enjoy",
+          "title": "提交后给自己一点喘息",
+          "description": "交完报告允许自己什么都不干地放松一会儿。",
+          "completed": false
+        }
+      ],
+      "evening": [
+        {
+          "id": "evening-walk",
+          "type": "move",
+          "title": "傍晚散步",
+          "description": "出门走一走，让紧绷的脑子松下来，不用管步数。",
+          "durationMinutes": 30,
+          "completed": false
+        }
+      ],
+      "night": [
+        {
+          "id": "night-read",
+          "type": "read",
+          "title": "读点海洋或历史",
+          "description": "睡前翻几页感兴趣的书，纯粹为了好玩。",
+          "durationMinutes": 20,
+          "completed": false
+        }
+      ]
+    },
+    "minimumDay": {
+      "message": "如果今天实在撑不住，就只做这几件最小的事，也足够。",
+      "items": [
+        {
+          "id": "min-report-step",
+          "type": "main",
+          "title": "推进季度报告一小步",
+          "description": "只把报告最关键的一节写完，不求完整。",
+          "durationMinutes": 30,
+          "completed": false
+        },
+        {
+          "id": "min-explore",
+          "type": "explore",
+          "title": "看一眼产品灵感",
+          "description": "随便看看一个 AI 产品或设计案例，找点灵感。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-move",
+          "type": "move",
+          "title": "短散步",
+          "description": "出门走二十分钟，透透气。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-read",
+          "type": "read",
+          "title": "翻几页书",
+          "description": "睡前读一点喜欢的题材。",
+          "durationMinutes": 10,
+          "completed": false
+        }
+      ]
+    },
+    "activeMode": "standard"
+  },
+  "finalMeasure": {
+    "mainMinutes": 55,
+    "supportCount": 4,
+    "mainInTier": true,
+    "supportInTier": true,
+    "minimumMainMinutes": 30,
+    "minimumMainIs30": true,
+    "clockHits": [],
+    "extraMains": 0,
+    "mainTitle": "完成并提交季度报告"
+  }
+}

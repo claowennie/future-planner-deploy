@@ -1,0 +1,139 @@
+{
+  "scenario": "english-output",
+  "run": 3,
+  "ms": 3912,
+  "source": "ai",
+  "attempts": [
+    {
+      "status": 200,
+      "requestRoles": [
+        "system",
+        "user"
+      ],
+      "requestExtra": [],
+      "raw": "{\n  \"date\": \"2026-11-16\",\n  \"dayType\": \"balanced\",\n  \"message\": \"You had a solid, just-right day yesterday with the planner test cases — today we build on that gently with a half-day pace, and the unfinished portfolio outline gets a smaller first step.\",\n  \"mainTask\": {\n    \"id\": \"portfolio-case-study-2-outline\",\n    \"title\": \"Outline the second portfolio case study\",\n    \"description\": \"Start small: write a one-paragraph summary of the project, then list 3-5 bullet sections you want the case study to cover. Stop there — the outline is the win.\",\n    \"durationMinutes\": 75,\n    \"reason\": \"This was left unfinished on 2026-11-15 and still matters for your product role goal. A smaller first step keeps momentum without repeating yesterday's load.\"\n  },\n  \"sections\": {\n    \"morning\": [\n      {\n        \"id\": \"move-morning-walk\",\n        \"type\": \"move\",\n        \"title\": \"Short walk before deep work\",\n        \"description\": \"A gentle 20-minute walk to wake up the body and settle the mind before the main task.\",\n        \"durationMinutes\": 20\n      }\n    ],\n    \"afternoon\": [\n      {\n        \"id\": \"explore-ocean-buoys\",\n        \"type\": \"explore\",\n        \"title\": \"How ocean buoys collect live data\",\n        \"description\": \"Spend 20 minutes reading about how floating buoys measure temperature, salinity, and currents — a fresh ocean-science angle.\",\n        \"durationMinutes\": 20\n      }\n    ],\n    \"evening\": [\n      {\n        \"id\": \"enjoy-history-podcast\",\n        \"type\": \"enjoy\",\n        \"title\": \"Listen to a history podcast episode\",\n        \"description\": \"Pick any episode that sounds interesting. No notes, no goal — just enjoy it.\"\n      }\n    ],\n    \"night\": [\n      {\n        \"id\": \"read-fiction\",\n        \"type\": \"read\",\n        \"title\": \"Read a few pages of a book\",\n        \"description\": \"Wind down with something you're reading for pleasure.\",\n        \"durationMinutes\": 15\n      }\n    ]\n  },\n  \"minimumDay\": {\n    \"message\": \"A lighter version of today — still one meaningful step, one bit of curiosity, and a little movement.\",\n    \"items\": [\n      {\n        \"id\": \"min-main-portfolio-outline\",\n        \"type\": \"main\",\n        \"title\": \"Write the one-paragraph summary of the second case study\",\n        \"description\": \"Just the paragraph. That's enough to count.\",\n        \"durationMinutes\": 30\n      },\n      {\n        \"id\": \"min-learn-json-schema\",\n        \"type\": \"learn\",\n        \"title\": \"Continue JSON Schema validation notes\",\n        \"description\": \"Skim yesterday's notes and add one new example.\",\n        \"durationMinutes\": 20\n      },\n      {\n        \"id\": \"min-move-walk\",\n        \"type\": \"move\",\n        \"title\": \"Short walk\",\n        \"description\": \"Around the block, no pressure.\",\n        \"durationMinutes\": 20\n      },\n      {\n        \"id\": \"min-enjoy-music\",\n        \"type\": \"enjoy\",\n        \"title\": \"Listen to an album you like\",\n        \"description\": \"Guilt-free.\"\n      }\n    ]\n  }\n}",
+      "finishReason": "stop",
+      "usage": {
+        "prompt": 1017,
+        "completion": 738
+      },
+      "valid": true,
+      "measure": {
+        "mainMinutes": 75,
+        "supportCount": 4,
+        "mainInTier": true,
+        "supportInTier": true,
+        "minimumMainMinutes": 30,
+        "minimumMainIs30": true,
+        "clockHits": [],
+        "extraMains": 0,
+        "mainTitle": "Outline the second portfolio case study",
+        "cjkInText": false
+      }
+    }
+  ],
+  "finalPlan": {
+    "date": "2026-11-16",
+    "dayType": "balanced",
+    "message": "You had a solid, just-right day yesterday with the planner test cases — today we build on that gently with a half-day pace, and the unfinished portfolio outline gets a smaller first step.",
+    "mainTask": {
+      "id": "portfolio-case-study-2-outline",
+      "type": "main",
+      "title": "Outline the second portfolio case study",
+      "description": "Start small: write a one-paragraph summary of the project, then list 3-5 bullet sections you want the case study to cover. Stop there — the outline is the win.",
+      "durationMinutes": 75,
+      "reason": "This was left unfinished on 2026-11-15 and still matters for your product role goal. A smaller first step keeps momentum without repeating yesterday's load.",
+      "completed": false
+    },
+    "sections": {
+      "morning": [
+        {
+          "id": "move-morning-walk",
+          "type": "move",
+          "title": "Short walk before deep work",
+          "description": "A gentle 20-minute walk to wake up the body and settle the mind before the main task.",
+          "durationMinutes": 20,
+          "completed": false
+        }
+      ],
+      "afternoon": [
+        {
+          "id": "explore-ocean-buoys",
+          "type": "explore",
+          "title": "How ocean buoys collect live data",
+          "description": "Spend 20 minutes reading about how floating buoys measure temperature, salinity, and currents — a fresh ocean-science angle.",
+          "durationMinutes": 20,
+          "completed": false
+        }
+      ],
+      "evening": [
+        {
+          "id": "enjoy-history-podcast",
+          "type": "enjoy",
+          "title": "Listen to a history podcast episode",
+          "description": "Pick any episode that sounds interesting. No notes, no goal — just enjoy it.",
+          "completed": false
+        }
+      ],
+      "night": [
+        {
+          "id": "read-fiction",
+          "type": "read",
+          "title": "Read a few pages of a book",
+          "description": "Wind down with something you're reading for pleasure.",
+          "durationMinutes": 15,
+          "completed": false
+        }
+      ]
+    },
+    "minimumDay": {
+      "message": "A lighter version of today — still one meaningful step, one bit of curiosity, and a little movement.",
+      "items": [
+        {
+          "id": "min-main-portfolio-outline",
+          "type": "main",
+          "title": "Write the one-paragraph summary of the second case study",
+          "description": "Just the paragraph. That's enough to count.",
+          "durationMinutes": 30,
+          "completed": false
+        },
+        {
+          "id": "min-learn-json-schema",
+          "type": "learn",
+          "title": "Continue JSON Schema validation notes",
+          "description": "Skim yesterday's notes and add one new example.",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-move-walk",
+          "type": "move",
+          "title": "Short walk",
+          "description": "Around the block, no pressure.",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-enjoy-music",
+          "type": "enjoy",
+          "title": "Listen to an album you like",
+          "description": "Guilt-free.",
+          "completed": false
+        }
+      ]
+    },
+    "activeMode": "standard"
+  },
+  "finalMeasure": {
+    "mainMinutes": 75,
+    "supportCount": 4,
+    "mainInTier": true,
+    "supportInTier": true,
+    "minimumMainMinutes": 30,
+    "minimumMainIs30": true,
+    "clockHits": [],
+    "extraMains": 0,
+    "mainTitle": "Outline the second portfolio case study",
+    "cjkInText": false
+  }
+}

@@ -1,0 +1,130 @@
+{
+  "scenario": "yesterday-too-much",
+  "run": 1,
+  "ms": 3208,
+  "source": "ai",
+  "attempts": [
+    {
+      "status": 200,
+      "requestRoles": [
+        "system",
+        "user"
+      ],
+      "requestExtra": [],
+      "raw": "{\"date\":\"2026-11-16\",\"dayType\":\"relaxed\",\"message\":\"昨天排得太满、下午就没力气了，今天特意放轻一些，只留一件真正重要的事，把节奏还给自己。\",\"mainTask\":{\"id\":\"main-portfolio-case2-outline\",\"title\":\"写作品集第二个案例的提纲\",\"description\":\"先只做最轻的一步：把第二个案例的框架列出来——问题背景、你的角色、关键决策、结果，每部分写两三句要点即可，不必成文。\",\"durationMinutes\":70,\"reason\":\"这是昨天没完成、但仍在推进「3 个作品集案例」目标的关键一步；用更小的第一步重新接上，比从头硬推更容易启动。\"},\"sections\":{\"morning\":[{\"id\":\"move-morning-walk\",\"type\":\"move\",\"title\":\"出门散步 25 分钟\",\"description\":\"不带耳机，随便走走，让身体先醒过来。\",\"durationMinutes\":25}],\"afternoon\":[{\"id\":\"explore-structured-output\",\"type\":\"explore\",\"title\":\"看看结构化输出在小产品里的用法\",\"description\":\"花点时间浏览一个真实项目如何约束模型输出格式，记下一条对你自己产品有用的想法。\",\"durationMinutes\":30}],\"evening\":[{\"id\":\"enjoy-ocean-doc\",\"type\":\"enjoy\",\"title\":\"看一集海洋纪录片\",\"description\":\"纯粹为了好奇和放松，不用记笔记。\"}],\"night\":[{\"id\":\"read-history\",\"type\":\"read\",\"title\":\"读几页历史书\",\"description\":\"睡前轻松读一点，困了就停。\",\"durationMinutes\":20}]},\"minimumDay\":{\"message\":\"如果今天状态不好，就只做这三件小事，也算完整的一天。\",\"items\":[{\"id\":\"min-main-case2\",\"type\":\"main\",\"title\":\"写作品集第二个案例的提纲\",\"description\":\"只列四个小标题和每部分两句话，写完就收工。\",\"durationMinutes\":30},{\"id\":\"min-learn-structured-output\",\"type\":\"learn\",\"title\":\"了解结构化输出的一个要点\",\"description\":\"读一篇短文或一段文档，记下一条可用的想法。\",\"durationMinutes\":20},{\"id\":\"min-move-walk\",\"type\":\"move\",\"title\":\"轻松散步\",\"description\":\"下楼走一圈，呼吸一下新鲜空气。\",\"durationMinutes\":20}]}}",
+      "finishReason": "stop",
+      "usage": {
+        "prompt": 1028,
+        "completion": 488
+      },
+      "valid": true,
+      "measure": {
+        "mainMinutes": 70,
+        "supportCount": 4,
+        "mainInTier": true,
+        "supportInTier": true,
+        "minimumMainMinutes": 30,
+        "minimumMainIs30": true,
+        "clockHits": [],
+        "extraMains": 0,
+        "mainTitle": "写作品集第二个案例的提纲"
+      }
+    }
+  ],
+  "finalPlan": {
+    "date": "2026-11-16",
+    "dayType": "relaxed",
+    "message": "昨天排得太满、下午就没力气了，今天特意放轻一些，只留一件真正重要的事，把节奏还给自己。",
+    "mainTask": {
+      "id": "main-portfolio-case2-outline",
+      "type": "main",
+      "title": "写作品集第二个案例的提纲",
+      "description": "先只做最轻的一步：把第二个案例的框架列出来——问题背景、你的角色、关键决策、结果，每部分写两三句要点即可，不必成文。",
+      "durationMinutes": 70,
+      "reason": "这是昨天没完成、但仍在推进「3 个作品集案例」目标的关键一步；用更小的第一步重新接上，比从头硬推更容易启动。",
+      "completed": false
+    },
+    "sections": {
+      "morning": [
+        {
+          "id": "move-morning-walk",
+          "type": "move",
+          "title": "出门散步 25 分钟",
+          "description": "不带耳机，随便走走，让身体先醒过来。",
+          "durationMinutes": 25,
+          "completed": false
+        }
+      ],
+      "afternoon": [
+        {
+          "id": "explore-structured-output",
+          "type": "explore",
+          "title": "看看结构化输出在小产品里的用法",
+          "description": "花点时间浏览一个真实项目如何约束模型输出格式，记下一条对你自己产品有用的想法。",
+          "durationMinutes": 30,
+          "completed": false
+        }
+      ],
+      "evening": [
+        {
+          "id": "enjoy-ocean-doc",
+          "type": "enjoy",
+          "title": "看一集海洋纪录片",
+          "description": "纯粹为了好奇和放松，不用记笔记。",
+          "completed": false
+        }
+      ],
+      "night": [
+        {
+          "id": "read-history",
+          "type": "read",
+          "title": "读几页历史书",
+          "description": "睡前轻松读一点，困了就停。",
+          "durationMinutes": 20,
+          "completed": false
+        }
+      ]
+    },
+    "minimumDay": {
+      "message": "如果今天状态不好，就只做这三件小事，也算完整的一天。",
+      "items": [
+        {
+          "id": "min-main-case2",
+          "type": "main",
+          "title": "写作品集第二个案例的提纲",
+          "description": "只列四个小标题和每部分两句话，写完就收工。",
+          "durationMinutes": 30,
+          "completed": false
+        },
+        {
+          "id": "min-learn-structured-output",
+          "type": "learn",
+          "title": "了解结构化输出的一个要点",
+          "description": "读一篇短文或一段文档，记下一条可用的想法。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-move-walk",
+          "type": "move",
+          "title": "轻松散步",
+          "description": "下楼走一圈，呼吸一下新鲜空气。",
+          "durationMinutes": 20,
+          "completed": false
+        }
+      ]
+    },
+    "activeMode": "standard"
+  },
+  "finalMeasure": {
+    "mainMinutes": 70,
+    "supportCount": 4,
+    "mainInTier": true,
+    "supportInTier": true,
+    "minimumMainMinutes": 30,
+    "minimumMainIs30": true,
+    "clockHits": [],
+    "extraMains": 0,
+    "mainTitle": "写作品集第二个案例的提纲"
+  }
+}

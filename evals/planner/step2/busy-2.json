@@ -1,0 +1,130 @@
+{
+  "scenario": "busy",
+  "run": 2,
+  "ms": 3096,
+  "source": "ai",
+  "attempts": [
+    {
+      "status": 200,
+      "requestRoles": [
+        "system",
+        "user"
+      ],
+      "requestExtra": [],
+      "raw": "{\"date\":\"2026-11-16\",\"dayType\":\"productive\",\"message\":\"今天时间偏紧，但有明确的一件事值得投入；昨天作品集提纲没写完也没关系，我们从更小的一步重新接上。\",\"mainTask\":{\"id\":\"portfolio-case2-outline\",\"title\":\"写作品集第二个案例的小提纲\",\"description\":\"只列出三个小标题：问题背景、你的角色、一个关键决策。不用展开，写完就收工。\",\"durationMinutes\":45,\"reason\":\"昨天这项没完成，先做最小可行动的一步，让作品集重新动起来；也呼应你\\\"拿到产品相关工作\\\"的目标。\"},\"sections\":{\"morning\":[{\"id\":\"morning-move\",\"type\":\"move\",\"title\":\"出门散步十分钟\",\"description\":\"不带耳机，随便走走，让身体先醒过来。\",\"durationMinutes\":15}],\"afternoon\":[{\"id\":\"afternoon-explore\",\"type\":\"explore\",\"title\":\"看一个产品设计的优秀案例\",\"description\":\"挑一个你喜欢的 AI 产品界面，留意它怎么引导新用户。\",\"durationMinutes\":20}],\"evening\":[{\"id\":\"evening-enjoy\",\"type\":\"enjoy\",\"title\":\"随便看点海洋纪录片\",\"description\":\"纯放松，不用记笔记。\"}],\"night\":[{\"id\":\"night-read\",\"type\":\"read\",\"title\":\"读几页历史\",\"description\":\"睡前翻几页，困了就停。\",\"durationMinutes\":15}]},\"minimumDay\":{\"message\":\"如果今天实在累，只做这三件就够，别加码。\",\"items\":[{\"id\":\"min-main\",\"type\":\"main\",\"title\":\"写作品集案例二的一句话核心\",\"description\":\"用一句话说清这个案例解决了什么问题。\",\"durationMinutes\":30},{\"id\":\"min-explore\",\"type\":\"explore\",\"title\":\"翻一个产品案例\",\"description\":\"看一个界面，记下一个你觉得好的细节。\",\"durationMinutes\":20},{\"id\":\"min-move\",\"type\":\"move\",\"title\":\"室内拉伸\",\"description\":\"活动肩颈和腰背。\",\"durationMinutes\":20}]}}",
+      "finishReason": "stop",
+      "usage": {
+        "prompt": 943,
+        "completion": 429
+      },
+      "valid": true,
+      "measure": {
+        "mainMinutes": 45,
+        "supportCount": 4,
+        "mainInTier": true,
+        "supportInTier": true,
+        "minimumMainMinutes": 30,
+        "minimumMainIs30": true,
+        "clockHits": [],
+        "extraMains": 0,
+        "mainTitle": "写作品集第二个案例的小提纲"
+      }
+    }
+  ],
+  "finalPlan": {
+    "date": "2026-11-16",
+    "dayType": "productive",
+    "message": "今天时间偏紧，但有明确的一件事值得投入；昨天作品集提纲没写完也没关系，我们从更小的一步重新接上。",
+    "mainTask": {
+      "id": "portfolio-case2-outline",
+      "type": "main",
+      "title": "写作品集第二个案例的小提纲",
+      "description": "只列出三个小标题：问题背景、你的角色、一个关键决策。不用展开，写完就收工。",
+      "durationMinutes": 45,
+      "reason": "昨天这项没完成，先做最小可行动的一步，让作品集重新动起来；也呼应你\"拿到产品相关工作\"的目标。",
+      "completed": false
+    },
+    "sections": {
+      "morning": [
+        {
+          "id": "morning-move",
+          "type": "move",
+          "title": "出门散步十分钟",
+          "description": "不带耳机，随便走走，让身体先醒过来。",
+          "durationMinutes": 15,
+          "completed": false
+        }
+      ],
+      "afternoon": [
+        {
+          "id": "afternoon-explore",
+          "type": "explore",
+          "title": "看一个产品设计的优秀案例",
+          "description": "挑一个你喜欢的 AI 产品界面，留意它怎么引导新用户。",
+          "durationMinutes": 20,
+          "completed": false
+        }
+      ],
+      "evening": [
+        {
+          "id": "evening-enjoy",
+          "type": "enjoy",
+          "title": "随便看点海洋纪录片",
+          "description": "纯放松，不用记笔记。",
+          "completed": false
+        }
+      ],
+      "night": [
+        {
+          "id": "night-read",
+          "type": "read",
+          "title": "读几页历史",
+          "description": "睡前翻几页，困了就停。",
+          "durationMinutes": 15,
+          "completed": false
+        }
+      ]
+    },
+    "minimumDay": {
+      "message": "如果今天实在累，只做这三件就够，别加码。",
+      "items": [
+        {
+          "id": "min-main",
+          "type": "main",
+          "title": "写作品集案例二的一句话核心",
+          "description": "用一句话说清这个案例解决了什么问题。",
+          "durationMinutes": 30,
+          "completed": false
+        },
+        {
+          "id": "min-explore",
+          "type": "explore",
+          "title": "翻一个产品案例",
+          "description": "看一个界面，记下一个你觉得好的细节。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-move",
+          "type": "move",
+          "title": "室内拉伸",
+          "description": "活动肩颈和腰背。",
+          "durationMinutes": 20,
+          "completed": false
+        }
+      ]
+    },
+    "activeMode": "standard"
+  },
+  "finalMeasure": {
+    "mainMinutes": 45,
+    "supportCount": 4,
+    "mainInTier": true,
+    "supportInTier": true,
+    "minimumMainMinutes": 30,
+    "minimumMainIs30": true,
+    "clockHits": [],
+    "extraMains": 0,
+    "mainTitle": "写作品集第二个案例的小提纲"
+  }
+}

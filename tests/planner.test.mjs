@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { buildPlannerPrompt, fallbackPlan, generatePlannerDay, validatePlannerInput } from '../worker/planner.js';
-import { planItems, validateDailyPlan } from '../worker/planner-schema.js';
+import { loadTier, planItems, validateDailyPlan } from '../worker/planner-schema.js';
 import {
   orderedPlanSections, planProgress, setPlanMode, setPlanReview, togglePlanItem,
 } from '../src/planner-plan.js';
@@ -90,6 +90,76 @@ assert.ok(low.mainTask.durationMinutes <= 60);
 assert.equal(low.minimumDay.items.filter((item) => item.type === 'main').length, 1);
 assert.ok(planItems(low).length <= 5);
 
+// Load tiers: one source for the prompt, the validator, and the fallback.
+const lightDay = { energy: 'low', availableTime: 'half_day' };
+const busyDay = { energy: 'high', availableTime: 'busy' };
+const balancedDay = { energy: 'normal', availableTime: 'mostly_free' };
+const fullDay = { energy: 'high', availableTime: 'mostly_free' };
+assert.equal(loadTier(lightDay).name, 'LIGHT');
+assert.equal(loadTier(busyDay).name, 'LIGHT');
+assert.equal(loadTier(balancedDay).name, 'BALANCED');
+assert.equal(loadTier(fullDay).name, 'FULL');
+assert.equal(loadTier({ ...balancedDay, reason: 'too_much' }).name, 'LIGHT');
+assert.equal(loadTier({ ...balancedDay, reason: 'less_time' }).name, 'LIGHT');
+assert.equal(loadTier({ ...balancedDay, reason: 'too_easy' }).name, 'FULL');
+assert.equal(loadTier({ ...balancedDay, reason: 'more_time' }).name, 'FULL');
+assert.equal(loadTier({ ...balancedDay, reason: 'change_focus' }).name, 'BALANCED');
+assert.equal(loadTier({ ...lightDay, reason: 'too_much' }).name, 'LIGHT');
+assert.equal(loadTier({ ...fullDay, reason: 'more_time' }).name, 'FULL');
+
+const supportPool = ['explore', 'learn', 'move', 'read', 'enjoy', 'explore', 'learn'];
+const tierPayload = (mainMinutes, supportCount, minimumMainMinutes = 30) => ({
+  date,
+  dayType: 'balanced',
+  message: 'A day sized to the check-in.',
+  mainTask: { id: 'tier-main', title: 'One meaningful thing', durationMinutes: mainMinutes },
+  sections: {
+    morning: supportPool.slice(0, supportCount).map((type, index) => ({ id: `tier-${index}`, type, title: `Item ${index}`, durationMinutes: 20 })),
+    afternoon: [], evening: [], night: [],
+  },
+  minimumDay: {
+    items: [
+      { id: 'tier-min-main', type: 'main', title: 'A small slice', durationMinutes: minimumMainMinutes },
+      { id: 'tier-min-learn', type: 'learn', title: 'Read one example', durationMinutes: 20 },
+      { id: 'tier-min-move', type: 'move', title: 'Walk', durationMinutes: 20 },
+    ],
+  },
+});
+assert.equal(validateDailyPlan(tierPayload(30, 2), date, lightDay).mainTask.durationMinutes, 30);
+assert.equal(validateDailyPlan(tierPayload(60, 4), date, busyDay).mainTask.durationMinutes, 60);
+assert.equal(validateDailyPlan(tierPayload(75, 5), date, balancedDay).mainTask.durationMinutes, 75);
+assert.equal(validateDailyPlan(tierPayload(120, 6), date, fullDay).mainTask.durationMinutes, 120);
+assert.throws(() => validateDailyPlan(tierPayload(90, 3), date, busyDay), /mainTask\.durationMinutes must be 30-60 on a LIGHT day \(got 90\)/);
+assert.throws(() => validateDailyPlan(tierPayload(45, 3), date, balancedDay), /must be 60-90 on a BALANCED day \(got 45\)/);
+assert.throws(() => validateDailyPlan(tierPayload(45, 5), date, lightDay), /2-4 supporting items in total on a LIGHT day \(got 5\)/);
+assert.throws(() => validateDailyPlan(tierPayload(75, 2), date, balancedDay), /3-5 supporting items in total on a BALANCED day \(got 2\)/);
+assert.throws(() => validateDailyPlan(tierPayload(100, 7), date, fullDay), /3-6 supporting items in total on a FULL day \(got 7\)/);
+assert.throws(() => validateDailyPlan(tierPayload(75, 4, 45), date, balancedDay), /minimumDay main item must be exactly 30 minutes \(got 45\)/);
+assert.throws(
+  () => validateDailyPlan(tierPayload(90, 5, 45), date, busyDay),
+  /got 90\); sections must contain 2-4 supporting items in total on a LIGHT day \(got 5\); minimumDay main item must be exactly 30 minutes \(got 45\)/,
+);
+// A replan that asks for less is judged against the lighter tier.
+assert.equal(validateDailyPlan(tierPayload(45, 3), date, { ...balancedDay, reason: 'too_much' }).mainTask.durationMinutes, 45);
+assert.throws(() => validateDailyPlan(tierPayload(75, 4), date, { ...balancedDay, reason: 'too_much' }), /on a LIGHT day/);
+assert.equal(validateDailyPlan(tierPayload(100, 6), date, { ...balancedDay, reason: 'more_time' }).mainTask.durationMinutes, 100);
+// Without a check-in only the structural rules apply, as before.
+assert.equal(validateDailyPlan(tierPayload(200, 7, 45), date).mainTask.durationMinutes, 200);
+
+assert.match(buildPlannerPrompt({ input: { ...input, ...busyDay }, context: { profile, product: {}, recent: [] } }), /LIGHT: main 30-60 min and 2-4 supporting items/);
+assert.match(buildPlannerPrompt({ input: { ...input, ...fullDay }, context: { profile, product: {}, recent: [] } }), /FULL BUT HUMANE: main 90-120 min and 3-6 supporting items/);
+assert.match(buildPlannerPrompt({ input: { ...input, reason: 'too_much' }, context: { profile, product: {}, recent: [] }, previousPlan: valid }), /LIGHT: main 30-60 min/);
+
+for (const lang of ['zh', 'en']) {
+  for (const checkin of [lightDay, busyDay, balancedDay, fullDay, { ...balancedDay, reason: 'too_much' }, { ...balancedDay, reason: 'too_easy' }]) {
+    const tier = loadTier(checkin);
+    const plan = fallbackPlan({ ...input, ...checkin, lang }, profile);
+    assert.ok(plan.mainTask.durationMinutes >= tier.mainMin && plan.mainTask.durationMinutes <= tier.mainMax);
+    assert.ok(planItems(plan).length - 1 >= tier.supportMin && planItems(plan).length - 1 <= tier.supportMax);
+    assert.equal(plan.minimumDay.items.find((value) => value.type === 'main').durationMinutes, 30);
+  }
+}
+
 const originalFetch = globalThis.fetch;
 const aiPayload = {
   date,
@@ -163,7 +233,7 @@ globalThis.fetch = async (url, options = {}) => {
     const body = JSON.parse(options.body);
     return Response.json([{ id: 'plan-v2', ...body }]);
   }
-  if (target.includes('api.deepseek.com')) return Response.json({ choices: [{ message: { content: JSON.stringify({ ...aiPayload, mainTask: { ...aiPayload.mainTask, title: 'Ship a smaller complete slice' } }) } }] });
+  if (target.includes('api.deepseek.com')) return Response.json({ choices: [{ message: { content: JSON.stringify({ ...aiPayload, mainTask: { ...aiPayload.mainTask, title: 'Ship a smaller complete slice', durationMinutes: 45 } }) } }] });
   throw new Error(`Unexpected URL ${target}`);
 };
 const replanned = await generatePlannerDay({
@@ -241,6 +311,17 @@ const repairedEmpty = await generatePlannerDay(plannerEnv, 'user-token', 'user-1
 assert.equal(repairedEmpty.source, 'ai');
 assert.deepEqual(repairRequests[1].map((message) => message.role), ['system', 'user']);
 assert.match(repairRequests[1][1].content, /rejected by validation: Model returned empty content/);
+
+// A reply outside the load tier is rejected and the retry is told the expected range.
+repairRequests.length = 0;
+globalThis.fetch = repairFetch([
+  JSON.stringify({ ...aiPayload, mainTask: { ...aiPayload.mainTask, durationMinutes: 90 } }),
+  JSON.stringify({ ...aiPayload, mainTask: { ...aiPayload.mainTask, durationMinutes: 45 } }),
+]);
+const tierRepaired = await generatePlannerDay(plannerEnv, 'user-token', 'user-1', { ...input, availableTime: 'busy' });
+assert.equal(tierRepaired.source, 'ai');
+assert.equal(tierRepaired.row.plan_json.mainTask.durationMinutes, 45);
+assert.match(repairRequests[1][3].content, /must be 30-60 on a LIGHT day \(got 90\)/);
 
 globalThis.fetch = originalFetch;
 

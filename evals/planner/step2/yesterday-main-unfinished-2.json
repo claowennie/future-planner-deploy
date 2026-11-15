@@ -1,0 +1,129 @@
+{
+  "scenario": "yesterday-main-unfinished",
+  "run": 2,
+  "ms": 3506,
+  "source": "ai",
+  "attempts": [
+    {
+      "status": 200,
+      "requestRoles": [
+        "system",
+        "user"
+      ],
+      "requestExtra": [],
+      "raw": "{\n  \"date\": \"2026-11-16\",\n  \"dayType\": \"balanced\",\n  \"message\": \"昨天案例初稿没写完，今天先只搭一个更小的骨架，留出半天轻松地过。\",\n  \"mainTask\": {\n    \"id\": \"portfolio-case2-outline-step1\",\n    \"title\": \"搭出作品集第二个案例的骨架\",\n    \"description\": \"只做提纲层面的工作：列出问题背景、你的角色、三个关键决策和结果，每部分写 3-4 条要点，不写正文。\",\n    \"durationMinutes\": 75,\n    \"reason\": \"昨天初稿未完成，今天把第一步缩小到提纲，降低启动阻力，同时继续推进作品集目标。\"\n  },\n  \"sections\": {\n    \"morning\": [\n      {\n        \"id\": \"move-morning-walk\",\n        \"type\": \"move\",\n        \"title\": \"出门散步 25 分钟\",\n        \"description\": \"不带耳机，随便走走，让脑子先醒过来。\",\n        \"durationMinutes\": 25\n      }\n    ],\n    \"afternoon\": [\n      {\n        \"id\": \"explore-ocean-currents\",\n        \"type\": \"explore\",\n        \"title\": \"了解海洋环流如何影响气候\",\n        \"description\": \"找一篇科普或纪录片片段，弄懂大洋传送带的基本原理。\",\n        \"durationMinutes\": 25\n      }\n    ],\n    \"evening\": [\n      {\n        \"id\": \"read-history\",\n        \"type\": \"read\",\n        \"title\": \"读几页历史书\",\n        \"description\": \"继续手边那本，读多少算多少。\",\n        \"durationMinutes\": 20\n      },\n      {\n        \"id\": \"enjoy-evening\",\n        \"type\": \"enjoy\",\n        \"title\": \"看一集喜欢的剧或听音乐\",\n        \"description\": \"纯放松，不需要有任何产出。\"\n      }\n    ],\n    \"night\": []\n  },\n  \"minimumDay\": {\n    \"message\": \"如果今天状态不好，就只做这个最小版本，也算完成了有意义的一天。\",\n    \"items\": [\n      {\n        \"id\": \"min-main-outline\",\n        \"type\": \"main\",\n        \"title\": \"写作品集案例二的 3 条提纲\",\n        \"description\": \"只写三条要点，不展开。\",\n        \"durationMinutes\": 30\n      },\n      {\n        \"id\": \"min-learn-ai-product\",\n        \"type\": \"learn\",\n        \"title\": \"看一篇 AI 产品设计短文\",\n        \"description\": \"挑一篇感兴趣的读，记一个收获即可。\",\n        \"durationMinutes\": 20\n      },\n      {\n        \"id\": \"min-move-stretch\",\n        \"type\": \"move\",\n        \"title\": \"拉伸或散步 20 分钟\",\n        \"description\": \"活动一下身体，不追求强度。\",\n        \"durationMinutes\": 20\n      }\n    ]\n  }\n}",
+      "finishReason": "stop",
+      "usage": {
+        "prompt": 1004,
+        "completion": 644
+      },
+      "valid": true,
+      "measure": {
+        "mainMinutes": 75,
+        "supportCount": 4,
+        "mainInTier": true,
+        "supportInTier": true,
+        "minimumMainMinutes": 30,
+        "minimumMainIs30": true,
+        "clockHits": [],
+        "extraMains": 0,
+        "mainTitle": "搭出作品集第二个案例的骨架"
+      }
+    }
+  ],
+  "finalPlan": {
+    "date": "2026-11-16",
+    "dayType": "balanced",
+    "message": "昨天案例初稿没写完，今天先只搭一个更小的骨架，留出半天轻松地过。",
+    "mainTask": {
+      "id": "portfolio-case2-outline-step1",
+      "type": "main",
+      "title": "搭出作品集第二个案例的骨架",
+      "description": "只做提纲层面的工作：列出问题背景、你的角色、三个关键决策和结果，每部分写 3-4 条要点，不写正文。",
+      "durationMinutes": 75,
+      "reason": "昨天初稿未完成，今天把第一步缩小到提纲，降低启动阻力，同时继续推进作品集目标。",
+      "completed": false
+    },
+    "sections": {
+      "morning": [
+        {
+          "id": "move-morning-walk",
+          "type": "move",
+          "title": "出门散步 25 分钟",
+          "description": "不带耳机，随便走走，让脑子先醒过来。",
+          "durationMinutes": 25,
+          "completed": false
+        }
+      ],
+      "afternoon": [
+        {
+          "id": "explore-ocean-currents",
+          "type": "explore",
+          "title": "了解海洋环流如何影响气候",
+          "description": "找一篇科普或纪录片片段，弄懂大洋传送带的基本原理。",
+          "durationMinutes": 25,
+          "completed": false
+        }
+      ],
+      "evening": [
+        {
+          "id": "read-history",
+          "type": "read",
+          "title": "读几页历史书",
+          "description": "继续手边那本，读多少算多少。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "enjoy-evening",
+          "type": "enjoy",
+          "title": "看一集喜欢的剧或听音乐",
+          "description": "纯放松，不需要有任何产出。",
+          "completed": false
+        }
+      ],
+      "night": []
+    },
+    "minimumDay": {
+      "message": "如果今天状态不好，就只做这个最小版本，也算完成了有意义的一天。",
+      "items": [
+        {
+          "id": "min-main-outline",
+          "type": "main",
+          "title": "写作品集案例二的 3 条提纲",
+          "description": "只写三条要点，不展开。",
+          "durationMinutes": 30,
+          "completed": false
+        },
+        {
+          "id": "min-learn-ai-product",
+          "type": "learn",
+          "title": "看一篇 AI 产品设计短文",
+          "description": "挑一篇感兴趣的读，记一个收获即可。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-move-stretch",
+          "type": "move",
+          "title": "拉伸或散步 20 分钟",
+          "description": "活动一下身体，不追求强度。",
+          "durationMinutes": 20,
+          "completed": false
+        }
+      ]
+    },
+    "activeMode": "standard"
+  },
+  "finalMeasure": {
+    "mainMinutes": 75,
+    "supportCount": 4,
+    "mainInTier": true,
+    "supportInTier": true,
+    "minimumMainMinutes": 30,
+    "minimumMainIs30": true,
+    "clockHits": [],
+    "extraMains": 0,
+    "mainTitle": "搭出作品集第二个案例的骨架"
+  }
+}

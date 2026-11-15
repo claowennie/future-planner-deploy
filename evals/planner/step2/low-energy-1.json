@@ -1,0 +1,138 @@
+{
+  "scenario": "low-energy",
+  "run": 1,
+  "ms": 3219,
+  "source": "ai",
+  "attempts": [
+    {
+      "status": 200,
+      "requestRoles": [
+        "system",
+        "user"
+      ],
+      "requestExtra": [],
+      "raw": "{\"date\":\"2026-11-16\",\"dayType\":\"relaxed\",\"message\":\"今天能量偏低，就给自己一个轻一点的日子吧。昨天作品集提纲没写完也没关系，今天只做一个小小的开头就够了。\",\"mainTask\":{\"id\":\"portfolio-case2-outline-small\",\"title\":\"给作品集第二个案例写一个开头\",\"description\":\"只写三句话：这个项目解决什么问题、你做了什么、结果如何。写完就算完成，不必展开。\",\"durationMinutes\":40,\"reason\":\"延续昨天未完成的作品集提纲，但把第一步缩小到几乎无压力，适合低能量的一天。\"},\"sections\":{\"morning\":[{\"id\":\"morning-walk\",\"type\":\"move\",\"title\":\"小区慢走一圈\",\"description\":\"不带耳机，随便走走，看看天气和树。\",\"durationMinutes\":20}],\"afternoon\":[{\"id\":\"explore-ocean-tech\",\"type\":\"explore\",\"title\":\"随便看看海洋科技的新鲜事\",\"description\":\"找一篇关于海洋观测或深海探索的短文或视频，纯好奇，不做笔记。\",\"durationMinutes\":25}],\"evening\":[{\"id\":\"read-history\",\"type\":\"read\",\"title\":\"读几页历史书\",\"description\":\"翻到哪读到哪，困了就停。\",\"durationMinutes\":20}],\"night\":[{\"id\":\"enjoy-something\",\"type\":\"enjoy\",\"title\":\"看点什么放松一下\",\"description\":\"随便挑个喜欢的纪录片或剧集，不设目标。\"}]},\"minimumDay\":{\"message\":\"如果今天只想完成最低限度，就做这几件小事。\",\"items\":[{\"id\":\"min-main\",\"type\":\"main\",\"title\":\"写作品集案例二的三句话开头\",\"description\":\"只写三句话，写完就收工。\",\"durationMinutes\":30},{\"id\":\"min-explore\",\"type\":\"explore\",\"title\":\"看一篇海洋科技短文\",\"description\":\"纯好奇地读，不要求产出。\",\"durationMinutes\":20},{\"id\":\"min-move\",\"type\":\"move\",\"title\":\"慢走一圈\",\"description\":\"出门走20分钟，随意就好。\",\"durationMinutes\":20},{\"id\":\"min-read\",\"type\":\"read\",\"title\":\"读几页历史书\",\"description\":\"读到想停就停。\",\"durationMinutes\":15}]}}",
+      "finishReason": "stop",
+      "usage": {
+        "prompt": 941,
+        "completion": 468
+      },
+      "valid": true,
+      "measure": {
+        "mainMinutes": 40,
+        "supportCount": 4,
+        "mainInTier": true,
+        "supportInTier": true,
+        "minimumMainMinutes": 30,
+        "minimumMainIs30": true,
+        "clockHits": [],
+        "extraMains": 0,
+        "mainTitle": "给作品集第二个案例写一个开头"
+      }
+    }
+  ],
+  "finalPlan": {
+    "date": "2026-11-16",
+    "dayType": "relaxed",
+    "message": "今天能量偏低，就给自己一个轻一点的日子吧。昨天作品集提纲没写完也没关系，今天只做一个小小的开头就够了。",
+    "mainTask": {
+      "id": "portfolio-case2-outline-small",
+      "type": "main",
+      "title": "给作品集第二个案例写一个开头",
+      "description": "只写三句话：这个项目解决什么问题、你做了什么、结果如何。写完就算完成，不必展开。",
+      "durationMinutes": 40,
+      "reason": "延续昨天未完成的作品集提纲，但把第一步缩小到几乎无压力，适合低能量的一天。",
+      "completed": false
+    },
+    "sections": {
+      "morning": [
+        {
+          "id": "morning-walk",
+          "type": "move",
+          "title": "小区慢走一圈",
+          "description": "不带耳机，随便走走，看看天气和树。",
+          "durationMinutes": 20,
+          "completed": false
+        }
+      ],
+      "afternoon": [
+        {
+          "id": "explore-ocean-tech",
+          "type": "explore",
+          "title": "随便看看海洋科技的新鲜事",
+          "description": "找一篇关于海洋观测或深海探索的短文或视频，纯好奇，不做笔记。",
+          "durationMinutes": 25,
+          "completed": false
+        }
+      ],
+      "evening": [
+        {
+          "id": "read-history",
+          "type": "read",
+          "title": "读几页历史书",
+          "description": "翻到哪读到哪，困了就停。",
+          "durationMinutes": 20,
+          "completed": false
+        }
+      ],
+      "night": [
+        {
+          "id": "enjoy-something",
+          "type": "enjoy",
+          "title": "看点什么放松一下",
+          "description": "随便挑个喜欢的纪录片或剧集，不设目标。",
+          "completed": false
+        }
+      ]
+    },
+    "minimumDay": {
+      "message": "如果今天只想完成最低限度，就做这几件小事。",
+      "items": [
+        {
+          "id": "min-main",
+          "type": "main",
+          "title": "写作品集案例二的三句话开头",
+          "description": "只写三句话，写完就收工。",
+          "durationMinutes": 30,
+          "completed": false
+        },
+        {
+          "id": "min-explore",
+          "type": "explore",
+          "title": "看一篇海洋科技短文",
+          "description": "纯好奇地读，不要求产出。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-move",
+          "type": "move",
+          "title": "慢走一圈",
+          "description": "出门走20分钟，随意就好。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-read",
+          "type": "read",
+          "title": "读几页历史书",
+          "description": "读到想停就停。",
+          "durationMinutes": 15,
+          "completed": false
+        }
+      ]
+    },
+    "activeMode": "standard"
+  },
+  "finalMeasure": {
+    "mainMinutes": 40,
+    "supportCount": 4,
+    "mainInTier": true,
+    "supportInTier": true,
+    "minimumMainMinutes": 30,
+    "minimumMainIs30": true,
+    "clockHits": [],
+    "extraMains": 0,
+    "mainTitle": "给作品集第二个案例写一个开头"
+  }
+}

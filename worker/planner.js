@@ -1,5 +1,5 @@
 import { normalizeModel } from './deepseek.js';
-import { parsePlannerJson, planItems, validateDailyPlan } from './planner-schema.js';
+import { loadTier, parsePlannerJson, planItems, validateDailyPlan } from './planner-schema.js';
 
 const DEEPSEEK_URL = 'https://api.deepseek.com/chat/completions';
 const ENERGY = new Set(['low', 'normal', 'high']);
@@ -175,11 +175,8 @@ async function loadContext(env, token, userId, date) {
 
 export function buildPlannerPrompt({ input, context, previousPlan = null }) {
   const outputLanguage = input.lang === 'en' ? 'English' : 'Simplified Chinese';
-  const load = input.energy === 'low' || input.availableTime === 'busy'
-    ? 'LIGHT: main 30-60 min and only 2-4 supporting items.'
-    : input.energy === 'high' && input.availableTime === 'mostly_free'
-      ? 'FULL BUT HUMANE: main 90-120 min and up to 5-6 supporting items.'
-      : 'BALANCED: main 60-90 min and 3-5 supporting items.';
+  const tier = loadTier(input);
+  const load = `${tier.label}: main ${tier.mainMin}-${tier.mainMax} min and ${tier.supportMin}-${tier.supportMax} supporting items across all dayparts. These are hard limits; output outside them is rejected.`;
   return `You are Future's personal daily planning engine.
 
 Your job is not to maximize tasks. Create one realistic, humane, personalized day that removes planning friction. Optimize for meaningful progress, sustainable energy, curiosity, health, enjoyment, and low planning friction.
@@ -278,8 +275,9 @@ export function fallbackPlan(input, profile = {}) {
   const zh = input.lang !== 'en';
   const focus = input.mustDo || cleanList(profile.priorities, 1)[0] || (zh ? '推进最重要的一件事' : 'Move one important thing forward');
   const interest = cleanList(profile.interests, 1)[0] || (zh ? '一个让你好奇的新主题' : 'a topic that makes you curious');
-  const light = input.energy === 'low' || input.availableTime === 'busy';
-  const mainMinutes = light ? 45 : (input.energy === 'high' && input.availableTime === 'mostly_free' ? 105 : 75);
+  const tier = loadTier(input);
+  const light = tier.name === 'LIGHT';
+  const mainMinutes = (tier.mainMin + tier.mainMax) / 2;
   const make = (type, title, durationMinutes, target) => ({ id: crypto.randomUUID(), type, title, durationMinutes, target, completed: false });
   return validateDailyPlan({
     date: input.date,
@@ -304,14 +302,14 @@ export function fallbackPlan(input, profile = {}) {
         make('read', zh ? '读 10 页' : 'Read 10 pages', 15, zh ? '10 页' : '10 pages'),
       ],
     },
-  }, input.date);
+  }, input.date, input);
 }
 
 export async function generateValidatedPlan(env, prompt, input, profile) {
   let repair = null;
   for (let attempt = 0; attempt < 2; attempt += 1) {
     const content = await requestPlannerCompletion(env, prompt, repair);
-    try { return { plan: validateDailyPlan(parsePlannerJson(content), input.date), source: 'ai' }; }
+    try { return { plan: validateDailyPlan(parsePlannerJson(content), input.date, input), source: 'ai' }; }
     catch (error) { repair = { error: error?.message, output: content }; }
   }
   return { plan: fallbackPlan(input, profile), source: 'fallback' };

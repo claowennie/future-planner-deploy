@@ -1,0 +1,146 @@
+{
+  "scenario": "yesterday-main-unfinished",
+  "run": 3,
+  "ms": 4242,
+  "source": "ai",
+  "attempts": [
+    {
+      "status": 200,
+      "requestRoles": [
+        "system",
+        "user"
+      ],
+      "requestExtra": [],
+      "raw": "{\n  \"date\": \"2026-11-16\",\n  \"dayType\": \"balanced\",\n  \"message\": \"昨天的主任务没写完也没关系，今天只有半天，我们把第二个案例的提纲先落下来，让作品集往前挪一小步。\",\n  \"mainTask\": {\n    \"id\": \"portfolio-case2-outline\",\n    \"title\": \"写完作品集第二个案例的提纲\",\n    \"description\": \"接着昨天的思路，先把案例二的结构列出：问题背景、你的角色、关键决策、结果与反思。只写提纲，不展开细节，写到能讲清故事线就停。\",\n    \"durationMinutes\": 75,\n    \"reason\": \"这是昨天未完成的主任务，缩小到提纲能降低启动门槛，同时直接推进作品集目标。\"\n  },\n  \"sections\": {\n    \"morning\": [\n      {\n        \"id\": \"morning-walk\",\n        \"type\": \"move\",\n        \"title\": \"出门散步\",\n        \"description\": \"不带耳机走一圈，让脑子先醒过来，顺便想想案例二里最想讲的那个决策。\",\n        \"durationMinutes\": 25\n      }\n    ],\n    \"afternoon\": [\n      {\n        \"id\": \"explore-tide\",\n        \"type\": \"explore\",\n        \"title\": \"看看潮汐预报是怎么算出来的\",\n        \"description\": \"找一篇科普或短视频，了解潮汐预测背后的调和分析方法，满足一下对海洋科学的好奇。\",\n        \"durationMinutes\": 25\n      },\n      {\n        \"id\": \"learn-planner-eval\",\n        \"type\": \"learn\",\n        \"title\": \"学一点规划器的评估方法\",\n        \"description\": \"读一篇关于 LLM 输出质量评估的文章，记下两三条可以用于规划器质量优化的做法。\",\n        \"durationMinutes\": 30\n      }\n    ],\n    \"evening\": [\n      {\n        \"id\": \"read-history\",\n        \"type\": \"read\",\n        \"title\": \"读几页历史书\",\n        \"description\": \"挑一本手边的历史书，轻松读一会儿，不设进度。\",\n        \"durationMinutes\": 20\n      }\n    ],\n    \"night\": [\n      {\n        \"id\": \"enjoy-music\",\n        \"type\": \"enjoy\",\n        \"title\": \"听喜欢的音乐放松\",\n        \"description\": \"睡前放点喜欢的歌或播客，什么都不用完成。\"\n      }\n    ]\n  },\n  \"minimumDay\": {\n    \"message\": \"如果今天状态不佳，只做这一小份也足够让一天有意义。\",\n    \"items\": [\n      {\n        \"id\": \"min-main-outline\",\n        \"type\": \"main\",\n        \"title\": \"列出案例二提纲的三个小标题\",\n        \"description\": \"只写三个小标题：背景、你的角色、结果。写完就停。\",\n        \"durationMinutes\": 30\n      },\n      {\n        \"id\": \"min-explore-tide\",\n        \"type\": \"explore\",\n        \"title\": \"看一段潮汐预测的科普\",\n        \"description\": \"随便看一段关于潮汐如何被预测的内容，保持好奇。\",\n        \"durationMinutes\": 20\n      },\n      {\n        \"id\": \"min-move-walk\",\n        \"type\": \"move\",\n        \"title\": \"短散步\",\n        \"description\": \"出门走一小圈，呼吸一下新鲜空气。\",\n        \"durationMinutes\": 20\n      },\n      {\n        \"id\": \"min-read-history\",\n        \"type\": \"read\",\n        \"title\": \"读两页历史书\",\n        \"description\": \"读两页就好，轻松为主。\",\n        \"durationMinutes\": 10\n      }\n    ]\n  }\n}",
+      "finishReason": "stop",
+      "usage": {
+        "prompt": 1004,
+        "completion": 799
+      },
+      "valid": true,
+      "measure": {
+        "mainMinutes": 75,
+        "supportCount": 5,
+        "mainInTier": true,
+        "supportInTier": true,
+        "minimumMainMinutes": 30,
+        "minimumMainIs30": true,
+        "clockHits": [],
+        "extraMains": 0,
+        "mainTitle": "写完作品集第二个案例的提纲"
+      }
+    }
+  ],
+  "finalPlan": {
+    "date": "2026-11-16",
+    "dayType": "balanced",
+    "message": "昨天的主任务没写完也没关系，今天只有半天，我们把第二个案例的提纲先落下来，让作品集往前挪一小步。",
+    "mainTask": {
+      "id": "portfolio-case2-outline",
+      "type": "main",
+      "title": "写完作品集第二个案例的提纲",
+      "description": "接着昨天的思路，先把案例二的结构列出：问题背景、你的角色、关键决策、结果与反思。只写提纲，不展开细节，写到能讲清故事线就停。",
+      "durationMinutes": 75,
+      "reason": "这是昨天未完成的主任务，缩小到提纲能降低启动门槛，同时直接推进作品集目标。",
+      "completed": false
+    },
+    "sections": {
+      "morning": [
+        {
+          "id": "morning-walk",
+          "type": "move",
+          "title": "出门散步",
+          "description": "不带耳机走一圈，让脑子先醒过来，顺便想想案例二里最想讲的那个决策。",
+          "durationMinutes": 25,
+          "completed": false
+        }
+      ],
+      "afternoon": [
+        {
+          "id": "explore-tide",
+          "type": "explore",
+          "title": "看看潮汐预报是怎么算出来的",
+          "description": "找一篇科普或短视频，了解潮汐预测背后的调和分析方法，满足一下对海洋科学的好奇。",
+          "durationMinutes": 25,
+          "completed": false
+        },
+        {
+          "id": "learn-planner-eval",
+          "type": "learn",
+          "title": "学一点规划器的评估方法",
+          "description": "读一篇关于 LLM 输出质量评估的文章，记下两三条可以用于规划器质量优化的做法。",
+          "durationMinutes": 30,
+          "completed": false
+        }
+      ],
+      "evening": [
+        {
+          "id": "read-history",
+          "type": "read",
+          "title": "读几页历史书",
+          "description": "挑一本手边的历史书，轻松读一会儿，不设进度。",
+          "durationMinutes": 20,
+          "completed": false
+        }
+      ],
+      "night": [
+        {
+          "id": "enjoy-music",
+          "type": "enjoy",
+          "title": "听喜欢的音乐放松",
+          "description": "睡前放点喜欢的歌或播客，什么都不用完成。",
+          "completed": false
+        }
+      ]
+    },
+    "minimumDay": {
+      "message": "如果今天状态不佳，只做这一小份也足够让一天有意义。",
+      "items": [
+        {
+          "id": "min-main-outline",
+          "type": "main",
+          "title": "列出案例二提纲的三个小标题",
+          "description": "只写三个小标题：背景、你的角色、结果。写完就停。",
+          "durationMinutes": 30,
+          "completed": false
+        },
+        {
+          "id": "min-explore-tide",
+          "type": "explore",
+          "title": "看一段潮汐预测的科普",
+          "description": "随便看一段关于潮汐如何被预测的内容，保持好奇。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-move-walk",
+          "type": "move",
+          "title": "短散步",
+          "description": "出门走一小圈，呼吸一下新鲜空气。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-read-history",
+          "type": "read",
+          "title": "读两页历史书",
+          "description": "读两页就好，轻松为主。",
+          "durationMinutes": 10,
+          "completed": false
+        }
+      ]
+    },
+    "activeMode": "standard"
+  },
+  "finalMeasure": {
+    "mainMinutes": 75,
+    "supportCount": 5,
+    "mainInTier": true,
+    "supportInTier": true,
+    "minimumMainMinutes": 30,
+    "minimumMainIs30": true,
+    "clockHits": [],
+    "extraMains": 0,
+    "mainTitle": "写完作品集第二个案例的提纲"
+  }
+}

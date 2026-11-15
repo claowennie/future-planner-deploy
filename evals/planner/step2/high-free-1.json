@@ -1,0 +1,145 @@
+{
+  "scenario": "high-free",
+  "run": 1,
+  "ms": 4115,
+  "source": "ai",
+  "attempts": [
+    {
+      "status": 200,
+      "requestRoles": [
+        "system",
+        "user"
+      ],
+      "requestExtra": [],
+      "raw": "{\n  \"date\": \"2026-11-16\",\n  \"dayType\": \"productive\",\n  \"message\": \"昨天作品集提纲没走完，今天精力不错，用一小步先接上它，剩下的时间留给真正重要的事。\",\n  \"mainTask\": {\n    \"id\": \"portfolio-case2-outline\",\n    \"title\": \"完成作品集第二个案例的提纲\",\n    \"description\": \"把案例二从零散想法整理成一页提纲：问题背景、你的角色、关键决策、结果与反思。不必写正文，先把结构钉住，写完读一遍确认逻辑顺。\",\n    \"durationMinutes\": 100,\n    \"reason\": \"这是求职作品集的关键一步，昨天没完成，今天精力高，适合用一个明确的小目标重新接上。\"\n  },\n  \"sections\": {\n    \"morning\": [\n      {\n        \"id\": \"morning-walk\",\n        \"type\": \"move\",\n        \"title\": \"出门散步，晒点太阳\",\n        \"description\": \"不带耳机走 20 分钟，让脑子先醒过来。\",\n        \"durationMinutes\": 20\n      },\n      {\n        \"id\": \"morning-explore\",\n        \"type\": \"explore\",\n        \"title\": \"逛一个 AI 产品案例\",\n        \"description\": \"挑一个你好奇的 AI 产品，看看它怎么处理新手引导和空状态，记两三个想法。\",\n        \"durationMinutes\": 25\n      }\n    ],\n    \"afternoon\": [\n      {\n        \"id\": \"afternoon-learn\",\n        \"type\": \"learn\",\n        \"title\": \"学一点规划器评测方法\",\n        \"description\": \"读一篇关于 LLM 输出质量评估的文章或文档，记下能用在规划器上的一个检查点。\",\n        \"durationMinutes\": 30\n      }\n    ],\n    \"evening\": [\n      {\n        \"id\": \"evening-read\",\n        \"type\": \"read\",\n        \"title\": \"读几页海洋或历史\",\n        \"description\": \"选一本轻松的，读 20 分钟就好，不追进度。\",\n        \"durationMinutes\": 20\n      },\n      {\n        \"id\": \"evening-enjoy\",\n        \"type\": \"enjoy\",\n        \"title\": \"自由放松时间\",\n        \"description\": \"做点纯粹让自己开心的事，不设目标。\"\n      }\n    ],\n    \"night\": []\n  },\n  \"minimumDay\": {\n    \"message\": \"如果今天状态掉下来，就只做这一小份，也算完整的一天。\",\n    \"items\": [\n      {\n        \"id\": \"min-main\",\n        \"type\": \"main\",\n        \"title\": \"写案例二提纲的第一段\",\n        \"description\": \"只写问题背景和你的角色，30 分钟，写完就停。\",\n        \"durationMinutes\": 30\n      },\n      {\n        \"id\": \"min-explore\",\n        \"type\": \"explore\",\n        \"title\": \"看一个 AI 产品的新手引导\",\n        \"description\": \"随便挑一个，记一个你喜欢的细节。\",\n        \"durationMinutes\": 20\n      },\n      {\n        \"id\": \"min-move\",\n        \"type\": \"move\",\n        \"title\": \"短散步\",\n        \"description\": \"出门走 20 分钟，呼吸一下。\",\n        \"durationMinutes\": 20\n      },\n      {\n        \"id\": \"min-read\",\n        \"type\": \"read\",\n        \"title\": \"读几页书\",\n        \"description\": \"读 10 分钟，随意就好。\",\n        \"durationMinutes\": 10\n      }\n    ]\n  }\n}",
+      "finishReason": "stop",
+      "usage": {
+        "prompt": 941,
+        "completion": 783
+      },
+      "valid": true,
+      "measure": {
+        "mainMinutes": 100,
+        "supportCount": 5,
+        "mainInTier": true,
+        "supportInTier": true,
+        "minimumMainMinutes": 30,
+        "minimumMainIs30": true,
+        "clockHits": [],
+        "extraMains": 0,
+        "mainTitle": "完成作品集第二个案例的提纲"
+      }
+    }
+  ],
+  "finalPlan": {
+    "date": "2026-11-16",
+    "dayType": "productive",
+    "message": "昨天作品集提纲没走完，今天精力不错，用一小步先接上它，剩下的时间留给真正重要的事。",
+    "mainTask": {
+      "id": "portfolio-case2-outline",
+      "type": "main",
+      "title": "完成作品集第二个案例的提纲",
+      "description": "把案例二从零散想法整理成一页提纲：问题背景、你的角色、关键决策、结果与反思。不必写正文，先把结构钉住，写完读一遍确认逻辑顺。",
+      "durationMinutes": 100,
+      "reason": "这是求职作品集的关键一步，昨天没完成，今天精力高，适合用一个明确的小目标重新接上。",
+      "completed": false
+    },
+    "sections": {
+      "morning": [
+        {
+          "id": "morning-walk",
+          "type": "move",
+          "title": "出门散步，晒点太阳",
+          "description": "不带耳机走 20 分钟，让脑子先醒过来。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "morning-explore",
+          "type": "explore",
+          "title": "逛一个 AI 产品案例",
+          "description": "挑一个你好奇的 AI 产品，看看它怎么处理新手引导和空状态，记两三个想法。",
+          "durationMinutes": 25,
+          "completed": false
+        }
+      ],
+      "afternoon": [
+        {
+          "id": "afternoon-learn",
+          "type": "learn",
+          "title": "学一点规划器评测方法",
+          "description": "读一篇关于 LLM 输出质量评估的文章或文档，记下能用在规划器上的一个检查点。",
+          "durationMinutes": 30,
+          "completed": false
+        }
+      ],
+      "evening": [
+        {
+          "id": "evening-read",
+          "type": "read",
+          "title": "读几页海洋或历史",
+          "description": "选一本轻松的，读 20 分钟就好，不追进度。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "evening-enjoy",
+          "type": "enjoy",
+          "title": "自由放松时间",
+          "description": "做点纯粹让自己开心的事，不设目标。",
+          "completed": false
+        }
+      ],
+      "night": []
+    },
+    "minimumDay": {
+      "message": "如果今天状态掉下来，就只做这一小份，也算完整的一天。",
+      "items": [
+        {
+          "id": "min-main",
+          "type": "main",
+          "title": "写案例二提纲的第一段",
+          "description": "只写问题背景和你的角色，30 分钟，写完就停。",
+          "durationMinutes": 30,
+          "completed": false
+        },
+        {
+          "id": "min-explore",
+          "type": "explore",
+          "title": "看一个 AI 产品的新手引导",
+          "description": "随便挑一个，记一个你喜欢的细节。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-move",
+          "type": "move",
+          "title": "短散步",
+          "description": "出门走 20 分钟，呼吸一下。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-read",
+          "type": "read",
+          "title": "读几页书",
+          "description": "读 10 分钟，随意就好。",
+          "durationMinutes": 10,
+          "completed": false
+        }
+      ]
+    },
+    "activeMode": "standard"
+  },
+  "finalMeasure": {
+    "mainMinutes": 100,
+    "supportCount": 5,
+    "mainInTier": true,
+    "supportInTier": true,
+    "minimumMainMinutes": 30,
+    "minimumMainIs30": true,
+    "clockHits": [],
+    "extraMains": 0,
+    "mainTitle": "完成作品集第二个案例的提纲"
+  }
+}

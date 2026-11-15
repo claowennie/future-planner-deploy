@@ -1,0 +1,137 @@
+{
+  "scenario": "yesterday-too-much",
+  "run": 3,
+  "ms": 3512,
+  "source": "ai",
+  "attempts": [
+    {
+      "status": 200,
+      "requestRoles": [
+        "system",
+        "user"
+      ],
+      "requestExtra": [],
+      "raw": "{\"date\":\"2026-11-16\",\"dayType\":\"relaxed\",\"message\":\"昨天安排得太满、下午就没力气了，今天我们把节奏放轻一点，只专注一件事就好。\",\"mainTask\":{\"id\":\"planner-quality-eval\",\"title\":\"推进规划器质量优化的一小步\",\"description\":\"先只做一件事：挑一个规划器质量优化的具体问题，写清楚它现在的表现和期望表现，并跑一次小范围评测看结果。不用一次做完，先拿到一个可对比的结果。\",\"durationMinutes\":70,\"reason\":\"昨天的主任务虽完成但整体过载，今天用更小的第一步继续推进 v2 目标，既保持进展又不透支。\"},\"sections\":{\"morning\":[{\"id\":\"morning-walk\",\"type\":\"move\",\"title\":\"早上出门散步\",\"description\":\"不带目标地走走，让身体先醒过来。\",\"durationMinutes\":25}],\"afternoon\":[{\"id\":\"explore-ocean\",\"type\":\"explore\",\"title\":\"看看海洋科学的新进展\",\"description\":\"随手读一篇关于海洋观测或深海探索的短文，纯好奇。\",\"durationMinutes\":20}],\"evening\":[{\"id\":\"read-history\",\"type\":\"read\",\"title\":\"读一点历史\",\"description\":\"翻几页历史相关的书，放松地读。\",\"durationMinutes\":25}],\"night\":[{\"id\":\"enjoy-music\",\"type\":\"enjoy\",\"title\":\"听点喜欢的音乐\",\"description\":\"什么都不用完成，单纯享受。\"}]},\"minimumDay\":{\"message\":\"如果今天状态不好，就只做这些，也完全够了。\",\"items\":[{\"id\":\"min-main\",\"type\":\"main\",\"title\":\"规划器质量优化：写下一个小问题\",\"description\":\"只挑一个问题，写清现状和期望，30 分钟即可。\",\"durationMinutes\":30},{\"id\":\"min-learn\",\"type\":\"learn\",\"title\":\"学一点结构化输出的小技巧\",\"description\":\"读一小段关于结构化输出的内容，记一句有用的话。\",\"durationMinutes\":20},{\"id\":\"min-move\",\"type\":\"move\",\"title\":\"短散步\",\"description\":\"出门走一走，活动一下身体。\",\"durationMinutes\":20},{\"id\":\"min-enjoy\",\"type\":\"enjoy\",\"title\":\"放松一下\",\"description\":\"做点让自己开心的小事。\"}]}}",
+      "finishReason": "stop",
+      "usage": {
+        "prompt": 1028,
+        "completion": 475
+      },
+      "valid": true,
+      "measure": {
+        "mainMinutes": 70,
+        "supportCount": 4,
+        "mainInTier": true,
+        "supportInTier": true,
+        "minimumMainMinutes": 30,
+        "minimumMainIs30": true,
+        "clockHits": [],
+        "extraMains": 0,
+        "mainTitle": "推进规划器质量优化的一小步"
+      }
+    }
+  ],
+  "finalPlan": {
+    "date": "2026-11-16",
+    "dayType": "relaxed",
+    "message": "昨天安排得太满、下午就没力气了，今天我们把节奏放轻一点，只专注一件事就好。",
+    "mainTask": {
+      "id": "planner-quality-eval",
+      "type": "main",
+      "title": "推进规划器质量优化的一小步",
+      "description": "先只做一件事：挑一个规划器质量优化的具体问题，写清楚它现在的表现和期望表现，并跑一次小范围评测看结果。不用一次做完，先拿到一个可对比的结果。",
+      "durationMinutes": 70,
+      "reason": "昨天的主任务虽完成但整体过载，今天用更小的第一步继续推进 v2 目标，既保持进展又不透支。",
+      "completed": false
+    },
+    "sections": {
+      "morning": [
+        {
+          "id": "morning-walk",
+          "type": "move",
+          "title": "早上出门散步",
+          "description": "不带目标地走走，让身体先醒过来。",
+          "durationMinutes": 25,
+          "completed": false
+        }
+      ],
+      "afternoon": [
+        {
+          "id": "explore-ocean",
+          "type": "explore",
+          "title": "看看海洋科学的新进展",
+          "description": "随手读一篇关于海洋观测或深海探索的短文，纯好奇。",
+          "durationMinutes": 20,
+          "completed": false
+        }
+      ],
+      "evening": [
+        {
+          "id": "read-history",
+          "type": "read",
+          "title": "读一点历史",
+          "description": "翻几页历史相关的书，放松地读。",
+          "durationMinutes": 25,
+          "completed": false
+        }
+      ],
+      "night": [
+        {
+          "id": "enjoy-music",
+          "type": "enjoy",
+          "title": "听点喜欢的音乐",
+          "description": "什么都不用完成，单纯享受。",
+          "completed": false
+        }
+      ]
+    },
+    "minimumDay": {
+      "message": "如果今天状态不好，就只做这些，也完全够了。",
+      "items": [
+        {
+          "id": "min-main",
+          "type": "main",
+          "title": "规划器质量优化：写下一个小问题",
+          "description": "只挑一个问题，写清现状和期望，30 分钟即可。",
+          "durationMinutes": 30,
+          "completed": false
+        },
+        {
+          "id": "min-learn",
+          "type": "learn",
+          "title": "学一点结构化输出的小技巧",
+          "description": "读一小段关于结构化输出的内容，记一句有用的话。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-move",
+          "type": "move",
+          "title": "短散步",
+          "description": "出门走一走，活动一下身体。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-enjoy",
+          "type": "enjoy",
+          "title": "放松一下",
+          "description": "做点让自己开心的小事。",
+          "completed": false
+        }
+      ]
+    },
+    "activeMode": "standard"
+  },
+  "finalMeasure": {
+    "mainMinutes": 70,
+    "supportCount": 4,
+    "mainInTier": true,
+    "supportInTier": true,
+    "minimumMainMinutes": 30,
+    "minimumMainIs30": true,
+    "clockHits": [],
+    "extraMains": 0,
+    "mainTitle": "推进规划器质量优化的一小步"
+  }
+}

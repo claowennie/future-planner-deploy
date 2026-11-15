@@ -1,0 +1,174 @@
+{
+  "scenario": "busy",
+  "run": 3,
+  "ms": 5935,
+  "source": "ai",
+  "attempts": [
+    {
+      "status": 200,
+      "requestRoles": [
+        "system",
+        "user"
+      ],
+      "requestExtra": [],
+      "raw": "{\"date\":\"2026-11-16\",\"dayType\":\"productive\",\"message\":\"今天时间紧、还有季度报告要交，我们把主任务放在报告上，其余都从轻安排；昨天没写完的作品集提纲不用急，先把今天过顺。\",\"mainTask\":{\"id\":\"quarterly-report\",\"title\":\"完成并提交季度报告\",\"description\":\"先花10分钟列出报告结构，再集中填核心数据与结论，最后通读一遍就提交，不追求完美排版。\",\"durationMinutes\":60,\"reason\":\"这是今天必须完成的硬性任务，先做完它，整天的压力就会明显下降。\"},\"sections\":{\"morning\":[{\"id\":\"morning-focus-note\",\"type\":\"learn\",\"title\":\"10分钟梳理报告要点\",\"description\":\"用一张便签写下报告的三段结构和已知数据，让下午动笔更顺。\",\"durationMinutes\":15}],\"afternoon\":[{\"id\":\"afternoon-move\",\"type\":\"move\",\"title\":\"楼下快走\",\"description\":\"交完报告后到楼下走一圈，换换脑子。\",\"durationMinutes\":20}],\"evening\":[{\"id\":\"evening-explore\",\"type\":\"explore\",\"title\":\"看一个海洋科学的短内容\",\"description\":\"随手看一篇关于深海探测的科普或短片，纯为好奇。\",\"durationMinutes\":20}],\"night\":[{\"id\":\"night-read\",\"type\":\"read\",\"title\":\"睡前读几页书\",\"description\":\"读历史或产品相关的书，读到困就停。\",\"durationMinutes\":20},{\"id\":\"night-enjoy\",\"type\":\"enjoy\",\"title\":\"自由放松时间\",\"description\":\"做点让自己舒服的事，不设目标。\"}]},\"minimumDay\":{\"message\":\"如果今天实在没精力，只做这几件小事，也算把一天过好了。\",\"items\":[{\"id\":\"min-main\",\"type\":\"main\",\"title\":\"写完并提交季度报告\",\"description\":\"只抓核心数据和结论，写完就交。\",\"durationMinutes\":30},{\"id\":\"min-learn\",\"type\":\"learn\",\"title\":\"列报告结构便签\",\"description\":\"写下三段结构，理清思路。\",\"durationMinutes\":20},{\"id\":\"min-move\",\"type\":\"move\",\"title\":\"短距离散步\",\"description\":\"出门走一走，呼吸一下。\",\"durationMinutes\":20},{\"id\":\"min-enjoy\",\"type\":\"enjoy\",\"title\":\"放松一下\",\"description\":\"看点什么或听点音乐，纯享受。\"}]}}",
+      "finishReason": "stop",
+      "usage": {
+        "prompt": 943,
+        "completion": 507
+      },
+      "valid": false,
+      "validationError": "sections must contain 2-4 supporting items in total on a LIGHT day (got 5)",
+      "measure": {
+        "mainMinutes": 60,
+        "supportCount": 5,
+        "mainInTier": true,
+        "supportInTier": false,
+        "minimumMainMinutes": 30,
+        "minimumMainIs30": true,
+        "clockHits": [],
+        "extraMains": 0,
+        "mainTitle": "完成并提交季度报告"
+      }
+    },
+    {
+      "status": 200,
+      "requestRoles": [
+        "system",
+        "user",
+        "assistant",
+        "user"
+      ],
+      "requestExtra": [
+        {
+          "role": "assistant",
+          "content": "{\"date\":\"2026-11-16\",\"dayType\":\"productive\",\"message\":\"今天时间紧、还有季度报告要交，我们把主任务放在报告上，其余都从轻安排；昨天没写完的作品集提纲不用急，先把今天过顺。\",\"mainTask\":{\"id\":\"quarterly-report\",\"title\":\"完成并提交季度报告\",\"description\":\"先花10分钟列出报告结构，再集中填核心数据与结论，最后通读一遍就提交，不追求完美排版。\",\"durationMinutes\":60,\"reason\":\"这是今天必须完成的硬性任务，先做完它，整天的压力就会明显下降。\"},\"sections\":{\"morning\":[{\"id\":\"morning-focus-note\",\"type\":\"learn\",\"title\":\"10分钟梳理报告要点\",\"description\":\"用一张便签写下报告的三段结构和已知数据，让下午动笔更顺。\",\"durationMinutes\":15}],\"afternoon\":[{\"id\":\"afternoon-move\",\"type\":\"move\",\"title\":\"楼下快走\",\"description\":\"交完报告后到楼下走一圈，换换脑子。\",\"durationMinutes\":20}],\"evening\":[{\"id\":\"evening-explore\",\"type\":\"explore\",\"title\":\"看一个海洋科学的短内容\",\"description\":\"随手看一篇关于深海探测的科普或短片，纯为好奇。\",\"durationMinutes\":20}],\"night\":[{\"id\":\"night-read\",\"type\":\"read\",\"title\":\"睡前读几页书\",\"description\":\"读历史或产品相关的书，读到困就停。\",\"durationMinutes\":20},{\"id\":\"night-enjoy\",\"type\":\"enjoy\",\"title\":\"自由放松时间\",\"description\":\"做点让自己舒服的事，不设目标。\"}]},\"minimumDay\":{\"message\":\"如果今天实在没精力，只做这几件小事，也算把一天过好了。\",\"items\":[{\"id\":\"min-main\",\"type\":\"main\",\"title\":\"写完并提交季度报告\",\"description\":\"只抓核心数据和结论，写完就交。\",\"durationMinutes\":30},{\"id\":\"min-learn\",\"type\":\"learn\",\"title\":\"列报告结构便签\",\"description\":\"写下三段结构，理清思路。\",\"durationMinutes\":20},{\"id\":\"min-move\",\"type\":\"move\",\"title\":\"短距离散步\",\"description\":\"出门走一走，呼吸一下。\",\"durationMinutes\":20},{\"id\":\"min-enjoy\",\"type\":\"enjoy\",\"title\":\"放松一下\",\"description\":\"看点什么或听点音乐，纯享受。\"}]}}"
+        },
+        {
+          "role": "user",
+          "content": "Your previous reply was rejected by validation: sections must contain 2-4 supporting items in total on a LIGHT day (got 5). Fix that problem and return the complete corrected JSON object. All earlier rules still apply."
+        }
+      ],
+      "raw": "{\"date\":\"2026-11-16\",\"dayType\":\"productive\",\"message\":\"今天时间紧、还有季度报告要交，我们把主任务放在报告上，其余都从轻安排；昨天没写完的作品集提纲不用急，先把今天过顺。\",\"mainTask\":{\"id\":\"quarterly-report\",\"title\":\"完成并提交季度报告\",\"description\":\"先花10分钟列出报告结构，再集中填核心数据与结论，最后通读一遍就提交，不追求完美排版。\",\"durationMinutes\":60,\"reason\":\"这是今天必须完成的硬性任务，先做完它，整天的压力就会明显下降。\"},\"sections\":{\"morning\":[],\"afternoon\":[{\"id\":\"afternoon-move\",\"type\":\"move\",\"title\":\"楼下快走\",\"description\":\"交完报告后到楼下走一圈，换换脑子。\",\"durationMinutes\":20}],\"evening\":[{\"id\":\"evening-explore\",\"type\":\"explore\",\"title\":\"看一个海洋科学的短内容\",\"description\":\"随手看一篇关于深海探测的科普或短片，纯为好奇。\",\"durationMinutes\":20}],\"night\":[{\"id\":\"night-read\",\"type\":\"read\",\"title\":\"睡前读几页书\",\"description\":\"读历史或产品相关的书，读到困就停。\",\"durationMinutes\":20},{\"id\":\"night-enjoy\",\"type\":\"enjoy\",\"title\":\"自由放松时间\",\"description\":\"做点让自己舒服的事，不设目标。\"}]},\"minimumDay\":{\"message\":\"如果今天实在没精力，只做这几件小事，也算把一天过好了。\",\"items\":[{\"id\":\"min-main\",\"type\":\"main\",\"title\":\"写完并提交季度报告\",\"description\":\"只抓核心数据和结论，写完就交。\",\"durationMinutes\":30},{\"id\":\"min-learn\",\"type\":\"learn\",\"title\":\"列报告结构便签\",\"description\":\"写下三段结构，理清思路。\",\"durationMinutes\":20},{\"id\":\"min-move\",\"type\":\"move\",\"title\":\"短距离散步\",\"description\":\"出门走一走，呼吸一下。\",\"durationMinutes\":20},{\"id\":\"min-enjoy\",\"type\":\"enjoy\",\"title\":\"放松一下\",\"description\":\"看点什么或听点音乐，纯享受。\"}]}}",
+      "finishReason": "stop",
+      "usage": {
+        "prompt": 1500,
+        "completion": 459
+      },
+      "valid": true,
+      "measure": {
+        "mainMinutes": 60,
+        "supportCount": 4,
+        "mainInTier": true,
+        "supportInTier": true,
+        "minimumMainMinutes": 30,
+        "minimumMainIs30": true,
+        "clockHits": [],
+        "extraMains": 0,
+        "mainTitle": "完成并提交季度报告"
+      }
+    }
+  ],
+  "finalPlan": {
+    "date": "2026-11-16",
+    "dayType": "productive",
+    "message": "今天时间紧、还有季度报告要交，我们把主任务放在报告上，其余都从轻安排；昨天没写完的作品集提纲不用急，先把今天过顺。",
+    "mainTask": {
+      "id": "quarterly-report",
+      "type": "main",
+      "title": "完成并提交季度报告",
+      "description": "先花10分钟列出报告结构，再集中填核心数据与结论，最后通读一遍就提交，不追求完美排版。",
+      "durationMinutes": 60,
+      "reason": "这是今天必须完成的硬性任务，先做完它，整天的压力就会明显下降。",
+      "completed": false
+    },
+    "sections": {
+      "morning": [],
+      "afternoon": [
+        {
+          "id": "afternoon-move",
+          "type": "move",
+          "title": "楼下快走",
+          "description": "交完报告后到楼下走一圈，换换脑子。",
+          "durationMinutes": 20,
+          "completed": false
+        }
+      ],
+      "evening": [
+        {
+          "id": "evening-explore",
+          "type": "explore",
+          "title": "看一个海洋科学的短内容",
+          "description": "随手看一篇关于深海探测的科普或短片，纯为好奇。",
+          "durationMinutes": 20,
+          "completed": false
+        }
+      ],
+      "night": [
+        {
+          "id": "night-read",
+          "type": "read",
+          "title": "睡前读几页书",
+          "description": "读历史或产品相关的书，读到困就停。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "night-enjoy",
+          "type": "enjoy",
+          "title": "自由放松时间",
+          "description": "做点让自己舒服的事，不设目标。",
+          "completed": false
+        }
+      ]
+    },
+    "minimumDay": {
+      "message": "如果今天实在没精力，只做这几件小事，也算把一天过好了。",
+      "items": [
+        {
+          "id": "min-main",
+          "type": "main",
+          "title": "写完并提交季度报告",
+          "description": "只抓核心数据和结论，写完就交。",
+          "durationMinutes": 30,
+          "completed": false
+        },
+        {
+          "id": "min-learn",
+          "type": "learn",
+          "title": "列报告结构便签",
+          "description": "写下三段结构，理清思路。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-move",
+          "type": "move",
+          "title": "短距离散步",
+          "description": "出门走一走，呼吸一下。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-enjoy",
+          "type": "enjoy",
+          "title": "放松一下",
+          "description": "看点什么或听点音乐，纯享受。",
+          "completed": false
+        }
+      ]
+    },
+    "activeMode": "standard"
+  },
+  "finalMeasure": {
+    "mainMinutes": 60,
+    "supportCount": 4,
+    "mainInTier": true,
+    "supportInTier": true,
+    "minimumMainMinutes": 30,
+    "minimumMainIs30": true,
+    "clockHits": [],
+    "extraMains": 0,
+    "mainTitle": "完成并提交季度报告"
+  }
+}

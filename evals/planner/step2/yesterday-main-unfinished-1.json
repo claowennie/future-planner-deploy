@@ -1,0 +1,144 @@
+{
+  "scenario": "yesterday-main-unfinished",
+  "run": 1,
+  "ms": 4131,
+  "source": "ai",
+  "attempts": [
+    {
+      "status": 200,
+      "requestRoles": [
+        "system",
+        "user"
+      ],
+      "requestExtra": [],
+      "raw": "{\n  \"date\": \"2026-11-16\",\n  \"dayType\": \"balanced\",\n  \"message\": \"昨天作品集初稿没完成，今天先写提纲就好；半天时间，留点空白给自己。\",\n  \"mainTask\": {\n    \"id\": \"portfolio-case2-outline\",\n    \"title\": \"写出作品集第二个案例的提纲\",\n    \"description\": \"先不写全文，只列出案例的背景、问题、你的角色、关键决策和结果五个部分，每部分写 2-3 条要点即可。完成提纲就算成功。\",\n    \"durationMinutes\": 70,\n    \"reason\": \"昨天没完成初稿，今天把门槛降到提纲，更容易启动并积累进度；这也是作品集目标的关键一步。\"\n  },\n  \"sections\": {\n    \"morning\": [\n      {\n        \"id\": \"move-morning-walk\",\n        \"type\": \"move\",\n        \"title\": \"晨间散步\",\n        \"description\": \"出门走一圈，不戴耳机，让脑子先醒过来。\",\n        \"durationMinutes\": 20\n      }\n    ],\n    \"afternoon\": [\n      {\n        \"id\": \"explore-tide-pools\",\n        \"type\": \"explore\",\n        \"title\": \"探索潮间带的生物\",\n        \"description\": \"看一段关于潮间带生态的短视频或图文，了解一种你之前没注意过的生物。\",\n        \"durationMinutes\": 25\n      },\n      {\n        \"id\": \"learn-ai-eval\",\n        \"type\": \"learn\",\n        \"title\": \"学习 AI 产品评估方法\",\n        \"description\": \"读一篇关于如何评估 AI 功能质量的短文，记下一条可以用于自己规划器的思路。\",\n        \"durationMinutes\": 30\n      }\n    ],\n    \"evening\": [\n      {\n        \"id\": \"read-history\",\n        \"type\": \"read\",\n        \"title\": \"读几页历史书\",\n        \"description\": \"随便翻几页，不设目标，读到不想读为止。\",\n        \"durationMinutes\": 20\n      },\n      {\n        \"id\": \"enjoy-free\",\n        \"type\": \"enjoy\",\n        \"title\": \"自由放松时间\",\n        \"description\": \"做点纯粹让自己开心的事，不需要产出。\"\n      }\n    ],\n    \"night\": []\n  },\n  \"minimumDay\": {\n    \"message\": \"如果今天状态不好，只做最小版本也算完整的一天。\",\n    \"items\": [\n      {\n        \"id\": \"min-main-outline\",\n        \"type\": \"main\",\n        \"title\": \"写作品集案例提纲的一小部分\",\n        \"description\": \"只写背景和问题两部分，每部分 2 条要点。\",\n        \"durationMinutes\": 30\n      },\n      {\n        \"id\": \"min-explore-tide\",\n        \"type\": \"explore\",\n        \"title\": \"看一个潮间带生物小知识\",\n        \"description\": \"花 20 分钟了解一种潮间带生物。\",\n        \"durationMinutes\": 20\n      },\n      {\n        \"id\": \"min-move-walk\",\n        \"type\": \"move\",\n        \"title\": \"短散步\",\n        \"description\": \"出门走 20 分钟，呼吸一下新鲜空气。\",\n        \"durationMinutes\": 20\n      },\n      {\n        \"id\": \"min-enjoy\",\n        \"type\": \"enjoy\",\n        \"title\": \"听一首喜欢的歌\",\n        \"description\": \"完全放空，享受几分钟。\"\n      }\n    ]\n  }\n}",
+      "finishReason": "stop",
+      "usage": {
+        "prompt": 1004,
+        "completion": 766
+      },
+      "valid": true,
+      "measure": {
+        "mainMinutes": 70,
+        "supportCount": 5,
+        "mainInTier": true,
+        "supportInTier": true,
+        "minimumMainMinutes": 30,
+        "minimumMainIs30": true,
+        "clockHits": [],
+        "extraMains": 0,
+        "mainTitle": "写出作品集第二个案例的提纲"
+      }
+    }
+  ],
+  "finalPlan": {
+    "date": "2026-11-16",
+    "dayType": "balanced",
+    "message": "昨天作品集初稿没完成，今天先写提纲就好；半天时间，留点空白给自己。",
+    "mainTask": {
+      "id": "portfolio-case2-outline",
+      "type": "main",
+      "title": "写出作品集第二个案例的提纲",
+      "description": "先不写全文，只列出案例的背景、问题、你的角色、关键决策和结果五个部分，每部分写 2-3 条要点即可。完成提纲就算成功。",
+      "durationMinutes": 70,
+      "reason": "昨天没完成初稿，今天把门槛降到提纲，更容易启动并积累进度；这也是作品集目标的关键一步。",
+      "completed": false
+    },
+    "sections": {
+      "morning": [
+        {
+          "id": "move-morning-walk",
+          "type": "move",
+          "title": "晨间散步",
+          "description": "出门走一圈，不戴耳机，让脑子先醒过来。",
+          "durationMinutes": 20,
+          "completed": false
+        }
+      ],
+      "afternoon": [
+        {
+          "id": "explore-tide-pools",
+          "type": "explore",
+          "title": "探索潮间带的生物",
+          "description": "看一段关于潮间带生态的短视频或图文，了解一种你之前没注意过的生物。",
+          "durationMinutes": 25,
+          "completed": false
+        },
+        {
+          "id": "learn-ai-eval",
+          "type": "learn",
+          "title": "学习 AI 产品评估方法",
+          "description": "读一篇关于如何评估 AI 功能质量的短文，记下一条可以用于自己规划器的思路。",
+          "durationMinutes": 30,
+          "completed": false
+        }
+      ],
+      "evening": [
+        {
+          "id": "read-history",
+          "type": "read",
+          "title": "读几页历史书",
+          "description": "随便翻几页，不设目标，读到不想读为止。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "enjoy-free",
+          "type": "enjoy",
+          "title": "自由放松时间",
+          "description": "做点纯粹让自己开心的事，不需要产出。",
+          "completed": false
+        }
+      ],
+      "night": []
+    },
+    "minimumDay": {
+      "message": "如果今天状态不好，只做最小版本也算完整的一天。",
+      "items": [
+        {
+          "id": "min-main-outline",
+          "type": "main",
+          "title": "写作品集案例提纲的一小部分",
+          "description": "只写背景和问题两部分，每部分 2 条要点。",
+          "durationMinutes": 30,
+          "completed": false
+        },
+        {
+          "id": "min-explore-tide",
+          "type": "explore",
+          "title": "看一个潮间带生物小知识",
+          "description": "花 20 分钟了解一种潮间带生物。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-move-walk",
+          "type": "move",
+          "title": "短散步",
+          "description": "出门走 20 分钟，呼吸一下新鲜空气。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-enjoy",
+          "type": "enjoy",
+          "title": "听一首喜欢的歌",
+          "description": "完全放空，享受几分钟。",
+          "completed": false
+        }
+      ]
+    },
+    "activeMode": "standard"
+  },
+  "finalMeasure": {
+    "mainMinutes": 70,
+    "supportCount": 5,
+    "mainInTier": true,
+    "supportInTier": true,
+    "minimumMainMinutes": 30,
+    "minimumMainIs30": true,
+    "clockHits": [],
+    "extraMains": 0,
+    "mainTitle": "写出作品集第二个案例的提纲"
+  }
+}

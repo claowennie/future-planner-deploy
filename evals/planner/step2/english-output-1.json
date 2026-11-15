@@ -1,0 +1,185 @@
+{
+  "scenario": "english-output",
+  "run": 1,
+  "ms": 6652,
+  "source": "ai",
+  "attempts": [
+    {
+      "status": 200,
+      "requestRoles": [
+        "system",
+        "user"
+      ],
+      "requestExtra": [],
+      "raw": "{\"date\":\"2026-11-16\",\"dayType\":\"balanced\",\"message\":\"Yesterday you finished 4 of 5 and it felt just right, so today keeps a similar, gentle shape — with a smaller first step toward the portfolio case study you didn't get to.\",\"mainTask\":{\"id\":\"portfolio-case-study-2-outline\",\"title\":\"Outline the second portfolio case study\",\"description\":\"Create a rough outline for case study #2: the problem, your role, 2-3 key decisions, and the outcome. Keep it to bullet points — a sketch is enough, no polishing.\",\"durationMinutes\":75,\"reason\":\"This task carried over from yesterday and moves your portfolio goal forward; a lighter, outline-only version lowers the friction to restart it.\"},\"sections\":{\"morning\":[{\"id\":\"morning-walk\",\"type\":\"move\",\"title\":\"Morning walk\",\"description\":\"A relaxed walk outside to start the day with fresh air and no destination.\",\"durationMinutes\":25},{\"id\":\"morning-read-history\",\"type\":\"read\",\"title\":\"Read a chapter of history\",\"description\":\"Pick up a history book and read a chapter at an easy pace.\"}],\"afternoon\":[{\"id\":\"explore-kelp-forests\",\"type\":\"explore\",\"title\":\"Explore kelp forest restoration\",\"description\":\"Follow a short article or video on how kelp forests are being restored and why they matter for coastal ecosystems.\",\"durationMinutes\":30}],\"evening\":[{\"id\":\"learn-prompt-evaluation\",\"type\":\"learn\",\"title\":\"Learn about evaluating AI outputs\",\"description\":\"Read a short primer on how to evaluate AI model outputs — useful for judging your planner's quality work.\",\"durationMinutes\":25},{\"id\":\"enjoy-cooking\",\"type\":\"enjoy\",\"title\":\"Cook something you enjoy\",\"description\":\"Make a meal you actually like, no productivity attached.\"}],\"night\":[{\"id\":\"night-wind-down\",\"type\":\"read\",\"title\":\"Light reading before bed\",\"description\":\"A few pages of something easy to wind down.\"}]},\"minimumDay\":{\"message\":\"A small, honest version of today — one focused step and a little movement is enough.\",\"items\":[{\"id\":\"min-main-outline\",\"type\":\"main\",\"title\":\"One-paragraph case study sketch\",\"description\":\"Write a single paragraph describing case study #2: the problem and your role. Done is done.\",\"durationMinutes\":30},{\"id\":\"min-explore-kelp\",\"type\":\"explore\",\"title\":\"Skim kelp forest restoration\",\"description\":\"Read one short article on kelp forest restoration.\",\"durationMinutes\":20},{\"id\":\"min-move-walk\",\"type\":\"move\",\"title\":\"Short walk\",\"description\":\"A brief walk outside to reset.\",\"durationMinutes\":20},{\"id\":\"min-read\",\"type\":\"read\",\"title\":\"A few pages\",\"description\":\"Read a few pages of anything you like.\",\"durationMinutes\":15}]}}",
+      "finishReason": "stop",
+      "usage": {
+        "prompt": 1017,
+        "completion": 602
+      },
+      "valid": false,
+      "validationError": "sections must contain 3-5 supporting items in total on a BALANCED day (got 6)",
+      "measure": {
+        "mainMinutes": 75,
+        "supportCount": 6,
+        "mainInTier": true,
+        "supportInTier": false,
+        "minimumMainMinutes": 30,
+        "minimumMainIs30": true,
+        "clockHits": [],
+        "extraMains": 0,
+        "mainTitle": "Outline the second portfolio case study",
+        "cjkInText": false
+      }
+    },
+    {
+      "status": 200,
+      "requestRoles": [
+        "system",
+        "user",
+        "assistant",
+        "user"
+      ],
+      "requestExtra": [
+        {
+          "role": "assistant",
+          "content": "{\"date\":\"2026-11-16\",\"dayType\":\"balanced\",\"message\":\"Yesterday you finished 4 of 5 and it felt just right, so today keeps a similar, gentle shape — with a smaller first step toward the portfolio case study you didn't get to.\",\"mainTask\":{\"id\":\"portfolio-case-study-2-outline\",\"title\":\"Outline the second portfolio case study\",\"description\":\"Create a rough outline for case study #2: the problem, your role, 2-3 key decisions, and the outcome. Keep it to bullet points — a sketch is enough, no polishing.\",\"durationMinutes\":75,\"reason\":\"This task carried over from yesterday and moves your portfolio goal forward; a lighter, outline-only version lowers the friction to restart it.\"},\"sections\":{\"morning\":[{\"id\":\"morning-walk\",\"type\":\"move\",\"title\":\"Morning walk\",\"description\":\"A relaxed walk outside to start the day with fresh air and no destination.\",\"durationMinutes\":25},{\"id\":\"morning-read-history\",\"type\":\"read\",\"title\":\"Read a chapter of history\",\"description\":\"Pick up a history book and read a chapter at an easy pace.\"}],\"afternoon\":[{\"id\":\"explore-kelp-forests\",\"type\":\"explore\",\"title\":\"Explore kelp forest restoration\",\"description\":\"Follow a short article or video on how kelp forests are being restored and why they matter for coastal ecosystems.\",\"durationMinutes\":30}],\"evening\":[{\"id\":\"learn-prompt-evaluation\",\"type\":\"learn\",\"title\":\"Learn about evaluating AI outputs\",\"description\":\"Read a short primer on how to evaluate AI model outputs — useful for judging your planner's quality work.\",\"durationMinutes\":25},{\"id\":\"enjoy-cooking\",\"type\":\"enjoy\",\"title\":\"Cook something you enjoy\",\"description\":\"Make a meal you actually like, no productivity attached.\"}],\"night\":[{\"id\":\"night-wind-down\",\"type\":\"read\",\"title\":\"Light reading before bed\",\"description\":\"A few pages of something easy to wind down.\"}]},\"minimumDay\":{\"message\":\"A small, honest version of today — one focused step and a little movement is enough.\",\"items\":[{\"id\":\"min-main-outline\",\"type\":\"main\",\"title\":\"One-paragraph case study sketch\",\"description\":\"Write a single paragraph describing case study #2: the problem and your role. Done is done.\",\"durationMinutes\":30},{\"id\":\"min-explore-kelp\",\"type\":\"explore\",\"title\":\"Skim kelp forest restoration\",\"description\":\"Read one short article on kelp forest restoration.\",\"durationMinutes\":20},{\"id\":\"min-move-walk\",\"type\":\"move\",\"title\":\"Short walk\",\"description\":\"A brief walk outside to reset.\",\"durationMinutes\":20},{\"id\":\"min-read\",\"type\":\"read\",\"title\":\"A few pages\",\"description\":\"Read a few pages of anything you like.\",\"durationMinutes\":15}]}}"
+        },
+        {
+          "role": "user",
+          "content": "Your previous reply was rejected by validation: sections must contain 3-5 supporting items in total on a BALANCED day (got 6). Fix that problem and return the complete corrected JSON object. All earlier rules still apply."
+        }
+      ],
+      "raw": "{\"date\":\"2026-11-16\",\"dayType\":\"balanced\",\"message\":\"Yesterday you finished 4 of 5 and it felt just right, so today keeps a similar, gentle shape — with a smaller first step toward the portfolio case study you didn't get to.\",\"mainTask\":{\"id\":\"portfolio-case-study-2-outline\",\"title\":\"Outline the second portfolio case study\",\"description\":\"Create a rough outline for case study #2: the problem, your role, 2-3 key decisions, and the outcome. Keep it to bullet points — a sketch is enough, no polishing.\",\"durationMinutes\":75,\"reason\":\"This task carried over from yesterday and moves your portfolio goal forward; a lighter, outline-only version lowers the friction to restart it.\"},\"sections\":{\"morning\":[{\"id\":\"morning-walk\",\"type\":\"move\",\"title\":\"Morning walk\",\"description\":\"A relaxed walk outside to start the day with fresh air and no destination.\",\"durationMinutes\":25},{\"id\":\"morning-read-history\",\"type\":\"read\",\"title\":\"Read a chapter of history\",\"description\":\"Pick up a history book and read a chapter at an easy pace.\"}],\"afternoon\":[{\"id\":\"explore-kelp-forests\",\"type\":\"explore\",\"title\":\"Explore kelp forest restoration\",\"description\":\"Follow a short article or video on how kelp forests are being restored and why they matter for coastal ecosystems.\",\"durationMinutes\":30}],\"evening\":[{\"id\":\"learn-prompt-evaluation\",\"type\":\"learn\",\"title\":\"Learn about evaluating AI outputs\",\"description\":\"Read a short primer on how to evaluate AI model outputs — useful for judging your planner's quality work.\",\"durationMinutes\":25},{\"id\":\"enjoy-cooking\",\"type\":\"enjoy\",\"title\":\"Cook something you enjoy\",\"description\":\"Make a meal you actually like, no productivity attached.\"}],\"night\":[]},\"minimumDay\":{\"message\":\"A small, honest version of today — one focused step and a little movement is enough.\",\"items\":[{\"id\":\"min-main-outline\",\"type\":\"main\",\"title\":\"One-paragraph case study sketch\",\"description\":\"Write a single paragraph describing case study #2: the problem and your role. Done is done.\",\"durationMinutes\":30},{\"id\":\"min-explore-kelp\",\"type\":\"explore\",\"title\":\"Skim kelp forest restoration\",\"description\":\"Read one short article on kelp forest restoration.\",\"durationMinutes\":20},{\"id\":\"min-move-walk\",\"type\":\"move\",\"title\":\"Short walk\",\"description\":\"A brief walk outside to reset.\",\"durationMinutes\":20},{\"id\":\"min-read\",\"type\":\"read\",\"title\":\"A few pages\",\"description\":\"Read a few pages of anything you like.\",\"durationMinutes\":15}]}}",
+      "finishReason": "stop",
+      "usage": {
+        "prompt": 1670,
+        "completion": 571
+      },
+      "valid": true,
+      "measure": {
+        "mainMinutes": 75,
+        "supportCount": 5,
+        "mainInTier": true,
+        "supportInTier": true,
+        "minimumMainMinutes": 30,
+        "minimumMainIs30": true,
+        "clockHits": [],
+        "extraMains": 0,
+        "mainTitle": "Outline the second portfolio case study",
+        "cjkInText": false
+      }
+    }
+  ],
+  "finalPlan": {
+    "date": "2026-11-16",
+    "dayType": "balanced",
+    "message": "Yesterday you finished 4 of 5 and it felt just right, so today keeps a similar, gentle shape — with a smaller first step toward the portfolio case study you didn't get to.",
+    "mainTask": {
+      "id": "portfolio-case-study-2-outline",
+      "type": "main",
+      "title": "Outline the second portfolio case study",
+      "description": "Create a rough outline for case study #2: the problem, your role, 2-3 key decisions, and the outcome. Keep it to bullet points — a sketch is enough, no polishing.",
+      "durationMinutes": 75,
+      "reason": "This task carried over from yesterday and moves your portfolio goal forward; a lighter, outline-only version lowers the friction to restart it.",
+      "completed": false
+    },
+    "sections": {
+      "morning": [
+        {
+          "id": "morning-walk",
+          "type": "move",
+          "title": "Morning walk",
+          "description": "A relaxed walk outside to start the day with fresh air and no destination.",
+          "durationMinutes": 25,
+          "completed": false
+        },
+        {
+          "id": "morning-read-history",
+          "type": "read",
+          "title": "Read a chapter of history",
+          "description": "Pick up a history book and read a chapter at an easy pace.",
+          "completed": false
+        }
+      ],
+      "afternoon": [
+        {
+          "id": "explore-kelp-forests",
+          "type": "explore",
+          "title": "Explore kelp forest restoration",
+          "description": "Follow a short article or video on how kelp forests are being restored and why they matter for coastal ecosystems.",
+          "durationMinutes": 30,
+          "completed": false
+        }
+      ],
+      "evening": [
+        {
+          "id": "learn-prompt-evaluation",
+          "type": "learn",
+          "title": "Learn about evaluating AI outputs",
+          "description": "Read a short primer on how to evaluate AI model outputs — useful for judging your planner's quality work.",
+          "durationMinutes": 25,
+          "completed": false
+        },
+        {
+          "id": "enjoy-cooking",
+          "type": "enjoy",
+          "title": "Cook something you enjoy",
+          "description": "Make a meal you actually like, no productivity attached.",
+          "completed": false
+        }
+      ],
+      "night": []
+    },
+    "minimumDay": {
+      "message": "A small, honest version of today — one focused step and a little movement is enough.",
+      "items": [
+        {
+          "id": "min-main-outline",
+          "type": "main",
+          "title": "One-paragraph case study sketch",
+          "description": "Write a single paragraph describing case study #2: the problem and your role. Done is done.",
+          "durationMinutes": 30,
+          "completed": false
+        },
+        {
+          "id": "min-explore-kelp",
+          "type": "explore",
+          "title": "Skim kelp forest restoration",
+          "description": "Read one short article on kelp forest restoration.",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-move-walk",
+          "type": "move",
+          "title": "Short walk",
+          "description": "A brief walk outside to reset.",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-read",
+          "type": "read",
+          "title": "A few pages",
+          "description": "Read a few pages of anything you like.",
+          "durationMinutes": 15,
+          "completed": false
+        }
+      ]
+    },
+    "activeMode": "standard"
+  },
+  "finalMeasure": {
+    "mainMinutes": 75,
+    "supportCount": 5,
+    "mainInTier": true,
+    "supportInTier": true,
+    "minimumMainMinutes": 30,
+    "minimumMainIs30": true,
+    "clockHits": [],
+    "extraMains": 0,
+    "mainTitle": "Outline the second portfolio case study",
+    "cjkInText": false
+  }
+}

@@ -1,0 +1,191 @@
+{
+  "scenario": "english-output",
+  "run": 2,
+  "ms": 6917,
+  "source": "ai",
+  "attempts": [
+    {
+      "status": 200,
+      "requestRoles": [
+        "system",
+        "user"
+      ],
+      "requestExtra": [],
+      "raw": "{\"date\":\"2026-11-16\",\"dayType\":\"balanced\",\"message\":\"Yesterday you finished your main task and felt just right, so today keeps a similar easy rhythm while nudging the portfolio outline forward a step.\",\"mainTask\":{\"id\":\"portfolio-case-study-2-outline\",\"title\":\"Draft a rough outline for the second portfolio case study\",\"description\":\"Open a blank doc and sketch the skeleton: the problem, your role, the process, and the outcome. Bullet points are enough — you're only laying the frame, not writing the story yet.\",\"durationMinutes\":75,\"reason\":\"This main task carried over unfinished from yesterday. Starting with a lighter outline lowers the friction and keeps momentum on the portfolio goal.\"},\"sections\":{\"morning\":[{\"id\":\"morning-walk\",\"type\":\"move\",\"title\":\"Morning walk to start the day\",\"description\":\"Head outside for a relaxed walk, no destination needed.\",\"durationMinutes\":25,\"target\":\"Get outside and loosen up before sitting down\"},{\"id\":\"morning-explore\",\"type\":\"explore\",\"title\":\"Explore how ocean buoys collect live data\",\"description\":\"Skim a short article or video on ocean monitoring buoys and note one surprising detail.\",\"durationMinutes\":20,\"target\":\"Feed curiosity, not productivity\"}],\"afternoon\":[{\"id\":\"afternoon-main\",\"type\":\"main\",\"title\":\"Draft a rough outline for the second portfolio case study\",\"description\":\"Skeleton only: problem, role, process, outcome.\",\"durationMinutes\":75,\"target\":\"Get the frame on the page\"}],\"evening\":[{\"id\":\"evening-learn\",\"type\":\"learn\",\"title\":\"Learn one small product-design principle\",\"description\":\"Read a short piece on product design, like progressive disclosure or empty states, and jot one takeaway.\",\"durationMinutes\":20}],\"night\":[{\"id\":\"night-read\",\"type\":\"read\",\"title\":\"Read a few pages of history\",\"description\":\"Pick up a history book or longform piece for a calm wind-down.\",\"durationMinutes\":20},{\"id\":\"night-enjoy\",\"type\":\"enjoy\",\"title\":\"Unwind however you like\",\"description\":\"No goal here — a show, music, or just relaxing. Fully allowed.\"}]},\"minimumDay\":{\"message\":\"A light version for low-energy days — just the essentials.\",\"items\":[{\"id\":\"min-main\",\"type\":\"main\",\"title\":\"Write three bullet points for the portfolio outline\",\"description\":\"Just the problem, your role, and the outcome. Done is done.\",\"durationMinutes\":30,\"target\":\"Keep the thread alive\"},{\"id\":\"min-explore\",\"type\":\"explore\",\"title\":\"Watch a short ocean science clip\",\"description\":\"One short video on ocean monitoring or marine life.\",\"durationMinutes\":20},{\"id\":\"min-move\",\"type\":\"move\",\"title\":\"Short walk\",\"description\":\"A gentle walk to reset.\",\"durationMinutes\":20},{\"id\":\"min-read\",\"type\":\"read\",\"title\":\"A few pages of history\",\"description\":\"Optional, low-pressure reading.\",\"durationMinutes\":15,\"target\":\"optional\"}]}}",
+      "finishReason": "stop",
+      "usage": {
+        "prompt": 1017,
+        "completion": 638
+      },
+      "valid": false,
+      "validationError": "sections.afternoon[0].type is not supported (use explore, learn, move, read, or enjoy; the main task belongs only in mainTask, never in sections)",
+      "measure": {
+        "mainMinutes": 75,
+        "supportCount": 6,
+        "mainInTier": true,
+        "supportInTier": false,
+        "minimumMainMinutes": 30,
+        "minimumMainIs30": true,
+        "clockHits": [],
+        "extraMains": 1,
+        "mainTitle": "Draft a rough outline for the second portfolio case study",
+        "cjkInText": false
+      }
+    },
+    {
+      "status": 200,
+      "requestRoles": [
+        "system",
+        "user",
+        "assistant",
+        "user"
+      ],
+      "requestExtra": [
+        {
+          "role": "assistant",
+          "content": "{\"date\":\"2026-11-16\",\"dayType\":\"balanced\",\"message\":\"Yesterday you finished your main task and felt just right, so today keeps a similar easy rhythm while nudging the portfolio outline forward a step.\",\"mainTask\":{\"id\":\"portfolio-case-study-2-outline\",\"title\":\"Draft a rough outline for the second portfolio case study\",\"description\":\"Open a blank doc and sketch the skeleton: the problem, your role, the process, and the outcome. Bullet points are enough — you're only laying the frame, not writing the story yet.\",\"durationMinutes\":75,\"reason\":\"This main task carried over unfinished from yesterday. Starting with a lighter outline lowers the friction and keeps momentum on the portfolio goal.\"},\"sections\":{\"morning\":[{\"id\":\"morning-walk\",\"type\":\"move\",\"title\":\"Morning walk to start the day\",\"description\":\"Head outside for a relaxed walk, no destination needed.\",\"durationMinutes\":25,\"target\":\"Get outside and loosen up before sitting down\"},{\"id\":\"morning-explore\",\"type\":\"explore\",\"title\":\"Explore how ocean buoys collect live data\",\"description\":\"Skim a short article or video on ocean monitoring buoys and note one surprising detail.\",\"durationMinutes\":20,\"target\":\"Feed curiosity, not productivity\"}],\"afternoon\":[{\"id\":\"afternoon-main\",\"type\":\"main\",\"title\":\"Draft a rough outline for the second portfolio case study\",\"description\":\"Skeleton only: problem, role, process, outcome.\",\"durationMinutes\":75,\"target\":\"Get the frame on the page\"}],\"evening\":[{\"id\":\"evening-learn\",\"type\":\"learn\",\"title\":\"Learn one small product-design principle\",\"description\":\"Read a short piece on product design, like progressive disclosure or empty states, and jot one takeaway.\",\"durationMinutes\":20}],\"night\":[{\"id\":\"night-read\",\"type\":\"read\",\"title\":\"Read a few pages of history\",\"description\":\"Pick up a history book or longform piece for a calm wind-down.\",\"durationMinutes\":20},{\"id\":\"night-enjoy\",\"type\":\"enjoy\",\"title\":\"Unwind however you like\",\"description\":\"No goal here — a show, music, or just relaxing. Fully allowed.\"}]},\"minimumDay\":{\"message\":\"A light version for low-energy days — just the essentials.\",\"items\":[{\"id\":\"min-main\",\"type\":\"main\",\"title\":\"Write three bullet points for the portfolio outline\",\"description\":\"Just the problem, your role, and the outcome. Done is done.\",\"durationMinutes\":30,\"target\":\"Keep the thread alive\"},{\"id\":\"min-explore\",\"type\":\"explore\",\"title\":\"Watch a short ocean science clip\",\"description\":\"One short video on ocean monitoring or marine life.\",\"durationMinutes\":20},{\"id\":\"min-move\",\"type\":\"move\",\"title\":\"Short walk\",\"description\":\"A gentle walk to reset.\",\"durationMinutes\":20},{\"id\":\"min-read\",\"type\":\"read\",\"title\":\"A few pages of history\",\"description\":\"Optional, low-pressure reading.\",\"durationMinutes\":15,\"target\":\"optional\"}]}}"
+        },
+        {
+          "role": "user",
+          "content": "Your previous reply was rejected by validation: sections.afternoon[0].type is not supported (use explore, learn, move, read, or enjoy; the main task belongs only in mainTask, never in sections). Fix that problem and return the complete corrected JSON object. All earlier rules still apply."
+        }
+      ],
+      "raw": "{\"date\":\"2026-11-16\",\"dayType\":\"balanced\",\"message\":\"Yesterday you finished your main task and felt just right, so today keeps a similar easy rhythm while nudging the portfolio outline forward a step.\",\"mainTask\":{\"id\":\"portfolio-case-study-2-outline\",\"title\":\"Draft a rough outline for the second portfolio case study\",\"description\":\"Open a blank doc and sketch the skeleton: the problem, your role, the process, and the outcome. Bullet points are enough — you're only laying the frame, not writing the story yet.\",\"durationMinutes\":75,\"reason\":\"This main task carried over unfinished from yesterday. Starting with a lighter outline lowers the friction and keeps momentum on the portfolio goal.\"},\"sections\":{\"morning\":[{\"id\":\"morning-walk\",\"type\":\"move\",\"title\":\"Morning walk to start the day\",\"description\":\"Head outside for a relaxed walk, no destination needed.\",\"durationMinutes\":25,\"target\":\"Get outside and loosen up before sitting down\"},{\"id\":\"morning-explore\",\"type\":\"explore\",\"title\":\"Explore how ocean buoys collect live data\",\"description\":\"Skim a short article or video on ocean monitoring buoys and note one surprising detail.\",\"durationMinutes\":20,\"target\":\"Feed curiosity, not productivity\"}],\"afternoon\":[{\"id\":\"afternoon-learn\",\"type\":\"learn\",\"title\":\"Learn one small product-design principle\",\"description\":\"Read a short piece on product design, like progressive disclosure or empty states, and jot one takeaway.\",\"durationMinutes\":20}],\"evening\":[{\"id\":\"evening-read\",\"type\":\"read\",\"title\":\"Read a few pages of history\",\"description\":\"Pick up a history book or longform piece for a calm wind-down.\",\"durationMinutes\":20}],\"night\":[{\"id\":\"night-enjoy\",\"type\":\"enjoy\",\"title\":\"Unwind however you like\",\"description\":\"No goal here — a show, music, or just relaxing. Fully allowed.\"}]},\"minimumDay\":{\"message\":\"A light version for low-energy days — just the essentials.\",\"items\":[{\"id\":\"min-main\",\"type\":\"main\",\"title\":\"Write three bullet points for the portfolio outline\",\"description\":\"Just the problem, your role, and the outcome. Done is done.\",\"durationMinutes\":30,\"target\":\"Keep the thread alive\"},{\"id\":\"min-explore\",\"type\":\"explore\",\"title\":\"Watch a short ocean science clip\",\"description\":\"One short video on ocean monitoring or marine life.\",\"durationMinutes\":20},{\"id\":\"min-move\",\"type\":\"move\",\"title\":\"Short walk\",\"description\":\"A gentle walk to reset.\",\"durationMinutes\":20},{\"id\":\"min-read\",\"type\":\"read\",\"title\":\"A few pages of history\",\"description\":\"Optional, low-pressure reading.\",\"durationMinutes\":15,\"target\":\"optional\"}]}}",
+      "finishReason": "stop",
+      "usage": {
+        "prompt": 1721,
+        "completion": 586
+      },
+      "valid": true,
+      "measure": {
+        "mainMinutes": 75,
+        "supportCount": 5,
+        "mainInTier": true,
+        "supportInTier": true,
+        "minimumMainMinutes": 30,
+        "minimumMainIs30": true,
+        "clockHits": [],
+        "extraMains": 0,
+        "mainTitle": "Draft a rough outline for the second portfolio case study",
+        "cjkInText": false
+      }
+    }
+  ],
+  "finalPlan": {
+    "date": "2026-11-16",
+    "dayType": "balanced",
+    "message": "Yesterday you finished your main task and felt just right, so today keeps a similar easy rhythm while nudging the portfolio outline forward a step.",
+    "mainTask": {
+      "id": "portfolio-case-study-2-outline",
+      "type": "main",
+      "title": "Draft a rough outline for the second portfolio case study",
+      "description": "Open a blank doc and sketch the skeleton: the problem, your role, the process, and the outcome. Bullet points are enough — you're only laying the frame, not writing the story yet.",
+      "durationMinutes": 75,
+      "reason": "This main task carried over unfinished from yesterday. Starting with a lighter outline lowers the friction and keeps momentum on the portfolio goal.",
+      "completed": false
+    },
+    "sections": {
+      "morning": [
+        {
+          "id": "morning-walk",
+          "type": "move",
+          "title": "Morning walk to start the day",
+          "description": "Head outside for a relaxed walk, no destination needed.",
+          "durationMinutes": 25,
+          "target": "Get outside and loosen up before sitting down",
+          "completed": false
+        },
+        {
+          "id": "morning-explore",
+          "type": "explore",
+          "title": "Explore how ocean buoys collect live data",
+          "description": "Skim a short article or video on ocean monitoring buoys and note one surprising detail.",
+          "durationMinutes": 20,
+          "target": "Feed curiosity, not productivity",
+          "completed": false
+        }
+      ],
+      "afternoon": [
+        {
+          "id": "afternoon-learn",
+          "type": "learn",
+          "title": "Learn one small product-design principle",
+          "description": "Read a short piece on product design, like progressive disclosure or empty states, and jot one takeaway.",
+          "durationMinutes": 20,
+          "completed": false
+        }
+      ],
+      "evening": [
+        {
+          "id": "evening-read",
+          "type": "read",
+          "title": "Read a few pages of history",
+          "description": "Pick up a history book or longform piece for a calm wind-down.",
+          "durationMinutes": 20,
+          "completed": false
+        }
+      ],
+      "night": [
+        {
+          "id": "night-enjoy",
+          "type": "enjoy",
+          "title": "Unwind however you like",
+          "description": "No goal here — a show, music, or just relaxing. Fully allowed.",
+          "completed": false
+        }
+      ]
+    },
+    "minimumDay": {
+      "message": "A light version for low-energy days — just the essentials.",
+      "items": [
+        {
+          "id": "min-main",
+          "type": "main",
+          "title": "Write three bullet points for the portfolio outline",
+          "description": "Just the problem, your role, and the outcome. Done is done.",
+          "durationMinutes": 30,
+          "target": "Keep the thread alive",
+          "completed": false
+        },
+        {
+          "id": "min-explore",
+          "type": "explore",
+          "title": "Watch a short ocean science clip",
+          "description": "One short video on ocean monitoring or marine life.",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-move",
+          "type": "move",
+          "title": "Short walk",
+          "description": "A gentle walk to reset.",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-read",
+          "type": "read",
+          "title": "A few pages of history",
+          "description": "Optional, low-pressure reading.",
+          "durationMinutes": 15,
+          "target": "optional",
+          "completed": false
+        }
+      ]
+    },
+    "activeMode": "standard"
+  },
+  "finalMeasure": {
+    "mainMinutes": 75,
+    "supportCount": 5,
+    "mainInTier": true,
+    "supportInTier": true,
+    "minimumMainMinutes": 30,
+    "minimumMainIs30": true,
+    "clockHits": [],
+    "extraMains": 0,
+    "mainTitle": "Draft a rough outline for the second portfolio case study",
+    "cjkInText": false
+  }
+}
