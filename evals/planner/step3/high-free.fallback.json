@@ -1,0 +1,92 @@
+{
+  "date": "2026-11-16",
+  "dayType": "productive",
+  "message": "先从最重要的一件事开始，也给生活留一点空间。",
+  "mainTask": {
+    "id": "a88eca30-bec6-4ab0-8756-cd2c0a54547f",
+    "type": "main",
+    "title": "完成个人 AI 产品的下一个版本",
+    "durationMinutes": 105,
+    "reason": "完成这一件，今天就已经有意义。",
+    "completed": false
+  },
+  "sections": {
+    "morning": [
+      {
+        "id": "ef63879e-ce61-42a5-914e-62bcd5ae5746",
+        "type": "learn",
+        "title": "补上一小块当前需要的技能",
+        "durationMinutes": 40,
+        "completed": false
+      }
+    ],
+    "afternoon": [
+      {
+        "id": "90df116d-29a9-4aad-b51a-5acb80a6f14f",
+        "type": "explore",
+        "title": "探索：人工智能",
+        "durationMinutes": 35,
+        "completed": false
+      }
+    ],
+    "evening": [
+      {
+        "id": "ee835cb6-804b-433d-853d-033604593c2e",
+        "type": "move",
+        "title": "出去走走或舒展身体",
+        "durationMinutes": 35,
+        "completed": false
+      }
+    ],
+    "night": [
+      {
+        "id": "b0991cfc-d495-4c8b-b749-f38a2cfc421e",
+        "type": "read",
+        "title": "读 10–20 页",
+        "durationMinutes": 20,
+        "completed": false
+      },
+      {
+        "id": "5b9ae85d-4443-4808-94fb-0b835c1ef487",
+        "type": "enjoy",
+        "title": "留一段不带目的的自由时间",
+        "completed": false
+      }
+    ]
+  },
+  "minimumDay": {
+    "message": "今天可以轻一点。做几件小事，就已经足够。",
+    "items": [
+      {
+        "id": "d45605d2-5b92-44f7-aeee-b085c6a4cfe7",
+        "type": "main",
+        "title": "完成个人 AI 产品的下一个版本",
+        "durationMinutes": 30,
+        "completed": false
+      },
+      {
+        "id": "b21f189c-9262-4ece-acac-d9920c84f276",
+        "type": "explore",
+        "title": "随便看看：人工智能",
+        "durationMinutes": 20,
+        "completed": false
+      },
+      {
+        "id": "5113b7de-d3e5-4c72-9e14-f75469103009",
+        "type": "move",
+        "title": "散步或拉伸",
+        "durationMinutes": 20,
+        "completed": false
+      },
+      {
+        "id": "31e39cb8-18fd-48ee-8182-774a636f43df",
+        "type": "read",
+        "title": "读 10 页",
+        "durationMinutes": 15,
+        "target": "10 页",
+        "completed": false
+      }
+    ]
+  },
+  "activeMode": "standard"
+}

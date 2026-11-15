@@ -271,28 +271,74 @@ async function requestPlannerCompletion(env, prompt, repair = null) {
   return payload?.choices?.[0]?.message?.content || '';
 }
 
-export function fallbackPlan(input, profile = {}) {
+// What the most recent planned day says about how today should be sized.
+function fallbackPace(latest) {
+  if (!latest) return 'steady';
+  if (latest.review?.feeling === 'too_much') return 'lighter';
+  if (latest.review?.feeling === 'too_light') return 'fuller';
+  const [done, total] = String(latest.completed || '').split('/').map(Number);
+  return total > 0 && done / total < 0.5 ? 'low_completion' : 'steady';
+}
+
+// Used when the model's output is rejected twice. `recent` is summarizeRecentPlans output, oldest first.
+export function fallbackPlan(input, profile = {}, recent = []) {
   const zh = input.lang !== 'en';
-  const focus = input.mustDo || cleanList(profile.priorities, 1)[0] || (zh ? '推进最重要的一件事' : 'Move one important thing forward');
-  const interest = cleanList(profile.interests, 1)[0] || (zh ? '一个让你好奇的新主题' : 'a topic that makes you curious');
+  const history = Array.isArray(recent) ? recent : [];
+  const latest = history[history.length - 1] || null;
+  const pace = fallbackPace(latest);
+  const easier = pace === 'lighter' || pace === 'low_completion';
+  const openMain = !input.mustDo && latest?.main?.completed === false
+    ? String(latest.main.title || '').trim().slice(0, 100)
+    : '';
+  const focus = input.mustDo
+    || (openMain && (zh ? `继续：${openMain}（先做一小步）` : `Continue: ${openMain} (one small step first)`))
+    || cleanList(profile.priorities, 1)[0]
+    || (zh ? '推进最重要的一件事' : 'Move one important thing forward');
+
+  // Prefer an interest that the recent Explore/Learn items have not already covered.
+  const covered = history.flatMap((day) => [...(day.explore || []), ...(day.learn || [])]).join('\n').toLowerCase();
+  const interests = cleanList(profile.interests);
+  const fresh = interests.filter((value) => !covered.includes(value.toLowerCase()));
+  const interest = fresh[0] || interests[0] || (zh ? '一个让你好奇的新主题' : 'a topic that makes you curious');
+  const secondInterest = [...fresh, ...interests].find((value) => value !== interest)
+    || (zh ? '另一个让你好奇的主题' : 'another topic that makes you curious');
+
   const tier = loadTier(input);
   const light = tier.name === 'LIGHT';
-  const mainMinutes = (tier.mainMin + tier.mainMax) / 2;
+  const short = light || easier;
+  const mainMinutes = easier ? tier.mainMin : (pace === 'fuller' ? tier.mainMax : (tier.mainMin + tier.mainMax) / 2);
+  const steadyCount = Math.min(tier.supportMax, light ? 2 : 5);
+  const supportCount = easier ? tier.supportMin : (pace === 'fuller' ? tier.supportMax : steadyCount);
   const make = (type, title, durationMinutes, target) => ({ id: crypto.randomUUID(), type, title, durationMinutes, target, completed: false });
+  // In the order they are kept when the day has to shrink.
+  const supporting = [
+    ['evening', make('move', zh ? '出去走走或舒展身体' : 'Walk outside or stretch', short ? 20 : 35)],
+    ['afternoon', make('explore', zh ? `探索：${interest}` : `Explore: ${interest}`, short ? 20 : 35)],
+    ['night', make('read', zh ? '读 10–20 页' : 'Read 10–20 pages', 20)],
+    ['morning', make('learn', zh ? '补上一小块当前需要的技能' : 'Learn one skill your current work needs', 40)],
+    ['night', make('enjoy', zh ? '留一段不带目的的自由时间' : 'Keep some guilt-free free time')],
+    ['afternoon', make('explore', zh ? `顺着好奇心再看看：${secondInterest}` : `Follow your curiosity: ${secondInterest}`, 20)],
+  ].slice(0, supportCount);
+  const sections = { morning: [], afternoon: [], evening: [], night: [] };
+  for (const [part, planItem] of supporting) sections[part].push(planItem);
+
+  const notes = [];
+  if (openMain) notes.push(zh ? '上次的主任务还没做完，今天从更小的一步接着来，不用赶。' : 'Last time’s main task is still open, so today picks it up with a smaller first step. No rush.');
+  if (pace === 'lighter') notes.push(zh ? '上次你觉得安排偏满，今天特意排得轻一些。' : 'Last time felt like too much, so today is deliberately lighter.');
+  if (pace === 'low_completion') notes.push(zh ? '上次完成得不多也没关系，今天排得轻一些。' : 'Last time not much got done, and that is fine. Today is lighter.');
+  if (pace === 'fuller') notes.push(zh ? '上次你觉得偏轻，今天稍微多排了一点，仍然留有余地。' : 'Last time felt a little light, so today has slightly more, with room to spare.');
+  const message = notes.join(zh ? '' : ' ')
+    || (zh ? '先从最重要的一件事开始，也给生活留一点空间。' : 'Start with the one thing that matters, and leave room for life too.');
+  const reason = (input.mustDo && (zh ? '这是你今天说一定要做的事。' : 'You said this is the one thing that has to happen today.'))
+    || (openMain && (zh ? '它上次没做完；如果仍然重要，先推进一小步就好。' : 'It was left open last time. If it still matters, one small step is enough.'))
+    || (zh ? '完成这一件，今天就已经有意义。' : 'Finishing this is enough to make today meaningful.');
+
   return validateDailyPlan({
     date: input.date,
-    dayType: light ? 'relaxed' : input.dayStyle,
-    message: zh ? '先从最重要的一件事开始，也给生活留一点空间。' : 'Start with the one thing that matters, and leave room for life too.',
-    mainTask: {
-      id: crypto.randomUUID(), title: focus, durationMinutes: mainMinutes,
-      reason: zh ? '完成这一件，今天就已经有意义。' : 'Finishing this is enough to make today meaningful.',
-    },
-    sections: {
-      morning: light ? [] : [make('learn', zh ? '补上一小块当前需要的技能' : 'Learn one skill your current work needs', 40)],
-      afternoon: [make('explore', zh ? `探索：${interest}` : `Explore: ${interest}`, light ? 20 : 35)],
-      evening: [make('move', zh ? '出去走走或舒展身体' : 'Walk outside or stretch', light ? 20 : 35)],
-      night: light ? [] : [make('read', zh ? '读 10–20 页' : 'Read 10–20 pages', 20), make('enjoy', zh ? '留一段不带目的的自由时间' : 'Keep some guilt-free free time')],
-    },
+    dayType: short ? 'relaxed' : input.dayStyle,
+    message,
+    mainTask: { id: crypto.randomUUID(), title: focus, durationMinutes: mainMinutes, reason },
+    sections,
     minimumDay: {
       message: zh ? '今天可以轻一点。做几件小事，就已经足够。' : 'Today can be lighter. Do a few small things and let that be enough.',
       items: [
@@ -305,14 +351,14 @@ export function fallbackPlan(input, profile = {}) {
   }, input.date, input);
 }
 
-export async function generateValidatedPlan(env, prompt, input, profile) {
+export async function generateValidatedPlan(env, prompt, input, profile, recent = []) {
   let repair = null;
   for (let attempt = 0; attempt < 2; attempt += 1) {
     const content = await requestPlannerCompletion(env, prompt, repair);
     try { return { plan: validateDailyPlan(parsePlannerJson(content), input.date, input), source: 'ai' }; }
     catch (error) { repair = { error: error?.message, output: content }; }
   }
-  return { plan: fallbackPlan(input, profile), source: 'fallback' };
+  return { plan: fallbackPlan(input, profile, recent), source: 'fallback' };
 }
 
 export async function generatePlannerDay(env, token, userId, rawInput, { replan = false } = {}) {
@@ -323,7 +369,7 @@ export async function generatePlannerDay(env, token, userId, rawInput, { replan 
   if (replan && !latest) throw new PlannerError('Generate today’s plan first', 409, 'planner_plan_required');
 
   const prompt = buildPlannerPrompt({ input, context, previousPlan: replan ? latest.plan_json : null });
-  const generated = await generateValidatedPlan(env, prompt, input, context.profile);
+  const generated = await generateValidatedPlan(env, prompt, input, context.profile, context.recent);
   const version = replan ? Number(latest.version) + 1 : 1;
   const rows = await rest(env, token, 'daily_plans', {
     method: 'POST',

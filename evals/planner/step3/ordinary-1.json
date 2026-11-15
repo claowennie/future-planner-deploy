@@ -1,0 +1,138 @@
+{
+  "scenario": "ordinary",
+  "run": 1,
+  "ms": 3653,
+  "source": "ai",
+  "attempts": [
+    {
+      "status": 200,
+      "requestRoles": [
+        "system",
+        "user"
+      ],
+      "requestExtra": [],
+      "raw": "{\n  \"date\": \"2026-11-16\",\n  \"dayType\": \"balanced\",\n  \"message\": \"昨天节奏很稳，今天只有半天时间，我们就把最重要的一件事做扎实，其余轻松来。\",\n  \"mainTask\": {\n    \"id\": \"portfolio-case2-outline\",\n    \"title\": \"完成作品集第二个案例的提纲\",\n    \"description\": \"先花 10 分钟回顾上次的草稿，然后补全案例二的结构：背景、问题、你的角色、关键决策、结果与反思。不用写全文，先把骨架定下来。\",\n    \"durationMinutes\": 75,\n    \"reason\": \"这是求职作品集的关键一步，昨天未完成，今天用较小起点继续推进。\"\n  },\n  \"sections\": {\n    \"morning\": [\n      {\n        \"id\": \"morning-walk\",\n        \"type\": \"move\",\n        \"title\": \"出门散步 20 分钟\",\n        \"description\": \"不带耳机，随便走走，让脑袋先醒过来。\",\n        \"durationMinutes\": 20\n      }\n    ],\n    \"afternoon\": [\n      {\n        \"id\": \"explore-ocean-acid\",\n        \"type\": \"explore\",\n        \"title\": \"看看海洋酸化监测的新方法\",\n        \"description\": \"找一篇科普或短视频，了解科学家现在怎么测海洋酸化，顺着好奇心看看就好。\",\n        \"durationMinutes\": 25\n      }\n    ],\n    \"evening\": [\n      {\n        \"id\": \"learn-schema-validation\",\n        \"type\": \"learn\",\n        \"title\": \"继续学 JSON Schema 校验\",\n        \"description\": \"把昨天学到的校验规则用到规划器的输出格式上，试一两个小例子。\",\n        \"durationMinutes\": 30\n      },\n      {\n        \"id\": \"enjoy-free\",\n        \"type\": \"enjoy\",\n        \"title\": \"自由放松时间\",\n        \"description\": \"看剧、打游戏、发呆都行，不设目标。\"\n      }\n    ],\n    \"night\": [\n      {\n        \"id\": \"read-history\",\n        \"type\": \"read\",\n        \"title\": \"读几页历史书\",\n        \"description\": \"睡前翻几页，困了就停。\",\n        \"durationMinutes\": 20\n      }\n    ]\n  },\n  \"minimumDay\": {\n    \"message\": \"如果今天状态一般，就只做这三件事，也算完整的一天。\",\n    \"items\": [\n      {\n        \"id\": \"min-main\",\n        \"type\": \"main\",\n        \"title\": \"写作品集案例二提纲的第一部分\",\n        \"description\": \"只写背景和问题两段，30 分钟就够。\",\n        \"durationMinutes\": 30\n      },\n      {\n        \"id\": \"min-explore\",\n        \"type\": \"explore\",\n        \"title\": \"看一个海洋酸化的短视频\",\n        \"description\": \"轻松了解一个知识点。\",\n        \"durationMinutes\": 20\n      },\n      {\n        \"id\": \"min-move\",\n        \"type\": \"move\",\n        \"title\": \"散步 20 分钟\",\n        \"description\": \"出门走走，不用走快。\",\n        \"durationMinutes\": 20\n      }\n    ]\n  }\n}",
+      "finishReason": "stop",
+      "usage": {
+        "prompt": 1014,
+        "completion": 698
+      },
+      "valid": true,
+      "measure": {
+        "mainMinutes": 75,
+        "supportCount": 5,
+        "mainInTier": true,
+        "supportInTier": true,
+        "minimumMainMinutes": 30,
+        "minimumMainIs30": true,
+        "clockHits": [],
+        "extraMains": 0,
+        "mainTitle": "完成作品集第二个案例的提纲"
+      }
+    }
+  ],
+  "finalPlan": {
+    "date": "2026-11-16",
+    "dayType": "balanced",
+    "message": "昨天节奏很稳，今天只有半天时间，我们就把最重要的一件事做扎实，其余轻松来。",
+    "mainTask": {
+      "id": "portfolio-case2-outline",
+      "type": "main",
+      "title": "完成作品集第二个案例的提纲",
+      "description": "先花 10 分钟回顾上次的草稿，然后补全案例二的结构：背景、问题、你的角色、关键决策、结果与反思。不用写全文，先把骨架定下来。",
+      "durationMinutes": 75,
+      "reason": "这是求职作品集的关键一步，昨天未完成，今天用较小起点继续推进。",
+      "completed": false
+    },
+    "sections": {
+      "morning": [
+        {
+          "id": "morning-walk",
+          "type": "move",
+          "title": "出门散步 20 分钟",
+          "description": "不带耳机，随便走走，让脑袋先醒过来。",
+          "durationMinutes": 20,
+          "completed": false
+        }
+      ],
+      "afternoon": [
+        {
+          "id": "explore-ocean-acid",
+          "type": "explore",
+          "title": "看看海洋酸化监测的新方法",
+          "description": "找一篇科普或短视频，了解科学家现在怎么测海洋酸化，顺着好奇心看看就好。",
+          "durationMinutes": 25,
+          "completed": false
+        }
+      ],
+      "evening": [
+        {
+          "id": "learn-schema-validation",
+          "type": "learn",
+          "title": "继续学 JSON Schema 校验",
+          "description": "把昨天学到的校验规则用到规划器的输出格式上，试一两个小例子。",
+          "durationMinutes": 30,
+          "completed": false
+        },
+        {
+          "id": "enjoy-free",
+          "type": "enjoy",
+          "title": "自由放松时间",
+          "description": "看剧、打游戏、发呆都行，不设目标。",
+          "completed": false
+        }
+      ],
+      "night": [
+        {
+          "id": "read-history",
+          "type": "read",
+          "title": "读几页历史书",
+          "description": "睡前翻几页，困了就停。",
+          "durationMinutes": 20,
+          "completed": false
+        }
+      ]
+    },
+    "minimumDay": {
+      "message": "如果今天状态一般，就只做这三件事，也算完整的一天。",
+      "items": [
+        {
+          "id": "min-main",
+          "type": "main",
+          "title": "写作品集案例二提纲的第一部分",
+          "description": "只写背景和问题两段，30 分钟就够。",
+          "durationMinutes": 30,
+          "completed": false
+        },
+        {
+          "id": "min-explore",
+          "type": "explore",
+          "title": "看一个海洋酸化的短视频",
+          "description": "轻松了解一个知识点。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-move",
+          "type": "move",
+          "title": "散步 20 分钟",
+          "description": "出门走走，不用走快。",
+          "durationMinutes": 20,
+          "completed": false
+        }
+      ]
+    },
+    "activeMode": "standard"
+  },
+  "finalMeasure": {
+    "mainMinutes": 75,
+    "supportCount": 5,
+    "mainInTier": true,
+    "supportInTier": true,
+    "minimumMainMinutes": 30,
+    "minimumMainIs30": true,
+    "clockHits": [],
+    "extraMains": 0,
+    "mainTitle": "完成作品集第二个案例的提纲"
+  }
+}

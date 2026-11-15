@@ -1,0 +1,136 @@
+{
+  "scenario": "ordinary",
+  "run": 2,
+  "ms": 4111,
+  "source": "ai",
+  "attempts": [
+    {
+      "status": 200,
+      "requestRoles": [
+        "system",
+        "user"
+      ],
+      "requestExtra": [],
+      "raw": "{\n  \"date\": \"2026-11-16\",\n  \"dayType\": \"balanced\",\n  \"message\": \"昨天完成度不错，今天只有半天，把最重要的一步做扎实，其余留点余地给自己。\",\n  \"mainTask\": {\n    \"id\": \"portfolio-case2-outline\",\n    \"title\": \"完成作品集第二个案例的提纲\",\n    \"description\": \"接着昨天的思路，把案例二的结构定下来：问题背景、你的角色、关键决策、结果与反思，每部分写 3-5 个要点即可，不求完整成文。\",\n    \"durationMinutes\": 75,\n    \"reason\": \"这是求职作品集的关键一步，昨天没完成，今天用更小的第一步继续推进。\"\n  },\n  \"sections\": {\n    \"morning\": [\n      {\n        \"id\": \"explore-ocean-acid-measure\",\n        \"type\": \"explore\",\n        \"title\": \"了解海洋酸化的测量方法\",\n        \"description\": \"延续昨天的兴趣，找一篇科普或短视频，看看科学家如何用浮标和采样测量海水 pH 变化。\",\n        \"durationMinutes\": 25\n      }\n    ],\n    \"afternoon\": [\n      {\n        \"id\": \"move-walk\",\n        \"type\": \"move\",\n        \"title\": \"户外散步\",\n        \"description\": \"不带耳机走一段，让脑子放松，顺便晒晒太阳。\",\n        \"durationMinutes\": 25\n      }\n    ],\n    \"evening\": [\n      {\n        \"id\": \"read-history\",\n        \"type\": \"read\",\n        \"title\": \"读一点海洋史\",\n        \"description\": \"翻几页海洋探索或航海史相关的书，纯凭兴趣，不设目标。\",\n        \"durationMinutes\": 20\n      },\n      {\n        \"id\": \"enjoy-free\",\n        \"type\": \"enjoy\",\n        \"title\": \"自由放松时间\",\n        \"description\": \"看剧、听播客或随便逛逛，完全不用有产出。\"\n      }\n    ],\n    \"night\": []\n  },\n  \"minimumDay\": {\n    \"message\": \"如果今天状态一般，只做这几件小事也算完整的一天。\",\n    \"items\": [\n      {\n        \"id\": \"min-main-outline\",\n        \"type\": \"main\",\n        \"title\": \"写案例二提纲的第一部分\",\n        \"description\": \"只写问题背景和你的角色，各两三条要点。\",\n        \"durationMinutes\": 30\n      },\n      {\n        \"id\": \"min-learn-schema\",\n        \"type\": \"learn\",\n        \"title\": \"复习 JSON Schema 校验要点\",\n        \"description\": \"看一篇短教程或笔记，巩固昨天学的内容。\",\n        \"durationMinutes\": 20\n      },\n      {\n        \"id\": \"min-move-stretch\",\n        \"type\": \"move\",\n        \"title\": \"室内拉伸或短走\",\n        \"description\": \"活动一下肩颈和腰背，或者下楼走一圈。\",\n        \"durationMinutes\": 20\n      },\n      {\n        \"id\": \"min-enjoy\",\n        \"type\": \"enjoy\",\n        \"title\": \"听点喜欢的音乐\",\n        \"description\": \"什么都不用做，放松就好。\"\n      }\n    ]\n  }\n}",
+      "finishReason": "stop",
+      "usage": {
+        "prompt": 1014,
+        "completion": 701
+      },
+      "valid": true,
+      "measure": {
+        "mainMinutes": 75,
+        "supportCount": 4,
+        "mainInTier": true,
+        "supportInTier": true,
+        "minimumMainMinutes": 30,
+        "minimumMainIs30": true,
+        "clockHits": [],
+        "extraMains": 0,
+        "mainTitle": "完成作品集第二个案例的提纲"
+      }
+    }
+  ],
+  "finalPlan": {
+    "date": "2026-11-16",
+    "dayType": "balanced",
+    "message": "昨天完成度不错，今天只有半天，把最重要的一步做扎实，其余留点余地给自己。",
+    "mainTask": {
+      "id": "portfolio-case2-outline",
+      "type": "main",
+      "title": "完成作品集第二个案例的提纲",
+      "description": "接着昨天的思路，把案例二的结构定下来：问题背景、你的角色、关键决策、结果与反思，每部分写 3-5 个要点即可，不求完整成文。",
+      "durationMinutes": 75,
+      "reason": "这是求职作品集的关键一步，昨天没完成，今天用更小的第一步继续推进。",
+      "completed": false
+    },
+    "sections": {
+      "morning": [
+        {
+          "id": "explore-ocean-acid-measure",
+          "type": "explore",
+          "title": "了解海洋酸化的测量方法",
+          "description": "延续昨天的兴趣，找一篇科普或短视频，看看科学家如何用浮标和采样测量海水 pH 变化。",
+          "durationMinutes": 25,
+          "completed": false
+        }
+      ],
+      "afternoon": [
+        {
+          "id": "move-walk",
+          "type": "move",
+          "title": "户外散步",
+          "description": "不带耳机走一段，让脑子放松，顺便晒晒太阳。",
+          "durationMinutes": 25,
+          "completed": false
+        }
+      ],
+      "evening": [
+        {
+          "id": "read-history",
+          "type": "read",
+          "title": "读一点海洋史",
+          "description": "翻几页海洋探索或航海史相关的书，纯凭兴趣，不设目标。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "enjoy-free",
+          "type": "enjoy",
+          "title": "自由放松时间",
+          "description": "看剧、听播客或随便逛逛，完全不用有产出。",
+          "completed": false
+        }
+      ],
+      "night": []
+    },
+    "minimumDay": {
+      "message": "如果今天状态一般，只做这几件小事也算完整的一天。",
+      "items": [
+        {
+          "id": "min-main-outline",
+          "type": "main",
+          "title": "写案例二提纲的第一部分",
+          "description": "只写问题背景和你的角色，各两三条要点。",
+          "durationMinutes": 30,
+          "completed": false
+        },
+        {
+          "id": "min-learn-schema",
+          "type": "learn",
+          "title": "复习 JSON Schema 校验要点",
+          "description": "看一篇短教程或笔记，巩固昨天学的内容。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-move-stretch",
+          "type": "move",
+          "title": "室内拉伸或短走",
+          "description": "活动一下肩颈和腰背，或者下楼走一圈。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-enjoy",
+          "type": "enjoy",
+          "title": "听点喜欢的音乐",
+          "description": "什么都不用做，放松就好。",
+          "completed": false
+        }
+      ]
+    },
+    "activeMode": "standard"
+  },
+  "finalMeasure": {
+    "mainMinutes": 75,
+    "supportCount": 4,
+    "mainInTier": true,
+    "supportInTier": true,
+    "minimumMainMinutes": 30,
+    "minimumMainIs30": true,
+    "clockHits": [],
+    "extraMains": 0,
+    "mainTitle": "完成作品集第二个案例的提纲"
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "date": "2026-11-16",
+  "dayType": "relaxed",
+  "message": "上次你觉得安排偏满，今天特意排得轻一些。",
+  "mainTask": {
+    "id": "629b69dd-41e6-4234-8c51-f2334a9b4692",
+    "type": "main",
+    "title": "完成个人 AI 产品的下一个版本",
+    "durationMinutes": 60,
+    "reason": "完成这一件，今天就已经有意义。",
+    "completed": false
+  },
+  "sections": {
+    "morning": [],
+    "afternoon": [
+      {
+        "id": "81af37ca-e0d0-4318-8970-87805c532acc",
+        "type": "explore",
+        "title": "探索：人工智能",
+        "durationMinutes": 20,
+        "completed": false
+      }
+    ],
+    "evening": [
+      {
+        "id": "c0f4692c-ee2a-416d-84f9-a44653b9788d",
+        "type": "move",
+        "title": "出去走走或舒展身体",
+        "durationMinutes": 20,
+        "completed": false
+      }
+    ],
+    "night": [
+      {
+        "id": "4092547c-0c80-469d-b7b3-5476f337a4df",
+        "type": "read",
+        "title": "读 10–20 页",
+        "durationMinutes": 20,
+        "completed": false
+      }
+    ]
+  },
+  "minimumDay": {
+    "message": "今天可以轻一点。做几件小事，就已经足够。",
+    "items": [
+      {
+        "id": "36586ae8-2418-4145-98a5-da2a781b9731",
+        "type": "main",
+        "title": "完成个人 AI 产品的下一个版本",
+        "durationMinutes": 30,
+        "completed": false
+      },
+      {
+        "id": "963999ed-f204-452f-be40-d992b263de8d",
+        "type": "explore",
+        "title": "随便看看：人工智能",
+        "durationMinutes": 20,
+        "completed": false
+      },
+      {
+        "id": "29ff04b3-fa4a-4a20-bae7-debca97d99d5",
+        "type": "move",
+        "title": "散步或拉伸",
+        "durationMinutes": 20,
+        "completed": false
+      },
+      {
+        "id": "6528db96-4139-447c-9c9f-82bc124e1e64",
+        "type": "read",
+        "title": "读 10 页",
+        "durationMinutes": 15,
+        "target": "10 页",
+        "completed": false
+      }
+    ]
+  },
+  "activeMode": "standard"
+}

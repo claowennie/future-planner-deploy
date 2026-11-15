@@ -1,0 +1,145 @@
+{
+  "scenario": "yesterday-too-much",
+  "run": 1,
+  "ms": 4251,
+  "source": "ai",
+  "attempts": [
+    {
+      "status": 200,
+      "requestRoles": [
+        "system",
+        "user"
+      ],
+      "requestExtra": [],
+      "raw": "{\n  \"date\": \"2026-11-16\",\n  \"dayType\": \"balanced\",\n  \"message\": \"昨天排得太满、下午就没力气了，今天特意留白一些，先把作品集第二个案例的提纲迈出一小步就好。\",\n  \"mainTask\": {\n    \"id\": \"portfolio-case-2-outline\",\n    \"title\": \"写作品集第二个案例的提纲\",\n    \"description\": \"先只写骨架：问题背景、你的角色、关键决策、结果四块，每块两三句话即可，不追求完整。\",\n    \"durationMinutes\": 75,\n    \"reason\": \"这是昨天没完成、但直接服务于求职目标的关键一步；缩小到提纲能降低启动阻力。\"\n  },\n  \"sections\": {\n    \"morning\": [\n      {\n        \"id\": \"morning-move-walk\",\n        \"type\": \"move\",\n        \"title\": \"出门散步 25 分钟\",\n        \"description\": \"不带耳机或只听轻音乐，让脑子先醒过来。\",\n        \"durationMinutes\": 25\n      }\n    ],\n    \"afternoon\": [\n      {\n        \"id\": \"afternoon-learn-structured-output\",\n        \"type\": \"learn\",\n        \"title\": \"继续了解大模型结构化输出\",\n        \"description\": \"昨天开了个头，今天看一篇实践文章，记下两个能用在规划器里的点。\",\n        \"durationMinutes\": 30\n      }\n    ],\n    \"evening\": [\n      {\n        \"id\": \"evening-explore-ocean\",\n        \"type\": \"explore\",\n        \"title\": \"看看深海热液喷口的新发现\",\n        \"description\": \"随手浏览一篇海洋科学的科普或新闻，纯好奇，不做笔记。\",\n        \"durationMinutes\": 20\n      },\n      {\n        \"id\": \"evening-enjoy\",\n        \"type\": \"enjoy\",\n        \"title\": \"放松时间\",\n        \"description\": \"看点喜欢的东西或听音乐，不需要有产出。\"\n      }\n    ],\n    \"night\": [\n      {\n        \"id\": \"night-read-history\",\n        \"type\": \"read\",\n        \"title\": \"读几页历史书\",\n        \"description\": \"睡前轻松读，困了就停。\",\n        \"durationMinutes\": 20\n      }\n    ]\n  },\n  \"minimumDay\": {\n    \"message\": \"如果今天状态不好，只做最小版本也算完整的一天。\",\n    \"items\": [\n      {\n        \"id\": \"min-main-outline\",\n        \"type\": \"main\",\n        \"title\": \"写作品集第二个案例提纲的一小块\",\n        \"description\": \"只写问题背景和你的角色两段。\",\n        \"durationMinutes\": 30\n      },\n      {\n        \"id\": \"min-learn-structured-output\",\n        \"type\": \"learn\",\n        \"title\": \"看一段结构化输出的实践内容\",\n        \"description\": \"读一篇短文或一节教程，记一句话收获。\",\n        \"durationMinutes\": 20\n      },\n      {\n        \"id\": \"min-move-walk\",\n        \"type\": \"move\",\n        \"title\": \"散步 20 分钟\",\n        \"description\": \"楼下走一圈即可。\",\n        \"durationMinutes\": 20\n      },\n      {\n        \"id\": \"min-enjoy\",\n        \"type\": \"enjoy\",\n        \"title\": \"无负担放松\",\n        \"description\": \"做一件单纯让自己舒服的事。\"\n      }\n    ]\n  }\n}",
+      "finishReason": "stop",
+      "usage": {
+        "prompt": 1028,
+        "completion": 741
+      },
+      "valid": true,
+      "measure": {
+        "mainMinutes": 75,
+        "supportCount": 5,
+        "mainInTier": true,
+        "supportInTier": true,
+        "minimumMainMinutes": 30,
+        "minimumMainIs30": true,
+        "clockHits": [],
+        "extraMains": 0,
+        "mainTitle": "写作品集第二个案例的提纲"
+      }
+    }
+  ],
+  "finalPlan": {
+    "date": "2026-11-16",
+    "dayType": "balanced",
+    "message": "昨天排得太满、下午就没力气了，今天特意留白一些，先把作品集第二个案例的提纲迈出一小步就好。",
+    "mainTask": {
+      "id": "portfolio-case-2-outline",
+      "type": "main",
+      "title": "写作品集第二个案例的提纲",
+      "description": "先只写骨架：问题背景、你的角色、关键决策、结果四块，每块两三句话即可，不追求完整。",
+      "durationMinutes": 75,
+      "reason": "这是昨天没完成、但直接服务于求职目标的关键一步；缩小到提纲能降低启动阻力。",
+      "completed": false
+    },
+    "sections": {
+      "morning": [
+        {
+          "id": "morning-move-walk",
+          "type": "move",
+          "title": "出门散步 25 分钟",
+          "description": "不带耳机或只听轻音乐，让脑子先醒过来。",
+          "durationMinutes": 25,
+          "completed": false
+        }
+      ],
+      "afternoon": [
+        {
+          "id": "afternoon-learn-structured-output",
+          "type": "learn",
+          "title": "继续了解大模型结构化输出",
+          "description": "昨天开了个头，今天看一篇实践文章，记下两个能用在规划器里的点。",
+          "durationMinutes": 30,
+          "completed": false
+        }
+      ],
+      "evening": [
+        {
+          "id": "evening-explore-ocean",
+          "type": "explore",
+          "title": "看看深海热液喷口的新发现",
+          "description": "随手浏览一篇海洋科学的科普或新闻，纯好奇，不做笔记。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "evening-enjoy",
+          "type": "enjoy",
+          "title": "放松时间",
+          "description": "看点喜欢的东西或听音乐，不需要有产出。",
+          "completed": false
+        }
+      ],
+      "night": [
+        {
+          "id": "night-read-history",
+          "type": "read",
+          "title": "读几页历史书",
+          "description": "睡前轻松读，困了就停。",
+          "durationMinutes": 20,
+          "completed": false
+        }
+      ]
+    },
+    "minimumDay": {
+      "message": "如果今天状态不好，只做最小版本也算完整的一天。",
+      "items": [
+        {
+          "id": "min-main-outline",
+          "type": "main",
+          "title": "写作品集第二个案例提纲的一小块",
+          "description": "只写问题背景和你的角色两段。",
+          "durationMinutes": 30,
+          "completed": false
+        },
+        {
+          "id": "min-learn-structured-output",
+          "type": "learn",
+          "title": "看一段结构化输出的实践内容",
+          "description": "读一篇短文或一节教程，记一句话收获。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-move-walk",
+          "type": "move",
+          "title": "散步 20 分钟",
+          "description": "楼下走一圈即可。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-enjoy",
+          "type": "enjoy",
+          "title": "无负担放松",
+          "description": "做一件单纯让自己舒服的事。",
+          "completed": false
+        }
+      ]
+    },
+    "activeMode": "standard"
+  },
+  "finalMeasure": {
+    "mainMinutes": 75,
+    "supportCount": 5,
+    "mainInTier": true,
+    "supportInTier": true,
+    "minimumMainMinutes": 30,
+    "minimumMainIs30": true,
+    "clockHits": [],
+    "extraMains": 0,
+    "mainTitle": "写作品集第二个案例的提纲"
+  }
+}

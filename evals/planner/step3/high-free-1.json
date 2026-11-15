@@ -1,0 +1,153 @@
+{
+  "scenario": "high-free",
+  "run": 1,
+  "ms": 4424,
+  "source": "ai",
+  "attempts": [
+    {
+      "status": 200,
+      "requestRoles": [
+        "system",
+        "user"
+      ],
+      "requestExtra": [],
+      "raw": "{\n  \"date\": \"2026-11-16\",\n  \"dayType\": \"productive\",\n  \"message\": \"昨天作品集提纲没写完，今天精力不错，先从更小的一步接上它，剩下的时间留给规划器和你自己。\",\n  \"mainTask\": {\n    \"id\": \"portfolio-case2-outline\",\n    \"title\": \"写作品集第二个案例的提纲\",\n    \"description\": \"不追求完整，先把第二个案例的骨架搭出来：问题背景、你的角色、关键决策、结果。每部分写 3-5 条要点即可，写到能给自己讲清楚为止。\",\n    \"durationMinutes\": 100,\n    \"reason\": \"这是昨天未完成、且直接服务于「拿到产品相关工作」的关键一步；今天精力高，适合用较小的启动成本把它推进到可继续的状态。\"\n  },\n  \"sections\": {\n    \"morning\": [\n      {\n        \"id\": \"morning-walk\",\n        \"type\": \"move\",\n        \"title\": \"出门散步 25 分钟\",\n        \"description\": \"不带耳机或只听环境声，让脑子先醒过来再开始主任务。\",\n        \"durationMinutes\": 25\n      }\n    ],\n    \"afternoon\": [\n      {\n        \"id\": \"explore-planner-edge\",\n        \"type\": \"explore\",\n        \"title\": \"看看别的每日规划产品怎么处理「低能量日」\",\n        \"description\": \"找 2-3 个产品，只关注它们如何降级任务、如何提示用户，记下一条可以借鉴的做法。\",\n        \"durationMinutes\": 30\n      },\n      {\n        \"id\": \"learn-ocean-currents\",\n        \"type\": \"learn\",\n        \"title\": \"学一点海洋环流的基础\",\n        \"description\": \"选一个短视频或科普文章，搞懂洋流如何影响气候，纯粹满足好奇心。\",\n        \"durationMinutes\": 25\n      }\n    ],\n    \"evening\": [\n      {\n        \"id\": \"read-history\",\n        \"type\": \"read\",\n        \"title\": \"读几页历史书\",\n        \"description\": \"挑一本在手的书，读到自然想停为止。\",\n        \"durationMinutes\": 30\n      },\n      {\n        \"id\": \"enjoy-music\",\n        \"type\": \"enjoy\",\n        \"title\": \"什么都不做地听一张专辑\",\n        \"description\": \"不用边听边做事，这是今天允许自己浪费的时间。\"\n      }\n    ],\n    \"night\": [\n      {\n        \"id\": \"night-stretch\",\n        \"type\": \"move\",\n        \"title\": \"睡前拉伸 15 分钟\",\n        \"description\": \"放松肩颈和腰背，帮助入睡。\",\n        \"durationMinutes\": 15\n      }\n    ]\n  },\n  \"minimumDay\": {\n    \"message\": \"如果今天状态下滑，只做这三件事也算完整的一天。\",\n    \"items\": [\n      {\n        \"id\": \"min-main-outline\",\n        \"type\": \"main\",\n        \"title\": \"给第二个案例写 3 条要点\",\n        \"description\": \"只写问题背景和你的角色，写完就停。\",\n        \"durationMinutes\": 30\n      },\n      {\n        \"id\": \"min-explore-planner\",\n        \"type\": \"explore\",\n        \"title\": \"看一个规划产品的低能量日设计\",\n        \"description\": \"记一条可以借鉴的做法。\",\n        \"durationMinutes\": 20\n      },\n      {\n        \"id\": \"min-move-walk\",\n        \"type\": \"move\",\n        \"title\": \"散步 20 分钟\",\n        \"description\": \"出门走一圈，不设目标。\",\n        \"durationMinutes\": 20\n      },\n      {\n        \"id\": \"min-enjoy-music\",\n        \"type\": \"enjoy\",\n        \"title\": \"听两首歌\",\n        \"description\": \"纯放松，不附带任何产出。\"\n      }\n    ]\n  }\n}",
+      "finishReason": "stop",
+      "usage": {
+        "prompt": 941,
+        "completion": 854
+      },
+      "valid": true,
+      "measure": {
+        "mainMinutes": 100,
+        "supportCount": 6,
+        "mainInTier": true,
+        "supportInTier": true,
+        "minimumMainMinutes": 30,
+        "minimumMainIs30": true,
+        "clockHits": [],
+        "extraMains": 0,
+        "mainTitle": "写作品集第二个案例的提纲"
+      }
+    }
+  ],
+  "finalPlan": {
+    "date": "2026-11-16",
+    "dayType": "productive",
+    "message": "昨天作品集提纲没写完，今天精力不错，先从更小的一步接上它，剩下的时间留给规划器和你自己。",
+    "mainTask": {
+      "id": "portfolio-case2-outline",
+      "type": "main",
+      "title": "写作品集第二个案例的提纲",
+      "description": "不追求完整，先把第二个案例的骨架搭出来：问题背景、你的角色、关键决策、结果。每部分写 3-5 条要点即可，写到能给自己讲清楚为止。",
+      "durationMinutes": 100,
+      "reason": "这是昨天未完成、且直接服务于「拿到产品相关工作」的关键一步；今天精力高，适合用较小的启动成本把它推进到可继续的状态。",
+      "completed": false
+    },
+    "sections": {
+      "morning": [
+        {
+          "id": "morning-walk",
+          "type": "move",
+          "title": "出门散步 25 分钟",
+          "description": "不带耳机或只听环境声，让脑子先醒过来再开始主任务。",
+          "durationMinutes": 25,
+          "completed": false
+        }
+      ],
+      "afternoon": [
+        {
+          "id": "explore-planner-edge",
+          "type": "explore",
+          "title": "看看别的每日规划产品怎么处理「低能量日」",
+          "description": "找 2-3 个产品，只关注它们如何降级任务、如何提示用户，记下一条可以借鉴的做法。",
+          "durationMinutes": 30,
+          "completed": false
+        },
+        {
+          "id": "learn-ocean-currents",
+          "type": "learn",
+          "title": "学一点海洋环流的基础",
+          "description": "选一个短视频或科普文章，搞懂洋流如何影响气候，纯粹满足好奇心。",
+          "durationMinutes": 25,
+          "completed": false
+        }
+      ],
+      "evening": [
+        {
+          "id": "read-history",
+          "type": "read",
+          "title": "读几页历史书",
+          "description": "挑一本在手的书，读到自然想停为止。",
+          "durationMinutes": 30,
+          "completed": false
+        },
+        {
+          "id": "enjoy-music",
+          "type": "enjoy",
+          "title": "什么都不做地听一张专辑",
+          "description": "不用边听边做事，这是今天允许自己浪费的时间。",
+          "completed": false
+        }
+      ],
+      "night": [
+        {
+          "id": "night-stretch",
+          "type": "move",
+          "title": "睡前拉伸 15 分钟",
+          "description": "放松肩颈和腰背，帮助入睡。",
+          "durationMinutes": 15,
+          "completed": false
+        }
+      ]
+    },
+    "minimumDay": {
+      "message": "如果今天状态下滑，只做这三件事也算完整的一天。",
+      "items": [
+        {
+          "id": "min-main-outline",
+          "type": "main",
+          "title": "给第二个案例写 3 条要点",
+          "description": "只写问题背景和你的角色，写完就停。",
+          "durationMinutes": 30,
+          "completed": false
+        },
+        {
+          "id": "min-explore-planner",
+          "type": "explore",
+          "title": "看一个规划产品的低能量日设计",
+          "description": "记一条可以借鉴的做法。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-move-walk",
+          "type": "move",
+          "title": "散步 20 分钟",
+          "description": "出门走一圈，不设目标。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-enjoy-music",
+          "type": "enjoy",
+          "title": "听两首歌",
+          "description": "纯放松，不附带任何产出。",
+          "completed": false
+        }
+      ]
+    },
+    "activeMode": "standard"
+  },
+  "finalMeasure": {
+    "mainMinutes": 100,
+    "supportCount": 6,
+    "mainInTier": true,
+    "supportInTier": true,
+    "minimumMainMinutes": 30,
+    "minimumMainIs30": true,
+    "clockHits": [],
+    "extraMains": 0,
+    "mainTitle": "写作品集第二个案例的提纲"
+  }
+}

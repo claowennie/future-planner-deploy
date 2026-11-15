@@ -1,0 +1,147 @@
+{
+  "scenario": "english-output",
+  "run": 3,
+  "ms": 3445,
+  "source": "ai",
+  "attempts": [
+    {
+      "status": 200,
+      "requestRoles": [
+        "system",
+        "user"
+      ],
+      "requestExtra": [],
+      "raw": "{\"date\":\"2026-11-16\",\"dayType\":\"balanced\",\"message\":\"Yesterday you finished four of five and it felt just right, so today keeps a similar gentle rhythm with a half day of space.\",\"mainTask\":{\"id\":\"main-portfolio-case-study-2-outline\",\"title\":\"Outline the second portfolio case study\",\"description\":\"Sketch the structure of case study two: the problem, your role, key decisions, and the outcome. Aim for a rough skeleton, not polished writing.\",\"durationMinutes\":75,\"reason\":\"It carries over from yesterday unfinished, and a smaller first step gets the portfolio goal moving again.\"},\"sections\":{\"morning\":[{\"id\":\"move-morning-walk\",\"type\":\"move\",\"title\":\"Short morning walk\",\"description\":\"A relaxed walk outside to wake up your body before focused work.\",\"durationMinutes\":25,\"target\":\"outside\"}],\"afternoon\":[{\"id\":\"explore-ocean-acidification-data\",\"type\":\"explore\",\"title\":\"Explore open ocean acidification datasets\",\"description\":\"Wander through a public ocean data portal and note one thing that surprises you.\",\"durationMinutes\":25},{\"id\":\"learn-json-schema-patterns\",\"type\":\"learn\",\"title\":\"Learn a bit more JSON Schema patterns\",\"description\":\"Pick one pattern you haven't used yet and see how it would fit your planner.\",\"durationMinutes\":30}],\"evening\":[{\"id\":\"read-history-short\",\"type\":\"read\",\"title\":\"Read a short history piece\",\"description\":\"A few pages of history reading, purely for interest.\",\"durationMinutes\":20},{\"id\":\"enjoy-evening\",\"type\":\"enjoy\",\"title\":\"Unstructured evening\",\"description\":\"Do whatever feels good — no goal attached.\"}],\"night\":[]},\"minimumDay\":{\"message\":\"A lighter fallback for low-energy days — still meaningful, still kind to yourself.\",\"items\":[{\"id\":\"min-main-case-study\",\"type\":\"main\",\"title\":\"One paragraph of case study two\",\"description\":\"Write just the problem statement paragraph to keep momentum.\",\"durationMinutes\":30},{\"id\":\"min-explore-ocean\",\"type\":\"explore\",\"title\":\"Skim one ocean science article\",\"description\":\"Read a single article on ocean science and note one takeaway.\",\"durationMinutes\":20},{\"id\":\"min-move-walk\",\"type\":\"move\",\"title\":\"Easy walk\",\"description\":\"A short walk to reset your body.\",\"durationMinutes\":20},{\"id\":\"min-enjoy\",\"type\":\"enjoy\",\"title\":\"Something pleasant\",\"description\":\"A small guilt-free pleasure.\"}]}}",
+      "finishReason": "stop",
+      "usage": {
+        "prompt": 1017,
+        "completion": 530
+      },
+      "valid": true,
+      "measure": {
+        "mainMinutes": 75,
+        "supportCount": 5,
+        "mainInTier": true,
+        "supportInTier": true,
+        "minimumMainMinutes": 30,
+        "minimumMainIs30": true,
+        "clockHits": [],
+        "extraMains": 0,
+        "mainTitle": "Outline the second portfolio case study",
+        "cjkInText": false
+      }
+    }
+  ],
+  "finalPlan": {
+    "date": "2026-11-16",
+    "dayType": "balanced",
+    "message": "Yesterday you finished four of five and it felt just right, so today keeps a similar gentle rhythm with a half day of space.",
+    "mainTask": {
+      "id": "main-portfolio-case-study-2-outline",
+      "type": "main",
+      "title": "Outline the second portfolio case study",
+      "description": "Sketch the structure of case study two: the problem, your role, key decisions, and the outcome. Aim for a rough skeleton, not polished writing.",
+      "durationMinutes": 75,
+      "reason": "It carries over from yesterday unfinished, and a smaller first step gets the portfolio goal moving again.",
+      "completed": false
+    },
+    "sections": {
+      "morning": [
+        {
+          "id": "move-morning-walk",
+          "type": "move",
+          "title": "Short morning walk",
+          "description": "A relaxed walk outside to wake up your body before focused work.",
+          "durationMinutes": 25,
+          "target": "outside",
+          "completed": false
+        }
+      ],
+      "afternoon": [
+        {
+          "id": "explore-ocean-acidification-data",
+          "type": "explore",
+          "title": "Explore open ocean acidification datasets",
+          "description": "Wander through a public ocean data portal and note one thing that surprises you.",
+          "durationMinutes": 25,
+          "completed": false
+        },
+        {
+          "id": "learn-json-schema-patterns",
+          "type": "learn",
+          "title": "Learn a bit more JSON Schema patterns",
+          "description": "Pick one pattern you haven't used yet and see how it would fit your planner.",
+          "durationMinutes": 30,
+          "completed": false
+        }
+      ],
+      "evening": [
+        {
+          "id": "read-history-short",
+          "type": "read",
+          "title": "Read a short history piece",
+          "description": "A few pages of history reading, purely for interest.",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "enjoy-evening",
+          "type": "enjoy",
+          "title": "Unstructured evening",
+          "description": "Do whatever feels good — no goal attached.",
+          "completed": false
+        }
+      ],
+      "night": []
+    },
+    "minimumDay": {
+      "message": "A lighter fallback for low-energy days — still meaningful, still kind to yourself.",
+      "items": [
+        {
+          "id": "min-main-case-study",
+          "type": "main",
+          "title": "One paragraph of case study two",
+          "description": "Write just the problem statement paragraph to keep momentum.",
+          "durationMinutes": 30,
+          "completed": false
+        },
+        {
+          "id": "min-explore-ocean",
+          "type": "explore",
+          "title": "Skim one ocean science article",
+          "description": "Read a single article on ocean science and note one takeaway.",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-move-walk",
+          "type": "move",
+          "title": "Easy walk",
+          "description": "A short walk to reset your body.",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-enjoy",
+          "type": "enjoy",
+          "title": "Something pleasant",
+          "description": "A small guilt-free pleasure.",
+          "completed": false
+        }
+      ]
+    },
+    "activeMode": "standard"
+  },
+  "finalMeasure": {
+    "mainMinutes": 75,
+    "supportCount": 5,
+    "mainInTier": true,
+    "supportInTier": true,
+    "minimumMainMinutes": 30,
+    "minimumMainIs30": true,
+    "clockHits": [],
+    "extraMains": 0,
+    "mainTitle": "Outline the second portfolio case study",
+    "cjkInText": false
+  }
+}

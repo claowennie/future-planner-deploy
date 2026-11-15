@@ -1,0 +1,137 @@
+{
+  "scenario": "yesterday-main-unfinished",
+  "run": 3,
+  "ms": 3394,
+  "source": "ai",
+  "attempts": [
+    {
+      "status": 200,
+      "requestRoles": [
+        "system",
+        "user"
+      ],
+      "requestExtra": [],
+      "raw": "{\n  \"date\": \"2026-11-16\",\n  \"dayType\": \"balanced\",\n  \"message\": \"昨天作品集初稿没写完，今天先把提纲补上，小步前进就好。\",\n  \"mainTask\": {\n    \"id\": \"portfolio-case2-outline\",\n    \"title\": \"补完作品集第二个案例的提纲\",\n    \"description\": \"先花 10 分钟回顾昨天的草稿，然后列出案例的问题、你的方案和结果三部分要点，不必写正文。\",\n    \"durationMinutes\": 75,\n    \"reason\": \"昨天这项未完成，先用较小的一步接上，保持作品集进度。\"\n  },\n  \"sections\": {\n    \"morning\": [\n      {\n        \"id\": \"morning-walk\",\n        \"type\": \"move\",\n        \"title\": \"出门散步 20 分钟\",\n        \"description\": \"不带耳机，让脑子清醒一下，顺便想想案例的结构。\",\n        \"durationMinutes\": 20\n      }\n    ],\n    \"afternoon\": [\n      {\n        \"id\": \"explore-tide\",\n        \"type\": \"explore\",\n        \"title\": \"了解潮汐发电的原理\",\n        \"description\": \"找一篇短文或视频，看看潮汐如何被用来发电，和海洋科学兴趣相关。\",\n        \"durationMinutes\": 25\n      },\n      {\n        \"id\": \"learn-api\",\n        \"type\": \"learn\",\n        \"title\": \"学一个规划器相关的小技术点\",\n        \"description\": \"挑一个你产品里还没搞懂的小模块，看 20 分钟文档或教程。\",\n        \"durationMinutes\": 25\n      }\n    ],\n    \"evening\": [\n      {\n        \"id\": \"read-history\",\n        \"type\": \"read\",\n        \"title\": \"读几页历史书\",\n        \"description\": \"随手翻翻正在读的历史书，不设页数目标。\",\n        \"durationMinutes\": 20\n      },\n      {\n        \"id\": \"enjoy-music\",\n        \"type\": \"enjoy\",\n        \"title\": \"听点喜欢的音乐放松\",\n        \"description\": \"完全放空，不安排任何产出。\"\n      }\n    ],\n    \"night\": []\n  },\n  \"minimumDay\": {\n    \"message\": \"如果今天状态一般，就只做这三件事，也算完整的一天。\",\n    \"items\": [\n      {\n        \"id\": \"min-main-outline\",\n        \"type\": \"main\",\n        \"title\": \"写 30 分钟案例提纲\",\n        \"description\": \"只列三个小标题：问题、方案、结果，写完就停。\",\n        \"durationMinutes\": 30\n      },\n      {\n        \"id\": \"min-explore-tide\",\n        \"type\": \"explore\",\n        \"title\": \"看一段潮汐发电的科普\",\n        \"description\": \"10 分钟视频或一篇短文即可。\",\n        \"durationMinutes\": 20\n      },\n      {\n        \"id\": \"min-move-walk\",\n        \"type\": \"move\",\n        \"title\": \"散步 20 分钟\",\n        \"description\": \"楼下走走，呼吸一下新鲜空气。\",\n        \"durationMinutes\": 20\n      }\n    ]\n  }\n}",
+      "finishReason": "stop",
+      "usage": {
+        "prompt": 1004,
+        "completion": 696
+      },
+      "valid": true,
+      "measure": {
+        "mainMinutes": 75,
+        "supportCount": 5,
+        "mainInTier": true,
+        "supportInTier": true,
+        "minimumMainMinutes": 30,
+        "minimumMainIs30": true,
+        "clockHits": [],
+        "extraMains": 0,
+        "mainTitle": "补完作品集第二个案例的提纲"
+      }
+    }
+  ],
+  "finalPlan": {
+    "date": "2026-11-16",
+    "dayType": "balanced",
+    "message": "昨天作品集初稿没写完，今天先把提纲补上，小步前进就好。",
+    "mainTask": {
+      "id": "portfolio-case2-outline",
+      "type": "main",
+      "title": "补完作品集第二个案例的提纲",
+      "description": "先花 10 分钟回顾昨天的草稿，然后列出案例的问题、你的方案和结果三部分要点，不必写正文。",
+      "durationMinutes": 75,
+      "reason": "昨天这项未完成，先用较小的一步接上，保持作品集进度。",
+      "completed": false
+    },
+    "sections": {
+      "morning": [
+        {
+          "id": "morning-walk",
+          "type": "move",
+          "title": "出门散步 20 分钟",
+          "description": "不带耳机，让脑子清醒一下，顺便想想案例的结构。",
+          "durationMinutes": 20,
+          "completed": false
+        }
+      ],
+      "afternoon": [
+        {
+          "id": "explore-tide",
+          "type": "explore",
+          "title": "了解潮汐发电的原理",
+          "description": "找一篇短文或视频，看看潮汐如何被用来发电，和海洋科学兴趣相关。",
+          "durationMinutes": 25,
+          "completed": false
+        },
+        {
+          "id": "learn-api",
+          "type": "learn",
+          "title": "学一个规划器相关的小技术点",
+          "description": "挑一个你产品里还没搞懂的小模块，看 20 分钟文档或教程。",
+          "durationMinutes": 25,
+          "completed": false
+        }
+      ],
+      "evening": [
+        {
+          "id": "read-history",
+          "type": "read",
+          "title": "读几页历史书",
+          "description": "随手翻翻正在读的历史书，不设页数目标。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "enjoy-music",
+          "type": "enjoy",
+          "title": "听点喜欢的音乐放松",
+          "description": "完全放空，不安排任何产出。",
+          "completed": false
+        }
+      ],
+      "night": []
+    },
+    "minimumDay": {
+      "message": "如果今天状态一般，就只做这三件事，也算完整的一天。",
+      "items": [
+        {
+          "id": "min-main-outline",
+          "type": "main",
+          "title": "写 30 分钟案例提纲",
+          "description": "只列三个小标题：问题、方案、结果，写完就停。",
+          "durationMinutes": 30,
+          "completed": false
+        },
+        {
+          "id": "min-explore-tide",
+          "type": "explore",
+          "title": "看一段潮汐发电的科普",
+          "description": "10 分钟视频或一篇短文即可。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-move-walk",
+          "type": "move",
+          "title": "散步 20 分钟",
+          "description": "楼下走走，呼吸一下新鲜空气。",
+          "durationMinutes": 20,
+          "completed": false
+        }
+      ]
+    },
+    "activeMode": "standard"
+  },
+  "finalMeasure": {
+    "mainMinutes": 75,
+    "supportCount": 5,
+    "mainInTier": true,
+    "supportInTier": true,
+    "minimumMainMinutes": 30,
+    "minimumMainIs30": true,
+    "clockHits": [],
+    "extraMains": 0,
+    "mainTitle": "补完作品集第二个案例的提纲"
+  }
+}

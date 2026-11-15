@@ -1,0 +1,138 @@
+{
+  "scenario": "high-free",
+  "run": 2,
+  "ms": 4310,
+  "source": "ai",
+  "attempts": [
+    {
+      "status": 200,
+      "requestRoles": [
+        "system",
+        "user"
+      ],
+      "requestExtra": [],
+      "raw": "{\n  \"date\": \"2026-11-16\",\n  \"dayType\": \"productive\",\n  \"message\": \"今天精力不错，先把昨天没写完的作品集提纲接着推进一小步，其余时间留给运动和一点好奇的探索。\",\n  \"mainTask\": {\n    \"id\": \"portfolio-case2-outline\",\n    \"title\": \"完成作品集第二个案例的提纲\",\n    \"description\": \"承接昨天的进度，先花 15 分钟回顾已有素材，再补全案例结构：背景、问题、你的角色、关键决策、结果与反思。目标是写出可用的提纲，不必写成完整稿。\",\n    \"durationMinutes\": 100,\n    \"reason\": \"这是求职作品集的关键一步，昨天没完成，今天用更小的第一步重新接上，能带来实质进展。\"\n  },\n  \"sections\": {\n    \"morning\": [\n      {\n        \"id\": \"morning-walk\",\n        \"type\": \"move\",\n        \"title\": \"出门散步醒神\",\n        \"description\": \"不带耳机走 20 分钟，让身体先进入状态。\",\n        \"durationMinutes\": 20\n      }\n    ],\n    \"afternoon\": [\n      {\n        \"id\": \"explore-ocean-ai\",\n        \"type\": \"explore\",\n        \"title\": \"探索海洋数据与 AI 的结合点\",\n        \"description\": \"找一篇海洋科学数据应用的文章或项目，记下两个让你好奇的点，不做深挖。\",\n        \"durationMinutes\": 30\n      }\n    ],\n    \"evening\": [\n      {\n        \"id\": \"learn-planner-eval\",\n        \"type\": \"learn\",\n        \"title\": \"学习规划器质量评估方法\",\n        \"description\": \"看一段关于 LLM 输出评估的资料，整理出 3 条可用于自己产品 v2 的检查点。\",\n        \"durationMinutes\": 30\n      },\n      {\n        \"id\": \"enjoy-dinner-music\",\n        \"type\": \"enjoy\",\n        \"title\": \"好好吃顿饭，听点喜欢的音乐\",\n        \"description\": \"不安排任务，纯粹放松。\"\n      }\n    ],\n    \"night\": [\n      {\n        \"id\": \"read-history\",\n        \"type\": \"read\",\n        \"title\": \"读几页历史书\",\n        \"description\": \"睡前读 20 分钟，读到困了就停。\",\n        \"durationMinutes\": 20\n      }\n    ]\n  },\n  \"minimumDay\": {\n    \"message\": \"如果今天状态下滑，只做这三件事也算完整的一天。\",\n    \"items\": [\n      {\n        \"id\": \"min-main-portfolio\",\n        \"type\": \"main\",\n        \"title\": \"写作品集案例提纲的一小节\",\n        \"description\": \"只写「问题与你的角色」这一部分，写完就收。\",\n        \"durationMinutes\": 30\n      },\n      {\n        \"id\": \"min-explore-ocean\",\n        \"type\": \"explore\",\n        \"title\": \"看一个海洋 AI 小项目\",\n        \"description\": \"随便翻一个相关项目页面，记一句话感想。\",\n        \"durationMinutes\": 20\n      },\n      {\n        \"id\": \"min-move-walk\",\n        \"type\": \"move\",\n        \"title\": \"短散步\",\n        \"description\": \"楼下走一圈，呼吸一下。\",\n        \"durationMinutes\": 20\n      }\n    ]\n  }\n}",
+      "finishReason": "stop",
+      "usage": {
+        "prompt": 941,
+        "completion": 736
+      },
+      "valid": true,
+      "measure": {
+        "mainMinutes": 100,
+        "supportCount": 5,
+        "mainInTier": true,
+        "supportInTier": true,
+        "minimumMainMinutes": 30,
+        "minimumMainIs30": true,
+        "clockHits": [],
+        "extraMains": 0,
+        "mainTitle": "完成作品集第二个案例的提纲"
+      }
+    }
+  ],
+  "finalPlan": {
+    "date": "2026-11-16",
+    "dayType": "productive",
+    "message": "今天精力不错，先把昨天没写完的作品集提纲接着推进一小步，其余时间留给运动和一点好奇的探索。",
+    "mainTask": {
+      "id": "portfolio-case2-outline",
+      "type": "main",
+      "title": "完成作品集第二个案例的提纲",
+      "description": "承接昨天的进度，先花 15 分钟回顾已有素材，再补全案例结构：背景、问题、你的角色、关键决策、结果与反思。目标是写出可用的提纲，不必写成完整稿。",
+      "durationMinutes": 100,
+      "reason": "这是求职作品集的关键一步，昨天没完成，今天用更小的第一步重新接上，能带来实质进展。",
+      "completed": false
+    },
+    "sections": {
+      "morning": [
+        {
+          "id": "morning-walk",
+          "type": "move",
+          "title": "出门散步醒神",
+          "description": "不带耳机走 20 分钟，让身体先进入状态。",
+          "durationMinutes": 20,
+          "completed": false
+        }
+      ],
+      "afternoon": [
+        {
+          "id": "explore-ocean-ai",
+          "type": "explore",
+          "title": "探索海洋数据与 AI 的结合点",
+          "description": "找一篇海洋科学数据应用的文章或项目，记下两个让你好奇的点，不做深挖。",
+          "durationMinutes": 30,
+          "completed": false
+        }
+      ],
+      "evening": [
+        {
+          "id": "learn-planner-eval",
+          "type": "learn",
+          "title": "学习规划器质量评估方法",
+          "description": "看一段关于 LLM 输出评估的资料，整理出 3 条可用于自己产品 v2 的检查点。",
+          "durationMinutes": 30,
+          "completed": false
+        },
+        {
+          "id": "enjoy-dinner-music",
+          "type": "enjoy",
+          "title": "好好吃顿饭，听点喜欢的音乐",
+          "description": "不安排任务，纯粹放松。",
+          "completed": false
+        }
+      ],
+      "night": [
+        {
+          "id": "read-history",
+          "type": "read",
+          "title": "读几页历史书",
+          "description": "睡前读 20 分钟，读到困了就停。",
+          "durationMinutes": 20,
+          "completed": false
+        }
+      ]
+    },
+    "minimumDay": {
+      "message": "如果今天状态下滑，只做这三件事也算完整的一天。",
+      "items": [
+        {
+          "id": "min-main-portfolio",
+          "type": "main",
+          "title": "写作品集案例提纲的一小节",
+          "description": "只写「问题与你的角色」这一部分，写完就收。",
+          "durationMinutes": 30,
+          "completed": false
+        },
+        {
+          "id": "min-explore-ocean",
+          "type": "explore",
+          "title": "看一个海洋 AI 小项目",
+          "description": "随便翻一个相关项目页面，记一句话感想。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-move-walk",
+          "type": "move",
+          "title": "短散步",
+          "description": "楼下走一圈，呼吸一下。",
+          "durationMinutes": 20,
+          "completed": false
+        }
+      ]
+    },
+    "activeMode": "standard"
+  },
+  "finalMeasure": {
+    "mainMinutes": 100,
+    "supportCount": 5,
+    "mainInTier": true,
+    "supportInTier": true,
+    "minimumMainMinutes": 30,
+    "minimumMainIs30": true,
+    "clockHits": [],
+    "extraMains": 0,
+    "mainTitle": "完成作品集第二个案例的提纲"
+  }
+}

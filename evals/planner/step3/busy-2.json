@@ -1,0 +1,137 @@
+{
+  "scenario": "busy",
+  "run": 2,
+  "ms": 3591,
+  "source": "ai",
+  "attempts": [
+    {
+      "status": 200,
+      "requestRoles": [
+        "system",
+        "user"
+      ],
+      "requestExtra": [],
+      "raw": "{\n  \"date\": \"2026-11-16\",\n  \"dayType\": \"productive\",\n  \"message\": \"今天时间紧还有硬任务，先把季度报告交掉，剩下的精力留一点给作品集和散步就好。\",\n  \"mainTask\": {\n    \"id\": \"main-quarterly-report\",\n    \"title\": \"完成并提交季度报告\",\n    \"description\": \"利用上午精力较好的时段，集中整理数据与结论，完成季度报告并检查关键数字，下午按时提交。\",\n    \"durationMinutes\": 50,\n    \"reason\": \"这是今天必须完成的硬任务，优先在精力高峰处理，完成后今天就已经有意义。\"\n  },\n  \"sections\": {\n    \"morning\": [\n      {\n        \"id\": \"explore-ai-planner-edge\",\n        \"type\": \"explore\",\n        \"title\": \"看看规划器在低精力场景下的表现\",\n        \"description\": \"花几分钟浏览自己产品在低精力、时间紧时的输出，记下一个可以改进的小点，不展开实现。\",\n        \"durationMinutes\": 20\n      }\n    ],\n    \"afternoon\": [\n      {\n        \"id\": \"move-short-walk\",\n        \"type\": \"move\",\n        \"title\": \"午后短散步\",\n        \"description\": \"交完报告后出门走一走，让眼睛和脑子放松一下。\",\n        \"durationMinutes\": 20\n      }\n    ],\n    \"evening\": [\n      {\n        \"id\": \"learn-portfolio-outline\",\n        \"type\": \"learn\",\n        \"title\": \"补完作品集第二个案例提纲\",\n        \"description\": \"只写提纲，不追求完整，把结构和关键点列出来即可。\",\n        \"durationMinutes\": 25\n      }\n    ],\n    \"night\": [\n      {\n        \"id\": \"enjoy-history-read\",\n        \"type\": \"enjoy\",\n        \"title\": \"随手读点历史\",\n        \"description\": \"不带任务地翻几页感兴趣的历史内容，纯享受。\"\n      }\n    ]\n  },\n  \"minimumDay\": {\n    \"message\": \"如果今天状态很差，就只做这几件小事，交掉报告就算成功。\",\n    \"items\": [\n      {\n        \"id\": \"min-main-report\",\n        \"type\": \"main\",\n        \"title\": \"完成季度报告并提交\",\n        \"description\": \"只聚焦最核心的数据和结论，先把报告交出去。\",\n        \"durationMinutes\": 30\n      },\n      {\n        \"id\": \"min-learn-planner-note\",\n        \"type\": \"learn\",\n        \"title\": \"记一个规划器改进点\",\n        \"description\": \"看一段自己的产品输出，写下一个可以改的小点。\",\n        \"durationMinutes\": 20\n      },\n      {\n        \"id\": \"min-move-walk\",\n        \"type\": \"move\",\n        \"title\": \"短散步\",\n        \"description\": \"出门走一小圈，透气放松。\",\n        \"durationMinutes\": 20\n      },\n      {\n        \"id\": \"min-enjoy-read\",\n        \"type\": \"enjoy\",\n        \"title\": \"读几页历史\",\n        \"description\": \"随手翻翻，不设目标。\"\n      }\n    ]\n  }\n}",
+      "finishReason": "stop",
+      "usage": {
+        "prompt": 943,
+        "completion": 694
+      },
+      "valid": true,
+      "measure": {
+        "mainMinutes": 50,
+        "supportCount": 4,
+        "mainInTier": true,
+        "supportInTier": true,
+        "minimumMainMinutes": 30,
+        "minimumMainIs30": true,
+        "clockHits": [],
+        "extraMains": 0,
+        "mainTitle": "完成并提交季度报告"
+      }
+    }
+  ],
+  "finalPlan": {
+    "date": "2026-11-16",
+    "dayType": "productive",
+    "message": "今天时间紧还有硬任务，先把季度报告交掉，剩下的精力留一点给作品集和散步就好。",
+    "mainTask": {
+      "id": "main-quarterly-report",
+      "type": "main",
+      "title": "完成并提交季度报告",
+      "description": "利用上午精力较好的时段，集中整理数据与结论，完成季度报告并检查关键数字，下午按时提交。",
+      "durationMinutes": 50,
+      "reason": "这是今天必须完成的硬任务，优先在精力高峰处理，完成后今天就已经有意义。",
+      "completed": false
+    },
+    "sections": {
+      "morning": [
+        {
+          "id": "explore-ai-planner-edge",
+          "type": "explore",
+          "title": "看看规划器在低精力场景下的表现",
+          "description": "花几分钟浏览自己产品在低精力、时间紧时的输出，记下一个可以改进的小点，不展开实现。",
+          "durationMinutes": 20,
+          "completed": false
+        }
+      ],
+      "afternoon": [
+        {
+          "id": "move-short-walk",
+          "type": "move",
+          "title": "午后短散步",
+          "description": "交完报告后出门走一走，让眼睛和脑子放松一下。",
+          "durationMinutes": 20,
+          "completed": false
+        }
+      ],
+      "evening": [
+        {
+          "id": "learn-portfolio-outline",
+          "type": "learn",
+          "title": "补完作品集第二个案例提纲",
+          "description": "只写提纲，不追求完整，把结构和关键点列出来即可。",
+          "durationMinutes": 25,
+          "completed": false
+        }
+      ],
+      "night": [
+        {
+          "id": "enjoy-history-read",
+          "type": "enjoy",
+          "title": "随手读点历史",
+          "description": "不带任务地翻几页感兴趣的历史内容，纯享受。",
+          "completed": false
+        }
+      ]
+    },
+    "minimumDay": {
+      "message": "如果今天状态很差，就只做这几件小事，交掉报告就算成功。",
+      "items": [
+        {
+          "id": "min-main-report",
+          "type": "main",
+          "title": "完成季度报告并提交",
+          "description": "只聚焦最核心的数据和结论，先把报告交出去。",
+          "durationMinutes": 30,
+          "completed": false
+        },
+        {
+          "id": "min-learn-planner-note",
+          "type": "learn",
+          "title": "记一个规划器改进点",
+          "description": "看一段自己的产品输出，写下一个可以改的小点。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-move-walk",
+          "type": "move",
+          "title": "短散步",
+          "description": "出门走一小圈，透气放松。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-enjoy-read",
+          "type": "enjoy",
+          "title": "读几页历史",
+          "description": "随手翻翻，不设目标。",
+          "completed": false
+        }
+      ]
+    },
+    "activeMode": "standard"
+  },
+  "finalMeasure": {
+    "mainMinutes": 50,
+    "supportCount": 4,
+    "mainInTier": true,
+    "supportInTier": true,
+    "minimumMainMinutes": 30,
+    "minimumMainIs30": true,
+    "clockHits": [],
+    "extraMains": 0,
+    "mainTitle": "完成并提交季度报告"
+  }
+}

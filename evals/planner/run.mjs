@@ -10,7 +10,7 @@ import { mkdir, readFile, readdir, rm, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { normalizeModel } from '../../worker/deepseek.js';
-import { buildPlannerPrompt, generateValidatedPlan, validatePlannerInput } from '../../worker/planner.js';
+import { buildPlannerPrompt, fallbackPlan, generateValidatedPlan, validatePlannerInput } from '../../worker/planner.js';
 import { parsePlannerJson, validateDailyPlan } from '../../worker/planner-schema.js';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
@@ -256,6 +256,13 @@ function section(summary, baseline) {
     lines.push('', '校验错误：', ...[...grouped].sort((a, b) => b[1] - a[1]).map(([message, n]) => `- ${n}× \`${message}\``));
   }
   if (t.clockHits.length) lines.push('', `命中的钟点文本（请人工确认是否误报）：${t.clockHits.map((hit) => `\`${hit}\``).join('、')}`);
+  if (summary.fallbacks?.length) {
+    lines.push('', 'Fallback 预览（不调用模型，直接对每个场景运行 `fallbackPlan`）：', '',
+      '| 场景 | dayType | 主任务 | 分钟 | 辅助项 | 符合档位 | message |', '|---|---|---|---|---|---|---|');
+    for (const f of summary.fallbacks) {
+      lines.push(`| ${f.id} | ${f.dayType} | ${f.mainTitle.replace(/\|/g, '/')} | ${f.mainMinutes} | ${f.supportCount} | ${f.inTier ? '是' : '否'} | ${f.message.replace(/\|/g, '/')} |`);
+    }
+  }
   if (summary.notes?.length) lines.push('', ...summary.notes.map((note) => `- ${note}`));
   lines.push('');
   return lines.join('\n');
@@ -305,6 +312,19 @@ async function main() {
   await mkdir(outDir, { recursive: true });
   for (const scenario of scenarios) await writeFile(path.join(outDir, `${scenario.id}.prompt.txt`), scenario.prompt, 'utf8');
 
+  // The fallback rarely triggers live, so it is rendered once per scenario without calling the model.
+  const fallbacks = [];
+  for (const scenario of scenarios) {
+    const plan = fallbackPlan(scenario.input, scenario.context.profile, scenario.context.recent);
+    const measured = measure(plan, scenario);
+    await writeFile(path.join(outDir, `${scenario.id}.fallback.json`), `${JSON.stringify(plan, null, 2)}\n`, 'utf8');
+    fallbacks.push({
+      id: scenario.id, tier: scenario.tier, dayType: plan.dayType, message: plan.message,
+      mainTitle: plan.mainTask.title.slice(0, 60), mainMinutes: measured.mainMinutes, supportCount: measured.supportCount,
+      inTier: measured.mainInTier && measured.supportInTier, canaryAnywhere: measured.canaryAnywhere === true,
+    });
+  }
+
   const tasks = scenarios.flatMap((scenario) => Array.from({ length: options.runs }, (_, index) => async () => {
     const record = await runOnce(env, scenario, index + 1);
     await writeFile(path.join(outDir, `${scenario.id}-${index + 1}.json`), `${JSON.stringify(record, null, 2)}\n`, 'utf8');
@@ -323,6 +343,7 @@ async function main() {
       stats: tally(records.filter((record) => record.scenario === scenario.id)),
     })),
     total: tally(records),
+    fallbacks,
   };
   await writeFile(path.join(outDir, 'summary.json'), `${JSON.stringify(summary, null, 2)}\n`, 'utf8');
   await writeReport();

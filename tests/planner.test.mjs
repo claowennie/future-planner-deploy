@@ -160,6 +160,70 @@ for (const lang of ['zh', 'en']) {
   }
 }
 
+// The fallback reads the most recent planned day instead of using one fixed template.
+const noMustDo = { ...input, mustDo: '' };
+const supportTotal = (plan) => planItems(plan).length - 1;
+const day = (overrides) => ({
+  date: '2026-08-21', dayType: 'balanced', completed: '4/5', review: null,
+  main: { title: 'Draft the portfolio case study', completed: true }, explore: [], learn: [], moveCompleted: true,
+  ...overrides,
+});
+const steadyFallback = fallbackPlan(noMustDo, profile, []);
+assert.equal(steadyFallback.mainTask.durationMinutes, 75);
+assert.equal(supportTotal(steadyFallback), 5);
+assert.equal(steadyFallback.mainTask.title, profile.priorities[0]);
+assert.deepEqual(fallbackPlan(noMustDo, profile).message, steadyFallback.message);
+
+const afterTooMuch = fallbackPlan(noMustDo, profile, [day({ review: { feeling: 'too_much', note: '' } })]);
+assert.equal(afterTooMuch.mainTask.durationMinutes, 60);
+assert.equal(supportTotal(afterTooMuch), 3);
+assert.equal(afterTooMuch.dayType, 'relaxed');
+assert.match(afterTooMuch.message, /too much/);
+assert.notEqual(afterTooMuch.message, steadyFallback.message);
+
+const afterLowCompletion = fallbackPlan(noMustDo, profile, [day({ completed: '1/6' })]);
+assert.equal(afterLowCompletion.mainTask.durationMinutes, 60);
+assert.equal(supportTotal(afterLowCompletion), 3);
+
+const afterTooLight = fallbackPlan(noMustDo, profile, [day({ review: { feeling: 'too_light', note: '' } })]);
+assert.equal(afterTooLight.mainTask.durationMinutes, 90);
+assert.equal(supportTotal(afterTooLight), 5);
+assert.equal(supportTotal(fallbackPlan({ ...noMustDo, ...fullDay }, profile, [day({ review: { feeling: 'too_light', note: '' } })])), 6);
+
+// Only the most recent day decides the pace.
+const olderTooMuch = fallbackPlan(noMustDo, profile, [day({ date: '2026-08-20', review: { feeling: 'too_much', note: '' } }), day({})]);
+assert.equal(olderTooMuch.mainTask.durationMinutes, 75);
+
+const carried = fallbackPlan(noMustDo, profile, [day({ main: { title: 'Draft the portfolio case study', completed: false } })]);
+assert.equal(carried.mainTask.title, 'Continue: Draft the portfolio case study (one small step first)');
+assert.equal(carried.minimumDay.items[0].title, carried.mainTask.title);
+assert.match(carried.message, /still open/);
+assert.match(carried.mainTask.reason, /left open last time/);
+const carriedZh = fallbackPlan({ ...noMustDo, lang: 'zh' }, profile, [day({ main: { title: '写完作品集初稿', completed: false }, review: { feeling: 'too_much', note: '' } })]);
+assert.equal(carriedZh.mainTask.title, '继续：写完作品集初稿（先做一小步）');
+assert.match(carriedZh.message, /还没做完.*偏满/);
+// An explicit must-do still wins over an unfinished main task.
+const mustDoWins = fallbackPlan(input, profile, [day({ main: { title: 'Draft the portfolio case study', completed: false } })]);
+assert.equal(mustDoWins.mainTask.title, input.mustDo);
+assert.doesNotMatch(mustDoWins.message, /still open/);
+
+// Explore avoids interests the recent days already covered.
+assert.match(JSON.stringify(steadyFallback.sections), /Explore: AI/);
+const freshTopic = fallbackPlan(noMustDo, profile, [day({ explore: ['How AI memory works'], learn: ['Product metrics'] })]);
+assert.match(JSON.stringify(freshTopic.sections), /Explore: Ocean science/);
+
+// Every pace stays inside the day's load tier, in both languages.
+for (const lang of ['zh', 'en']) {
+  for (const checkin of [lightDay, balancedDay, fullDay]) {
+    for (const feeling of ['too_much', 'just_right', 'too_light']) {
+      const tier = loadTier(checkin);
+      const plan = fallbackPlan({ ...noMustDo, ...checkin, lang }, profile, [day({ review: { feeling, note: '' }, main: { title: 'Open task', completed: false } })]);
+      assert.ok(plan.mainTask.durationMinutes >= tier.mainMin && plan.mainTask.durationMinutes <= tier.mainMax);
+      assert.ok(supportTotal(plan) >= tier.supportMin && supportTotal(plan) <= tier.supportMax);
+    }
+  }
+}
+
 const originalFetch = globalThis.fetch;
 const aiPayload = {
   date,
@@ -322,6 +386,23 @@ const tierRepaired = await generatePlannerDay(plannerEnv, 'user-token', 'user-1'
 assert.equal(tierRepaired.source, 'ai');
 assert.equal(tierRepaired.row.plan_json.mainTask.durationMinutes, 45);
 assert.match(repairRequests[1][3].content, /must be 30-60 on a LIGHT day \(got 90\)/);
+
+// When both replies are rejected, the persisted fallback reflects yesterday's review and open main task.
+repairRequests.length = 0;
+const yesterdayPlan = {
+  ...valid, date: '2026-08-21', mainTask: { ...valid.mainTask, title: 'Draft the portfolio case study', completed: false },
+  review: { feeling: 'too_much', note: '', completed: 1, total: 6 },
+};
+const historyFetch = repairFetch(['{invalid', '{invalid']);
+globalThis.fetch = async (url, options = {}) => (
+  String(url).includes('/rest/v1/daily_plans') && (options.method || 'GET') === 'GET'
+    ? Response.json([{ id: 'yesterday', date: '2026-08-21', day_type: 'balanced', version: 1, plan_json: yesterdayPlan }])
+    : historyFetch(url, options)
+);
+const historyFallback = await generatePlannerDay(plannerEnv, 'user-token', 'user-1', noMustDo);
+assert.equal(historyFallback.source, 'fallback');
+assert.equal(historyFallback.row.plan_json.mainTask.title, 'Continue: Draft the portfolio case study (one small step first)');
+assert.equal(historyFallback.row.plan_json.mainTask.durationMinutes, 60);
 
 globalThis.fetch = originalFetch;
 

@@ -1,0 +1,138 @@
+{
+  "scenario": "english-output",
+  "run": 2,
+  "ms": 3629,
+  "source": "ai",
+  "attempts": [
+    {
+      "status": 200,
+      "requestRoles": [
+        "system",
+        "user"
+      ],
+      "requestExtra": [],
+      "raw": "{\"date\":\"2026-11-16\",\"dayType\":\"balanced\",\"message\":\"Yesterday felt just right and you finished your main task, so let's keep that same steady rhythm today with a half-day of space.\",\"mainTask\":{\"id\":\"main-portfolio-case-study-2\",\"title\":\"Outline the second portfolio case study\",\"description\":\"Rework yesterday's unfinished outline into a clean skeleton: the problem, your role, the key decisions, and the outcome. Aim for a structure you could hand to someone, not polished prose.\",\"durationMinutes\":75,\"reason\":\"It carried over from yesterday and is a key result toward your product role goal; starting with a lighter structuring step makes it easy to finish.\"},\"sections\":{\"morning\":[{\"id\":\"move-morning-walk\",\"type\":\"move\",\"title\":\"Easy morning walk\",\"description\":\"A relaxed walk outside to wake up your body before focused work.\",\"durationMinutes\":25}],\"afternoon\":[{\"id\":\"explore-ocean-tech\",\"type\":\"explore\",\"title\":\"How ocean buoys collect live data\",\"description\":\"Spend a little time following how ocean-sensing buoys gather and transmit measurements.\",\"durationMinutes\":30}],\"evening\":[{\"id\":\"read-history-short\",\"type\":\"read\",\"title\":\"Read a short history piece\",\"description\":\"Pick a short article or chapter on a historical topic that catches your eye.\",\"durationMinutes\":25},{\"id\":\"enjoy-unwind\",\"type\":\"enjoy\",\"title\":\"Unwind however you like\",\"description\":\"Guilt-free time to relax, no goal attached.\"}],\"night\":[]},\"minimumDay\":{\"message\":\"A light fallback for low-energy days: one small step, a bit of curiosity, and some movement.\",\"items\":[{\"id\":\"min-main-outline\",\"type\":\"main\",\"title\":\"Sketch the case study skeleton\",\"description\":\"Just list the four sections and one line under each.\",\"durationMinutes\":30},{\"id\":\"min-learn-schema\",\"type\":\"learn\",\"title\":\"Refresh JSON Schema validation basics\",\"description\":\"Skim one short reference on validating JSON with schemas.\",\"durationMinutes\":25},{\"id\":\"min-move-stretch\",\"type\":\"move\",\"title\":\"Gentle stretch or short walk\",\"description\":\"Move your body lightly to reset.\",\"durationMinutes\":20},{\"id\":\"min-enjoy-break\",\"type\":\"enjoy\",\"title\":\"Take a guilt-free break\",\"description\":\"Do something purely for enjoyment.\"}]}}",
+      "finishReason": "stop",
+      "usage": {
+        "prompt": 1017,
+        "completion": 508
+      },
+      "valid": true,
+      "measure": {
+        "mainMinutes": 75,
+        "supportCount": 4,
+        "mainInTier": true,
+        "supportInTier": true,
+        "minimumMainMinutes": 30,
+        "minimumMainIs30": true,
+        "clockHits": [],
+        "extraMains": 0,
+        "mainTitle": "Outline the second portfolio case study",
+        "cjkInText": false
+      }
+    }
+  ],
+  "finalPlan": {
+    "date": "2026-11-16",
+    "dayType": "balanced",
+    "message": "Yesterday felt just right and you finished your main task, so let's keep that same steady rhythm today with a half-day of space.",
+    "mainTask": {
+      "id": "main-portfolio-case-study-2",
+      "type": "main",
+      "title": "Outline the second portfolio case study",
+      "description": "Rework yesterday's unfinished outline into a clean skeleton: the problem, your role, the key decisions, and the outcome. Aim for a structure you could hand to someone, not polished prose.",
+      "durationMinutes": 75,
+      "reason": "It carried over from yesterday and is a key result toward your product role goal; starting with a lighter structuring step makes it easy to finish.",
+      "completed": false
+    },
+    "sections": {
+      "morning": [
+        {
+          "id": "move-morning-walk",
+          "type": "move",
+          "title": "Easy morning walk",
+          "description": "A relaxed walk outside to wake up your body before focused work.",
+          "durationMinutes": 25,
+          "completed": false
+        }
+      ],
+      "afternoon": [
+        {
+          "id": "explore-ocean-tech",
+          "type": "explore",
+          "title": "How ocean buoys collect live data",
+          "description": "Spend a little time following how ocean-sensing buoys gather and transmit measurements.",
+          "durationMinutes": 30,
+          "completed": false
+        }
+      ],
+      "evening": [
+        {
+          "id": "read-history-short",
+          "type": "read",
+          "title": "Read a short history piece",
+          "description": "Pick a short article or chapter on a historical topic that catches your eye.",
+          "durationMinutes": 25,
+          "completed": false
+        },
+        {
+          "id": "enjoy-unwind",
+          "type": "enjoy",
+          "title": "Unwind however you like",
+          "description": "Guilt-free time to relax, no goal attached.",
+          "completed": false
+        }
+      ],
+      "night": []
+    },
+    "minimumDay": {
+      "message": "A light fallback for low-energy days: one small step, a bit of curiosity, and some movement.",
+      "items": [
+        {
+          "id": "min-main-outline",
+          "type": "main",
+          "title": "Sketch the case study skeleton",
+          "description": "Just list the four sections and one line under each.",
+          "durationMinutes": 30,
+          "completed": false
+        },
+        {
+          "id": "min-learn-schema",
+          "type": "learn",
+          "title": "Refresh JSON Schema validation basics",
+          "description": "Skim one short reference on validating JSON with schemas.",
+          "durationMinutes": 25,
+          "completed": false
+        },
+        {
+          "id": "min-move-stretch",
+          "type": "move",
+          "title": "Gentle stretch or short walk",
+          "description": "Move your body lightly to reset.",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-enjoy-break",
+          "type": "enjoy",
+          "title": "Take a guilt-free break",
+          "description": "Do something purely for enjoyment.",
+          "completed": false
+        }
+      ]
+    },
+    "activeMode": "standard"
+  },
+  "finalMeasure": {
+    "mainMinutes": 75,
+    "supportCount": 4,
+    "mainInTier": true,
+    "supportInTier": true,
+    "minimumMainMinutes": 30,
+    "minimumMainIs30": true,
+    "clockHits": [],
+    "extraMains": 0,
+    "mainTitle": "Outline the second portfolio case study",
+    "cjkInText": false
+  }
+}

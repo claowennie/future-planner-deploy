@@ -1,0 +1,136 @@
+{
+  "scenario": "low-energy",
+  "run": 1,
+  "ms": 3697,
+  "source": "ai",
+  "attempts": [
+    {
+      "status": 200,
+      "requestRoles": [
+        "system",
+        "user"
+      ],
+      "requestExtra": [],
+      "raw": "{\"date\":\"2026-11-16\",\"dayType\":\"relaxed\",\"message\":\"今天能量偏低，我们把节奏放慢一点。昨天写作品集提纲没完成，今天先迈一小步就好，剩下的时间留给散步和一点轻松的阅读。\",\"mainTask\":{\"id\":\"portfolio-case2-outline-small\",\"title\":\"写作品集第二个案例的提纲（小步版）\",\"description\":\"只写三个小标题和每个标题下的一两句要点，先不追求完整，写完就停。\",\"durationMinutes\":45,\"reason\":\"这是昨天未完成但重要的一步，缩小到能轻松开始的程度，帮你在低能量日也保持一点推进。\"},\"sections\":{\"morning\":[{\"id\":\"morning-move-walk\",\"type\":\"move\",\"title\":\"轻松散步\",\"description\":\"出门走一小段，不设目标，感受一下天气。\",\"durationMinutes\":20}],\"afternoon\":[{\"id\":\"explore-ocean-news\",\"type\":\"explore\",\"title\":\"看一篇海洋科学的小文章\",\"description\":\"随便挑一篇感兴趣的读读，纯为好奇。\",\"durationMinutes\":20}],\"evening\":[{\"id\":\"read-history-book\",\"type\":\"read\",\"title\":\"读几页历史书\",\"description\":\"读到哪里算哪里，不设页数。\",\"durationMinutes\":20},{\"id\":\"enjoy-music\",\"type\":\"enjoy\",\"title\":\"听点喜欢的音乐\",\"description\":\"什么都不做，就放松一下。\"}],\"night\":[]},\"minimumDay\":{\"message\":\"如果今天实在没力气，就只做这几件最小的事，也算完整的一天。\",\"items\":[{\"id\":\"min-main-outline\",\"type\":\"main\",\"title\":\"写作品集第二个案例的三个小标题\",\"description\":\"只列三个标题，每个配一句话。\",\"durationMinutes\":30},{\"id\":\"min-learn-planner\",\"type\":\"learn\",\"title\":\"看一点规划器相关的资料\",\"description\":\"随便读一小段，记下一个想法。\",\"durationMinutes\":20},{\"id\":\"min-move-walk\",\"type\":\"move\",\"title\":\"短散步\",\"description\":\"楼下走一圈就好。\",\"durationMinutes\":20},{\"id\":\"min-enjoy-music\",\"type\":\"enjoy\",\"title\":\"听音乐放松\",\"description\":\"给自己一点无压力的时间。\"}]}}",
+      "finishReason": "stop",
+      "usage": {
+        "prompt": 941,
+        "completion": 472
+      },
+      "valid": true,
+      "measure": {
+        "mainMinutes": 45,
+        "supportCount": 4,
+        "mainInTier": true,
+        "supportInTier": true,
+        "minimumMainMinutes": 30,
+        "minimumMainIs30": true,
+        "clockHits": [],
+        "extraMains": 0,
+        "mainTitle": "写作品集第二个案例的提纲（小步版）"
+      }
+    }
+  ],
+  "finalPlan": {
+    "date": "2026-11-16",
+    "dayType": "relaxed",
+    "message": "今天能量偏低，我们把节奏放慢一点。昨天写作品集提纲没完成，今天先迈一小步就好，剩下的时间留给散步和一点轻松的阅读。",
+    "mainTask": {
+      "id": "portfolio-case2-outline-small",
+      "type": "main",
+      "title": "写作品集第二个案例的提纲（小步版）",
+      "description": "只写三个小标题和每个标题下的一两句要点，先不追求完整，写完就停。",
+      "durationMinutes": 45,
+      "reason": "这是昨天未完成但重要的一步，缩小到能轻松开始的程度，帮你在低能量日也保持一点推进。",
+      "completed": false
+    },
+    "sections": {
+      "morning": [
+        {
+          "id": "morning-move-walk",
+          "type": "move",
+          "title": "轻松散步",
+          "description": "出门走一小段，不设目标，感受一下天气。",
+          "durationMinutes": 20,
+          "completed": false
+        }
+      ],
+      "afternoon": [
+        {
+          "id": "explore-ocean-news",
+          "type": "explore",
+          "title": "看一篇海洋科学的小文章",
+          "description": "随便挑一篇感兴趣的读读，纯为好奇。",
+          "durationMinutes": 20,
+          "completed": false
+        }
+      ],
+      "evening": [
+        {
+          "id": "read-history-book",
+          "type": "read",
+          "title": "读几页历史书",
+          "description": "读到哪里算哪里，不设页数。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "enjoy-music",
+          "type": "enjoy",
+          "title": "听点喜欢的音乐",
+          "description": "什么都不做，就放松一下。",
+          "completed": false
+        }
+      ],
+      "night": []
+    },
+    "minimumDay": {
+      "message": "如果今天实在没力气，就只做这几件最小的事，也算完整的一天。",
+      "items": [
+        {
+          "id": "min-main-outline",
+          "type": "main",
+          "title": "写作品集第二个案例的三个小标题",
+          "description": "只列三个标题，每个配一句话。",
+          "durationMinutes": 30,
+          "completed": false
+        },
+        {
+          "id": "min-learn-planner",
+          "type": "learn",
+          "title": "看一点规划器相关的资料",
+          "description": "随便读一小段，记下一个想法。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-move-walk",
+          "type": "move",
+          "title": "短散步",
+          "description": "楼下走一圈就好。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-enjoy-music",
+          "type": "enjoy",
+          "title": "听音乐放松",
+          "description": "给自己一点无压力的时间。",
+          "completed": false
+        }
+      ]
+    },
+    "activeMode": "standard"
+  },
+  "finalMeasure": {
+    "mainMinutes": 45,
+    "supportCount": 4,
+    "mainInTier": true,
+    "supportInTier": true,
+    "minimumMainMinutes": 30,
+    "minimumMainIs30": true,
+    "clockHits": [],
+    "extraMains": 0,
+    "mainTitle": "写作品集第二个案例的提纲（小步版）"
+  }
+}
