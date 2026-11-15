@@ -1,0 +1,144 @@
+{
+  "scenario": "ordinary",
+  "run": 3,
+  "ms": 4193,
+  "source": "ai",
+  "attempts": [
+    {
+      "status": 200,
+      "requestRoles": [
+        "system",
+        "user"
+      ],
+      "requestExtra": [],
+      "raw": "{\n  \"date\": \"2026-11-16\",\n  \"dayType\": \"balanced\",\n  \"message\": \"昨天你完成了大部分安排，节奏刚刚好。今天延续这份从容，先写作品集案例提纲，再留点时间给自己。\",\n  \"mainTask\": {\n    \"id\": \"portfolio-case2-outline\",\n    \"title\": \"写作品集第二个案例的提纲\",\n    \"description\": \"接着昨天的进度，用 60-90 分钟把第二个案例的结构搭出来：背景、你的角色、关键决策和结果。先写粗纲即可，不用打磨措辞。\",\n    \"durationMinutes\": 75,\n    \"reason\": \"昨天这项未完成，继续推进能保住势头；先出提纲是最小可行动的一步。\"\n  },\n  \"sections\": {\n    \"morning\": [\n      {\n        \"id\": \"explore-marine-acidification\",\n        \"type\": \"explore\",\n        \"title\": \"探索海洋酸化的新角度\",\n        \"description\": \"找一篇关于海洋酸化对珊瑚或贝类影响的科普或研究摘要，随手记下两个让你意外的点。\",\n        \"durationMinutes\": 25\n      }\n    ],\n    \"afternoon\": [\n      {\n        \"id\": \"move-walk\",\n        \"type\": \"move\",\n        \"title\": \"午后散步\",\n        \"description\": \"出门走一走，不带耳机，让脑子放空。\",\n        \"durationMinutes\": 30\n      },\n      {\n        \"id\": \"learn-json-schema-advanced\",\n        \"type\": \"learn\",\n        \"title\": \"深化 JSON Schema 校验\",\n        \"description\": \"在昨天基础上，看看条件校验或组合 schema 的用法，想想能否用在规划器里。\",\n        \"durationMinutes\": 30\n      }\n    ],\n    \"evening\": [\n      {\n        \"id\": \"read-history\",\n        \"type\": \"read\",\n        \"title\": \"读一点历史\",\n        \"description\": \"翻几页历史书或长文，纯为兴趣，不设目标。\",\n        \"durationMinutes\": 20\n      },\n      {\n        \"id\": \"enjoy-free\",\n        \"type\": \"enjoy\",\n        \"title\": \"自由放松时间\",\n        \"description\": \"做点纯粹让自己开心的事，不用有产出。\"\n      }\n    ],\n    \"night\": []\n  },\n  \"minimumDay\": {\n    \"message\": \"如果今天状态一般，就只做这几件小事，也算完整的一天。\",\n    \"items\": [\n      {\n        \"id\": \"min-main-outline\",\n        \"type\": \"main\",\n        \"title\": \"写作品集案例提纲的一小段\",\n        \"description\": \"只写案例的背景和你的角色两段，30 分钟即可。\",\n        \"durationMinutes\": 30\n      },\n      {\n        \"id\": \"min-explore-marine\",\n        \"type\": \"explore\",\n        \"title\": \"看一篇海洋酸化短文\",\n        \"description\": \"读一篇短文，记下一个有趣的发现。\",\n        \"durationMinutes\": 20\n      },\n      {\n        \"id\": \"min-move-walk\",\n        \"type\": \"move\",\n        \"title\": \"短散步\",\n        \"description\": \"出门走 20 分钟，呼吸新鲜空气。\",\n        \"durationMinutes\": 20\n      },\n      {\n        \"id\": \"min-enjoy\",\n        \"type\": \"enjoy\",\n        \"title\": \"轻松一下\",\n        \"description\": \"听歌、看视频，随便放松。\"\n      }\n    ]\n  }\n}",
+      "finishReason": "stop",
+      "usage": {
+        "prompt": 1103,
+        "completion": 767
+      },
+      "valid": true,
+      "measure": {
+        "mainMinutes": 75,
+        "supportCount": 5,
+        "mainInTier": true,
+        "supportInTier": true,
+        "minimumMainMinutes": 30,
+        "minimumMainIs30": true,
+        "clockHits": [],
+        "extraMains": 0,
+        "mainTitle": "写作品集第二个案例的提纲"
+      }
+    }
+  ],
+  "finalPlan": {
+    "date": "2026-11-16",
+    "dayType": "balanced",
+    "message": "昨天你完成了大部分安排，节奏刚刚好。今天延续这份从容，先写作品集案例提纲，再留点时间给自己。",
+    "mainTask": {
+      "id": "portfolio-case2-outline",
+      "type": "main",
+      "title": "写作品集第二个案例的提纲",
+      "description": "接着昨天的进度，用 60-90 分钟把第二个案例的结构搭出来：背景、你的角色、关键决策和结果。先写粗纲即可，不用打磨措辞。",
+      "durationMinutes": 75,
+      "reason": "昨天这项未完成，继续推进能保住势头；先出提纲是最小可行动的一步。",
+      "completed": false
+    },
+    "sections": {
+      "morning": [
+        {
+          "id": "explore-marine-acidification",
+          "type": "explore",
+          "title": "探索海洋酸化的新角度",
+          "description": "找一篇关于海洋酸化对珊瑚或贝类影响的科普或研究摘要，随手记下两个让你意外的点。",
+          "durationMinutes": 25,
+          "completed": false
+        }
+      ],
+      "afternoon": [
+        {
+          "id": "move-walk",
+          "type": "move",
+          "title": "午后散步",
+          "description": "出门走一走，不带耳机，让脑子放空。",
+          "durationMinutes": 30,
+          "completed": false
+        },
+        {
+          "id": "learn-json-schema-advanced",
+          "type": "learn",
+          "title": "深化 JSON Schema 校验",
+          "description": "在昨天基础上，看看条件校验或组合 schema 的用法，想想能否用在规划器里。",
+          "durationMinutes": 30,
+          "completed": false
+        }
+      ],
+      "evening": [
+        {
+          "id": "read-history",
+          "type": "read",
+          "title": "读一点历史",
+          "description": "翻几页历史书或长文，纯为兴趣，不设目标。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "enjoy-free",
+          "type": "enjoy",
+          "title": "自由放松时间",
+          "description": "做点纯粹让自己开心的事，不用有产出。",
+          "completed": false
+        }
+      ],
+      "night": []
+    },
+    "minimumDay": {
+      "message": "如果今天状态一般，就只做这几件小事，也算完整的一天。",
+      "items": [
+        {
+          "id": "min-main-outline",
+          "type": "main",
+          "title": "写作品集案例提纲的一小段",
+          "description": "只写案例的背景和你的角色两段，30 分钟即可。",
+          "durationMinutes": 30,
+          "completed": false
+        },
+        {
+          "id": "min-explore-marine",
+          "type": "explore",
+          "title": "看一篇海洋酸化短文",
+          "description": "读一篇短文，记下一个有趣的发现。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-move-walk",
+          "type": "move",
+          "title": "短散步",
+          "description": "出门走 20 分钟，呼吸新鲜空气。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-enjoy",
+          "type": "enjoy",
+          "title": "轻松一下",
+          "description": "听歌、看视频，随便放松。",
+          "completed": false
+        }
+      ]
+    },
+    "activeMode": "standard"
+  },
+  "finalMeasure": {
+    "mainMinutes": 75,
+    "supportCount": 5,
+    "mainInTier": true,
+    "supportInTier": true,
+    "minimumMainMinutes": 30,
+    "minimumMainIs30": true,
+    "clockHits": [],
+    "extraMains": 0,
+    "mainTitle": "写作品集第二个案例的提纲"
+  }
+}

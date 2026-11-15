@@ -1,0 +1,147 @@
+{
+  "scenario": "english-output",
+  "run": 3,
+  "ms": 4034,
+  "source": "ai",
+  "attempts": [
+    {
+      "status": 200,
+      "requestRoles": [
+        "system",
+        "user"
+      ],
+      "requestExtra": [],
+      "raw": "{\"date\":\"2026-11-16\",\"dayType\":\"balanced\",\"message\":\"Yesterday you finished 4 of 5 and felt just right, so today keeps a similar gentle rhythm — with a smaller first step back into the portfolio case study that didn't get done.\",\"mainTask\":{\"id\":\"portfolio-case-study-2-outline\",\"title\":\"Outline the second portfolio case study\",\"description\":\"Write a light one-page outline: the problem, your role, the key decisions, and the outcome. Keep it rough — structure only, no polish.\",\"durationMinutes\":75,\"reason\":\"It carries over from yesterday unfinished and directly advances your 3-case-study goal, but starting with a short outline keeps it from feeling heavy.\"},\"sections\":{\"morning\":[{\"id\":\"morning-walk\",\"type\":\"move\",\"title\":\"Morning walk\",\"description\":\"A relaxed walk outside before sitting down to work.\",\"durationMinutes\":25}],\"afternoon\":[{\"id\":\"explore-tide-pools\",\"type\":\"explore\",\"title\":\"Explore tide pools and intertidal life\",\"description\":\"Follow curiosity into how intertidal ecosystems survive daily exposure — a fresh ocean-science thread.\",\"durationMinutes\":30}],\"evening\":[{\"id\":\"read-history-essay\",\"type\":\"read\",\"title\":\"Read a history essay\",\"description\":\"Pick one long-form history piece and read it slowly.\",\"durationMinutes\":25},{\"id\":\"enjoy-evening\",\"type\":\"enjoy\",\"title\":\"Guilt-free evening\",\"description\":\"Something purely for fun — music, a show, or just lingering over dinner. No output required.\"}],\"night\":[{\"id\":\"learn-schema-validation\",\"type\":\"learn\",\"title\":\"Learn one more JSON Schema pattern\",\"description\":\"A short continuation of yesterday's validation topic: try one conditional or pattern-based rule.\",\"durationMinutes\":20}]},\"minimumDay\":{\"message\":\"A lighter version for low-energy days — still one real thing, plus a little movement and curiosity.\",\"items\":[{\"id\":\"min-main-outline\",\"type\":\"main\",\"title\":\"Sketch the case study outline\",\"description\":\"Just three bullet points: problem, role, outcome.\",\"durationMinutes\":30},{\"id\":\"min-explore-tide-pools\",\"type\":\"explore\",\"title\":\"Read about one tide-pool creature\",\"description\":\"A short look at how one intertidal species survives the tides.\",\"durationMinutes\":20},{\"id\":\"min-move-walk\",\"type\":\"move\",\"title\":\"Short walk\",\"description\":\"Get outside for a bit of air and movement.\",\"durationMinutes\":20},{\"id\":\"min-enjoy\",\"type\":\"enjoy\",\"title\":\"Something pleasant\",\"description\":\"A small guilt-free treat to close the day.\"}]}}",
+      "finishReason": "stop",
+      "usage": {
+        "prompt": 1106,
+        "completion": 563
+      },
+      "valid": true,
+      "measure": {
+        "mainMinutes": 75,
+        "supportCount": 5,
+        "mainInTier": true,
+        "supportInTier": true,
+        "minimumMainMinutes": 30,
+        "minimumMainIs30": true,
+        "clockHits": [],
+        "extraMains": 0,
+        "mainTitle": "Outline the second portfolio case study",
+        "cjkInText": false
+      }
+    }
+  ],
+  "finalPlan": {
+    "date": "2026-11-16",
+    "dayType": "balanced",
+    "message": "Yesterday you finished 4 of 5 and felt just right, so today keeps a similar gentle rhythm — with a smaller first step back into the portfolio case study that didn't get done.",
+    "mainTask": {
+      "id": "portfolio-case-study-2-outline",
+      "type": "main",
+      "title": "Outline the second portfolio case study",
+      "description": "Write a light one-page outline: the problem, your role, the key decisions, and the outcome. Keep it rough — structure only, no polish.",
+      "durationMinutes": 75,
+      "reason": "It carries over from yesterday unfinished and directly advances your 3-case-study goal, but starting with a short outline keeps it from feeling heavy.",
+      "completed": false
+    },
+    "sections": {
+      "morning": [
+        {
+          "id": "morning-walk",
+          "type": "move",
+          "title": "Morning walk",
+          "description": "A relaxed walk outside before sitting down to work.",
+          "durationMinutes": 25,
+          "completed": false
+        }
+      ],
+      "afternoon": [
+        {
+          "id": "explore-tide-pools",
+          "type": "explore",
+          "title": "Explore tide pools and intertidal life",
+          "description": "Follow curiosity into how intertidal ecosystems survive daily exposure — a fresh ocean-science thread.",
+          "durationMinutes": 30,
+          "completed": false
+        }
+      ],
+      "evening": [
+        {
+          "id": "read-history-essay",
+          "type": "read",
+          "title": "Read a history essay",
+          "description": "Pick one long-form history piece and read it slowly.",
+          "durationMinutes": 25,
+          "completed": false
+        },
+        {
+          "id": "enjoy-evening",
+          "type": "enjoy",
+          "title": "Guilt-free evening",
+          "description": "Something purely for fun — music, a show, or just lingering over dinner. No output required.",
+          "completed": false
+        }
+      ],
+      "night": [
+        {
+          "id": "learn-schema-validation",
+          "type": "learn",
+          "title": "Learn one more JSON Schema pattern",
+          "description": "A short continuation of yesterday's validation topic: try one conditional or pattern-based rule.",
+          "durationMinutes": 20,
+          "completed": false
+        }
+      ]
+    },
+    "minimumDay": {
+      "message": "A lighter version for low-energy days — still one real thing, plus a little movement and curiosity.",
+      "items": [
+        {
+          "id": "min-main-outline",
+          "type": "main",
+          "title": "Sketch the case study outline",
+          "description": "Just three bullet points: problem, role, outcome.",
+          "durationMinutes": 30,
+          "completed": false
+        },
+        {
+          "id": "min-explore-tide-pools",
+          "type": "explore",
+          "title": "Read about one tide-pool creature",
+          "description": "A short look at how one intertidal species survives the tides.",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-move-walk",
+          "type": "move",
+          "title": "Short walk",
+          "description": "Get outside for a bit of air and movement.",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-enjoy",
+          "type": "enjoy",
+          "title": "Something pleasant",
+          "description": "A small guilt-free treat to close the day.",
+          "completed": false
+        }
+      ]
+    },
+    "activeMode": "standard"
+  },
+  "finalMeasure": {
+    "mainMinutes": 75,
+    "supportCount": 5,
+    "mainInTier": true,
+    "supportInTier": true,
+    "minimumMainMinutes": 30,
+    "minimumMainIs30": true,
+    "clockHits": [],
+    "extraMains": 0,
+    "mainTitle": "Outline the second portfolio case study",
+    "cjkInText": false
+  }
+}

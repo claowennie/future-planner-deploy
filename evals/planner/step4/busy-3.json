@@ -1,0 +1,173 @@
+{
+  "scenario": "busy",
+  "run": 3,
+  "ms": 6367,
+  "source": "ai",
+  "attempts": [
+    {
+      "status": 200,
+      "requestRoles": [
+        "system",
+        "user"
+      ],
+      "requestExtra": [],
+      "raw": "{\"date\":\"2026-11-16\",\"dayType\":\"productive\",\"message\":\"今天时间紧，先把季度报告交掉，其余都轻一点；作品集提纲没完成也别急，改天用更小的第一步接着来。\",\"mainTask\":{\"id\":\"main-2026-11-16-quarterly-report\",\"title\":\"完成并提交季度报告\",\"description\":\"先把报告骨架补齐，再填关键数据和结论，最后通读一遍发出。下午交稿，上午留出完整一段不被打断的时间。\",\"durationMinutes\":50,\"reason\":\"这是今天必须完成的事，且时间有限；一次专注完成就能让今天很有意义。\"},\"sections\":{\"morning\":[{\"id\":\"sup-2026-11-16-focus-report\",\"type\":\"focus\",\"title\":\"专注写季度报告主体\",\"description\":\"关掉通知，先写完主体部分，不追求措辞完美。\",\"durationMinutes\":50}],\"afternoon\":[],\"evening\":[{\"id\":\"sup-2026-11-16-move-walk\",\"type\":\"move\",\"title\":\"傍晚散步\",\"description\":\"出门走一圈，不带耳机，让脑子放空。\",\"durationMinutes\":25},{\"id\":\"sup-2026-11-16-learn-ocean\",\"type\":\"learn\",\"title\":\"读一点海洋科学\",\"description\":\"看一篇关于深海探测的短文或视频，纯为好奇。\",\"durationMinutes\":20}],\"night\":[{\"id\":\"sup-2026-11-16-read-history\",\"type\":\"read\",\"title\":\"读几页历史书\",\"description\":\"睡前翻几页，读到困为止。\",\"durationMinutes\":20},{\"id\":\"sup-2026-11-16-enjoy-music\",\"type\":\"enjoy\",\"title\":\"听点喜欢的音乐\",\"description\":\"交完报告后，安心放松，不用有产出。\"}]},\"minimumDay\":{\"message\":\"如果今天实在忙不过来，只做这几件也算完整的一天。\",\"items\":[{\"id\":\"min-2026-11-16-main\",\"type\":\"main\",\"title\":\"提交季度报告\",\"description\":\"只求把报告补齐并发出，不再打磨。\",\"durationMinutes\":30},{\"id\":\"min-2026-11-16-learn\",\"type\":\"learn\",\"title\":\"看一篇海洋科学短文\",\"description\":\"挑一篇短的，读完就好。\",\"durationMinutes\":20},{\"id\":\"min-2026-11-16-move\",\"type\":\"move\",\"title\":\"散步\",\"description\":\"楼下走一圈，活动一下身体。\",\"durationMinutes\":20},{\"id\":\"min-2026-11-16-enjoy\",\"type\":\"enjoy\",\"title\":\"听音乐放松\",\"description\":\"给自己一点无压力的时间。\"}]}}",
+      "finishReason": "stop",
+      "usage": {
+        "prompt": 1050,
+        "completion": 558
+      },
+      "valid": false,
+      "validationError": "sections.morning[0].type is not supported (use explore, learn, move, read, or enjoy; the main task belongs only in mainTask, never in sections)",
+      "measure": {
+        "mainMinutes": 50,
+        "supportCount": 5,
+        "mainInTier": true,
+        "supportInTier": false,
+        "minimumMainMinutes": 30,
+        "minimumMainIs30": true,
+        "clockHits": [],
+        "extraMains": 0,
+        "mainTitle": "完成并提交季度报告"
+      }
+    },
+    {
+      "status": 200,
+      "requestRoles": [
+        "system",
+        "user",
+        "assistant",
+        "user"
+      ],
+      "requestExtra": [
+        {
+          "role": "assistant",
+          "content": "{\"date\":\"2026-11-16\",\"dayType\":\"productive\",\"message\":\"今天时间紧，先把季度报告交掉，其余都轻一点；作品集提纲没完成也别急，改天用更小的第一步接着来。\",\"mainTask\":{\"id\":\"main-2026-11-16-quarterly-report\",\"title\":\"完成并提交季度报告\",\"description\":\"先把报告骨架补齐，再填关键数据和结论，最后通读一遍发出。下午交稿，上午留出完整一段不被打断的时间。\",\"durationMinutes\":50,\"reason\":\"这是今天必须完成的事，且时间有限；一次专注完成就能让今天很有意义。\"},\"sections\":{\"morning\":[{\"id\":\"sup-2026-11-16-focus-report\",\"type\":\"focus\",\"title\":\"专注写季度报告主体\",\"description\":\"关掉通知，先写完主体部分，不追求措辞完美。\",\"durationMinutes\":50}],\"afternoon\":[],\"evening\":[{\"id\":\"sup-2026-11-16-move-walk\",\"type\":\"move\",\"title\":\"傍晚散步\",\"description\":\"出门走一圈，不带耳机，让脑子放空。\",\"durationMinutes\":25},{\"id\":\"sup-2026-11-16-learn-ocean\",\"type\":\"learn\",\"title\":\"读一点海洋科学\",\"description\":\"看一篇关于深海探测的短文或视频，纯为好奇。\",\"durationMinutes\":20}],\"night\":[{\"id\":\"sup-2026-11-16-read-history\",\"type\":\"read\",\"title\":\"读几页历史书\",\"description\":\"睡前翻几页，读到困为止。\",\"durationMinutes\":20},{\"id\":\"sup-2026-11-16-enjoy-music\",\"type\":\"enjoy\",\"title\":\"听点喜欢的音乐\",\"description\":\"交完报告后，安心放松，不用有产出。\"}]},\"minimumDay\":{\"message\":\"如果今天实在忙不过来，只做这几件也算完整的一天。\",\"items\":[{\"id\":\"min-2026-11-16-main\",\"type\":\"main\",\"title\":\"提交季度报告\",\"description\":\"只求把报告补齐并发出，不再打磨。\",\"durationMinutes\":30},{\"id\":\"min-2026-11-16-learn\",\"type\":\"learn\",\"title\":\"看一篇海洋科学短文\",\"description\":\"挑一篇短的，读完就好。\",\"durationMinutes\":20},{\"id\":\"min-2026-11-16-move\",\"type\":\"move\",\"title\":\"散步\",\"description\":\"楼下走一圈，活动一下身体。\",\"durationMinutes\":20},{\"id\":\"min-2026-11-16-enjoy\",\"type\":\"enjoy\",\"title\":\"听音乐放松\",\"description\":\"给自己一点无压力的时间。\"}]}}"
+        },
+        {
+          "role": "user",
+          "content": "Your previous reply was rejected by validation: sections.morning[0].type is not supported (use explore, learn, move, read, or enjoy; the main task belongs only in mainTask, never in sections). Fix that problem and return the complete corrected JSON object. All earlier rules still apply."
+        }
+      ],
+      "raw": "{\"date\":\"2026-11-16\",\"dayType\":\"productive\",\"message\":\"今天时间紧，先把季度报告交掉，其余都轻一点；作品集提纲没完成也别急，改天用更小的第一步接着来。\",\"mainTask\":{\"id\":\"main-2026-11-16-quarterly-report\",\"title\":\"完成并提交季度报告\",\"description\":\"先把报告骨架补齐，再填关键数据和结论，最后通读一遍发出。下午交稿，上午留出完整一段不被打断的时间。\",\"durationMinutes\":50,\"reason\":\"这是今天必须完成的事，且时间有限；一次专注完成就能让今天很有意义。\"},\"sections\":{\"morning\":[],\"afternoon\":[],\"evening\":[{\"id\":\"sup-2026-11-16-move-walk\",\"type\":\"move\",\"title\":\"傍晚散步\",\"description\":\"出门走一圈，不带耳机，让脑子放空。\",\"durationMinutes\":25},{\"id\":\"sup-2026-11-16-learn-ocean\",\"type\":\"learn\",\"title\":\"读一点海洋科学\",\"description\":\"看一篇关于深海探测的短文或视频，纯为好奇。\",\"durationMinutes\":20}],\"night\":[{\"id\":\"sup-2026-11-16-read-history\",\"type\":\"read\",\"title\":\"读几页历史书\",\"description\":\"睡前翻几页，读到困为止。\",\"durationMinutes\":20},{\"id\":\"sup-2026-11-16-enjoy-music\",\"type\":\"enjoy\",\"title\":\"听点喜欢的音乐\",\"description\":\"交完报告后，安心放松，不用有产出。\"}]},\"minimumDay\":{\"message\":\"如果今天实在忙不过来，只做这几件也算完整的一天。\",\"items\":[{\"id\":\"min-2026-11-16-main\",\"type\":\"main\",\"title\":\"提交季度报告\",\"description\":\"只求把报告补齐并发出，不再打磨。\",\"durationMinutes\":30},{\"id\":\"min-2026-11-16-learn\",\"type\":\"learn\",\"title\":\"看一篇海洋科学短文\",\"description\":\"挑一篇短的，读完就好。\",\"durationMinutes\":20},{\"id\":\"min-2026-11-16-move\",\"type\":\"move\",\"title\":\"散步\",\"description\":\"楼下走一圈，活动一下身体。\",\"durationMinutes\":20},{\"id\":\"min-2026-11-16-enjoy\",\"type\":\"enjoy\",\"title\":\"听音乐放松\",\"description\":\"给自己一点无压力的时间。\"}]}}",
+      "finishReason": "stop",
+      "usage": {
+        "prompt": 1673,
+        "completion": 509
+      },
+      "valid": true,
+      "measure": {
+        "mainMinutes": 50,
+        "supportCount": 4,
+        "mainInTier": true,
+        "supportInTier": true,
+        "minimumMainMinutes": 30,
+        "minimumMainIs30": true,
+        "clockHits": [],
+        "extraMains": 0,
+        "mainTitle": "完成并提交季度报告"
+      }
+    }
+  ],
+  "finalPlan": {
+    "date": "2026-11-16",
+    "dayType": "productive",
+    "message": "今天时间紧，先把季度报告交掉，其余都轻一点；作品集提纲没完成也别急，改天用更小的第一步接着来。",
+    "mainTask": {
+      "id": "main-2026-11-16-quarterly-report",
+      "type": "main",
+      "title": "完成并提交季度报告",
+      "description": "先把报告骨架补齐，再填关键数据和结论，最后通读一遍发出。下午交稿，上午留出完整一段不被打断的时间。",
+      "durationMinutes": 50,
+      "reason": "这是今天必须完成的事，且时间有限；一次专注完成就能让今天很有意义。",
+      "completed": false
+    },
+    "sections": {
+      "morning": [],
+      "afternoon": [],
+      "evening": [
+        {
+          "id": "sup-2026-11-16-move-walk",
+          "type": "move",
+          "title": "傍晚散步",
+          "description": "出门走一圈，不带耳机，让脑子放空。",
+          "durationMinutes": 25,
+          "completed": false
+        },
+        {
+          "id": "sup-2026-11-16-learn-ocean",
+          "type": "learn",
+          "title": "读一点海洋科学",
+          "description": "看一篇关于深海探测的短文或视频，纯为好奇。",
+          "durationMinutes": 20,
+          "completed": false
+        }
+      ],
+      "night": [
+        {
+          "id": "sup-2026-11-16-read-history",
+          "type": "read",
+          "title": "读几页历史书",
+          "description": "睡前翻几页，读到困为止。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "sup-2026-11-16-enjoy-music",
+          "type": "enjoy",
+          "title": "听点喜欢的音乐",
+          "description": "交完报告后，安心放松，不用有产出。",
+          "completed": false
+        }
+      ]
+    },
+    "minimumDay": {
+      "message": "如果今天实在忙不过来，只做这几件也算完整的一天。",
+      "items": [
+        {
+          "id": "min-2026-11-16-main",
+          "type": "main",
+          "title": "提交季度报告",
+          "description": "只求把报告补齐并发出，不再打磨。",
+          "durationMinutes": 30,
+          "completed": false
+        },
+        {
+          "id": "min-2026-11-16-learn",
+          "type": "learn",
+          "title": "看一篇海洋科学短文",
+          "description": "挑一篇短的，读完就好。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-2026-11-16-move",
+          "type": "move",
+          "title": "散步",
+          "description": "楼下走一圈，活动一下身体。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-2026-11-16-enjoy",
+          "type": "enjoy",
+          "title": "听音乐放松",
+          "description": "给自己一点无压力的时间。",
+          "completed": false
+        }
+      ]
+    },
+    "activeMode": "standard"
+  },
+  "finalMeasure": {
+    "mainMinutes": 50,
+    "supportCount": 4,
+    "mainInTier": true,
+    "supportInTier": true,
+    "minimumMainMinutes": 30,
+    "minimumMainIs30": true,
+    "clockHits": [],
+    "extraMains": 0,
+    "mainTitle": "完成并提交季度报告"
+  }
+}

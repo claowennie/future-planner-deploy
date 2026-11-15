@@ -1,0 +1,145 @@
+{
+  "scenario": "yesterday-main-unfinished",
+  "run": 2,
+  "ms": 4510,
+  "source": "ai",
+  "attempts": [
+    {
+      "status": 200,
+      "requestRoles": [
+        "system",
+        "user"
+      ],
+      "requestExtra": [],
+      "raw": "{\n  \"date\": \"2026-11-16\",\n  \"dayType\": \"balanced\",\n  \"message\": \"昨天作品集初稿没写完，今天把第一步缩小一点，先搭好提纲骨架；半天时间，留点空给散步和阅读。\",\n  \"mainTask\": {\n    \"id\": \"portfolio-case2-outline\",\n    \"title\": \"搭好作品集第二个案例的提纲骨架\",\n    \"description\": \"只做结构：确定案例标题、问题背景、你的角色、3-4 个关键决策点，每个点写一两句要点。不追求成稿，写完就停。\",\n    \"durationMinutes\": 75,\n    \"reason\": \"延续昨天未完成的作品集初稿，把第一步缩到最小可动，降低启动阻力。\"\n  },\n  \"sections\": {\n    \"morning\": [\n      {\n        \"id\": \"explore-tidal\",\n        \"type\": \"explore\",\n        \"title\": \"看看潮汐能发电的最新进展\",\n        \"description\": \"随便翻一两篇文章或视频，了解潮汐能现在的技术路线和瓶颈。\",\n        \"durationMinutes\": 25\n      }\n    ],\n    \"afternoon\": [\n      {\n        \"id\": \"move-walk\",\n        \"type\": \"move\",\n        \"title\": \"出门散步 25 分钟\",\n        \"description\": \"不带耳机或只放轻音乐，走一走，让脑子从提纲里松出来。\",\n        \"durationMinutes\": 25\n      }\n    ],\n    \"evening\": [\n      {\n        \"id\": \"learn-ai-eval\",\n        \"type\": \"learn\",\n        \"title\": \"学一点 AI 产品评测方法\",\n        \"description\": \"读一篇关于 LLM 产品评测或用户反馈闭环的文章，记下一条能用到自己规划器上的做法。\",\n        \"durationMinutes\": 30\n      },\n      {\n        \"id\": \"enjoy-free\",\n        \"type\": \"enjoy\",\n        \"title\": \"自由放松时间\",\n        \"description\": \"看剧、刷视频、发呆都行，不用有产出。\"\n      }\n    ],\n    \"night\": [\n      {\n        \"id\": \"read-history\",\n        \"type\": \"read\",\n        \"title\": \"读几页历史书\",\n        \"description\": \"睡前读一段，不求进度，读到困就停。\",\n        \"durationMinutes\": 20\n      }\n    ]\n  },\n  \"minimumDay\": {\n    \"message\": \"状态不好也没关系，做最小版本就够了。\",\n    \"items\": [\n      {\n        \"id\": \"min-main-outline\",\n        \"type\": \"main\",\n        \"title\": \"写出作品集案例二的三个关键决策点\",\n        \"description\": \"只列三个点，每个一句话，写完就算完成。\",\n        \"durationMinutes\": 30\n      },\n      {\n        \"id\": \"min-explore-tidal\",\n        \"type\": \"explore\",\n        \"title\": \"看一段潮汐能科普视频\",\n        \"description\": \"轻松了解一个海洋科学话题。\",\n        \"durationMinutes\": 20\n      },\n      {\n        \"id\": \"min-move-walk\",\n        \"type\": \"move\",\n        \"title\": \"散步 20 分钟\",\n        \"description\": \"出门走走，呼吸一下。\",\n        \"durationMinutes\": 20\n      },\n      {\n        \"id\": \"min-enjoy-free\",\n        \"type\": \"enjoy\",\n        \"title\": \"放松一会儿\",\n        \"description\": \"做点让自己舒服的事。\"\n      }\n    ]\n  }\n}",
+      "finishReason": "stop",
+      "usage": {
+        "prompt": 1097,
+        "completion": 768
+      },
+      "valid": true,
+      "measure": {
+        "mainMinutes": 75,
+        "supportCount": 5,
+        "mainInTier": true,
+        "supportInTier": true,
+        "minimumMainMinutes": 30,
+        "minimumMainIs30": true,
+        "clockHits": [],
+        "extraMains": 0,
+        "mainTitle": "搭好作品集第二个案例的提纲骨架"
+      }
+    }
+  ],
+  "finalPlan": {
+    "date": "2026-11-16",
+    "dayType": "balanced",
+    "message": "昨天作品集初稿没写完，今天把第一步缩小一点，先搭好提纲骨架；半天时间，留点空给散步和阅读。",
+    "mainTask": {
+      "id": "portfolio-case2-outline",
+      "type": "main",
+      "title": "搭好作品集第二个案例的提纲骨架",
+      "description": "只做结构：确定案例标题、问题背景、你的角色、3-4 个关键决策点，每个点写一两句要点。不追求成稿，写完就停。",
+      "durationMinutes": 75,
+      "reason": "延续昨天未完成的作品集初稿，把第一步缩到最小可动，降低启动阻力。",
+      "completed": false
+    },
+    "sections": {
+      "morning": [
+        {
+          "id": "explore-tidal",
+          "type": "explore",
+          "title": "看看潮汐能发电的最新进展",
+          "description": "随便翻一两篇文章或视频，了解潮汐能现在的技术路线和瓶颈。",
+          "durationMinutes": 25,
+          "completed": false
+        }
+      ],
+      "afternoon": [
+        {
+          "id": "move-walk",
+          "type": "move",
+          "title": "出门散步 25 分钟",
+          "description": "不带耳机或只放轻音乐，走一走，让脑子从提纲里松出来。",
+          "durationMinutes": 25,
+          "completed": false
+        }
+      ],
+      "evening": [
+        {
+          "id": "learn-ai-eval",
+          "type": "learn",
+          "title": "学一点 AI 产品评测方法",
+          "description": "读一篇关于 LLM 产品评测或用户反馈闭环的文章，记下一条能用到自己规划器上的做法。",
+          "durationMinutes": 30,
+          "completed": false
+        },
+        {
+          "id": "enjoy-free",
+          "type": "enjoy",
+          "title": "自由放松时间",
+          "description": "看剧、刷视频、发呆都行，不用有产出。",
+          "completed": false
+        }
+      ],
+      "night": [
+        {
+          "id": "read-history",
+          "type": "read",
+          "title": "读几页历史书",
+          "description": "睡前读一段，不求进度，读到困就停。",
+          "durationMinutes": 20,
+          "completed": false
+        }
+      ]
+    },
+    "minimumDay": {
+      "message": "状态不好也没关系，做最小版本就够了。",
+      "items": [
+        {
+          "id": "min-main-outline",
+          "type": "main",
+          "title": "写出作品集案例二的三个关键决策点",
+          "description": "只列三个点，每个一句话，写完就算完成。",
+          "durationMinutes": 30,
+          "completed": false
+        },
+        {
+          "id": "min-explore-tidal",
+          "type": "explore",
+          "title": "看一段潮汐能科普视频",
+          "description": "轻松了解一个海洋科学话题。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-move-walk",
+          "type": "move",
+          "title": "散步 20 分钟",
+          "description": "出门走走，呼吸一下。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-enjoy-free",
+          "type": "enjoy",
+          "title": "放松一会儿",
+          "description": "做点让自己舒服的事。",
+          "completed": false
+        }
+      ]
+    },
+    "activeMode": "standard"
+  },
+  "finalMeasure": {
+    "mainMinutes": 75,
+    "supportCount": 5,
+    "mainInTier": true,
+    "supportInTier": true,
+    "minimumMainMinutes": 30,
+    "minimumMainIs30": true,
+    "clockHits": [],
+    "extraMains": 0,
+    "mainTitle": "搭好作品集第二个案例的提纲骨架"
+  }
+}

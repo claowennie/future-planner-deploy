@@ -1,0 +1,130 @@
+{
+  "scenario": "yesterday-main-unfinished",
+  "run": 1,
+  "ms": 3405,
+  "source": "ai",
+  "attempts": [
+    {
+      "status": 200,
+      "requestRoles": [
+        "system",
+        "user"
+      ],
+      "requestExtra": [],
+      "raw": "{\"date\":\"2026-11-16\",\"dayType\":\"balanced\",\"message\":\"昨天的主任务没走完，今天先把它拆小一点，稳稳推进就好，不必补昨天的账。\",\"mainTask\":{\"id\":\"portfolio-case2-outline\",\"title\":\"写作品集第二个案例的提纲\",\"description\":\"只做提纲：用 20 分钟列结构（背景、问题、我的决策、结果），再用 40 分钟填要点，允许粗糙，不求成稿。\",\"durationMinutes\":75,\"reason\":\"这是昨天未完成但仍在推进的作品集目标，缩小第一步能降低启动阻力。\"},\"sections\":{\"morning\":[{\"id\":\"move-morning-walk\",\"type\":\"move\",\"title\":\"出门散步\",\"description\":\"不带耳机走一段，顺便想清楚案例要讲的核心决策。\",\"durationMinutes\":25}],\"afternoon\":[{\"id\":\"explore-tidal-energy\",\"type\":\"explore\",\"title\":\"了解潮汐能发电\",\"description\":\"看一篇科普或短视频，记下三个让你意外的点。\",\"durationMinutes\":25}],\"evening\":[{\"id\":\"read-history-ocean\",\"type\":\"read\",\"title\":\"读一段海洋史\",\"description\":\"读一章关于航海与贸易的历史，轻松读，不做笔记。\",\"durationMinutes\":30}],\"night\":[{\"id\":\"enjoy-no-pressure\",\"type\":\"enjoy\",\"title\":\"自由放松时间\",\"description\":\"看点喜欢的视频或随便玩玩，不需要有产出。\"}]},\"minimumDay\":{\"message\":\"如果今天状态一般，就只做这三件小事，也算完整的一天。\",\"items\":[{\"id\":\"min-main-outline\",\"type\":\"main\",\"title\":\"列案例提纲的三个标题\",\"description\":\"只写下背景、问题、结果三个小标题，各一句话即可。\",\"durationMinutes\":30},{\"id\":\"min-learn-ai-product\",\"type\":\"learn\",\"title\":\"看一个 AI 产品拆解\",\"description\":\"选一个熟悉的产品，记下它解决的一个真实痛点。\",\"durationMinutes\":25},{\"id\":\"min-move-stretch\",\"type\":\"move\",\"title\":\"散步或拉伸\",\"description\":\"出门走一圈，或在家做简单拉伸。\",\"durationMinutes\":20}]}}",
+      "finishReason": "stop",
+      "usage": {
+        "prompt": 1097,
+        "completion": 451
+      },
+      "valid": true,
+      "measure": {
+        "mainMinutes": 75,
+        "supportCount": 4,
+        "mainInTier": true,
+        "supportInTier": true,
+        "minimumMainMinutes": 30,
+        "minimumMainIs30": true,
+        "clockHits": [],
+        "extraMains": 0,
+        "mainTitle": "写作品集第二个案例的提纲"
+      }
+    }
+  ],
+  "finalPlan": {
+    "date": "2026-11-16",
+    "dayType": "balanced",
+    "message": "昨天的主任务没走完，今天先把它拆小一点，稳稳推进就好，不必补昨天的账。",
+    "mainTask": {
+      "id": "portfolio-case2-outline",
+      "type": "main",
+      "title": "写作品集第二个案例的提纲",
+      "description": "只做提纲：用 20 分钟列结构（背景、问题、我的决策、结果），再用 40 分钟填要点，允许粗糙，不求成稿。",
+      "durationMinutes": 75,
+      "reason": "这是昨天未完成但仍在推进的作品集目标，缩小第一步能降低启动阻力。",
+      "completed": false
+    },
+    "sections": {
+      "morning": [
+        {
+          "id": "move-morning-walk",
+          "type": "move",
+          "title": "出门散步",
+          "description": "不带耳机走一段，顺便想清楚案例要讲的核心决策。",
+          "durationMinutes": 25,
+          "completed": false
+        }
+      ],
+      "afternoon": [
+        {
+          "id": "explore-tidal-energy",
+          "type": "explore",
+          "title": "了解潮汐能发电",
+          "description": "看一篇科普或短视频，记下三个让你意外的点。",
+          "durationMinutes": 25,
+          "completed": false
+        }
+      ],
+      "evening": [
+        {
+          "id": "read-history-ocean",
+          "type": "read",
+          "title": "读一段海洋史",
+          "description": "读一章关于航海与贸易的历史，轻松读，不做笔记。",
+          "durationMinutes": 30,
+          "completed": false
+        }
+      ],
+      "night": [
+        {
+          "id": "enjoy-no-pressure",
+          "type": "enjoy",
+          "title": "自由放松时间",
+          "description": "看点喜欢的视频或随便玩玩，不需要有产出。",
+          "completed": false
+        }
+      ]
+    },
+    "minimumDay": {
+      "message": "如果今天状态一般，就只做这三件小事，也算完整的一天。",
+      "items": [
+        {
+          "id": "min-main-outline",
+          "type": "main",
+          "title": "列案例提纲的三个标题",
+          "description": "只写下背景、问题、结果三个小标题，各一句话即可。",
+          "durationMinutes": 30,
+          "completed": false
+        },
+        {
+          "id": "min-learn-ai-product",
+          "type": "learn",
+          "title": "看一个 AI 产品拆解",
+          "description": "选一个熟悉的产品，记下它解决的一个真实痛点。",
+          "durationMinutes": 25,
+          "completed": false
+        },
+        {
+          "id": "min-move-stretch",
+          "type": "move",
+          "title": "散步或拉伸",
+          "description": "出门走一圈，或在家做简单拉伸。",
+          "durationMinutes": 20,
+          "completed": false
+        }
+      ]
+    },
+    "activeMode": "standard"
+  },
+  "finalMeasure": {
+    "mainMinutes": 75,
+    "supportCount": 4,
+    "mainInTier": true,
+    "supportInTier": true,
+    "minimumMainMinutes": 30,
+    "minimumMainIs30": true,
+    "clockHits": [],
+    "extraMains": 0,
+    "mainTitle": "写作品集第二个案例的提纲"
+  }
+}

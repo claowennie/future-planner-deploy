@@ -1,0 +1,148 @@
+{
+  "scenario": "english-output",
+  "run": 2,
+  "ms": 4184,
+  "source": "ai",
+  "attempts": [
+    {
+      "status": 200,
+      "requestRoles": [
+        "system",
+        "user"
+      ],
+      "requestExtra": [],
+      "raw": "{\"date\":\"2026-11-16\",\"dayType\":\"balanced\",\"message\":\"Yesterday you finished 4 of 5 and said it felt just right, so today keeps that same steady rhythm — one meaningful piece of work, then room to breathe.\",\"mainTask\":{\"id\":\"portfolio-case-study-2-outline\",\"title\":\"Outline the second portfolio case study\",\"description\":\"Turn yesterday's unfinished outline into a clear skeleton: the problem, what you did, and the outcome. Aim for a rough structure you could write from, not polished prose.\",\"durationMinutes\":75,\"reason\":\"It's the one thing that wasn't finished yesterday and it directly moves your 3-case-study goal from 1/3 forward.\"},\"sections\":{\"morning\":[{\"id\":\"morning-walk\",\"type\":\"move\",\"title\":\"Short walk before sitting down\",\"description\":\"Get outside for a bit of air and daylight before the main task.\",\"durationMinutes\":25}],\"afternoon\":[{\"id\":\"explore-ocean-tech\",\"type\":\"explore\",\"title\":\"How ocean buoys collect live data\",\"description\":\"Follow curiosity into the hardware and sensors behind ocean monitoring — a light counterweight to the portfolio work.\",\"durationMinutes\":30},{\"id\":\"read-history\",\"type\":\"read\",\"title\":\"Read a chapter of history\",\"description\":\"Something narrative and unhurried, no note-taking required.\",\"durationMinutes\":25}],\"evening\":[{\"id\":\"learn-schema-basics\",\"type\":\"learn\",\"title\":\"Continue JSON Schema validation\",\"description\":\"Pick up where you left off and try one small validation example in the planner.\",\"durationMinutes\":30}],\"night\":[{\"id\":\"enjoy-evening\",\"type\":\"enjoy\",\"title\":\"Unwind with something you like\",\"description\":\"Music, a show, or just doing nothing on purpose. No output expected.\"}]},\"minimumDay\":{\"message\":\"A lighter version for a low-energy day — still one real step forward, nothing more.\",\"items\":[{\"id\":\"min-main\",\"type\":\"main\",\"title\":\"Sketch the case study sections\",\"description\":\"Just list the three headings and one bullet each. That counts.\",\"durationMinutes\":30},{\"id\":\"min-explore\",\"type\":\"explore\",\"title\":\"Skim one article on ocean sensors\",\"description\":\"Read for curiosity, stop whenever.\",\"durationMinutes\":20},{\"id\":\"min-move\",\"type\":\"move\",\"title\":\"Easy walk around the block\",\"description\":\"Fresh air and a bit of movement.\",\"durationMinutes\":20},{\"id\":\"min-read\",\"type\":\"read\",\"title\":\"A few pages of history\",\"description\":\"Optional, only if it feels good.\",\"durationMinutes\":15}]}}",
+      "finishReason": "stop",
+      "usage": {
+        "prompt": 1106,
+        "completion": 554
+      },
+      "valid": true,
+      "measure": {
+        "mainMinutes": 75,
+        "supportCount": 5,
+        "mainInTier": true,
+        "supportInTier": true,
+        "minimumMainMinutes": 30,
+        "minimumMainIs30": true,
+        "clockHits": [],
+        "extraMains": 0,
+        "mainTitle": "Outline the second portfolio case study",
+        "cjkInText": false
+      }
+    }
+  ],
+  "finalPlan": {
+    "date": "2026-11-16",
+    "dayType": "balanced",
+    "message": "Yesterday you finished 4 of 5 and said it felt just right, so today keeps that same steady rhythm — one meaningful piece of work, then room to breathe.",
+    "mainTask": {
+      "id": "portfolio-case-study-2-outline",
+      "type": "main",
+      "title": "Outline the second portfolio case study",
+      "description": "Turn yesterday's unfinished outline into a clear skeleton: the problem, what you did, and the outcome. Aim for a rough structure you could write from, not polished prose.",
+      "durationMinutes": 75,
+      "reason": "It's the one thing that wasn't finished yesterday and it directly moves your 3-case-study goal from 1/3 forward.",
+      "completed": false
+    },
+    "sections": {
+      "morning": [
+        {
+          "id": "morning-walk",
+          "type": "move",
+          "title": "Short walk before sitting down",
+          "description": "Get outside for a bit of air and daylight before the main task.",
+          "durationMinutes": 25,
+          "completed": false
+        }
+      ],
+      "afternoon": [
+        {
+          "id": "explore-ocean-tech",
+          "type": "explore",
+          "title": "How ocean buoys collect live data",
+          "description": "Follow curiosity into the hardware and sensors behind ocean monitoring — a light counterweight to the portfolio work.",
+          "durationMinutes": 30,
+          "completed": false
+        },
+        {
+          "id": "read-history",
+          "type": "read",
+          "title": "Read a chapter of history",
+          "description": "Something narrative and unhurried, no note-taking required.",
+          "durationMinutes": 25,
+          "completed": false
+        }
+      ],
+      "evening": [
+        {
+          "id": "learn-schema-basics",
+          "type": "learn",
+          "title": "Continue JSON Schema validation",
+          "description": "Pick up where you left off and try one small validation example in the planner.",
+          "durationMinutes": 30,
+          "completed": false
+        }
+      ],
+      "night": [
+        {
+          "id": "enjoy-evening",
+          "type": "enjoy",
+          "title": "Unwind with something you like",
+          "description": "Music, a show, or just doing nothing on purpose. No output expected.",
+          "completed": false
+        }
+      ]
+    },
+    "minimumDay": {
+      "message": "A lighter version for a low-energy day — still one real step forward, nothing more.",
+      "items": [
+        {
+          "id": "min-main",
+          "type": "main",
+          "title": "Sketch the case study sections",
+          "description": "Just list the three headings and one bullet each. That counts.",
+          "durationMinutes": 30,
+          "completed": false
+        },
+        {
+          "id": "min-explore",
+          "type": "explore",
+          "title": "Skim one article on ocean sensors",
+          "description": "Read for curiosity, stop whenever.",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-move",
+          "type": "move",
+          "title": "Easy walk around the block",
+          "description": "Fresh air and a bit of movement.",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-read",
+          "type": "read",
+          "title": "A few pages of history",
+          "description": "Optional, only if it feels good.",
+          "durationMinutes": 15,
+          "completed": false
+        }
+      ]
+    },
+    "activeMode": "standard"
+  },
+  "finalMeasure": {
+    "mainMinutes": 75,
+    "supportCount": 5,
+    "mainInTier": true,
+    "supportInTier": true,
+    "minimumMainMinutes": 30,
+    "minimumMainIs30": true,
+    "clockHits": [],
+    "extraMains": 0,
+    "mainTitle": "Outline the second portfolio case study",
+    "cjkInText": false
+  }
+}

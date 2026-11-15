@@ -1,0 +1,137 @@
+{
+  "scenario": "low-energy",
+  "run": 3,
+  "ms": 4439,
+  "source": "ai",
+  "attempts": [
+    {
+      "status": 200,
+      "requestRoles": [
+        "system",
+        "user"
+      ],
+      "requestExtra": [],
+      "raw": "{\n  \"date\": \"2026-11-16\",\n  \"dayType\": \"relaxed\",\n  \"message\": \"昨天作品集提纲没写完也没关系，今天能量不高，我们只挑一件小事稳稳推进，让这一天依然有意义。\",\n  \"mainTask\": {\n    \"id\": \"portfolio-case2-outline-small\",\n    \"title\": \"写作品集第二个案例的提纲（轻量版）\",\n    \"description\": \"只列 3-5 个要点：问题背景、你的角色、关键决策、结果。不追求完整，先有一个能继续扩展的骨架。\",\n    \"durationMinutes\": 45,\n    \"reason\": \"延续昨天未完成的作品集任务，但把第一步缩小到 45 分钟，符合今天低能量、半天的节奏，完成即算有意义。\"\n  },\n  \"sections\": {\n    \"morning\": [\n      {\n        \"id\": \"morning-walk\",\n        \"type\": \"move\",\n        \"title\": \"轻松散步\",\n        \"description\": \"不带耳机，慢慢走一小圈，呼吸一下早晨的空气。\",\n        \"durationMinutes\": 20\n      }\n    ],\n    \"afternoon\": [\n      {\n        \"id\": \"afternoon-explore\",\n        \"type\": \"explore\",\n        \"title\": \"看一段海洋科学短片\",\n        \"description\": \"随便挑一个海洋主题的短纪录片或科普视频，纯粹出于好奇。\",\n        \"durationMinutes\": 20\n      }\n    ],\n    \"evening\": [\n      {\n        \"id\": \"evening-read\",\n        \"type\": \"read\",\n        \"title\": \"读几页历史书\",\n        \"description\": \"读手边任意一本历史相关的书，读到想停就停。\",\n        \"durationMinutes\": 20\n      }\n    ],\n    \"night\": [\n      {\n        \"id\": \"night-enjoy\",\n        \"type\": \"enjoy\",\n        \"title\": \"无压力放松时间\",\n        \"description\": \"听音乐、发呆或看喜欢的内容，不需要有任何产出。\"\n      }\n    ]\n  },\n  \"minimumDay\": {\n    \"message\": \"如果今天只剩一点力气，就做这几件小事，也算完整的一天。\",\n    \"items\": [\n      {\n        \"id\": \"min-main\",\n        \"type\": \"main\",\n        \"title\": \"作品集案例提纲：只写 3 个要点\",\n        \"description\": \"打开文档，写下问题背景、你的角色、一个关键决策，就收工。\",\n        \"durationMinutes\": 30\n      },\n      {\n        \"id\": \"min-learn\",\n        \"type\": \"learn\",\n        \"title\": \"看 20 分钟 AI 产品设计相关内容\",\n        \"description\": \"挑一个你感兴趣的产品拆解或设计文章，轻松读一读。\",\n        \"durationMinutes\": 20\n      },\n      {\n        \"id\": \"min-move\",\n        \"type\": \"move\",\n        \"title\": \"室内拉伸或短走\",\n        \"description\": \"在家拉伸一下，或出门走一小段。\",\n        \"durationMinutes\": 20\n      },\n      {\n        \"id\": \"min-enjoy\",\n        \"type\": \"enjoy\",\n        \"title\": \"随意放松\",\n        \"description\": \"做一件让你舒服的小事，不需要理由。\"\n      }\n    ]\n  }\n}",
+      "finishReason": "stop",
+      "usage": {
+        "prompt": 1034,
+        "completion": 718
+      },
+      "valid": true,
+      "measure": {
+        "mainMinutes": 45,
+        "supportCount": 4,
+        "mainInTier": true,
+        "supportInTier": true,
+        "minimumMainMinutes": 30,
+        "minimumMainIs30": true,
+        "clockHits": [],
+        "extraMains": 0,
+        "mainTitle": "写作品集第二个案例的提纲（轻量版）"
+      }
+    }
+  ],
+  "finalPlan": {
+    "date": "2026-11-16",
+    "dayType": "relaxed",
+    "message": "昨天作品集提纲没写完也没关系，今天能量不高，我们只挑一件小事稳稳推进，让这一天依然有意义。",
+    "mainTask": {
+      "id": "portfolio-case2-outline-small",
+      "type": "main",
+      "title": "写作品集第二个案例的提纲（轻量版）",
+      "description": "只列 3-5 个要点：问题背景、你的角色、关键决策、结果。不追求完整，先有一个能继续扩展的骨架。",
+      "durationMinutes": 45,
+      "reason": "延续昨天未完成的作品集任务，但把第一步缩小到 45 分钟，符合今天低能量、半天的节奏，完成即算有意义。",
+      "completed": false
+    },
+    "sections": {
+      "morning": [
+        {
+          "id": "morning-walk",
+          "type": "move",
+          "title": "轻松散步",
+          "description": "不带耳机，慢慢走一小圈，呼吸一下早晨的空气。",
+          "durationMinutes": 20,
+          "completed": false
+        }
+      ],
+      "afternoon": [
+        {
+          "id": "afternoon-explore",
+          "type": "explore",
+          "title": "看一段海洋科学短片",
+          "description": "随便挑一个海洋主题的短纪录片或科普视频，纯粹出于好奇。",
+          "durationMinutes": 20,
+          "completed": false
+        }
+      ],
+      "evening": [
+        {
+          "id": "evening-read",
+          "type": "read",
+          "title": "读几页历史书",
+          "description": "读手边任意一本历史相关的书，读到想停就停。",
+          "durationMinutes": 20,
+          "completed": false
+        }
+      ],
+      "night": [
+        {
+          "id": "night-enjoy",
+          "type": "enjoy",
+          "title": "无压力放松时间",
+          "description": "听音乐、发呆或看喜欢的内容，不需要有任何产出。",
+          "completed": false
+        }
+      ]
+    },
+    "minimumDay": {
+      "message": "如果今天只剩一点力气，就做这几件小事，也算完整的一天。",
+      "items": [
+        {
+          "id": "min-main",
+          "type": "main",
+          "title": "作品集案例提纲：只写 3 个要点",
+          "description": "打开文档，写下问题背景、你的角色、一个关键决策，就收工。",
+          "durationMinutes": 30,
+          "completed": false
+        },
+        {
+          "id": "min-learn",
+          "type": "learn",
+          "title": "看 20 分钟 AI 产品设计相关内容",
+          "description": "挑一个你感兴趣的产品拆解或设计文章，轻松读一读。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-move",
+          "type": "move",
+          "title": "室内拉伸或短走",
+          "description": "在家拉伸一下，或出门走一小段。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-enjoy",
+          "type": "enjoy",
+          "title": "随意放松",
+          "description": "做一件让你舒服的小事，不需要理由。",
+          "completed": false
+        }
+      ]
+    },
+    "activeMode": "standard"
+  },
+  "finalMeasure": {
+    "mainMinutes": 45,
+    "supportCount": 4,
+    "mainInTier": true,
+    "supportInTier": true,
+    "minimumMainMinutes": 30,
+    "minimumMainIs30": true,
+    "clockHits": [],
+    "extraMains": 0,
+    "mainTitle": "写作品集第二个案例的提纲（轻量版）"
+  }
+}

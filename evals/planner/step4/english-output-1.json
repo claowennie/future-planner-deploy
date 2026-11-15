@@ -1,0 +1,146 @@
+{
+  "scenario": "english-output",
+  "run": 1,
+  "ms": 5559,
+  "source": "ai",
+  "attempts": [
+    {
+      "status": 200,
+      "requestRoles": [
+        "system",
+        "user"
+      ],
+      "requestExtra": [],
+      "raw": "{\n  \"date\": \"2026-11-16\",\n  \"dayType\": \"balanced\",\n  \"message\": \"Yesterday you got through four of five and felt just right — today we keep that same humane rhythm, with one clear main task and room to breathe.\",\n  \"mainTask\": {\n    \"id\": \"main-portfolio-case-study-2-outline\",\n    \"title\": \"Outline the second portfolio case study\",\n    \"description\": \"Pick the project you want to feature, sketch the story arc (problem, constraints, decisions, outcome), and write a rough bullet outline you could later turn into a full case study. Aim for a usable skeleton, not polish.\",\n    \"durationMinutes\": 75,\n    \"reason\": \"This was left unfinished on 2026-11-15 and directly advances your 'Land a product role' goal. A 75-minute first step keeps it small enough to actually start.\"\n  },\n  \"sections\": {\n    \"morning\": [\n      {\n        \"id\": \"morning-move-walk\",\n        \"type\": \"move\",\n        \"title\": \"Short morning walk\",\n        \"description\": \"Get outside for a relaxed walk before the day's focus block. No pace target — just fresh air.\",\n        \"durationMinutes\": 20\n      }\n    ],\n    \"afternoon\": [\n      {\n        \"id\": \"afternoon-explore-ocean\",\n        \"type\": \"explore\",\n        \"title\": \"Explore how ocean buoys collect climate data\",\n        \"description\": \"Follow one thread on ocean observing buoys — how they measure temperature and salinity and how that data reaches scientists.\",\n        \"durationMinutes\": 25\n      },\n      {\n        \"id\": \"afternoon-read-history\",\n        \"type\": \"read\",\n        \"title\": \"Read a chapter of a history book\",\n        \"description\": \"Pick up whatever history book is on your shelf and read a chapter at an easy pace.\",\n        \"durationMinutes\": 25\n      }\n    ],\n    \"evening\": [\n      {\n        \"id\": \"evening-learn-schema\",\n        \"type\": \"learn\",\n        \"title\": \"Learn a little more about JSON Schema validation\",\n        \"description\": \"Continue from yesterday: look at one new concept, like conditional schemas or reusable definitions, and try a tiny example.\",\n        \"durationMinutes\": 25\n      },\n      {\n        \"id\": \"evening-enjoy\",\n        \"type\": \"enjoy\",\n        \"title\": \"Guilt-free evening enjoyment\",\n        \"description\": \"Whatever genuinely feels good — a show, music, cooking something nice, or just doing nothing. No productivity attached.\"\n      }\n    ],\n    \"night\": []\n  },\n  \"minimumDay\": {\n    \"message\": \"A lighter version for low-energy or short days — still one meaningful step forward.\",\n    \"items\": [\n      {\n        \"id\": \"min-main-portfolio-case-study-2\",\n        \"type\": \"main\",\n        \"title\": \"Sketch the second portfolio case study\",\n        \"description\": \"Write five bullets: the problem, your role, one key decision, the outcome, and one lesson. That's a real start.\",\n        \"durationMinutes\": 30\n      },\n      {\n        \"id\": \"min-explore-ocean-buoys\",\n        \"type\": \"explore\",\n        \"title\": \"Explore ocean observing buoys\",\n        \"description\": \"Read one short article or watch one short video about how ocean buoys collect climate data.\",\n        \"durationMinutes\": 20\n      },\n      {\n        \"id\": \"min-move-walk\",\n        \"type\": \"move\",\n        \"title\": \"Easy walk\",\n        \"description\": \"A gentle walk outside, no pace or distance target.\",\n        \"durationMinutes\": 20\n      },\n      {\n        \"id\": \"min-enjoy\",\n        \"type\": \"enjoy\",\n        \"title\": \"Small guilt-free enjoyment\",\n        \"description\": \"Something small that feels good — tea, music, a few minutes of a game.\"\n      }\n    ]\n  }\n}",
+      "finishReason": "stop",
+      "usage": {
+        "prompt": 1106,
+        "completion": 858
+      },
+      "valid": true,
+      "measure": {
+        "mainMinutes": 75,
+        "supportCount": 5,
+        "mainInTier": true,
+        "supportInTier": true,
+        "minimumMainMinutes": 30,
+        "minimumMainIs30": true,
+        "clockHits": [],
+        "extraMains": 0,
+        "mainTitle": "Outline the second portfolio case study",
+        "cjkInText": false
+      }
+    }
+  ],
+  "finalPlan": {
+    "date": "2026-11-16",
+    "dayType": "balanced",
+    "message": "Yesterday you got through four of five and felt just right — today we keep that same humane rhythm, with one clear main task and room to breathe.",
+    "mainTask": {
+      "id": "main-portfolio-case-study-2-outline",
+      "type": "main",
+      "title": "Outline the second portfolio case study",
+      "description": "Pick the project you want to feature, sketch the story arc (problem, constraints, decisions, outcome), and write a rough bullet outline you could later turn into a full case study. Aim for a usable skeleton, not polish.",
+      "durationMinutes": 75,
+      "reason": "This was left unfinished on 2026-11-15 and directly advances your 'Land a product role' goal. A 75-minute first step keeps it small enough to actually start.",
+      "completed": false
+    },
+    "sections": {
+      "morning": [
+        {
+          "id": "morning-move-walk",
+          "type": "move",
+          "title": "Short morning walk",
+          "description": "Get outside for a relaxed walk before the day's focus block. No pace target — just fresh air.",
+          "durationMinutes": 20,
+          "completed": false
+        }
+      ],
+      "afternoon": [
+        {
+          "id": "afternoon-explore-ocean",
+          "type": "explore",
+          "title": "Explore how ocean buoys collect climate data",
+          "description": "Follow one thread on ocean observing buoys — how they measure temperature and salinity and how that data reaches scientists.",
+          "durationMinutes": 25,
+          "completed": false
+        },
+        {
+          "id": "afternoon-read-history",
+          "type": "read",
+          "title": "Read a chapter of a history book",
+          "description": "Pick up whatever history book is on your shelf and read a chapter at an easy pace.",
+          "durationMinutes": 25,
+          "completed": false
+        }
+      ],
+      "evening": [
+        {
+          "id": "evening-learn-schema",
+          "type": "learn",
+          "title": "Learn a little more about JSON Schema validation",
+          "description": "Continue from yesterday: look at one new concept, like conditional schemas or reusable definitions, and try a tiny example.",
+          "durationMinutes": 25,
+          "completed": false
+        },
+        {
+          "id": "evening-enjoy",
+          "type": "enjoy",
+          "title": "Guilt-free evening enjoyment",
+          "description": "Whatever genuinely feels good — a show, music, cooking something nice, or just doing nothing. No productivity attached.",
+          "completed": false
+        }
+      ],
+      "night": []
+    },
+    "minimumDay": {
+      "message": "A lighter version for low-energy or short days — still one meaningful step forward.",
+      "items": [
+        {
+          "id": "min-main-portfolio-case-study-2",
+          "type": "main",
+          "title": "Sketch the second portfolio case study",
+          "description": "Write five bullets: the problem, your role, one key decision, the outcome, and one lesson. That's a real start.",
+          "durationMinutes": 30,
+          "completed": false
+        },
+        {
+          "id": "min-explore-ocean-buoys",
+          "type": "explore",
+          "title": "Explore ocean observing buoys",
+          "description": "Read one short article or watch one short video about how ocean buoys collect climate data.",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-move-walk",
+          "type": "move",
+          "title": "Easy walk",
+          "description": "A gentle walk outside, no pace or distance target.",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-enjoy",
+          "type": "enjoy",
+          "title": "Small guilt-free enjoyment",
+          "description": "Something small that feels good — tea, music, a few minutes of a game.",
+          "completed": false
+        }
+      ]
+    },
+    "activeMode": "standard"
+  },
+  "finalMeasure": {
+    "mainMinutes": 75,
+    "supportCount": 5,
+    "mainInTier": true,
+    "supportInTier": true,
+    "minimumMainMinutes": 30,
+    "minimumMainIs30": true,
+    "clockHits": [],
+    "extraMains": 0,
+    "mainTitle": "Outline the second portfolio case study",
+    "cjkInText": false
+  }
+}

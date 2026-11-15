@@ -1,0 +1,144 @@
+{
+  "scenario": "yesterday-main-unfinished",
+  "run": 3,
+  "ms": 3674,
+  "source": "ai",
+  "attempts": [
+    {
+      "status": 200,
+      "requestRoles": [
+        "system",
+        "user"
+      ],
+      "requestExtra": [],
+      "raw": "{\"date\":\"2026-11-16\",\"dayType\":\"balanced\",\"message\":\"昨天作品集初稿没写完，今天先迈小一步就好；另外记得回复房东，其他安排都留了余地。\",\"mainTask\":{\"id\":\"portfolio-case2-outline\",\"title\":\"补完作品集第二个案例的提纲\",\"description\":\"不追求成稿，只把案例二的背景、你的角色、关键决策和结果四块各写两三句，凑成能继续扩写的骨架。\",\"durationMinutes\":75,\"reason\":\"延续昨天未完成的事，缩小到提纲级别更容易启动，也能推进“3 个作品集案例”这个关键结果。\"},\"sections\":{\"morning\":[{\"id\":\"reply-landlord\",\"type\":\"enjoy\",\"title\":\"回复房东的消息\",\"description\":\"花几分钟把该回的话回清楚，清掉心里挂着的小事。\"},{\"id\":\"walk-morning\",\"type\":\"move\",\"title\":\"出门散步 25 分钟\",\"description\":\"不带耳机或只放轻音乐，让脑子先醒过来。\",\"durationMinutes\":25}],\"afternoon\":[{\"id\":\"explore-ocean\",\"type\":\"explore\",\"title\":\"探索一个海洋科学小话题\",\"description\":\"挑一个你好奇的现象（比如深海热泉或洋流），看一篇科普文章，记下三个新发现。\",\"durationMinutes\":30}],\"evening\":[{\"id\":\"read-history\",\"type\":\"read\",\"title\":\"读一会儿历史\",\"description\":\"接着读手头的历史书，不设页数目标，读到想停为止。\",\"durationMinutes\":30}],\"night\":[{\"id\":\"enjoy-unwind\",\"type\":\"enjoy\",\"title\":\"睡前自由放松\",\"description\":\"看点轻松的东西或早点躺下，不安排任何产出。\"}]},\"minimumDay\":{\"message\":\"如果今天状态一般，只做这一件事也算完整的一天。\",\"items\":[{\"id\":\"min-main\",\"type\":\"main\",\"title\":\"写出案例二提纲的一小块\",\"description\":\"只写背景和你的角色两部分，能继续就行。\",\"durationMinutes\":30},{\"id\":\"min-learn\",\"type\":\"learn\",\"title\":\"学一个产品设计小概念\",\"description\":\"挑一个作品集里用得上的概念，看 20 分钟并记一句话。\",\"durationMinutes\":25},{\"id\":\"min-move\",\"type\":\"move\",\"title\":\"短散步\",\"description\":\"楼下走一圈，呼吸一下。\",\"durationMinutes\":20},{\"id\":\"min-enjoy\",\"type\":\"enjoy\",\"title\":\"回复房东消息\",\"description\":\"把这条小尾巴处理掉，安心收工。\"}]}}",
+      "finishReason": "stop",
+      "usage": {
+        "prompt": 1097,
+        "completion": 534
+      },
+      "valid": true,
+      "measure": {
+        "mainMinutes": 75,
+        "supportCount": 5,
+        "mainInTier": true,
+        "supportInTier": true,
+        "minimumMainMinutes": 30,
+        "minimumMainIs30": true,
+        "clockHits": [],
+        "extraMains": 0,
+        "mainTitle": "补完作品集第二个案例的提纲"
+      }
+    }
+  ],
+  "finalPlan": {
+    "date": "2026-11-16",
+    "dayType": "balanced",
+    "message": "昨天作品集初稿没写完，今天先迈小一步就好；另外记得回复房东，其他安排都留了余地。",
+    "mainTask": {
+      "id": "portfolio-case2-outline",
+      "type": "main",
+      "title": "补完作品集第二个案例的提纲",
+      "description": "不追求成稿，只把案例二的背景、你的角色、关键决策和结果四块各写两三句，凑成能继续扩写的骨架。",
+      "durationMinutes": 75,
+      "reason": "延续昨天未完成的事，缩小到提纲级别更容易启动，也能推进“3 个作品集案例”这个关键结果。",
+      "completed": false
+    },
+    "sections": {
+      "morning": [
+        {
+          "id": "reply-landlord",
+          "type": "enjoy",
+          "title": "回复房东的消息",
+          "description": "花几分钟把该回的话回清楚，清掉心里挂着的小事。",
+          "completed": false
+        },
+        {
+          "id": "walk-morning",
+          "type": "move",
+          "title": "出门散步 25 分钟",
+          "description": "不带耳机或只放轻音乐，让脑子先醒过来。",
+          "durationMinutes": 25,
+          "completed": false
+        }
+      ],
+      "afternoon": [
+        {
+          "id": "explore-ocean",
+          "type": "explore",
+          "title": "探索一个海洋科学小话题",
+          "description": "挑一个你好奇的现象（比如深海热泉或洋流），看一篇科普文章，记下三个新发现。",
+          "durationMinutes": 30,
+          "completed": false
+        }
+      ],
+      "evening": [
+        {
+          "id": "read-history",
+          "type": "read",
+          "title": "读一会儿历史",
+          "description": "接着读手头的历史书，不设页数目标，读到想停为止。",
+          "durationMinutes": 30,
+          "completed": false
+        }
+      ],
+      "night": [
+        {
+          "id": "enjoy-unwind",
+          "type": "enjoy",
+          "title": "睡前自由放松",
+          "description": "看点轻松的东西或早点躺下，不安排任何产出。",
+          "completed": false
+        }
+      ]
+    },
+    "minimumDay": {
+      "message": "如果今天状态一般，只做这一件事也算完整的一天。",
+      "items": [
+        {
+          "id": "min-main",
+          "type": "main",
+          "title": "写出案例二提纲的一小块",
+          "description": "只写背景和你的角色两部分，能继续就行。",
+          "durationMinutes": 30,
+          "completed": false
+        },
+        {
+          "id": "min-learn",
+          "type": "learn",
+          "title": "学一个产品设计小概念",
+          "description": "挑一个作品集里用得上的概念，看 20 分钟并记一句话。",
+          "durationMinutes": 25,
+          "completed": false
+        },
+        {
+          "id": "min-move",
+          "type": "move",
+          "title": "短散步",
+          "description": "楼下走一圈，呼吸一下。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-enjoy",
+          "type": "enjoy",
+          "title": "回复房东消息",
+          "description": "把这条小尾巴处理掉，安心收工。",
+          "completed": false
+        }
+      ]
+    },
+    "activeMode": "standard"
+  },
+  "finalMeasure": {
+    "mainMinutes": 75,
+    "supportCount": 5,
+    "mainInTier": true,
+    "supportInTier": true,
+    "minimumMainMinutes": 30,
+    "minimumMainIs30": true,
+    "clockHits": [],
+    "extraMains": 0,
+    "mainTitle": "补完作品集第二个案例的提纲"
+  }
+}

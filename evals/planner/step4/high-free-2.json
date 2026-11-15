@@ -1,0 +1,152 @@
+{
+  "scenario": "high-free",
+  "run": 2,
+  "ms": 4394,
+  "source": "ai",
+  "attempts": [
+    {
+      "status": 200,
+      "requestRoles": [
+        "system",
+        "user"
+      ],
+      "requestExtra": [],
+      "raw": "{\"date\":\"2026-11-16\",\"dayType\":\"productive\",\"message\":\"昨天作品集提纲没写完也没关系，今天精力不错，先给规划器做一次扎实的推进，再顺手把房东的消息回掉，一天就稳了。\",\"mainTask\":{\"id\":\"main-planner-quality-v2\",\"title\":\"优化规划器的一个核心质量环节\",\"description\":\"从规划器质量的 5 项待办里挑最小的一项（比如主任务时长校验或支撑项类型约束），先写清验收标准，再改代码并跑通一次完整测试。\",\"durationMinutes\":105,\"reason\":\"直接推进「发布 AI 产品 v2」的关键结果，且昨天已有测试用例基础，今天精力高适合做需要专注的改动。\"},\"sections\":{\"morning\":[{\"id\":\"sup-morning-reply-landlord\",\"type\":\"enjoy\",\"title\":\"回复房东的消息\",\"description\":\"几分钟解决掉，清空心里的挂念，再开始专注工作。\"},{\"id\":\"sup-morning-focus\",\"type\":\"learn\",\"title\":\"读规划器现有代码与测试用例\",\"description\":\"回顾昨天整理的测试用例，标出今天要改的那一处逻辑，20 分钟即可。\",\"durationMinutes\":25}],\"afternoon\":[{\"id\":\"sup-afternoon-walk\",\"type\":\"move\",\"title\":\"午后散步\",\"description\":\"出门走一圈，不看手机，让脑子从代码里松出来。\",\"durationMinutes\":30}],\"evening\":[{\"id\":\"sup-evening-portfolio\",\"type\":\"explore\",\"title\":\"给作品集第二个案例找素材\",\"description\":\"只收集和整理截图、数据、思路碎片，不要求写出成稿，降低启动门槛。\",\"durationMinutes\":40},{\"id\":\"sup-evening-read\",\"type\":\"read\",\"title\":\"读一段海洋科学或历史\",\"description\":\"随手翻几页感兴趣的书或长文，纯为好奇。\",\"durationMinutes\":25}],\"night\":[{\"id\":\"sup-night-enjoy\",\"type\":\"enjoy\",\"title\":\"自由放松时间\",\"description\":\"看点轻松的、听点音乐，今天该做的都做了，允许自己什么都不产出。\"}]},\"minimumDay\":{\"message\":\"如果今天状态下滑，就只做这一件小事，也算有意义的一天。\",\"items\":[{\"id\":\"min-main-planner\",\"type\":\"main\",\"title\":\"改一处规划器逻辑\",\"description\":\"只挑最小的一个校验点改掉并跑通测试，不追求完整。\",\"durationMinutes\":30},{\"id\":\"min-learn\",\"type\":\"learn\",\"title\":\"看一段产品设计或 AI 相关的内容\",\"description\":\"读一篇短文或看一个案例，记下一句有用的想法。\",\"durationMinutes\":25},{\"id\":\"min-move\",\"type\":\"move\",\"title\":\"短散步\",\"description\":\"出门走 20 分钟，呼吸一下。\",\"durationMinutes\":20},{\"id\":\"min-enjoy\",\"type\":\"enjoy\",\"title\":\"回复房东的消息\",\"description\":\"几分钟搞定，然后安心休息。\"}]}}",
+      "finishReason": "stop",
+      "usage": {
+        "prompt": 1034,
+        "completion": 619
+      },
+      "valid": true,
+      "measure": {
+        "mainMinutes": 105,
+        "supportCount": 6,
+        "mainInTier": true,
+        "supportInTier": true,
+        "minimumMainMinutes": 30,
+        "minimumMainIs30": true,
+        "clockHits": [],
+        "extraMains": 0,
+        "mainTitle": "优化规划器的一个核心质量环节"
+      }
+    }
+  ],
+  "finalPlan": {
+    "date": "2026-11-16",
+    "dayType": "productive",
+    "message": "昨天作品集提纲没写完也没关系，今天精力不错，先给规划器做一次扎实的推进，再顺手把房东的消息回掉，一天就稳了。",
+    "mainTask": {
+      "id": "main-planner-quality-v2",
+      "type": "main",
+      "title": "优化规划器的一个核心质量环节",
+      "description": "从规划器质量的 5 项待办里挑最小的一项（比如主任务时长校验或支撑项类型约束），先写清验收标准，再改代码并跑通一次完整测试。",
+      "durationMinutes": 105,
+      "reason": "直接推进「发布 AI 产品 v2」的关键结果，且昨天已有测试用例基础，今天精力高适合做需要专注的改动。",
+      "completed": false
+    },
+    "sections": {
+      "morning": [
+        {
+          "id": "sup-morning-reply-landlord",
+          "type": "enjoy",
+          "title": "回复房东的消息",
+          "description": "几分钟解决掉，清空心里的挂念，再开始专注工作。",
+          "completed": false
+        },
+        {
+          "id": "sup-morning-focus",
+          "type": "learn",
+          "title": "读规划器现有代码与测试用例",
+          "description": "回顾昨天整理的测试用例，标出今天要改的那一处逻辑，20 分钟即可。",
+          "durationMinutes": 25,
+          "completed": false
+        }
+      ],
+      "afternoon": [
+        {
+          "id": "sup-afternoon-walk",
+          "type": "move",
+          "title": "午后散步",
+          "description": "出门走一圈，不看手机，让脑子从代码里松出来。",
+          "durationMinutes": 30,
+          "completed": false
+        }
+      ],
+      "evening": [
+        {
+          "id": "sup-evening-portfolio",
+          "type": "explore",
+          "title": "给作品集第二个案例找素材",
+          "description": "只收集和整理截图、数据、思路碎片，不要求写出成稿，降低启动门槛。",
+          "durationMinutes": 40,
+          "completed": false
+        },
+        {
+          "id": "sup-evening-read",
+          "type": "read",
+          "title": "读一段海洋科学或历史",
+          "description": "随手翻几页感兴趣的书或长文，纯为好奇。",
+          "durationMinutes": 25,
+          "completed": false
+        }
+      ],
+      "night": [
+        {
+          "id": "sup-night-enjoy",
+          "type": "enjoy",
+          "title": "自由放松时间",
+          "description": "看点轻松的、听点音乐，今天该做的都做了，允许自己什么都不产出。",
+          "completed": false
+        }
+      ]
+    },
+    "minimumDay": {
+      "message": "如果今天状态下滑，就只做这一件小事，也算有意义的一天。",
+      "items": [
+        {
+          "id": "min-main-planner",
+          "type": "main",
+          "title": "改一处规划器逻辑",
+          "description": "只挑最小的一个校验点改掉并跑通测试，不追求完整。",
+          "durationMinutes": 30,
+          "completed": false
+        },
+        {
+          "id": "min-learn",
+          "type": "learn",
+          "title": "看一段产品设计或 AI 相关的内容",
+          "description": "读一篇短文或看一个案例，记下一句有用的想法。",
+          "durationMinutes": 25,
+          "completed": false
+        },
+        {
+          "id": "min-move",
+          "type": "move",
+          "title": "短散步",
+          "description": "出门走 20 分钟，呼吸一下。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-enjoy",
+          "type": "enjoy",
+          "title": "回复房东的消息",
+          "description": "几分钟搞定，然后安心休息。",
+          "completed": false
+        }
+      ]
+    },
+    "activeMode": "standard"
+  },
+  "finalMeasure": {
+    "mainMinutes": 105,
+    "supportCount": 6,
+    "mainInTier": true,
+    "supportInTier": true,
+    "minimumMainMinutes": 30,
+    "minimumMainIs30": true,
+    "clockHits": [],
+    "extraMains": 0,
+    "mainTitle": "优化规划器的一个核心质量环节"
+  }
+}

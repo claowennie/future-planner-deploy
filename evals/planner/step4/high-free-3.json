@@ -1,0 +1,153 @@
+{
+  "scenario": "high-free",
+  "run": 3,
+  "ms": 3790,
+  "source": "ai",
+  "attempts": [
+    {
+      "status": 200,
+      "requestRoles": [
+        "system",
+        "user"
+      ],
+      "requestExtra": [],
+      "raw": "{\"date\":\"2026-11-16\",\"dayType\":\"productive\",\"message\":\"昨天作品集提纲没写完，今天精力很好，先把它推进一步，剩下的时间留给探索和放松。\",\"mainTask\":{\"id\":\"portfolio-case2-outline-v2\",\"title\":\"完成作品集第二个案例的提纲\",\"description\":\"把昨天没写完的第二个案例提纲补完整：写清项目背景、你的角色、关键决策和结果，先求结构完整，不追求措辞完美。\",\"durationMinutes\":100,\"reason\":\"这是求职作品集的关键一步，延续昨天的进展；精力充沛时推进最合适，完成后今天就有实质意义。\"},\"sections\":{\"morning\":[{\"id\":\"warmup-write\",\"type\":\"learn\",\"title\":\"读一篇产品案例拆解\",\"description\":\"找一篇你欣赏的产品案例拆解，边读边记下它的叙述结构，为后面的提纲找灵感。\",\"durationMinutes\":30},{\"id\":\"morning-walk\",\"type\":\"move\",\"title\":\"晨间散步\",\"description\":\"出门走一走，不带耳机，让脑子先醒过来。\",\"durationMinutes\":25}],\"afternoon\":[{\"id\":\"explore-marine-ai\",\"type\":\"explore\",\"title\":\"探索海洋数据与 AI 的结合\",\"description\":\"随便看看海洋观测数据或相关开源项目，找一两个让你好奇的点记下来。\",\"durationMinutes\":30}],\"evening\":[{\"id\":\"read-history\",\"type\":\"read\",\"title\":\"读几页历史书\",\"description\":\"挑一本手边的历史读物，轻松读一会儿。\",\"durationMinutes\":25},{\"id\":\"enjoy-free\",\"type\":\"enjoy\",\"title\":\"自由放松时间\",\"description\":\"做点纯粹让自己开心的事，不需要产出。\"}],\"night\":[{\"id\":\"night-stretch\",\"type\":\"move\",\"title\":\"睡前拉伸\",\"description\":\"简单的肩颈和背部拉伸，帮身体松下来。\",\"durationMinutes\":15}]},\"minimumDay\":{\"message\":\"如果今天状态下滑，就只做这一件小事，也够了。\",\"items\":[{\"id\":\"mini-outline\",\"type\":\"main\",\"title\":\"写下第二个案例的三行提纲\",\"description\":\"只写背景、你的角色、结果这三行，先有个开头。\",\"durationMinutes\":30},{\"id\":\"mini-explore\",\"type\":\"explore\",\"title\":\"看一个海洋 AI 小项目\",\"description\":\"快速浏览一个相关项目页面，记下一个好奇点。\",\"durationMinutes\":20},{\"id\":\"mini-move\",\"type\":\"move\",\"title\":\"短散步\",\"description\":\"出门走一小圈，换换空气。\",\"durationMinutes\":20},{\"id\":\"mini-enjoy\",\"type\":\"enjoy\",\"title\":\"放松一下\",\"description\":\"听点喜欢的音乐或看一集短剧。\"}]}}",
+      "finishReason": "stop",
+      "usage": {
+        "prompt": 1034,
+        "completion": 571
+      },
+      "valid": true,
+      "measure": {
+        "mainMinutes": 100,
+        "supportCount": 6,
+        "mainInTier": true,
+        "supportInTier": true,
+        "minimumMainMinutes": 30,
+        "minimumMainIs30": true,
+        "clockHits": [],
+        "extraMains": 0,
+        "mainTitle": "完成作品集第二个案例的提纲"
+      }
+    }
+  ],
+  "finalPlan": {
+    "date": "2026-11-16",
+    "dayType": "productive",
+    "message": "昨天作品集提纲没写完，今天精力很好，先把它推进一步，剩下的时间留给探索和放松。",
+    "mainTask": {
+      "id": "portfolio-case2-outline-v2",
+      "type": "main",
+      "title": "完成作品集第二个案例的提纲",
+      "description": "把昨天没写完的第二个案例提纲补完整：写清项目背景、你的角色、关键决策和结果，先求结构完整，不追求措辞完美。",
+      "durationMinutes": 100,
+      "reason": "这是求职作品集的关键一步，延续昨天的进展；精力充沛时推进最合适，完成后今天就有实质意义。",
+      "completed": false
+    },
+    "sections": {
+      "morning": [
+        {
+          "id": "warmup-write",
+          "type": "learn",
+          "title": "读一篇产品案例拆解",
+          "description": "找一篇你欣赏的产品案例拆解，边读边记下它的叙述结构，为后面的提纲找灵感。",
+          "durationMinutes": 30,
+          "completed": false
+        },
+        {
+          "id": "morning-walk",
+          "type": "move",
+          "title": "晨间散步",
+          "description": "出门走一走，不带耳机，让脑子先醒过来。",
+          "durationMinutes": 25,
+          "completed": false
+        }
+      ],
+      "afternoon": [
+        {
+          "id": "explore-marine-ai",
+          "type": "explore",
+          "title": "探索海洋数据与 AI 的结合",
+          "description": "随便看看海洋观测数据或相关开源项目，找一两个让你好奇的点记下来。",
+          "durationMinutes": 30,
+          "completed": false
+        }
+      ],
+      "evening": [
+        {
+          "id": "read-history",
+          "type": "read",
+          "title": "读几页历史书",
+          "description": "挑一本手边的历史读物，轻松读一会儿。",
+          "durationMinutes": 25,
+          "completed": false
+        },
+        {
+          "id": "enjoy-free",
+          "type": "enjoy",
+          "title": "自由放松时间",
+          "description": "做点纯粹让自己开心的事，不需要产出。",
+          "completed": false
+        }
+      ],
+      "night": [
+        {
+          "id": "night-stretch",
+          "type": "move",
+          "title": "睡前拉伸",
+          "description": "简单的肩颈和背部拉伸，帮身体松下来。",
+          "durationMinutes": 15,
+          "completed": false
+        }
+      ]
+    },
+    "minimumDay": {
+      "message": "如果今天状态下滑，就只做这一件小事，也够了。",
+      "items": [
+        {
+          "id": "mini-outline",
+          "type": "main",
+          "title": "写下第二个案例的三行提纲",
+          "description": "只写背景、你的角色、结果这三行，先有个开头。",
+          "durationMinutes": 30,
+          "completed": false
+        },
+        {
+          "id": "mini-explore",
+          "type": "explore",
+          "title": "看一个海洋 AI 小项目",
+          "description": "快速浏览一个相关项目页面，记下一个好奇点。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "mini-move",
+          "type": "move",
+          "title": "短散步",
+          "description": "出门走一小圈，换换空气。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "mini-enjoy",
+          "type": "enjoy",
+          "title": "放松一下",
+          "description": "听点喜欢的音乐或看一集短剧。",
+          "completed": false
+        }
+      ]
+    },
+    "activeMode": "standard"
+  },
+  "finalMeasure": {
+    "mainMinutes": 100,
+    "supportCount": 6,
+    "mainInTier": true,
+    "supportInTier": true,
+    "minimumMainMinutes": 30,
+    "minimumMainIs30": true,
+    "clockHits": [],
+    "extraMains": 0,
+    "mainTitle": "完成作品集第二个案例的提纲"
+  }
+}

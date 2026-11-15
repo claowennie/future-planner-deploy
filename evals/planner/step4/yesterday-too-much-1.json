@@ -1,0 +1,129 @@
+{
+  "scenario": "yesterday-too-much",
+  "run": 1,
+  "ms": 3693,
+  "source": "ai",
+  "attempts": [
+    {
+      "status": 200,
+      "requestRoles": [
+        "system",
+        "user"
+      ],
+      "requestExtra": [],
+      "raw": "{\n  \"date\": \"2026-11-16\",\n  \"dayType\": \"relaxed\",\n  \"message\": \"昨天你完成了规划器提示词的重写，但反馈说安排太满、下午就没力气了，所以今天特意给你留白，只留一件真正重要的事。\",\n  \"mainTask\": {\n    \"id\": \"portfolio-case-2-outline\",\n    \"title\": \"写作品集第二个案例的提纲\",\n    \"description\": \"把昨天没写完的提纲补上：先列出案例的结构（背景、问题、你的角色、方案、结果），每部分写 2-3 个要点即可，不用展开成完整段落。\",\n    \"durationMinutes\": 60,\n    \"reason\": \"这是昨天未完成、但对你求职目标很关键的一步；缩小成「只写提纲」能降低启动阻力。\"\n  },\n  \"sections\": {\n    \"morning\": [\n      {\n        \"id\": \"morning-walk\",\n        \"type\": \"move\",\n        \"title\": \"出门散步 25 分钟\",\n        \"description\": \"不带耳机，随便走走，让脑子先醒过来。\",\n        \"durationMinutes\": 25\n      }\n    ],\n    \"afternoon\": [\n      {\n        \"id\": \"explore-ocean-data\",\n        \"type\": \"explore\",\n        \"title\": \"看看海洋数据可视化的一个案例\",\n        \"description\": \"找一篇海洋科学数据可视化的文章或项目，浏览 20 分钟，记下一个让你意外的点。\",\n        \"durationMinutes\": 20\n      }\n    ],\n    \"evening\": [\n      {\n        \"id\": \"read-history\",\n        \"type\": \"read\",\n        \"title\": \"读几页历史书\",\n        \"description\": \"挑一本轻松的历史读物，读 20 分钟就好。\",\n        \"durationMinutes\": 20\n      },\n      {\n        \"id\": \"enjoy-evening\",\n        \"type\": \"enjoy\",\n        \"title\": \"完全放空的晚间时光\",\n        \"description\": \"看剧、听音乐或发呆都行，这是允许的休息，不是任务。\"\n      }\n    ],\n    \"night\": []\n  },\n  \"minimumDay\": {\n    \"message\": \"如果今天状态不好，只做这一件小事也算完整的一天。\",\n    \"items\": [\n      {\n        \"id\": \"min-main-outline\",\n        \"type\": \"main\",\n        \"title\": \"写作品集第二个案例提纲的第一部分\",\n        \"description\": \"只写「背景」和「问题」两段要点，30 分钟即可。\",\n        \"durationMinutes\": 30\n      },\n      {\n        \"id\": \"min-learn\",\n        \"type\": \"learn\",\n        \"title\": \"了解一个产品案例拆解方法\",\n        \"description\": \"看一篇关于产品案例写作的短文，20 分钟。\",\n        \"durationMinutes\": 20\n      },\n      {\n        \"id\": \"min-move\",\n        \"type\": \"move\",\n        \"title\": \"散步 20 分钟\",\n        \"description\": \"出门走走，晒晒太阳。\",\n        \"durationMinutes\": 20\n      }\n    ]\n  }\n}",
+      "finishReason": "stop",
+      "usage": {
+        "prompt": 1139,
+        "completion": 683
+      },
+      "valid": true,
+      "measure": {
+        "mainMinutes": 60,
+        "supportCount": 4,
+        "mainInTier": true,
+        "supportInTier": true,
+        "minimumMainMinutes": 30,
+        "minimumMainIs30": true,
+        "clockHits": [],
+        "extraMains": 0,
+        "mainTitle": "写作品集第二个案例的提纲"
+      }
+    }
+  ],
+  "finalPlan": {
+    "date": "2026-11-16",
+    "dayType": "relaxed",
+    "message": "昨天你完成了规划器提示词的重写，但反馈说安排太满、下午就没力气了，所以今天特意给你留白，只留一件真正重要的事。",
+    "mainTask": {
+      "id": "portfolio-case-2-outline",
+      "type": "main",
+      "title": "写作品集第二个案例的提纲",
+      "description": "把昨天没写完的提纲补上：先列出案例的结构（背景、问题、你的角色、方案、结果），每部分写 2-3 个要点即可，不用展开成完整段落。",
+      "durationMinutes": 60,
+      "reason": "这是昨天未完成、但对你求职目标很关键的一步；缩小成「只写提纲」能降低启动阻力。",
+      "completed": false
+    },
+    "sections": {
+      "morning": [
+        {
+          "id": "morning-walk",
+          "type": "move",
+          "title": "出门散步 25 分钟",
+          "description": "不带耳机，随便走走，让脑子先醒过来。",
+          "durationMinutes": 25,
+          "completed": false
+        }
+      ],
+      "afternoon": [
+        {
+          "id": "explore-ocean-data",
+          "type": "explore",
+          "title": "看看海洋数据可视化的一个案例",
+          "description": "找一篇海洋科学数据可视化的文章或项目，浏览 20 分钟，记下一个让你意外的点。",
+          "durationMinutes": 20,
+          "completed": false
+        }
+      ],
+      "evening": [
+        {
+          "id": "read-history",
+          "type": "read",
+          "title": "读几页历史书",
+          "description": "挑一本轻松的历史读物，读 20 分钟就好。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "enjoy-evening",
+          "type": "enjoy",
+          "title": "完全放空的晚间时光",
+          "description": "看剧、听音乐或发呆都行，这是允许的休息，不是任务。",
+          "completed": false
+        }
+      ],
+      "night": []
+    },
+    "minimumDay": {
+      "message": "如果今天状态不好，只做这一件小事也算完整的一天。",
+      "items": [
+        {
+          "id": "min-main-outline",
+          "type": "main",
+          "title": "写作品集第二个案例提纲的第一部分",
+          "description": "只写「背景」和「问题」两段要点，30 分钟即可。",
+          "durationMinutes": 30,
+          "completed": false
+        },
+        {
+          "id": "min-learn",
+          "type": "learn",
+          "title": "了解一个产品案例拆解方法",
+          "description": "看一篇关于产品案例写作的短文，20 分钟。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-move",
+          "type": "move",
+          "title": "散步 20 分钟",
+          "description": "出门走走，晒晒太阳。",
+          "durationMinutes": 20,
+          "completed": false
+        }
+      ]
+    },
+    "activeMode": "standard"
+  },
+  "finalMeasure": {
+    "mainMinutes": 60,
+    "supportCount": 4,
+    "mainInTier": true,
+    "supportInTier": true,
+    "minimumMainMinutes": 30,
+    "minimumMainIs30": true,
+    "clockHits": [],
+    "extraMains": 0,
+    "mainTitle": "写作品集第二个案例的提纲"
+  }
+}

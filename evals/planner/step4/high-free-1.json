@@ -1,0 +1,181 @@
+{
+  "scenario": "high-free",
+  "run": 1,
+  "ms": 6851,
+  "source": "ai",
+  "attempts": [
+    {
+      "status": 200,
+      "requestRoles": [
+        "system",
+        "user"
+      ],
+      "requestExtra": [],
+      "raw": "{\"date\":\"2026-11-16\",\"dayType\":\"productive\",\"message\":\"昨天作品集提纲没写完也没关系，今天精力不错，先把它推进一小步，再给 AI 产品留出安静的动手时间。\",\"mainTask\":{\"id\":\"portfolio-case2-outline\",\"title\":\"完成作品集第二个案例的提纲\",\"description\":\"先花 10 分钟回看已有的案例一结构，然后为案例二列出问题、你的角色、关键决策和结果四部分要点，每部分写 2-3 条即可，不追求成文。\",\"durationMinutes\":100,\"reason\":\"这是昨天未完成且对求职目标关键的一步，先完成提纲能降低后续写作阻力，也让你今天有明确的成就感。\"},\"sections\":{\"morning\":[{\"id\":\"morning-move-walk\",\"type\":\"move\",\"title\":\"出门散步 25 分钟\",\"description\":\"不带耳机或只放轻音乐，让脑子慢慢开机。\",\"durationMinutes\":25},{\"id\":\"morning-explore-planner-edge\",\"type\":\"explore\",\"title\":\"看看别人怎么处理规划器的边界情况\",\"description\":\"浏览一两个 AI 规划类产品的公开说明或讨论，记录一个让你觉得有意思的设计选择。\",\"durationMinutes\":30}],\"afternoon\":[{\"id\":\"afternoon-learn-eval\",\"type\":\"learn\",\"title\":\"学习一小节 LLM 输出评估方法\",\"description\":\"读一篇关于评估结构化输出的文章或文档，做 3 行笔记，想想能否用在你的规划器质量优化上。\",\"durationMinutes\":40}],\"evening\":[{\"id\":\"evening-read-ocean\",\"type\":\"read\",\"title\":\"读一段海洋科学相关的书或长文\",\"description\":\"纯兴趣阅读，不记笔记。\",\"durationMinutes\":30},{\"id\":\"evening-enjoy\",\"type\":\"enjoy\",\"title\":\"给自己一段完全放松的时间\",\"description\":\"看剧、听音乐或随便逛逛，不需要有产出。\"}],\"night\":[{\"id\":\"night-move-stretch\",\"type\":\"move\",\"title\":\"睡前拉伸 10 分钟\",\"description\":\"放松肩颈和腰背，帮助入睡。\",\"durationMinutes\":10}]},\"minimumDay\":{\"message\":\"如果今天状态下滑，只做这几件就足够了。\",\"items\":[{\"id\":\"min-main-outline\",\"type\":\"main\",\"title\":\"写出案例二提纲的三个要点\",\"description\":\"只写问题、角色、结果三条，各一句话。\",\"durationMinutes\":30},{\"id\":\"min-explore\",\"type\":\"explore\",\"title\":\"看一个规划器边界情况的讨论\",\"description\":\"挑一个感兴趣的点，记一句话。\",\"durationMinutes\":20},{\"id\":\"min-move\",\"type\":\"move\",\"title\":\"散步 20 分钟\",\"description\":\"出门走走，换换空气。\",\"durationMinutes\":20},{\"id\":\"min-enjoy\",\"type\":\"enjoy\",\"title\":\"放松一会儿\",\"description\":\"做一件纯粹让自己开心的小事。\"}]}",
+      "finishReason": "stop",
+      "usage": {
+        "prompt": 1034,
+        "completion": 610
+      },
+      "valid": false,
+      "validationError": "Model did not return valid JSON",
+      "measure": null
+    },
+    {
+      "status": 200,
+      "requestRoles": [
+        "system",
+        "user",
+        "assistant",
+        "user"
+      ],
+      "requestExtra": [
+        {
+          "role": "assistant",
+          "content": "{\"date\":\"2026-11-16\",\"dayType\":\"productive\",\"message\":\"昨天作品集提纲没写完也没关系，今天精力不错，先把它推进一小步，再给 AI 产品留出安静的动手时间。\",\"mainTask\":{\"id\":\"portfolio-case2-outline\",\"title\":\"完成作品集第二个案例的提纲\",\"description\":\"先花 10 分钟回看已有的案例一结构，然后为案例二列出问题、你的角色、关键决策和结果四部分要点，每部分写 2-3 条即可，不追求成文。\",\"durationMinutes\":100,\"reason\":\"这是昨天未完成且对求职目标关键的一步，先完成提纲能降低后续写作阻力，也让你今天有明确的成就感。\"},\"sections\":{\"morning\":[{\"id\":\"morning-move-walk\",\"type\":\"move\",\"title\":\"出门散步 25 分钟\",\"description\":\"不带耳机或只放轻音乐，让脑子慢慢开机。\",\"durationMinutes\":25},{\"id\":\"morning-explore-planner-edge\",\"type\":\"explore\",\"title\":\"看看别人怎么处理规划器的边界情况\",\"description\":\"浏览一两个 AI 规划类产品的公开说明或讨论，记录一个让你觉得有意思的设计选择。\",\"durationMinutes\":30}],\"afternoon\":[{\"id\":\"afternoon-learn-eval\",\"type\":\"learn\",\"title\":\"学习一小节 LLM 输出评估方法\",\"description\":\"读一篇关于评估结构化输出的文章或文档，做 3 行笔记，想想能否用在你的规划器质量优化上。\",\"durationMinutes\":40}],\"evening\":[{\"id\":\"evening-read-ocean\",\"type\":\"read\",\"title\":\"读一段海洋科学相关的书或长文\",\"description\":\"纯兴趣阅读，不记笔记。\",\"durationMinutes\":30},{\"id\":\"evening-enjoy\",\"type\":\"enjoy\",\"title\":\"给自己一段完全放松的时间\",\"description\":\"看剧、听音乐或随便逛逛，不需要有产出。\"}],\"night\":[{\"id\":\"night-move-stretch\",\"type\":\"move\",\"title\":\"睡前拉伸 10 分钟\",\"description\":\"放松肩颈和腰背，帮助入睡。\",\"durationMinutes\":10}]},\"minimumDay\":{\"message\":\"如果今天状态下滑，只做这几件就足够了。\",\"items\":[{\"id\":\"min-main-outline\",\"type\":\"main\",\"title\":\"写出案例二提纲的三个要点\",\"description\":\"只写问题、角色、结果三条，各一句话。\",\"durationMinutes\":30},{\"id\":\"min-explore\",\"type\":\"explore\",\"title\":\"看一个规划器边界情况的讨论\",\"description\":\"挑一个感兴趣的点，记一句话。\",\"durationMinutes\":20},{\"id\":\"min-move\",\"type\":\"move\",\"title\":\"散步 20 分钟\",\"description\":\"出门走走，换换空气。\",\"durationMinutes\":20},{\"id\":\"min-enjoy\",\"type\":\"enjoy\",\"title\":\"放松一会儿\",\"description\":\"做一件纯粹让自己开心的小事。\"}]}"
+        },
+        {
+          "role": "user",
+          "content": "Your previous reply was rejected by validation: Model did not return valid JSON. Fix that problem and return the complete corrected JSON object. All earlier rules still apply."
+        }
+      ],
+      "raw": "{\"date\":\"2026-11-16\",\"dayType\":\"productive\",\"message\":\"昨天作品集提纲没写完也没关系，今天精力不错，先把它推进一小步，再给 AI 产品留出安静的动手时间。\",\"mainTask\":{\"id\":\"portfolio-case2-outline\",\"title\":\"完成作品集第二个案例的提纲\",\"description\":\"先花 10 分钟回看案例一的结构，然后为案例二列出问题、你的角色、关键决策和结果四部分要点，每部分写 2-3 条即可，不追求成文。\",\"durationMinutes\":100,\"reason\":\"这是昨天未完成且对求职目标关键的一步，先完成提纲能降低后续写作阻力，也让你今天有明确的成就感。\"},\"sections\":{\"morning\":[{\"id\":\"morning-move-walk\",\"type\":\"move\",\"title\":\"出门散步 25 分钟\",\"description\":\"不带耳机或只放轻音乐，让脑子慢慢开机。\",\"durationMinutes\":25},{\"id\":\"morning-explore-planner-edge\",\"type\":\"explore\",\"title\":\"看看别人怎么处理规划器的边界情况\",\"description\":\"浏览一两个 AI 规划类产品的公开说明或讨论，记录一个让你觉得有意思的设计选择。\",\"durationMinutes\":30}],\"afternoon\":[{\"id\":\"afternoon-learn-eval\",\"type\":\"learn\",\"title\":\"学习一小节 LLM 输出评估方法\",\"description\":\"读一篇关于评估结构化输出的文章或文档，做 3 行笔记，想想能否用在你的规划器质量优化上。\",\"durationMinutes\":40}],\"evening\":[{\"id\":\"evening-read-ocean\",\"type\":\"read\",\"title\":\"读一段海洋科学相关的书或长文\",\"description\":\"纯兴趣阅读，不记笔记。\",\"durationMinutes\":30},{\"id\":\"evening-enjoy\",\"type\":\"enjoy\",\"title\":\"给自己一段完全放松的时间\",\"description\":\"看剧、听音乐或随便逛逛，不需要有产出。\"}],\"night\":[{\"id\":\"night-move-stretch\",\"type\":\"move\",\"title\":\"睡前拉伸 10 分钟\",\"description\":\"放松肩颈和腰背，帮助入睡。\",\"durationMinutes\":10}]},\"minimumDay\":{\"message\":\"如果今天状态下滑，只做这几件就足够了。\",\"items\":[{\"id\":\"min-main-outline\",\"type\":\"main\",\"title\":\"写出案例二提纲的三个要点\",\"description\":\"只写问题、角色、结果三条，各一句话。\",\"durationMinutes\":30},{\"id\":\"min-explore\",\"type\":\"explore\",\"title\":\"看一个规划器边界情况的讨论\",\"description\":\"挑一个感兴趣的点，记一句话。\",\"durationMinutes\":20},{\"id\":\"min-move\",\"type\":\"move\",\"title\":\"散步 20 分钟\",\"description\":\"出门走走，换换空气。\",\"durationMinutes\":20},{\"id\":\"min-enjoy\",\"type\":\"enjoy\",\"title\":\"放松一会儿\",\"description\":\"做一件纯粹让自己开心的小事。\"}]}}",
+      "finishReason": "stop",
+      "usage": {
+        "prompt": 1680,
+        "completion": 609
+      },
+      "valid": true,
+      "measure": {
+        "mainMinutes": 100,
+        "supportCount": 6,
+        "mainInTier": true,
+        "supportInTier": true,
+        "minimumMainMinutes": 30,
+        "minimumMainIs30": true,
+        "clockHits": [],
+        "extraMains": 0,
+        "mainTitle": "完成作品集第二个案例的提纲"
+      }
+    }
+  ],
+  "finalPlan": {
+    "date": "2026-11-16",
+    "dayType": "productive",
+    "message": "昨天作品集提纲没写完也没关系，今天精力不错，先把它推进一小步，再给 AI 产品留出安静的动手时间。",
+    "mainTask": {
+      "id": "portfolio-case2-outline",
+      "type": "main",
+      "title": "完成作品集第二个案例的提纲",
+      "description": "先花 10 分钟回看案例一的结构，然后为案例二列出问题、你的角色、关键决策和结果四部分要点，每部分写 2-3 条即可，不追求成文。",
+      "durationMinutes": 100,
+      "reason": "这是昨天未完成且对求职目标关键的一步，先完成提纲能降低后续写作阻力，也让你今天有明确的成就感。",
+      "completed": false
+    },
+    "sections": {
+      "morning": [
+        {
+          "id": "morning-move-walk",
+          "type": "move",
+          "title": "出门散步 25 分钟",
+          "description": "不带耳机或只放轻音乐，让脑子慢慢开机。",
+          "durationMinutes": 25,
+          "completed": false
+        },
+        {
+          "id": "morning-explore-planner-edge",
+          "type": "explore",
+          "title": "看看别人怎么处理规划器的边界情况",
+          "description": "浏览一两个 AI 规划类产品的公开说明或讨论，记录一个让你觉得有意思的设计选择。",
+          "durationMinutes": 30,
+          "completed": false
+        }
+      ],
+      "afternoon": [
+        {
+          "id": "afternoon-learn-eval",
+          "type": "learn",
+          "title": "学习一小节 LLM 输出评估方法",
+          "description": "读一篇关于评估结构化输出的文章或文档，做 3 行笔记，想想能否用在你的规划器质量优化上。",
+          "durationMinutes": 40,
+          "completed": false
+        }
+      ],
+      "evening": [
+        {
+          "id": "evening-read-ocean",
+          "type": "read",
+          "title": "读一段海洋科学相关的书或长文",
+          "description": "纯兴趣阅读，不记笔记。",
+          "durationMinutes": 30,
+          "completed": false
+        },
+        {
+          "id": "evening-enjoy",
+          "type": "enjoy",
+          "title": "给自己一段完全放松的时间",
+          "description": "看剧、听音乐或随便逛逛，不需要有产出。",
+          "completed": false
+        }
+      ],
+      "night": [
+        {
+          "id": "night-move-stretch",
+          "type": "move",
+          "title": "睡前拉伸 10 分钟",
+          "description": "放松肩颈和腰背，帮助入睡。",
+          "durationMinutes": 10,
+          "completed": false
+        }
+      ]
+    },
+    "minimumDay": {
+      "message": "如果今天状态下滑，只做这几件就足够了。",
+      "items": [
+        {
+          "id": "min-main-outline",
+          "type": "main",
+          "title": "写出案例二提纲的三个要点",
+          "description": "只写问题、角色、结果三条，各一句话。",
+          "durationMinutes": 30,
+          "completed": false
+        },
+        {
+          "id": "min-explore",
+          "type": "explore",
+          "title": "看一个规划器边界情况的讨论",
+          "description": "挑一个感兴趣的点，记一句话。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-move",
+          "type": "move",
+          "title": "散步 20 分钟",
+          "description": "出门走走，换换空气。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-enjoy",
+          "type": "enjoy",
+          "title": "放松一会儿",
+          "description": "做一件纯粹让自己开心的小事。",
+          "completed": false
+        }
+      ]
+    },
+    "activeMode": "standard"
+  },
+  "finalMeasure": {
+    "mainMinutes": 100,
+    "supportCount": 6,
+    "mainInTier": true,
+    "supportInTier": true,
+    "minimumMainMinutes": 30,
+    "minimumMainIs30": true,
+    "clockHits": [],
+    "extraMains": 0,
+    "mainTitle": "完成作品集第二个案例的提纲"
+  }
+}

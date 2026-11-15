@@ -1,0 +1,92 @@
+{
+  "date": "2026-11-16",
+  "dayType": "balanced",
+  "message": "Start with the one thing that matters, and leave room for life too.",
+  "mainTask": {
+    "id": "64084ecf-a44c-4ec9-a13a-7794025674e6",
+    "type": "main",
+    "title": "Ship the next version of my personal AI product",
+    "durationMinutes": 75,
+    "reason": "Finishing this is enough to make today meaningful.",
+    "completed": false
+  },
+  "sections": {
+    "morning": [
+      {
+        "id": "7d0b03f5-8b35-444e-a9d9-1e6fefd7dc59",
+        "type": "learn",
+        "title": "Learn one skill your current work needs",
+        "durationMinutes": 40,
+        "completed": false
+      }
+    ],
+    "afternoon": [
+      {
+        "id": "542d3c11-eed8-47c2-98cf-732d3201bb09",
+        "type": "explore",
+        "title": "Explore: AI",
+        "durationMinutes": 35,
+        "completed": false
+      }
+    ],
+    "evening": [
+      {
+        "id": "0f52d002-aa92-42e4-afe3-681a148eca29",
+        "type": "move",
+        "title": "Walk outside or stretch",
+        "durationMinutes": 35,
+        "completed": false
+      }
+    ],
+    "night": [
+      {
+        "id": "7072397d-1a4f-49ea-b65a-8a8656aeb22b",
+        "type": "read",
+        "title": "Read 10–20 pages",
+        "durationMinutes": 20,
+        "completed": false
+      },
+      {
+        "id": "ba671397-c956-4ee3-93b0-763bc4d4262d",
+        "type": "enjoy",
+        "title": "Keep some guilt-free free time",
+        "completed": false
+      }
+    ]
+  },
+  "minimumDay": {
+    "message": "Today can be lighter. Do a few small things and let that be enough.",
+    "items": [
+      {
+        "id": "37c5537a-54c4-4ff4-9196-7bf9ab9f1820",
+        "type": "main",
+        "title": "Ship the next version of my personal AI product",
+        "durationMinutes": 30,
+        "completed": false
+      },
+      {
+        "id": "1a58a484-7402-4776-8d38-17a825c4a3f4",
+        "type": "explore",
+        "title": "Browse with curiosity: AI",
+        "durationMinutes": 20,
+        "completed": false
+      },
+      {
+        "id": "8c7b4c01-aae2-40d4-8756-d53e214de5dc",
+        "type": "move",
+        "title": "Walk or stretch",
+        "durationMinutes": 20,
+        "completed": false
+      },
+      {
+        "id": "2ec8f4e8-2856-4435-a813-6ffd0618204b",
+        "type": "read",
+        "title": "Read 10 pages",
+        "durationMinutes": 15,
+        "target": "10 pages",
+        "completed": false
+      }
+    ]
+  },
+  "activeMode": "standard"
+}

@@ -1,0 +1,147 @@
+{
+  "scenario": "ordinary",
+  "run": 1,
+  "ms": 3839,
+  "source": "ai",
+  "attempts": [
+    {
+      "status": 200,
+      "requestRoles": [
+        "system",
+        "user"
+      ],
+      "requestExtra": [],
+      "raw": "{\"date\":\"2026-11-16\",\"dayType\":\"balanced\",\"message\":\"昨天你把规划器的测试用例整理完了，节奏刚刚好；今天顺着这股劲，把作品集第二个案例的提纲补上，半天时间足够从容。\",\"mainTask\":{\"id\":\"portfolio-case2-outline\",\"title\":\"写出作品集第二个案例的提纲\",\"description\":\"先花 10 分钟回想昨天没写成的卡点，然后列出这个案例的 5-6 个要点：问题背景、你的角色、关键决策、结果与反思。不追求文笔，只求骨架完整。\",\"durationMinutes\":75,\"reason\":\"这是求职作品集的关键一步，昨天未完成但依然重要；用更小的第一步降低启动阻力，半天时间完成 75 分钟的深度工作很现实。\"},\"sections\":{\"morning\":[{\"id\":\"move-morning-walk\",\"type\":\"move\",\"title\":\"散步 25 分钟\",\"description\":\"不带耳机，让脑子先醒过来，回来后直接进入主任务。\",\"durationMinutes\":25}],\"afternoon\":[{\"id\":\"explore-ocean-data\",\"type\":\"explore\",\"title\":\"看看海洋科学家怎么用 AI 处理数据\",\"description\":\"随便翻一篇科普或项目介绍，满足好奇心即可，不做笔记。\",\"durationMinutes\":30},{\"id\":\"read-history\",\"type\":\"read\",\"title\":\"读几页历史书\",\"description\":\"挑一本轻松的，读 20 分钟就停，不设目标。\",\"durationMinutes\":20}],\"evening\":[{\"id\":\"enjoy-free\",\"type\":\"enjoy\",\"title\":\"完全放空的晚间时光\",\"description\":\"做点纯粹让自己开心的事，不需要产出，也没有任何待办。\",\"durationMinutes\":45}],\"night\":[{\"id\":\"learn-json-schema-adv\",\"type\":\"learn\",\"title\":\"学一点 JSON Schema 的进阶用法\",\"description\":\"接着昨天的基础，看看 oneOf 和条件校验怎么写，为规划器质量优化做准备。\",\"durationMinutes\":25}]},\"minimumDay\":{\"message\":\"如果今天状态不好，就只做这一件小事，其余都可以放下。\",\"items\":[{\"id\":\"min-main-outline\",\"type\":\"main\",\"title\":\"写出案例提纲的前三个要点\",\"description\":\"只写背景、角色、关键决策三点，写完就算完成。\",\"durationMinutes\":30},{\"id\":\"min-explore-ocean\",\"type\":\"explore\",\"title\":\"看一篇海洋科学短文\",\"description\":\"随便翻翻，图个乐。\",\"durationMinutes\":25},{\"id\":\"min-move-walk\",\"type\":\"move\",\"title\":\"散步 20 分钟\",\"description\":\"出门走走，呼吸一下。\",\"durationMinutes\":20},{\"id\":\"min-read-pages\",\"type\":\"read\",\"title\":\"读几页书\",\"description\":\"睡前随手翻翻。\",\"durationMinutes\":15}]}}",
+      "finishReason": "stop",
+      "usage": {
+        "prompt": 1103,
+        "completion": 588
+      },
+      "valid": true,
+      "measure": {
+        "mainMinutes": 75,
+        "supportCount": 5,
+        "mainInTier": true,
+        "supportInTier": true,
+        "minimumMainMinutes": 30,
+        "minimumMainIs30": true,
+        "clockHits": [],
+        "extraMains": 0,
+        "mainTitle": "写出作品集第二个案例的提纲"
+      }
+    }
+  ],
+  "finalPlan": {
+    "date": "2026-11-16",
+    "dayType": "balanced",
+    "message": "昨天你把规划器的测试用例整理完了，节奏刚刚好；今天顺着这股劲，把作品集第二个案例的提纲补上，半天时间足够从容。",
+    "mainTask": {
+      "id": "portfolio-case2-outline",
+      "type": "main",
+      "title": "写出作品集第二个案例的提纲",
+      "description": "先花 10 分钟回想昨天没写成的卡点，然后列出这个案例的 5-6 个要点：问题背景、你的角色、关键决策、结果与反思。不追求文笔，只求骨架完整。",
+      "durationMinutes": 75,
+      "reason": "这是求职作品集的关键一步，昨天未完成但依然重要；用更小的第一步降低启动阻力，半天时间完成 75 分钟的深度工作很现实。",
+      "completed": false
+    },
+    "sections": {
+      "morning": [
+        {
+          "id": "move-morning-walk",
+          "type": "move",
+          "title": "散步 25 分钟",
+          "description": "不带耳机，让脑子先醒过来，回来后直接进入主任务。",
+          "durationMinutes": 25,
+          "completed": false
+        }
+      ],
+      "afternoon": [
+        {
+          "id": "explore-ocean-data",
+          "type": "explore",
+          "title": "看看海洋科学家怎么用 AI 处理数据",
+          "description": "随便翻一篇科普或项目介绍，满足好奇心即可，不做笔记。",
+          "durationMinutes": 30,
+          "completed": false
+        },
+        {
+          "id": "read-history",
+          "type": "read",
+          "title": "读几页历史书",
+          "description": "挑一本轻松的，读 20 分钟就停，不设目标。",
+          "durationMinutes": 20,
+          "completed": false
+        }
+      ],
+      "evening": [
+        {
+          "id": "enjoy-free",
+          "type": "enjoy",
+          "title": "完全放空的晚间时光",
+          "description": "做点纯粹让自己开心的事，不需要产出，也没有任何待办。",
+          "durationMinutes": 45,
+          "completed": false
+        }
+      ],
+      "night": [
+        {
+          "id": "learn-json-schema-adv",
+          "type": "learn",
+          "title": "学一点 JSON Schema 的进阶用法",
+          "description": "接着昨天的基础，看看 oneOf 和条件校验怎么写，为规划器质量优化做准备。",
+          "durationMinutes": 25,
+          "completed": false
+        }
+      ]
+    },
+    "minimumDay": {
+      "message": "如果今天状态不好，就只做这一件小事，其余都可以放下。",
+      "items": [
+        {
+          "id": "min-main-outline",
+          "type": "main",
+          "title": "写出案例提纲的前三个要点",
+          "description": "只写背景、角色、关键决策三点，写完就算完成。",
+          "durationMinutes": 30,
+          "completed": false
+        },
+        {
+          "id": "min-explore-ocean",
+          "type": "explore",
+          "title": "看一篇海洋科学短文",
+          "description": "随便翻翻，图个乐。",
+          "durationMinutes": 25,
+          "completed": false
+        },
+        {
+          "id": "min-move-walk",
+          "type": "move",
+          "title": "散步 20 分钟",
+          "description": "出门走走，呼吸一下。",
+          "durationMinutes": 20,
+          "completed": false
+        },
+        {
+          "id": "min-read-pages",
+          "type": "read",
+          "title": "读几页书",
+          "description": "睡前随手翻翻。",
+          "durationMinutes": 15,
+          "completed": false
+        }
+      ]
+    },
+    "activeMode": "standard"
+  },
+  "finalMeasure": {
+    "mainMinutes": 75,
+    "supportCount": 5,
+    "mainInTier": true,
+    "supportInTier": true,
+    "minimumMainMinutes": 30,
+    "minimumMainIs30": true,
+    "clockHits": [],
+    "extraMains": 0,
+    "mainTitle": "写出作品集第二个案例的提纲"
+  }
+}

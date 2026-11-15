@@ -1,0 +1,70 @@
+{
+  "date": "2026-11-16",
+  "dayType": "relaxed",
+  "message": "先从最重要的一件事开始，也给生活留一点空间。",
+  "mainTask": {
+    "id": "3b8538bf-f118-4e02-87d6-bf856f9f7344",
+    "type": "main",
+    "title": "下午交季度报告",
+    "durationMinutes": 45,
+    "reason": "这是你今天说一定要做的事。",
+    "completed": false
+  },
+  "sections": {
+    "morning": [],
+    "afternoon": [
+      {
+        "id": "fb1df149-b6d7-43d5-b919-0115307f0cd2",
+        "type": "explore",
+        "title": "探索：人工智能",
+        "durationMinutes": 20,
+        "completed": false
+      }
+    ],
+    "evening": [
+      {
+        "id": "286a570f-8ad2-4f90-9846-cc9af26fb442",
+        "type": "move",
+        "title": "出去走走或舒展身体",
+        "durationMinutes": 20,
+        "completed": false
+      }
+    ],
+    "night": []
+  },
+  "minimumDay": {
+    "message": "今天可以轻一点。做几件小事，就已经足够。",
+    "items": [
+      {
+        "id": "83c700fd-5a47-447a-9b08-24a70cb25d9c",
+        "type": "main",
+        "title": "下午交季度报告",
+        "durationMinutes": 30,
+        "completed": false
+      },
+      {
+        "id": "48b84cdd-5d9c-47a5-b4c8-9d93baea1b58",
+        "type": "explore",
+        "title": "随便看看：人工智能",
+        "durationMinutes": 20,
+        "completed": false
+      },
+      {
+        "id": "6cbf27ab-309c-4dfc-b965-d1f678b24f7f",
+        "type": "move",
+        "title": "散步或拉伸",
+        "durationMinutes": 20,
+        "completed": false
+      },
+      {
+        "id": "0ad98621-45ab-4754-b14a-b247c1531b5e",
+        "type": "read",
+        "title": "读 10 页",
+        "durationMinutes": 15,
+        "target": "10 页",
+        "completed": false
+      }
+    ]
+  },
+  "activeMode": "standard"
+}
